@@ -1,0 +1,19 @@
+{
+  "changed_parameter": {
+    "IMBALANCE_WEIGHT": [
+      1.0,
+      0.0
+    ]
+  },
+  "control_sha256": "b6ec1b22b979693baa1141c50d1b296b968687793d4d37b672bc54455a547d6c",
+  "scope": "one predeclared control; public v2 tape is consumed validation data",
+  "source": "strategies/zubry_v2.py",
+  "source_sha256": "5a4ac8679094d49fb70576543f42e91b377834b624e31dd7a4f325d58ece2720",
+  "unchanged": [
+    "inventory policy",
+    "quote size",
+    "latency",
+    "engine",
+    "data"
+  ]
+}

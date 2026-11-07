@@ -1,0 +1,11 @@
+{
+  "data_sha256": "dd4e00e281abe50c9a19e16c147ccbc0b5b69835fee567f00136402ef1e01d08",
+  "experiment_id": "r0-v2-mm-final",
+  "final_flag_confirmed": false,
+  "frozen_utc": "2026-11-07T10:59:46.703579+00:00",
+  "official_submission_id": null,
+  "server_sandbox_status": "not submitted/tested",
+  "source_kind": "synthetic-playground",
+  "strategy_sha256": "cae618bb5b616c4579d0178def01d9c84ad45c946e952ad132f651596000cf9e",
+  "warning": "Local only; human review, server validation and Final selection required."
+}
