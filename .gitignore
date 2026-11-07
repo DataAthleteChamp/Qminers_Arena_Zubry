@@ -21,3 +21,6 @@ runs/
 .DS_Store
 .idea/
 copilot-session-*.md
+
+# Share Round 1 losslessly compressed; keep the oversized working CSV local.
+/data/round1/round1.csv
