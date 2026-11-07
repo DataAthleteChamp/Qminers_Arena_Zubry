@@ -39,6 +39,8 @@ COOLDOWN_S = 2.0
 KEEP_REDUCING_QUOTE = True  # while gated, still quote the side that reduces inventory
 FLATTEN_IN_STRESS = False  # while gated, IOC-close inventory beyond FLATTEN_ABOVE
 FLATTEN_ABOVE = 0
+QUOTE_OFFSET = 0  # ticks behind the computed touch quote (pre-position in the queue)
+KEEP_BEHIND = 0  # keep a resting quote up to this many ticks behind its target (keeps priority)
 
 
 class S1Strategy(BaseStrategy):
@@ -101,6 +103,9 @@ class S1Strategy(BaseStrategy):
         center = mid - INVENTORY_SKEW * self.inventory
         buy_price: int | None = max(1, min(bid, math.floor(center - HALF_WIDTH)))
         sell_price: int | None = max(ask, math.ceil(center + HALF_WIDTH), buy_price + 1)
+        if QUOTE_OFFSET:
+            buy_price = max(1, buy_price - QUOTE_OFFSET)
+            sell_price += QUOTE_OFFSET
 
         if self.inventory >= MAX_INVENTORY:
             buy_price = None
@@ -191,13 +196,23 @@ class S1Strategy(BaseStrategy):
         )
         self.orders[order_id] = (side, price, excess, False, False, True)
 
+    @staticmethod
+    def keep(side: Side, price: int, target: int | None) -> bool:
+        """Keep a resting quote inside [target - KEEP_BEHIND, target + QUOTE_OFFSET] (buy side;
+        mirrored for sells), so it holds queue priority while the touch moves toward it."""
+        if target is None:
+            return False
+        if side == Side.BUY:
+            return target - KEEP_BEHIND <= price <= target + QUOTE_OFFSET
+        return target - QUOTE_OFFSET <= price <= target + KEEP_BEHIND
+
     def reconcile(self, buy_price: int | None, sell_price: int | None) -> None:
         targets = {Side.BUY: buy_price, Side.SELL: sell_price}
         for order_id, order in list(self.orders.items()):
             side, price, remaining, accepted, canceling, is_ioc = order
             if is_ioc:
                 continue
-            if accepted and not canceling and targets[side] != price:
+            if accepted and not canceling and not self.keep(side, price, targets[side]):
                 self.cancel_order(order_id)
                 self.orders[order_id] = (side, price, remaining, accepted, True, is_ioc)
         for side in (Side.BUY, Side.SELL):

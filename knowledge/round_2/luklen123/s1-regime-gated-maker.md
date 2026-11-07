@@ -54,6 +54,30 @@ The hypotheses come from `round2-public-tape-profile.md`.
   than the 30 s window's +2590). This limits selection on a single path: 22 variants were run
   on one R2 tape.
 
+## Batch 3: pre-positioning one or more ticks behind the touch (negative)
+
+Hypothesis: rest the quote `QUOTE_OFFSET` ticks behind the touch and keep it while the touch
+moves (`KEEP_BEHIND`). When the price reaches it, the order should already hold early queue
+priority. Both flags default to 0, which reproduces s1 exactly (R2 +1816, R1 10339).
+
+| Variant | R2 | R2 H1 / H2 | R2 fills | R1 | R1 fills |
+|---|---|---|---|---|---|
+| s1 (control) | +1816 | +1116 / +700 | 9111 | 10339 | 22256 |
+| offset 1, keep 0 | −1028 | −203 / −825 | 2294 | 3594 | 4240 |
+| offset 1, keep 1 | −473 | −105 / −368 | 1396 | 2940 | 2956 |
+| offset 1, keep 2 | −1216 | −573 / −643 | 1335 | 1949 | 1964 |
+| offset 2, keep 1 | −948 | −134 / −814 | 806 | 158 | 132 |
+| offset 0, keep 1 (join, hold 1 tick) | +1100 | +1054 / +46 | 5920 | 9031 | 14296 |
+
+- **On R2, a resting quote behind the touch is filled mainly when a sweep runs through it.**
+  The price then keeps going, so the average is ≈ −0.45 per fill.
+- **On R1 the edge per fill is higher** (≈ 0.85 against 0.46 for s1), but the fill count falls
+  by about 80%, so total PnL drops.
+- **Holding a joined quote one tick behind also loses** to re-pricing it at the touch, on both
+  tapes.
+- **Verdict: rejected.** The mechanism stays in `strategies/s1.py`, disabled
+  (`QUOTE_OFFSET=0`, `KEEP_BEHIND=0`).
+
 ## Limitations
 
 - All of this is public-tape, in-sample evidence. The R2 numbers come from one 100-minute path
