@@ -1,0 +1,9 @@
+{
+  "decision": "human review; not automatically final",
+  "elapsed_seconds": 18.350241917010862,
+  "finished_utc": "2026-11-07T11:03:35.069470+00:00",
+  "result_sha256": "8874dd62c6c0ad8f07b8a73da6c5ca2c037a090f209fa089ac0ebaf5396a1d1a",
+  "status": "success",
+  "stderr": "",
+  "stdout": "Simulation complete\nfills=5744\ntraded_volume=28433\ninventory=-3\ncash=49558.00\nmark_price=10004.00\nbreach_penalty=0.00\npnl=19546.00\npnl_se=366.47\nabs_inventory_q50=2\nabs_inventory_q68=4\nabs_inventory_q95=11\nabs_inventory_q997=19\nlog_dir=/Users/jakubpiotrowski/PycharmProjects/Qminers_Arena_Zubry/logs/r0-v2-dbea-maker-check-baseline\n"
+}

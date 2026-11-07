@@ -1,0 +1,162 @@
+{
+  "analysis_script_sha256": "71e460f0e72eb0a0d21c9e41c4d052f6be71b151c39a438b7d16471bcef745a7",
+  "archive": "rounds/r0/results.zip",
+  "archive_bytes": 32285157,
+  "archive_sha256": "f97b1a82aa7e959370aa931057a9571fd953c17dae5dc108d843496e1ca06ea8",
+  "audit": {
+    "buy_volume": 7614,
+    "buy_vwap": 9958.649592855267,
+    "credential_scan": "No configured credential pattern found in all seven members.",
+    "event_counts": {
+      "market:add": 1033628,
+      "market:cancel": 931972,
+      "user:add": 15099,
+      "user:add_sent": 15099,
+      "user:cancel": 7500,
+      "user:cancel_failed": 34,
+      "user:cancel_sent": 7534
+    },
+    "final_inventory_markout": 19864.0,
+    "integrity": "All members read through CRC verification; ledgers and PnL reconciled.",
+    "ledger_cash": -9066,
+    "ledger_filled_orders": 7629,
+    "ledger_inventory": 2,
+    "ledger_traded_volume": 15226,
+    "liquidity_execution_mix": {
+      "maker_matches": 7687,
+      "maker_volume": 15226
+    },
+    "maker_volume_fraction": 1.0,
+    "max_drawdown": 12.0,
+    "max_inventory": 12,
+    "min_inventory": -12,
+    "pnl_elapsed_seconds": 5739.942903,
+    "pnl_per_traded_lot": 0.7091816629449625,
+    "pnl_points": 5741,
+    "reconstructed_pnl": 10798.0,
+    "recorded_submit_delays_us": {
+      "5000": 15099
+    },
+    "sell_volume": 7612,
+    "sell_vwap": 9960.07514450867,
+    "submitted_order_types": {
+      "limit": 15099
+    },
+    "submitted_quantity_counts": {
+      "2": 15099
+    }
+  },
+  "created_utc": "2026-11-07T11:38:15.879287+00:00",
+  "fit_window": null,
+  "interpretation": [
+    "This archive identifies ZubryV2Strategy, not the earlier one-lot ZubryStrategy.",
+    "The earlier -14125 public result is not a same-policy private comparison.",
+    "Maker/taker volume is execution mix, not separate profit attribution.",
+    "The archive contains execution logs, not a fully specified replay input tape.",
+    "Reported single-run pnl_se is not a paired difference SE or P(win).",
+    "Other paused experiments remain unpromoted; this audit does not resume them.",
+    "Leaderboard ranks do not reveal competing strategies or justify curve fitting."
+  ],
+  "leaderboard_input": "research/round0/leaderboard-2026-11-07-input.json",
+  "leaderboard_input_sha256": "baffd5d73ff1d79964a823448898de0e9916283131d4e353ecac2f814f58ba63",
+  "members": [
+    {
+      "bytes": 60162914,
+      "compressed_bytes": 13239990,
+      "crc32": "accd87d0",
+      "name": "book_deltas.csv",
+      "sha256": "82b5b2f33017399aeb0772723d7df141ea3181a0dbbdc2471ebf82735bfd9465"
+    },
+    {
+      "bytes": 82958971,
+      "compressed_bytes": 17384710,
+      "crc32": "01cbbce4",
+      "name": "events.csv",
+      "sha256": "b635cb2999bafb8606ee2b9c5d54182ce42de206fe1073f88f1af3b08e9c20b9"
+    },
+    {
+      "bytes": 7112814,
+      "compressed_bytes": 1092860,
+      "crc32": "4ff2c7a6",
+      "name": "trades.csv",
+      "sha256": "8d5a7f53449dceb2d7f4b46797fee87b4d08d5573f4db6945462c3303bb2eb71"
+    },
+    {
+      "bytes": 272,
+      "compressed_bytes": 187,
+      "crc32": "ad96c319",
+      "name": "metadata.json",
+      "sha256": "05335a1c188cf11a460615e54e2261889eb2a47444ca2cea3d51ea55164773a5"
+    },
+    {
+      "bytes": 287,
+      "compressed_bytes": 161,
+      "crc32": "b91140f5",
+      "name": "result.json",
+      "sha256": "91bb9843ae41f2bcbceef1622d2f03be150c693eb1861e69f2115ef56a433f8b"
+    },
+    {
+      "bytes": 6729309,
+      "compressed_bytes": 542848,
+      "crc32": "193b6d6e",
+      "name": "run.jsonl",
+      "sha256": "7600460cadeb2cef83078648588897292d5e0d4cdb019dad36cba29281d02d99"
+    },
+    {
+      "bytes": 79115,
+      "compressed_bytes": 23697,
+      "crc32": "ce8bf3b7",
+      "name": "pnl.csv",
+      "sha256": "26c0316cbee725e214f5ea83d0d194523b5300193414018b9fa87478b0677884"
+    }
+  ],
+  "metadata": {
+    "data_file": "/work/backtest.csv",
+    "latency": 0.005,
+    "max_potential_position": 1000,
+    "position_breach_penalty_per_second": 10000.0,
+    "position_limit": 100,
+    "run_timestamp": "2026-11-07T11:03:37.441073",
+    "trader": "sim",
+    "trader_class": "ZubryV2Strategy"
+  },
+  "public_counterpart": {
+    "abs_inventory_q50": 1,
+    "abs_inventory_q68": 2,
+    "abs_inventory_q95": 5,
+    "abs_inventory_q997": 10,
+    "breach_penalty": 0.0,
+    "cash": 30403.0,
+    "fills": 7528,
+    "inventory": -2,
+    "mark_price": 10004.0,
+    "pnl": 10395.0,
+    "pnl_se": 159.87440377559707,
+    "traded_volume": 15030
+  },
+  "result": {
+    "abs_inventory_q50": 1,
+    "abs_inventory_q68": 2,
+    "abs_inventory_q95": 5,
+    "abs_inventory_q997": 10,
+    "breach_penalty": 0.0,
+    "cash": -9066.0,
+    "fills": 7629,
+    "inventory": 2,
+    "mark_price": 9932.0,
+    "pnl": 10798.0,
+    "pnl_se": 165.99466767567702,
+    "traded_volume": 15226
+  },
+  "scope": "Descriptive audit of user-supplied private R0 execution logs; no fitting.",
+  "strategy_context": {
+    "candidate_classes": [
+      "ZubryV2Strategy"
+    ],
+    "candidate_matches_frozen_receipt": true,
+    "candidate_sha256": "cae618bb5b616c4579d0178def01d9c84ad45c946e952ad132f651596000cf9e",
+    "current_candidate": "strategies/zubry_v2.py",
+    "identity_limit": "Archive names the class but contains no submitted source bytes.",
+    "server_source_hash_available": false
+  }
+}
