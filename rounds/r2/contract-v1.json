@@ -1,0 +1,38 @@
+{
+  "round": 2,
+  "version": 1,
+  "source": "Participant announcement supplied2026-11-07T18:45:56+01:00; historical official SDK/competition.json",
+  "status": "Round2 feedback change is participant-reported; official brief/data still required",
+  "historical_contract": "../../competition.json",
+  "feedback_roles": {
+    "A": "Local public development/fit tape",
+    "B": "Second dataset reported to produce submission feedback",
+    "C": "Third/final private dataset reported to remain unavailable until round close"
+  },
+  "data": {
+    "A_path": null,
+    "A_sha256": null,
+    "B_raw_tape_available": "UNKNOWN",
+    "B_identity_or_reuse": "UNKNOWN",
+    "C_identity": "UNKNOWN",
+    "time_horizon_and_sessions": "UNKNOWN"
+  },
+  "validation": {
+    "fit": "A only, actual target timestamps strictly inside declared fit window",
+    "B": "Freeze candidate bytes before feedback; repeated feedback consumes selection evidence",
+    "C": "No pre-close tuning, reconstruction or assumed access",
+    "warmup": "Preserve preceding market inserts/cancels, not naive row slicing",
+    "promotion": "No automatic upload or Final selection"
+  },
+  "mechanics": {
+    "baseline": "Unchanged installed official SDK with5ms actions,100 penalty-free,1000 potential wall",
+    "round2_changes": "UNKNOWN pending organiser brief",
+    "imports_runtime_quota": "Historical Python3.13/single1MiB/1CPU/2GB/900s/10 uploads; reconfirm Round2"
+  },
+  "seeds": {
+    "r1_actual_final_public": 505225,
+    "r1_actual_final_private": 504903,
+    "r1_public_research_candidate": 507393,
+    "r2_performance": "NOT EVALUATED"
+  }
+}
