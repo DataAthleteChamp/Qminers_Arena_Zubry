@@ -1,0 +1,7 @@
+Time,Operation,OrderId,Side,Volume,Price,Lifespan
+0.000000,Insert,1001,B,30,100,G
+0.001000,Insert,1002,B,40,100,G
+0.002000,Insert,1003,A,100,102,G
+0.006000,Cancel,99999,,,,
+0.011000,Insert,1004,A,90,100,F
+0.020000,Cancel,99998,,,,
