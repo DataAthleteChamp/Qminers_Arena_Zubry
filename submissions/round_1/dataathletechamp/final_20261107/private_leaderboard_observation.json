@@ -1,0 +1,11 @@
+{
+  "round": 1,
+  "team": "Zubry",
+  "rank": 14,
+  "private_pnl": 504903.0,
+  "source": "Participant-pasted official dashboard leaderboard,2026-11-07T18:45:56+01:00",
+  "evidence_level": "Participant dashboard observation agrees with supplied private archive.",
+  "official_private_result_json": "private_result.json",
+  "public_private_delta": -322.0,
+  "official_z_score": "UNKNOWN: copied list omits rank56 and pool convention incomplete."
+}

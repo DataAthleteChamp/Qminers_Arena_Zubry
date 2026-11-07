@@ -1,0 +1,116 @@
+{
+  "round": 1,
+  "final_owner_confirmation": "Participant confirmed Maciej505225 was the last Final.",
+  "strategy_sha256": "c1f194668ec83e94bf522e749ce36d266caeedb9244506ede2adeee68e8e3667",
+  "strategy_bytes": 8419,
+  "public_evidence": {
+    "archive": "results_final_round1.zip",
+    "archive_bytes": 74246594,
+    "archive_sha256": "12e7c1166206c0ba6febf8bf626cf94053ef0b363d9c1220920881087893e498",
+    "archive_members": [
+      {
+        "name": "book_deltas.csv",
+        "bytes": 132634953,
+        "sha256": "0b66c83cc31aa3f0695e19f8245ef4d62e39dedf6bbde67b28642e76884f7d1a"
+      },
+      {
+        "name": "events.csv",
+        "bytes": 181547931,
+        "sha256": "c8b184c193dd3379b1d769f1dc319062c14ac406c691994148a78abefbf7d489"
+      },
+      {
+        "name": "trades.csv",
+        "bytes": 18415339,
+        "sha256": "04b460aa58ad2513cbbc543640ede694043110bdc5fe435510e2e09973b3687c"
+      },
+      {
+        "name": "metadata.json",
+        "bytes": 262,
+        "sha256": "885bf3689ecb655214d5058e732698825a294ba4ef13f6a1d17826a6ed1b0418"
+      },
+      {
+        "name": "result.json",
+        "bytes": 303,
+        "sha256": "59b8cbf3a0636cd08b8939ead1b894c46ac5194858f878a36a7a519aaa4756f6"
+      },
+      {
+        "name": "run.jsonl",
+        "bytes": 31168745,
+        "sha256": "2ac1554524b5f8016aef1a406d1175916539be968725d949793e5abacba1da92"
+      },
+      {
+        "name": "pnl.csv",
+        "bytes": 190103,
+        "sha256": "747be5b20869caedabb3048a1688eac47765114c512e0228c8c8a5b83650d916"
+      }
+    ],
+    "archive_scope": "public",
+    "raw_archive_retention": "Unchanged original ZIP in the retained Round1 checkout.",
+    "ledger": {
+      "cash": -497675,
+      "inventory": 100,
+      "traded_volume": 2020098,
+      "filled_orders": 19581,
+      "fill_matches": 32314,
+      "max_abs_inventory_after_each_user_match": 100,
+      "user_as_taker_volume": 175,
+      "pnl_reconciled": 505225.0
+    }
+  },
+  "private_evidence": {
+    "archive": "results.zip",
+    "archive_bytes": 73983043,
+    "archive_sha256": "f75b5a70a7dbcd7c09f113ee7383500b8413fe12756414a974bfa62a2fbba779",
+    "archive_members": [
+      {
+        "name": "book_deltas.csv",
+        "bytes": 128762097,
+        "sha256": "0a3353daa7d3ec89d8d1a48b4e598673ce820a396e2beead919118a89fc7b251"
+      },
+      {
+        "name": "events.csv",
+        "bytes": 177988607,
+        "sha256": "1a9c061fc9e8ee87b2acf3d959fa72c46591bb4deb1ae7467c3b4877321ea6fd"
+      },
+      {
+        "name": "trades.csv",
+        "bytes": 17977473,
+        "sha256": "233d0e1aa7c9e542ac783db406f3c77ff635b61c58f3daa679d8689baf623c8d"
+      },
+      {
+        "name": "metadata.json",
+        "bytes": 262,
+        "sha256": "a7c3e5237a5962acb52d90bee01e40af14de81610612985bb6618f1d7f773ce0"
+      },
+      {
+        "name": "result.json",
+        "bytes": 311,
+        "sha256": "81e99b2d80b799ed0256748a7802c7dce403c4ff673b867b308305d5bc87a342"
+      },
+      {
+        "name": "run.jsonl",
+        "bytes": 30693244,
+        "sha256": "c7b8784ea9587514be866bde075e031e122749cdf44059c40b1e008231fdd240"
+      },
+      {
+        "name": "pnl.csv",
+        "bytes": 190335,
+        "sha256": "86d46f81216fe6615942e5b97663356d6f7f2000d3d05a8a64224e6c5ad64bd6"
+      }
+    ],
+    "archive_scope": "private",
+    "raw_archive_retention": "Unchanged original ZIP in the retained Round1 checkout.",
+    "ledger": {
+      "cash": -31804,
+      "inventory": 54,
+      "traded_volume": 2008486,
+      "filled_orders": 19267,
+      "fill_matches": 31921,
+      "max_abs_inventory_after_each_user_match": 100,
+      "user_as_taker_volume": 98,
+      "pnl_reconciled": 504903.0
+    }
+  },
+  "source_binding": "Human-confirmed source; archive lacks strategy/data hashes. Public result matches the independently reproduced exact source.",
+  "public_data_sha256": "362e8208be1eeec32ad190d097774e26448f0d5149575a8e1b1efd1db1735940"
+}
