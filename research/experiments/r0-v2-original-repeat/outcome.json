@@ -1,0 +1,9 @@
+{
+  "decision": "human review; not automatically final",
+  "elapsed_seconds": 9.173444915999426,
+  "finished_utc": "2026-11-07T10:42:52.025621+00:00",
+  "result_sha256": "8d2d57d3de600daff2b38bbd1468ff3ac6734a68b920018be1fc68b73a34edeb",
+  "status": "success",
+  "stderr": "",
+  "stdout": "Simulation complete\nfills=618\ntraded_volume=618\ninventory=0\ncash=-531.00\nmark_price=10003.00\nbreach_penalty=0.00\npnl=-531.00\npnl_se=44.07\nabs_inventory_q50=0\nabs_inventory_q68=0\nabs_inventory_q95=0\nabs_inventory_q997=1\nlog_dir=/Users/jakubpiotrowski/PycharmProjects/Qminers_Arena_Zubry/logs/r0-v2-original-repeat\n"
+}
