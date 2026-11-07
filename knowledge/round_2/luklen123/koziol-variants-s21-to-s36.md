@@ -70,6 +70,37 @@ Pytanie: które zmiany proponowane w dokumencie `stategy_and_dataset.txt` popraw
   - s_35: trend ±75, mniejszy rozrzut na R2, ale −12 tys. względem s_25 na R2 publicznej.
 - **Przed wyborem:** wgrać s_25 na walidację prywatną i porównać z +28 827 `koziol.py`.
 
+## s_37–s_42: szybkie wykrycie startu ruchu (nakładka na s_25)
+
+Wariant powstał po analizie `crash-precursors.md`: kierunku spadku nie da się przewidzieć,
+ale po starcie ruch trwa minutami.
+
+**Mechanizm.** Co sekundę strategia sprawdza ruch mid z ostatnich L sekund. Gdy przekracza
+K·σ·√L (σ z EWMA zmian 1 s, z minimum w tickach), cel zapasu natychmiast przechodzi na ±100
+w kierunku ruchu i zostaje tak przez H sekund. Opcjonalnie wejście zleceniem IOC.
+
+**Kontrola.** Silnik po tej zmianie nadal odtwarza s_25 (R2 84 869, R1 165 320).
+
+| Plik | L / K / min / H / IOC | R1 | R2 publiczna | R2 se |
+|---|---|---|---|---|
+| s_25 (kontrola) | — | 165 320 | 84 869 | 22 898 |
+| s_37 | 20 s / 2,5 / 15 / 180 s / — | 165 471 | 92 166 | 24 810 |
+| s_38 | jak s_37 + IOC 50 | 165 468 | 93 590 | 25 086 |
+| s_39 | 10 s / 2,5 / 15 / 180 s / — | 165 320 | 53 423 | 22 596 |
+| s_40 | 20 s / 2,5 / 15 / 60 s / — | 165 484 | 91 178 | 24 354 |
+| **s_41** | 20 s / 2,0 / 15 / 180 s / — | **165 471** | **100 157** | 24 993 |
+| s_42 | 20 s / 3,5 / 25 / 180 s / — | 165 320 | 84 869 | 22 898 |
+
+- **Na R1 detektor praktycznie się nie włącza** (próg ≥ 15 ticków), więc koszt wynosi ~0.
+- **Na R2** okno 20 s z K 2,0–2,5 daje +7–15 tys. względem s_25. To w granicach ok. 1 SE,
+  a progi dobierano na tej samej taśmie, na której jest 5 krachów, więc wynik jest in-sample.
+- **Okno 10 s wyraźnie szkodzi** (53 tys.): krótkie skoki często się cofają.
+- **Próg 3,5 i min. 25 ticków nigdy się nie włączył.** IOC i krótszy czas utrzymania nic
+  istotnego nie zmieniają.
+- **Kandydat:** s_41. Na R1 ma koszt ~0, na R2 publicznej najlepszą sumę R1 + R2
+  (265,6 tys., koziol.py: 240,2 tys.). Przewaga na R2 jest jednak niepewna, więc rozstrzygnie
+  walidacja prywatna.
+
 ## Ograniczenia
 
 - R2 publiczna ma se ok. 21 tys., więc różnic między wariantami poniżej ok. 20 tys. nie da się
