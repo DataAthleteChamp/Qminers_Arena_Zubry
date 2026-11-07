@@ -4,6 +4,14 @@ This is the private official-template workspace, with team tools added on top.
 The original `simulator/`, `explorer/` and two official strategies remain untouched.
 See `research/upstream.json` for their fingerprints.
 
+## Current owner workspace
+
+Use the original `Qminers_Arena_Zubry` folder and switch owner round branches
+there. Round2 is closed; its actual Final/evidence and transferable lessons are
+on main. Read [workspace/archive map](docs/human/WORKSPACE.md) and the current
+round brief before using the historical tutorial commands below.
+Round3 seeds are starting references, not evidence of Round3 profit.
+
 ## Ready now
 
 - Python 3.13 and the organiser's original locked runtime versions.

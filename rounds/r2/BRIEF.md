@@ -1,8 +1,21 @@
-# Round2 workspace brief
+# Round2 CLOSED: actual Final and preserved history
+
+Actual owner-confirmed Final: `rounds/r2/strategy_round2_final.py`.
+Frozen evidence: `submissions/round_2/dataathletechamp/final_actual_20261108/`.
+Unchanged-source public replay127559, penalty0. Supplied Final export80993,
+penalty0; owner cannot distinguish validationB/privateC: **stage UNKNOWN**.
+Earlier43782/47150 selections and121235trial are historical, not this Final.
+
+Active folder is now `Qminers_Arena_Zubry`; Round2 branch remains
+`round_2/dataathletechamp`. The former sibling worktree is detached and archived
+inside experiments/round_2/dataathletechamp/worktree-archive-r2.
+Read docs/human/WORKSPACE.md and the four round2-*.md closure lessons.
+
+## Historical opening/validation notes (superseded selection/workspace)
 
 Schedule:19:00-00:00 Saturday; the actual dashboard deadline/quota is authoritative.
-Owner branch:`round_2/dataathletechamp`, clean worktree:`Qminers_Arena_Zubry_Round2`.
-The original checkout remains the immutable/local Round1 research archive.
+The opening used a separate Round2 worktree to preserve local Round1 outputs;
+it has now been consolidated without deleting evidence.
 
 Read `contract-v3.json` and `knowledge/round_2/dataathletechamp/README.md`.
 Preserve contracts-v1/v2 as their original records.
