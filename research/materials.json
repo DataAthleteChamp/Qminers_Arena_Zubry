@@ -1,0 +1,41 @@
+{
+  "as_of": "2026-11-07",
+  "files": [
+    {
+      "bytes": 4962087,
+      "committed_at_owner_request": true,
+      "original_name": "Algo Trade Arena Getting Started (1).pdf",
+      "path": "materials/Algo Trade Arena Getting Started (1).pdf",
+      "role": "organizer workshop deck supplied by owner",
+      "sha256": "e0c145376b08d27b3185b406d3d6014bd433d3c8aeb73e918b525ec7743634d8"
+    },
+    {
+      "bytes": 1870914,
+      "committed_at_owner_request": true,
+      "original_name": "sample.csv",
+      "path": "data/round0/sample.csv",
+      "role": "exact synthetic playground r0 sample supplied by owner",
+      "sha256": "33dd6764c54000244f1a2e0691e6efbac226684554843147f622e0431b35e8dc"
+    }
+  ],
+  "note": "Only these explicit inputs are bundled; other raw data and logs remain ignored.",
+  "path_migration_note": "Current material inventory updated; historical run plans are intentionally not rewritten.",
+  "playground": {
+    "columns": [
+      "Time",
+      "Operation",
+      "OrderId",
+      "Side",
+      "Volume",
+      "Price",
+      "Lifespan"
+    ],
+    "not_currency_identified": true,
+    "not_round1": true,
+    "rows": 53758,
+    "time_seconds": [
+      0.0,
+      3599.000003
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "official_commit": "3f5bea730d5f341c6988b1fe2722998b66270ea0",
+  "official_repository": "https://github.com/QminersOrg/qminers-algo-arena",
+  "team_template_initial_commit": "03f25551682145f7d7f8163e9ab95e060286f16b",
+  "untouched_files": {
+    ".python-version": "02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398",
+    "explorer/__init__.py": "19161bb2a06204bd1550804f76d3f03fe7926a6a9ba1a3b36f9850b3012e2fc3",
+    "explorer/assets/style.css": "2116f60de5fbf1be2bcba0d2e825e170a4e617dc9d8e63eb61aa27d7517e84e6",
+    "explorer/callbacks.py": "11108a879f060eb5c003643800fe989295483fd5788d7f5017559d5467608f1b",
+    "explorer/components/__init__.py": "9c4c495018a47da21d4d588d637be0b2789a71990495dbfa55aad0f65ab242c1",
+    "explorer/components/event_tables.py": "e1573b19b4bae9895d075ea826232e5df3554acd1cacba660c37558752ebdf99",
+    "explorer/components/filters.py": "0b92e236c5e50f68ea7c9ad570fce443111d02efe9298c7424840ca3b178b2af",
+    "explorer/components/orderbook_table.py": "a2cb8e561f3cdce98a46630e064eda7d828fc8967da8e5f7563c65e964d61a1d",
+    "explorer/components/pnl_chart.py": "e84359222282c540b7538f393c5a45b98acfeb67bec49611b04944f58b86beea",
+    "explorer/components/spread_chart.py": "520e58c2ce02c7d4a9c885c1c02e24b3ab0336f1f170c8eb627ee9e596a0a587",
+    "explorer/components/topbar.py": "7c45e20a9ca807ba25463f80e9d6245e7de31d71c74cae6d6696dd9ec3d56c43",
+    "explorer/data/__init__.py": "15b9140c81feb8d64821686afcfc7d81a28a05f316a4d8a92de5a6b3e42f62c5",
+    "explorer/data/clock.py": "7270f3be1d75ed247f12ccf2b32a1445f81b30b9a754ac1dcf3587ef54a2c43d",
+    "explorer/data/loader.py": "9b10f29a90f901203839c00fb18fa65412823bf5c6a7b9f0e95a6328ed03dd6e",
+    "explorer/data/orderbook.py": "54ed6635856ab8ffd72d4e5f58a219d1cb671e2186164dd5b5d5edc200c6401c",
+    "explorer/main.py": "60d413f04f9a39c2be41585b17db460861faa1ce1a641b042da53ce67f11997d",
+    "simulator/__init__.py": "9fc736ffaff472d4d7f30810b3e973cb6def0929b6635d7e917dca036b3ebcbc",
+    "simulator/main.py": "8bf3f82e9d5f72c47a2d1dcf86f88a68391fccbc2e3db3ceddad005a6c5d8a14",
+    "simulator/models.py": "d66d6155376fae92285dae5d749a5c0d58b94a8f1e5dc01a37da6d0ac6974f63",
+    "simulator/simulator.py": "c37b2262186f977df85df783b5422edf67d79d3741936c442084ca2e64e0d4c4",
+    "simulator/strategy.py": "464830f41c07153143485f5796cda61b974ee2dc9dd0637f4acee1f8e64083f5",
+    "strategies/template_strategy.py": "f6513d77cd9d83a6e5f8ab817ea196aa678b5ec6431f287872724da76ed9d2f3",
+    "strategies/trend_follower.py": "193b6269b1e7a9616557935f8a8307a4d9d32dc84ae75522bf2e1a6e7788f434"
+  }
+}

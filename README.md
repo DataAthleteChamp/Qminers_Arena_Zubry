@@ -1,5 +1,12 @@
 # Qminers trading hackathon starter
 
+## Zubry team workspace
+
+Start with [TEAM_START.md](TEAM_START.md) for team rules, real playground results,
+agent usage and the mandatory reviewer-access status. The official simulator and
+explorer remain unchanged. The sections below are the organiser's starter guide.
+Our team uses uv only; the optional pip bootstrap below is not our workflow.
+
 ```
 strategies/   template_strategy.py, an empty strategy to copy and fill in; trend_follower.py, a simple working one
 data/         sample.csv.gz, a synthetic hour of trending prices to start on; the rounds downloaded from the website go here too (git-ignored)
@@ -26,7 +33,6 @@ A strategy is one `.py` file defining one subclass of `BaseStrategy` (with sever
 ```python
 from simulator.models import OrderBookSnapshot, OrderRequest, OrderType, PrivateOrderEvent, Side, Trade
 from simulator.strategy import BaseStrategy
-
 
 class MyStrategy(BaseStrategy):
     def on_order_book_change(self, snapshot: OrderBookSnapshot, trades: list[Trade]) -> None:
