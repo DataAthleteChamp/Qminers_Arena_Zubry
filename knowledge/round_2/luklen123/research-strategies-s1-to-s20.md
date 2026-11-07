@@ -98,6 +98,33 @@ Pozostałe szkodzą:
 Finalne hybrydy mają tę samą bramkę i różnią się tylko wielkością kwotowania:
 s_16 = 4 loty, s_17 = 10, s_18 = 20, s_19 = 30, s_20 = 50.
 
+## Walidacja na prywatnym zbiorze: s_20 (wynik negatywny)
+
+Statystyki z serwera przekazał użytkownik 2026-11-07:
+
+| | Publiczna R2 | Prywatny zbiór walidacyjny |
+|---|---|---|
+| Fille | 8 018 | 14 844 |
+| Wolumen | 353 070 | 647 192 |
+| Pozycja końcowa | 0 | −20 |
+| Gotówka | — | 198 859 |
+| Cena wyceny końcowej | — | 10 482 |
+| Kara | 0 | 0 |
+| pnl_se | 7 129 | 14 714 |
+| Zapas q50 / q68 / q95 / q99,7 | — / — / — / 66 | 13 / 25 / 46 / 68 |
+
+**PnL = 198 859 − 20 × 10 482 = −10 781** (publicznie +45 141).
+
+- **Przewaga na lot:** +0,128 ticka publicznie, −0,017 ticka na prywatnym (z ≈ −0,73).
+- **Przewaga makera nie przeniosła się na inną ścieżkę.** Wielkość kwotowania tylko ją
+  przemnożyła. Kontrola zapasu zadziałała: brak kary, zapas taki jak publicznie.
+- **Prywatna ścieżka wygląda na inny reżim.** Cena prawdopodobnie wzrosła o ~480 ticków.
+  To szacunek przy założeniu startu przy ~10 000, jak na obu znanych taśmach. Do tego było
+  ~1,85× więcej filli, czyli bramka częściej była otwarta.
+- **Wniosek:** wybór parametrów pod jedną publiczną ścieżkę był przeuczony. Kolejne warianty
+  muszą być dodatnie na R1 i R2 jednocześnie. Do zbadania jest bramka lub przesunięcie
+  kwotowań zależne od dryfu (kierunku), nie tylko od zmienności.
+
 ## Ograniczenia
 
 - Wszystko to wyniki in-sample na jednej 100-minutowej publicznej ścieżce, wybrane spośród
