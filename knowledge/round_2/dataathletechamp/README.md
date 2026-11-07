@@ -39,6 +39,18 @@ and B/C details remain prerequisites for stronger official-release claims.
 
 ## Current research checkpoint
 
+**Validation overrides the public-only record:** risk/Ridge+18916A failed
+onB(-229513). ConservativeB-10781; suppliedGridB+28827isbestprovidedpositiveB.
+The typedGridport reproducesA+91025/R1+149143, but uploadedsourcehash/
+coefficientfitprovenance are not authenticated by the three-file exports.
+Readcontract-v3 andthevalidationgap beforechoosingFinal.
+
+Latestreproducedpublicchallengers:FIFO+100195 andFIFO+visible-gap-protection
++103998, both penalty0. Files:r2_grid_fifo_public_100195.py and
+r2_grid_gap_public_103998.py understrategies/round_2/dataathletechamp.
+TheirBperformanceisUNKNOWN; humanconfirmedoriginalGrid+28827isstillFinal.
+Explorer islive at http://127.0.0.1:8050/ forlocalreferenceA only.
+
 | Note | Purpose |
 |---|---|
 |[market-regimes.md](market-regimes.md)|Same-method R0/R1/R2 statistics, tail attribution, signal stability and null5ms hazards|
@@ -48,6 +60,9 @@ and B/C details remain prerequisites for stronger official-release claims.
 |[jump-risk-model.md](jump-risk-model.md)|Independent causal risk-classification screen, calibration caveats and frozen monetary overlay ladder|
 |[risk-overlay-results-v1.md](risk-overlay-results-v1.md)|First positive public record+18916, exact reproduction, source hash and failed width comparator|
 |[subsecond-size-results-v1.md](subsecond-size-results-v1.md)|Six frozen size/cap probes, five losses, fixed35+8831 and supplied-pack confounding|
+|[validation-gap-v1.md](validation-gap-v1.md)|ActualthreeBresults, cash/wealthreconciliation, observedlimits, Gridcode/R1test andlocalexplorer|
+|[order-reactions-and-gaps.md](order-reactions-and-gaps.md)|Four verified source scopes, visible/censored gaps, no newsoracle and actual shrinkAPIrace tests|
+|[grid-ablation-results-v1.md](grid-ablation-results-v1.md)|Quantity/target/recovery versus FIFO/gap experiments; public103998 is not a Bscore|
 |[data-provenance.md](data-provenance.md)|Preserved actual A bytes and shared lossless archive|
 
 The supplied root ROUND2_STATISTICAL_ANALYSIS.md and

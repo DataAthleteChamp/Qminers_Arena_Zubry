@@ -1,0 +1,41 @@
+{
+  "round": 2,
+  "version": 3,
+  "supersedes": "contract-v2.json",
+  "source": "Organizer3dataset/lengthannouncement quoted by participant2026-11-07; three provided server outcome exports",
+  "status": "A registered; B outcome-only feedback observed; C blinded. New horizon roles are now reported explicitly, not guessed from A",
+  "historical_contract": "../../competition.json",
+  "feedback_roles": {
+    "A": "Downloadable public training/development tape, approximately6000s",
+    "B": "Server validation tape, approximately12000s; provided exports have result/metadata/wealth curve, not raw market/trade/book logs",
+    "C": "Final private approximately12000s after deadline; never development data"
+  },
+  "data": {
+    "A_path": "data/round2/round2_public.csv",
+    "A_sha256": "88ff641e962540c66fa1cc4a3547585d31838d0929340150690cabb4f3cfb9f4",
+    "A_first_s": 0.000067,
+    "A_last_s": 5999.996013,
+    "B_observed_wealth_duration_s": 11999.979714,
+    "B_raw_tape": "UNAVAILABLE",
+    "B_sha256": "UNKNOWN; generic/work/backtest.csv is not an identity hash",
+    "B_market_statistics": "UNKNOWN; wealth is not underlying price",
+    "C_expected_duration_s": 12000,
+    "C_identity_distribution": "UNKNOWN"
+  },
+  "validation": {
+    "new_fits": "Aonly; actualfuturelabels strictlyinsidepredeclared fitwindow; ownfirst40%boundary2399.9984052s",
+    "provided_model_provenance": "Grid11weights fittingwindow/targetUNKNOWN; do not invent a clean-prefix claim",
+    "A": "Already consumed diagnostics, includinglate30%; no pristineholdout claims",
+    "B": "Three feedback outputs now consumed; freeze next candidates and limit further selection. Do not fit market models from wealth curves",
+    "C": "Blinded until final; no reconstruction, selection or profitprobability",
+    "horizon": "Do not deploy6000s endgame on12000s B/C. Current retainedGrid/risk sources have no6000s stop",
+    "scaling": "2xE[PnL] needs comparable averageprofitrates; never promise2x a realizedA score",
+    "release": "Human ownsFinal/upload; current reportedpositiveB incumbentGrid28827, not public-onlyriskleader"
+  },
+  "mechanics": {
+    "sdk_digest": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+    "server_metadata": "5ms,100penaltyfree,1000acceptancewall,10000peroutside second match working assumptions",
+    "server_engine_hash": "UNKNOWN",
+    "imports_runtime_quota": "Historicalsingle1MiB/Python3.13/1CPU/2GB/900s/10uploads; actual remainingquota/dashboard governs"
+  }
+}
