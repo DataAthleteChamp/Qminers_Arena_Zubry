@@ -1,0 +1,113 @@
+{
+  "events_in_tape_sampled": 4412,
+  "time_start": 0.008661,
+  "time_end": 11999.043867,
+  "time_span_seconds": 11999.035206,
+  "operation_counts": {
+    "Insert": 2288,
+    "Cancel": 2124
+  },
+  "missingness": {
+    "timestamp": 0.0,
+    "best_bid": 0.0,
+    "best_ask": 0.000227,
+    "bid_vol": 0.0,
+    "ask_vol": 0.0,
+    "spread": 0.000227,
+    "mid_price": 0.0,
+    "micro_price": 0.0,
+    "obi_l1": 0.0,
+    "obi_depth5": 0.0,
+    "depth_bid5": 0.0,
+    "depth_ask5": 0.0,
+    "ofi_event": 0.0,
+    "spread_ticks": 0.000227,
+    "active_orders_count": 0.0,
+    "event_order_id": 0.0,
+    "event_op": 0.0,
+    "event_side": 0.0,
+    "event_price": 0.0,
+    "event_volume": 0.0,
+    "event_number": 0.0
+  },
+  "indicators": {
+    "obi_l1": {
+      "count": 4412,
+      "mean": -0.08595070732456193,
+      "std": 0.440969058161442,
+      "min": -0.9892857142857143,
+      "median": 0.054022988505747126,
+      "max": 1.0
+    },
+    "obi_depth5": {
+      "count": 4412,
+      "mean": 0.17859490132659653,
+      "std": 0.3933271881360748,
+      "min": -0.7011430627439041,
+      "median": 0.25816496487797813,
+      "max": 1.0
+    },
+    "ofi_event": {
+      "count": 4412,
+      "mean": 1294.2767452402538,
+      "std": 522.1105472101306,
+      "min": 0.0,
+      "median": 1474.0,
+      "max": 3787.0
+    },
+    "spread_ticks": {
+      "count": 4411,
+      "mean": -83.78508274767627,
+      "std": 24.548975799394842,
+      "min": -106.0,
+      "median": -99.0,
+      "max": -3.0
+    },
+    "micro_price": {
+      "count": 4412,
+      "mean": 10038.39836963211,
+      "std": 16.266229275976997,
+      "min": 9998.035353535353,
+      "median": 10034.410447761195,
+      "max": 10095.11921708185
+    },
+    "depth_bid5": {
+      "count": 4412,
+      "mean": 38786.681323662735,
+      "std": 16379.85628625211,
+      "min": 23.0,
+      "median": 51483.0,
+      "max": 65829.0
+    },
+    "depth_ask5": {
+      "count": 4412,
+      "mean": 24970.060063463283,
+      "std": 9815.282048354575,
+      "min": 0.0,
+      "median": 30732.0,
+      "max": 73644.0
+    }
+  },
+  "forward_mid_return_correlation": {
+    "1s": {
+      "obi_l1": 0.025977241253903164,
+      "obi_depth5": -0.04672168172249457,
+      "ofi_event": -0.00658487258163096,
+      "micro_price": -0.10214483903369727
+    },
+    "5s": {
+      "obi_l1": 0.023970160292350794,
+      "obi_depth5": -0.053223114620228024,
+      "ofi_event": -0.034446722724758,
+      "micro_price": -0.11874163892660403
+    },
+    "30s": {
+      "obi_l1": -0.08149394440758215,
+      "obi_depth5": -0.07721643656816017,
+      "ofi_event": -0.17292667741442233,
+      "micro_price": -0.10192232417314455
+    }
+  },
+  "input_file": "data/round1/round1.csv",
+  "sampling": "first event plus every 1000th event; indicators are reconstructed on every event"
+}
