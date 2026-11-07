@@ -21,3 +21,5 @@ runs/
 .DS_Store
 .idea/
 copilot-session-*.md
+
+data/
