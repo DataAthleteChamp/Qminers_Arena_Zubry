@@ -1,0 +1,9 @@
+{
+  "decision": "human review; not automatically final",
+  "elapsed_seconds": 4.4194814169895835,
+  "finished_utc": "2026-11-07T11:02:04.356277+00:00",
+  "result_sha256": "65e09c3a693cc295e3ba7ad458e1843ebece22447b8d81e9521951898e709824",
+  "status": "success",
+  "stderr": "",
+  "stdout": "Simulation complete\nfills=1272\ntraded_volume=6297\ninventory=5\ncash=-45795.00\nmark_price=10002.00\nbreach_penalty=0.00\npnl=4215.00\npnl_se=193.21\nabs_inventory_q50=4\nabs_inventory_q68=6\nabs_inventory_q95=11\nabs_inventory_q997=16\nlog_dir=/Users/jakubpiotrowski/PycharmProjects/Qminers_Arena_Zubry/logs/r0-v2-dbea-maker-fit-full\n"
+}

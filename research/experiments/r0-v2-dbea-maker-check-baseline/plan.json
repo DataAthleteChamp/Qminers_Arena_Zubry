@@ -1,0 +1,41 @@
+{
+  "backtest": "data/round0/sample_v2.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "logs/r0-v2-dbea-maker/check-baseline.py",
+    "--backtest",
+    "data/round0/sample_v2.csv",
+    "--log-dir",
+    "logs/r0-v2-dbea-maker-check-baseline",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "dd4e00e281abe50c9a19e16c147ccbc0b5b69835fee567f00136402ef1e01d08",
+  "git_before_run": "d236ed9c9e441aab936373642ba472a307ffc7dd",
+  "git_dirty_before_run": true,
+  "hypothesis": "Frozen weight=0.0; activation=1200000000us; prefix-selected maker.",
+  "id": "r0-v2-dbea-maker-check-baseline",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs/r0-v2-dbea-maker-check-baseline",
+  "owner": "sol-dbea",
+  "python": "3.13.5",
+  "reject_if": "Failure, penalty, changed hashes or nonpositive chronological net PnL.",
+  "round": "playground",
+  "schema_version": 1,
+  "simulator_sha256": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+  "source_kind": "synthetic-playground",
+  "started_utc": "2026-11-07T11:03:16.679209+00:00",
+  "status": "planned",
+  "strategy": "logs/r0-v2-dbea-maker/check-baseline.py",
+  "strategy_sha256": "e9067b769935e700d542075824c41020ceebfa2077ca6579155c31eb3757a754"
+}

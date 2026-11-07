@@ -1,0 +1,653 @@
+{
+  "ambiguous_rows": [
+    {
+      "raw": "14\tMeow Meochy\t+45,415.00",
+      "reason": "Team text does not match any hover label."
+    }
+  ],
+  "archive_pnl_at_nearest_hover_sample": {
+    "elapsed_s": 2832.0,
+    "pnl": 5380.0
+  },
+  "hover": [
+    {
+      "pnl": 145242.0,
+      "team": "ThatsMyQuant"
+    },
+    {
+      "pnl": 143078.0,
+      "team": "Podbran\u010d"
+    },
+    {
+      "pnl": 118580.0,
+      "team": "p<0.05"
+    },
+    {
+      "pnl": 117930.0,
+      "team": "sHIFT_HAPPENS"
+    },
+    {
+      "pnl": 92632.0,
+      "team": "Listopadu"
+    },
+    {
+      "pnl": 91334.0,
+      "team": "Codehorses"
+    },
+    {
+      "pnl": 87269.0,
+      "team": "P\u016fl Kelliho"
+    },
+    {
+      "pnl": 80760.0,
+      "team": "\u6ca1\u6709\u5185\u5e55"
+    },
+    {
+      "pnl": 73598.0,
+      "team": "FIFO"
+    },
+    {
+      "pnl": 53449.0,
+      "team": "MOT"
+    },
+    {
+      "pnl": 50829.0,
+      "team": "Fortune Faded"
+    },
+    {
+      "pnl": 48191.0,
+      "team": "aLLMighty aLLMonds"
+    },
+    {
+      "pnl": 47743.0,
+      "team": "DerivaDudes"
+    },
+    {
+      "pnl": 42112.0,
+      "team": "Meow Meow Meow"
+    },
+    {
+      "pnl": 22369.0,
+      "team": "quantov\u00fd mouchy"
+    },
+    {
+      "pnl": 15681.0,
+      "team": "Elektrotechnici"
+    },
+    {
+      "pnl": 14949.0,
+      "team": "Vibe Traders"
+    },
+    {
+      "pnl": 13639.0,
+      "team": "Vikings"
+    },
+    {
+      "pnl": 13076.0,
+      "team": "QuantAlgo"
+    },
+    {
+      "pnl": 11333.0,
+      "team": "Pos\u00e1dka"
+    },
+    {
+      "pnl": 11068.0,
+      "team": "delfini"
+    },
+    {
+      "pnl": 9849.0,
+      "team": "segfault"
+    },
+    {
+      "pnl": 7865.0,
+      "team": "t\u00fdm"
+    },
+    {
+      "pnl": 7515.0,
+      "team": "Girls Just Wanna Have Funds"
+    },
+    {
+      "pnl": 6026.0,
+      "team": "Loup\u00e1ci"
+    },
+    {
+      "pnl": 5380.0,
+      "team": "Zubry"
+    },
+    {
+      "pnl": 5353.0,
+      "team": "Too Hot To Haggle"
+    },
+    {
+      "pnl": 100.0,
+      "team": "Olexa namichej"
+    },
+    {
+      "pnl": 0.0,
+      "team": "Nula na nultou"
+    },
+    {
+      "pnl": -126.0,
+      "team": "Cracked OS"
+    },
+    {
+      "pnl": -407.0,
+      "team": "TreasureHunters"
+    },
+    {
+      "pnl": -464.0,
+      "team": "Alpha Hunters"
+    },
+    {
+      "pnl": -464.0,
+      "team": "Cinka\u010dka"
+    },
+    {
+      "pnl": -464.0,
+      "team": "Claude Fable 0.2"
+    },
+    {
+      "pnl": -464.0,
+      "team": "G&A"
+    },
+    {
+      "pnl": -464.0,
+      "team": "GammaStrike"
+    },
+    {
+      "pnl": -464.0,
+      "team": "Gradient Descent Into Debt"
+    },
+    {
+      "pnl": -464.0,
+      "team": "Kluci jak buci"
+    },
+    {
+      "pnl": -464.0,
+      "team": "Mac mec mic"
+    },
+    {
+      "pnl": -464.0,
+      "team": "Southeast Fortress"
+    },
+    {
+      "pnl": -464.0,
+      "team": "TESTTEAM"
+    },
+    {
+      "pnl": -1123.0,
+      "team": "Akustick\u00e1 Ko\u0165\u00e1tka"
+    },
+    {
+      "pnl": -1433.0,
+      "team": "Kakaov\u00fd n\u00e1poj extra"
+    },
+    {
+      "pnl": -5249.0,
+      "team": "FullRandom"
+    },
+    {
+      "pnl": -6958.0,
+      "team": "suboptimal"
+    },
+    {
+      "pnl": -10077.0,
+      "team": "Penny Pushers"
+    },
+    {
+      "pnl": -14693.0,
+      "team": "Intelligenz"
+    },
+    {
+      "pnl": -36342.0,
+      "team": "Polyvinylchlorid"
+    },
+    {
+      "pnl": -47722.0,
+      "team": "Monteverdi"
+    },
+    {
+      "pnl": -497169.0,
+      "team": "Priemyseln\u00e9 u\u010dili\u0161te Streda nad Bodrogom"
+    },
+    {
+      "pnl": -1568265.0,
+      "team": "Mlad\u00ed drav\u00ed"
+    },
+    {
+      "pnl": -1620668.0,
+      "team": "aLLMonds"
+    }
+  ],
+  "missing_rank_tokens": [
+    15
+  ],
+  "own_final_matches_archive": true,
+  "ranking": [
+    {
+      "pnl": 292469.0,
+      "rank": 1,
+      "team": "ThatsMyQuant",
+      "tied": false
+    },
+    {
+      "pnl": 287954.0,
+      "rank": 2,
+      "team": "Podbran\u010d",
+      "tied": false
+    },
+    {
+      "pnl": 241643.0,
+      "rank": 3,
+      "team": "p<0.05",
+      "tied": false
+    },
+    {
+      "pnl": 235143.0,
+      "rank": 4,
+      "team": "sHIFT_HAPPENS",
+      "tied": false
+    },
+    {
+      "pnl": 187800.0,
+      "rank": 5,
+      "team": "Listopadu",
+      "tied": false
+    },
+    {
+      "pnl": 185363.0,
+      "rank": 6,
+      "team": "Codehorses",
+      "tied": false
+    },
+    {
+      "pnl": 176007.0,
+      "rank": 7,
+      "team": "P\u016fl Kelliho",
+      "tied": false
+    },
+    {
+      "pnl": 164194.0,
+      "rank": 8,
+      "team": "\u6ca1\u6709\u5185\u5e55",
+      "tied": false
+    },
+    {
+      "pnl": 148545.0,
+      "rank": 9,
+      "team": "FIFO",
+      "tied": false
+    },
+    {
+      "pnl": 108469.0,
+      "rank": 10,
+      "team": "MOT",
+      "tied": false
+    },
+    {
+      "pnl": 105164.0,
+      "rank": 11,
+      "team": "Fortune Faded",
+      "tied": false
+    },
+    {
+      "pnl": 97910.0,
+      "rank": 12,
+      "team": "aLLMighty aLLMonds",
+      "tied": false
+    },
+    {
+      "pnl": 97330.0,
+      "rank": 13,
+      "team": "DerivaDudes",
+      "tied": false
+    },
+    {
+      "pnl": 30171.0,
+      "rank": 16,
+      "team": "Vibe Traders",
+      "tied": false
+    },
+    {
+      "pnl": 27397.0,
+      "rank": 17,
+      "team": "Vikings",
+      "tied": false
+    },
+    {
+      "pnl": 26740.0,
+      "rank": 18,
+      "team": "QuantAlgo",
+      "tied": false
+    },
+    {
+      "pnl": 23179.0,
+      "rank": 19,
+      "team": "Pos\u00e1dka",
+      "tied": false
+    },
+    {
+      "pnl": 21749.0,
+      "rank": 20,
+      "team": "delfini",
+      "tied": false
+    },
+    {
+      "pnl": 19838.0,
+      "rank": 21,
+      "team": "segfault",
+      "tied": false
+    },
+    {
+      "pnl": 19639.0,
+      "rank": 22,
+      "team": "Elektrotechnici",
+      "tied": false
+    },
+    {
+      "pnl": 16007.0,
+      "rank": 23,
+      "team": "t\u00fdm",
+      "tied": false
+    },
+    {
+      "pnl": 15600.0,
+      "rank": 24,
+      "team": "Girls Just Wanna Have Funds",
+      "tied": false
+    },
+    {
+      "pnl": 12558.0,
+      "rank": 25,
+      "team": "Loup\u00e1ci",
+      "tied": false
+    },
+    {
+      "pnl": 10798.0,
+      "rank": 26,
+      "team": "Zubry",
+      "tied": false
+    },
+    {
+      "pnl": 10025.0,
+      "rank": 27,
+      "team": "Too Hot To Haggle",
+      "tied": false
+    },
+    {
+      "pnl": 190.0,
+      "rank": 28,
+      "team": "Olexa namichej",
+      "tied": false
+    },
+    {
+      "pnl": 0.0,
+      "rank": 29,
+      "team": "Nula na nultou",
+      "tied": false
+    },
+    {
+      "pnl": -296.0,
+      "rank": 30,
+      "team": "Cracked OS",
+      "tied": false
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "Alpha Hunters",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "Cinka\u010dka",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "Claude Fable 0.2",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "G&A",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "GammaStrike",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "Gradient Descent Into Debt",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "Kluci jak buci",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "Mac mec mic",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "Southeast Fortress",
+      "tied": true
+    },
+    {
+      "pnl": -498.0,
+      "rank": 31,
+      "team": "TESTTEAM",
+      "tied": true
+    },
+    {
+      "pnl": -811.0,
+      "rank": 41,
+      "team": "TreasureHunters",
+      "tied": false
+    },
+    {
+      "pnl": -1191.0,
+      "rank": 42,
+      "team": "Akustick\u00e1 Ko\u0165\u00e1tka",
+      "tied": false
+    },
+    {
+      "pnl": -1433.0,
+      "rank": 43,
+      "team": "Kakaov\u00fd n\u00e1poj extra",
+      "tied": false
+    },
+    {
+      "pnl": -5249.0,
+      "rank": 44,
+      "team": "FullRandom",
+      "tied": false
+    },
+    {
+      "pnl": -10077.0,
+      "rank": 45,
+      "team": "Penny Pushers",
+      "tied": false
+    },
+    {
+      "pnl": -14295.0,
+      "rank": 46,
+      "team": "suboptimal",
+      "tied": false
+    },
+    {
+      "pnl": -29940.0,
+      "rank": 47,
+      "team": "Intelligenz",
+      "tied": false
+    },
+    {
+      "pnl": -71180.0,
+      "rank": 48,
+      "team": "Polyvinylchlorid",
+      "tied": false
+    },
+    {
+      "pnl": -97423.0,
+      "rank": 49,
+      "team": "Monteverdi",
+      "tied": false
+    },
+    {
+      "pnl": -998662.0,
+      "rank": 50,
+      "team": "Priemyseln\u00e9 u\u010dili\u0161te Streda nad Bodrogom",
+      "tied": false
+    },
+    {
+      "pnl": -3230353.0,
+      "rank": 51,
+      "team": "Mlad\u00ed drav\u00ed",
+      "tied": false
+    },
+    {
+      "pnl": -3338448.0,
+      "rank": 52,
+      "team": "aLLMonds",
+      "tied": false
+    }
+  ],
+  "scope": "User-supplied clipboard snapshot; ambiguous/missing rows are not invented.",
+  "source": {
+    "capture_timestamp": null,
+    "chart_axis_seconds": [
+      0,
+      1500,
+      3000,
+      4500,
+      5740
+    ],
+    "hover_rows_raw": [
+      "ThatsMyQuant\t+145,242.00",
+      "Podbran\u010d\t+143,078.00",
+      "p<0.05\t+118,580.00",
+      "sHIFT_HAPPENS\t+117,930.00",
+      "Listopadu\t+92,632.00",
+      "Codehorses\t+91,334.00",
+      "P\u016fl Kelliho\t+87,269.00",
+      "\u6ca1\u6709\u5185\u5e55\t+80,760.00",
+      "FIFO\t+73,598.00",
+      "MOT\t+53,449.00",
+      "Fortune Faded\t+50,829.00",
+      "aLLMighty aLLMonds\t+48,191.00",
+      "DerivaDudes\t+47,743.00",
+      "Meow Meow Meow\t+42,112.00",
+      "quantov\u00fd mouchy\t+22,369.00",
+      "Elektrotechnici\t+15,681.00",
+      "Vibe Traders\t+14,949.00",
+      "Vikings\t+13,639.00",
+      "QuantAlgo\t+13,076.00",
+      "Pos\u00e1dka\t+11,333.00",
+      "delfini\t+11,068.00",
+      "segfault\t+9,849.00",
+      "t\u00fdm\t+7,865.00",
+      "Girls Just Wanna Have Funds\t+7,515.00",
+      "Loup\u00e1ci\t+6,026.00",
+      "Zubry\t+5,380.00",
+      "Too Hot To Haggle\t+5,353.00",
+      "Olexa namichej\t+100.00",
+      "Nula na nultou\t0.00",
+      "Cracked OS\t-126.00",
+      "TreasureHunters\t-407.00",
+      "Alpha Hunters\t-464.00",
+      "Cinka\u010dka\t-464.00",
+      "Claude Fable 0.2\t-464.00",
+      "G&A\t-464.00",
+      "GammaStrike\t-464.00",
+      "Gradient Descent Into Debt\t-464.00",
+      "Kluci jak buci\t-464.00",
+      "Mac mec mic\t-464.00",
+      "Southeast Fortress\t-464.00",
+      "TESTTEAM\t-464.00",
+      "Akustick\u00e1 Ko\u0165\u00e1tka\t-1,123.00",
+      "Kakaov\u00fd n\u00e1poj extra\t-1,433.00",
+      "FullRandom\t-5,249.00",
+      "suboptimal\t-6,958.00",
+      "Penny Pushers\t-10,077.00",
+      "Intelligenz\t-14,693.00",
+      "Polyvinylchlorid\t-36,342.00",
+      "Monteverdi\t-47,722.00",
+      "Priemyseln\u00e9 u\u010dili\u0161te Streda nad Bodrogom\t-497,169.00",
+      "Mlad\u00ed drav\u00ed\t-1,568,265.00",
+      "aLLMonds\t-1,620,668.00"
+    ],
+    "hover_time_seconds": 2832,
+    "own_team": "Zubry",
+    "ranking_rows_raw": [
+      "1\tThatsMyQuant\t+292,469.00",
+      "2\tPodbran\u010d\t+287,954.00",
+      "3\tp<0.05\t+241,643.00",
+      "4\tsHIFT_HAPPENS\t+235,143.00",
+      "5\tListopadu\t+187,800.00",
+      "6\tCodehorses\t+185,363.00",
+      "7\tP\u016fl Kelliho\t+176,007.00",
+      "8\t\u6ca1\u6709\u5185\u5e55\t+164,194.00",
+      "9\tFIFO\t+148,545.00",
+      "10\tMOT\t+108,469.00",
+      "11\tFortune Faded\t+105,164.00",
+      "12\taLLMighty aLLMonds\t+97,910.00",
+      "13\tDerivaDudes\t+97,330.00",
+      "14\tMeow Meochy\t+45,415.00",
+      "16\tVibe Traders\t+30,171.00",
+      "17\tVikings\t+27,397.00",
+      "18\tQuantAlgo\t+26,740.00",
+      "19\tPos\u00e1dka\t+23,179.00",
+      "20\tdelfini\t+21,749.00",
+      "21\tsegfault\t+19,838.00",
+      "22\tElektrotechnici\t+19,639.00",
+      "23\tt\u00fdm\t+16,007.00",
+      "24\tGirls Just Wanna Have Funds\t+15,600.00",
+      "25\tLoup\u00e1ci\t+12,558.00",
+      "26\tZubry\tYour team\t+10,798.00",
+      "27\tToo Hot To Haggle\t+10,025.00",
+      "28\tOlexa namichej\t+190.00",
+      "29\tNula na nultou\t0.00",
+      "30\tCracked OS\t-296.00",
+      "31\tTie\tAlpha Hunters\t-498.00",
+      "31\tTie\tCinka\u010dka\t-498.00",
+      "31\tTie\tClaude Fable 0.2\t-498.00",
+      "31\tTie\tG&A\t-498.00",
+      "31\tTie\tGammaStrike\t-498.00",
+      "31\tTie\tGradient Descent Into Debt\t-498.00",
+      "31\tTie\tKluci jak buci\t-498.00",
+      "31\tTie\tMac mec mic\t-498.00",
+      "31\tTie\tSoutheast Fortress\t-498.00",
+      "31\tTie\tTESTTEAM\t-498.00",
+      "41\tTreasureHunters\t-811.00",
+      "42\tAkustick\u00e1 Ko\u0165\u00e1tka\t-1,191.00",
+      "43\tKakaov\u00fd n\u00e1poj extra\t-1,433.00",
+      "44\tFullRandom\t-5,249.00",
+      "45\tPenny Pushers\t-10,077.00",
+      "46\tsuboptimal\t-14,295.00",
+      "47\tIntelligenz\t-29,940.00",
+      "48\tPolyvinylchlorid\t-71,180.00",
+      "49\tMonteverdi\t-97,423.00",
+      "50\tPriemyseln\u00e9 u\u010dili\u0161te Streda nad Bodrogom\t-998,662.00",
+      "51\tMlad\u00ed drav\u00ed\t-3,230,353.00",
+      "52\taLLMonds\t-3,338,448.00"
+    ],
+    "received_date": "2026-11-07",
+    "round": "playground/r0",
+    "source": "User-provided Playground leaderboard clipboard excerpt",
+    "transcription_note": "Rows are copied as supplied. Rank 14 is visibly malformed and rank 15 is absent; neither is repaired or inferred.",
+    "unparsed_footer": "-3,450"
+  }
+}

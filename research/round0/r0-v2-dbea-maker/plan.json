@@ -1,0 +1,53 @@
+{
+  "baseline": "same market maker, imbalance weight zero",
+  "baseline_evidence": {
+    "interpretation": "Fixing the IOC callback lets the losing policy keep trading.",
+    "v1_original_and_fixed_pnl": 1878,
+    "v2_fixed_fills": 16594,
+    "v2_fixed_pnl": -14125,
+    "v2_original_fills": 618,
+    "v2_original_pnl": -531
+  },
+  "created_utc": "2026-11-07T11:01:06.983578+00:00",
+  "data": "data/round0/sample_v2.csv",
+  "data_sha256": "dd4e00e281abe50c9a19e16c147ccbc0b5b69835fee567f00136402ef1e01d08",
+  "fit_last_event_seconds": 1199.99947,
+  "fit_prefix": "logs/r0-v2-dbea-maker/fit-prefix.csv",
+  "fit_prefix_rows": 416247,
+  "fit_prefix_sha256": "ec0f31aef161e42ade8bbec1bd3668ef5259ff80d90f67c312209e8706967367",
+  "fit_window_seconds": [
+    0,
+    1200
+  ],
+  "hypothesis": "Depth weighting improves executed net PnL over midpoint quoting.",
+  "limitations": [
+    "Whole-file descriptive diagnostics were already inspected: this is a chronological check, not a newly untouched holdout.",
+    "Same public/private generator is a working assumption, not organizer-confirmed.",
+    "A block bootstrap describes this observed tape, not probability of winning.",
+    "Raw tick prices do not identify a named real-world asset."
+  ],
+  "prototype_sha256": "96f81788a5402753cac5df8103deb3fe8044207c31a9d0d10781d16caa18b321",
+  "reject_if": [
+    "Any inventory penalty, failed preflight, or changed inputs.",
+    "No positive validation PnL.",
+    "Depth weighting lacks a positive paired 60-second block-bootstrap lower bound."
+  ],
+  "script_sha256": "7e70afb7124356ffff657fa242fc00eb98dc6dd440cf79d6601f5915cf78f5ef",
+  "selection": "Highest prefix official PnL; no suffix PnL used for selection.",
+  "simulator_sha256": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+  "sources": [
+    "Official README: latency, FIFO, inventory limits and liquidation markout.",
+    "Cartea/Donnelly/Jaimungal 2018: Sections 1-2; adverse-selection-aware quoting.",
+    "Gould/Bonart 2015: Sections 5.1-5.2; horizon and partition limitations."
+  ],
+  "validation": "Replay from first row; place no orders before 1200s; start flat.",
+  "validation_window_seconds": [
+    1200,
+    "EOF"
+  ],
+  "weights": {
+    "fit-full": 1.0,
+    "fit-half": 0.5,
+    "fit-mid": 0.0
+  }
+}
