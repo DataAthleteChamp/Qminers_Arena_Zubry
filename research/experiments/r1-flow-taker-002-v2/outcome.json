@@ -1,0 +1,9 @@
+{
+  "decision": "human review; not automatically final",
+  "elapsed_seconds": 28.45629500000041,
+  "finished_utc": "2026-11-07T13:15:37.488620+00:00",
+  "result_sha256": "f3e2f013238b0b894affd4071bfe73009d8eeffefda61b1a66b4d4da45006a80",
+  "status": "success",
+  "stderr": "",
+  "stdout": "Simulation complete\nfills=31888\ntraded_volume=158834\ninventory=6\ncash=-197774.00\nmark_price=10003.00\nbreach_penalty=0.00\npnl=-137756.00\npnl_se=1559.53\nabs_inventory_q50=20\nabs_inventory_q68=30\nabs_inventory_q95=40\nabs_inventory_q997=40\nlog_dir=C:\\Users\\Admin\\Qminers_Arena_Zubry\\logs\\r1-flow-taker-002-v2\n"
+}

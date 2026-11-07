@@ -1,0 +1,9 @@
+{
+  "decision": "human review; not automatically final",
+  "elapsed_seconds": 189.9904773999997,
+  "finished_utc": "2026-11-07T13:37:27.905707+00:00",
+  "result_sha256": "555ecf731fc6339891699d326d7218967eab5fd6896d0506836877a2d892b3ea",
+  "status": "success",
+  "stderr": "",
+  "stdout": "Simulation complete\nfills=19625\ntraded_volume=77988\ninventory=2\ncash=-1822.00\nmark_price=10029.00\nbreach_penalty=0.00\npnl=18236.00\npnl_se=354.97\nabs_inventory_q50=2\nabs_inventory_q68=3\nabs_inventory_q95=5\nabs_inventory_q997=10\nlog_dir=C:\\Users\\Admin\\Qminers_Arena_Zubry\\logs\\r1-obi-full\n"
+}

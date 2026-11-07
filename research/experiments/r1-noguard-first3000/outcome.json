@@ -1,0 +1,9 @@
+{
+  "decision": "human review; not automatically final",
+  "elapsed_seconds": 59.635654099999556,
+  "finished_utc": "2026-11-07T13:35:16.993017+00:00",
+  "result_sha256": "469794d80e433d270b0fc6628b37d981396d91d483a0fb264aba9151a1b3b6fe",
+  "status": "success",
+  "stderr": "",
+  "stdout": "Simulation complete\nfills=5479\ntraded_volume=21772\ninventory=2\ncash=-14940.00\nmark_price=10055.00\nbreach_penalty=0.00\npnl=5170.00\npnl_se=206.67\nabs_inventory_q50=2\nabs_inventory_q68=3\nabs_inventory_q95=7\nabs_inventory_q997=11\nlog_dir=C:\\Users\\Admin\\Qminers_Arena_Zubry\\logs\\r1-noguard-first3000\n"
+}

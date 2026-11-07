@@ -1,0 +1,41 @@
+{
+  "backtest": "data\\round1.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "strategies\\maker_obi.py",
+    "--backtest",
+    "data\\round1.csv",
+    "--log-dir",
+    "logs\\r1-obi-full",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "362e8208be1eeec32ad190d097774e26448f0d5149575a8e1b1efd1db1735940",
+  "git_before_run": "b750cb450d8fffcae186f560160bc257294b7bc1",
+  "git_dirty_before_run": true,
+  "hypothesis": "Maker with OBI guard has non-negative PnL and zero penalty on full 12000s",
+  "id": "r1-obi-full",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs\\r1-obi-full",
+  "owner": "claude",
+  "python": "3.13.5",
+  "reject_if": "PnL < 0 or breach_penalty > 0",
+  "round": "round1",
+  "schema_version": 1,
+  "simulator_sha256": "897aeb609edff9155cff3f50ef21c1e9ff92378237aefa13b98d786285c24481",
+  "source_kind": "declared-public",
+  "started_utc": "2026-11-07T13:34:17.411577+00:00",
+  "status": "planned",
+  "strategy": "strategies\\maker_obi.py",
+  "strategy_sha256": "711ce9d377f11b59b3e6e82f2ccf73020407adf455308653e09157b1459ff68e"
+}

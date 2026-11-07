@@ -1,0 +1,41 @@
+{
+  "backtest": "logs\\derived\\round1_first3000s.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "strategies\\maker_obi_noguard.py",
+    "--backtest",
+    "logs\\derived\\round1_first3000s.csv",
+    "--log-dir",
+    "logs\\r1-noguard-first3000",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "2304c63e8142b417469756233a4b98df2fc7f923d6c5dc07ed5f29aa2596438a",
+  "git_before_run": "b750cb450d8fffcae186f560160bc257294b7bc1",
+  "git_dirty_before_run": true,
+  "hypothesis": "Ablation: OBI guard adds PnL vs no guard on first 3000s",
+  "id": "r1-noguard-first3000",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs\\r1-noguard-first3000",
+  "owner": "claude",
+  "python": "3.13.5",
+  "reject_if": "noguard PnL >= guard PnL",
+  "round": "round1",
+  "schema_version": 1,
+  "simulator_sha256": "897aeb609edff9155cff3f50ef21c1e9ff92378237aefa13b98d786285c24481",
+  "source_kind": "declared-public",
+  "started_utc": "2026-11-07T13:34:17.113564+00:00",
+  "status": "planned",
+  "strategy": "strategies\\maker_obi_noguard.py",
+  "strategy_sha256": "fc037d440e670656dc59b132e49148cf5e7ba024ec840a6cf53ee2b860a09945"
+}

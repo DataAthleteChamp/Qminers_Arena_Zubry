@@ -1,0 +1,41 @@
+{
+  "backtest": "data\\round1.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "strategies\\r0_v2_maker.py",
+    "--backtest",
+    "data\\round1.csv",
+    "--log-dir",
+    "logs\\r1-maker-baseline",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "362e8208be1eeec32ad190d097774e26448f0d5149575a8e1b1efd1db1735940",
+  "git_before_run": "b750cb450d8fffcae186f560160bc257294b7bc1",
+  "git_dirty_before_run": true,
+  "hypothesis": "Passive market maker r0_v2_maker outperforms flow taker on round1",
+  "id": "r1-maker-baseline",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs\\r1-maker-baseline",
+  "owner": "claude",
+  "python": "3.13.5",
+  "reject_if": "PnL < -20000 or breach_penalty > 0",
+  "round": "round1",
+  "schema_version": 1,
+  "simulator_sha256": "897aeb609edff9155cff3f50ef21c1e9ff92378237aefa13b98d786285c24481",
+  "source_kind": "declared-public",
+  "started_utc": "2026-11-07T13:33:28.889424+00:00",
+  "status": "planned",
+  "strategy": "strategies\\r0_v2_maker.py",
+  "strategy_sha256": "96f81788a5402753cac5df8103deb3fe8044207c31a9d0d10781d16caa18b321"
+}

@@ -1,0 +1,41 @@
+{
+  "backtest": "data\\round1.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "strategies\\zubry_flow_v2.py",
+    "--backtest",
+    "data\\round1.csv",
+    "--log-dir",
+    "logs\\r1-real-flowv2",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "362e8208be1eeec32ad190d097774e26448f0d5149575a8e1b1efd1db1735940",
+  "git_before_run": "b750cb450d8fffcae186f560160bc257294b7bc1",
+  "git_dirty_before_run": true,
+  "hypothesis": "Flow taker v2 (MAX_INV 40) is profitable on round1 with zero penalty",
+  "id": "r1-real-flowv2",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs\\r1-real-flowv2",
+  "owner": "claude",
+  "python": "3.13.5",
+  "reject_if": "PnL <= 0 or breach_penalty > 0",
+  "round": "round1",
+  "schema_version": 1,
+  "simulator_sha256": "897aeb609edff9155cff3f50ef21c1e9ff92378237aefa13b98d786285c24481",
+  "source_kind": "declared-public",
+  "started_utc": "2026-11-07T13:18:31.788130+00:00",
+  "status": "planned",
+  "strategy": "strategies\\zubry_flow_v2.py",
+  "strategy_sha256": "0519b3fe2738ed970ea44b5090405808fa00cff04a5d7367317b28cfe6003594"
+}
