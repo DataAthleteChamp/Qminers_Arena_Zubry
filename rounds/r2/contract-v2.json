@@ -1,0 +1,40 @@
+{
+  "round": 2,
+  "version": 2,
+  "supersedes": "contract-v1.json",
+  "source": "Participant-supplied Round2A bytes registered2026-11-07; historical official SDK/competition.json and participant-reported A/B/C announcement",
+  "status": "A registered and locally evaluated with unchanged official SDK; new round mechanics and feedback identities not authenticated",
+  "historical_contract": "../../competition.json",
+  "feedback_roles": {
+    "A": "Registered public local development/fit tape; fully profiled and consumed for diagnostic/selection work",
+    "B": "Participant-reported second dataset producing submission feedback",
+    "C": "Participant-reported final private dataset unavailable until close"
+  },
+  "data": {
+    "A_path": "data/round2/round2_public.csv",
+    "A_sha256": "88ff641e962540c66fa1cc4a3547585d31838d0929340150690cabb4f3cfb9f4",
+    "A_manifest": "data/round2/round2_public_manifest.json",
+    "A_rows": 2193064,
+    "A_first_s": 0.000067,
+    "A_last_s": 5999.996013,
+    "A_time_unit": "seconds on tape, microseconds in SDK callbacks",
+    "A_value_units": "anonymous integer price units and lots",
+    "B_raw_tape_available": "UNKNOWN",
+    "B_identity_or_reuse": "UNKNOWN",
+    "C_identity_or_distribution": "UNKNOWN"
+  },
+  "validation": {
+    "fit": "A first40%; actual future target timestamps strictly before2399.9984052s",
+    "selection": "A next30% ending4199.9972091s; last30% also consumed diagnostic evidence, not untouched holdout",
+    "B": "Freeze exact bytes before feedback; repeated feedback consumes selection evidence",
+    "C": "No pre-close tuning, reconstruction or assumed access",
+    "warmup": "Preserve original preceding events and explicitly declare trading activation/inventory conventions",
+    "release": "Human owns upload and Final selection; local CLI does not replace server sandbox"
+  },
+  "mechanics": {
+    "installed_sdk_digest": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+    "historical": "5ms actions, FIFO,100 penalty-free,1000 potential acceptance wall,10000 per outside second, no fees, opposite-depth liquidation",
+    "new_round_changes": "UNKNOWN",
+    "runtime_and_upload_quota": "Historical Python3.13/single1MiB/1CPU/2GB/900s/10uploads; reconfirm on dashboard"
+  }
+}

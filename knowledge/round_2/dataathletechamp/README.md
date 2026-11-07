@@ -2,7 +2,8 @@
 
 Worktree:`/Users/jakubpiotrowski/PycharmProjects/Qminers_Arena_Zubry_Round2`.
 Branch:`round_2/dataathletechamp`. Use uv only and read `rounds/r2/BRIEF.md`.
-Main now has the curated Round1 lessons and actual Final/public-private evidence.
+Main now has the curated Round1 lessons, actual Final/public-private evidence,
+and registered R2A gzip/manifest/hash.
 The originalQminers_Arena_Zubry directory remains on the R1 branch unchanged:
 raw185-run ledger, archives, logs, failed setup/tests and nested worktrees remain.
 No destructive cleanup or history rewriting was performed.
@@ -15,7 +16,10 @@ No destructive cleanup or history rewriting was performed.
 |final_maker_seed_from_r1.py|Exact505225 public /504903 private human Final; R1-fitted coefficients|
 |inventory_queue_seed_from_r1.py|Exact449661 R1 no-learned-forecast control; current book/inventory only|
 
-All are carry-forward seeds, NOT Round2-validated strategies. The learned arrays,
+All are carry-forward seeds, NOT selected Round2 strategies. Their actual A
+scores are now -146085/-143178/-168655, all penalty0. The Final seed loss was
+exactly reproduced; no-order control is0. See the new execution note below.
+The learned arrays,
 normalisers, inventory cap and5ms assumptions must be reviewed against the NEW
 round data/mechanics. Do not overwrite the R1 frozen evidence.
 
@@ -23,13 +27,30 @@ round data/mechanics. Do not overwrite the R1 frozen evidence.
 
 Participant-reported change: uploads provide feedback on a second tapeB; final
 private tapeC remains hidden. Exact organisers' implementation isUNKNOWN.
-Contract-v1 records this separately from historical Round1 public-only uploads.
+Contract-v1 preserves the pre-release state; contract-v2 registers A separately
+from still-UNKNOWN B/C identities and historical mechanics.
 
 Fit/develop onA; preserve actual future-label cutoff and current-only signals.
 Freeze up to3 candidates before consultingB. IfB is repeatedly used to rescue
 thresholds, it is selection/training feedback, not untouched validation.
 Never fit on B result logs as if they were a complete raw tape, or infer C profit
-from public bootstrap. The next organiser brief and realA hash are prerequisites.
+from public bootstrap. A's actual hash is registered; any new organiser mechanics
+and B/C details remain prerequisites for stronger official-release claims.
+
+## Current research checkpoint
+
+| Note | Purpose |
+|---|---|
+|[market-regimes.md](market-regimes.md)|Same-method R0/R1/R2 statistics, tail attribution, signal stability and null5ms hazards|
+|[execution-diagnostics.md](execution-diagnostics.md)|Actual seed losses, exact reproduction, filled-lot markouts, cancellation races and causal fill-state falsification|
+|[source-audit-theory-v1.md](source-audit-theory-v1.md)|Six verified primary-source sections, transfer limits and up to3 falsifiable mechanisms|
+|[data-provenance.md](data-provenance.md)|Preserved actual A bytes and shared lossless archive|
+
+The supplied root ROUND2_STATISTICAL_ANALYSIS.md and
+ROUND2_MARKET_MAKING_RESEARCH.md remain preserved in the old R1 archive.
+They are independent reference memos, not authenticated evaluator results or
+verified strategy packages. New empirical/reference sources are being checked
+separately; AUC, lower drawdown and external proxyPnL are not the raw score.
 
 ## First30-minute work block after data release
 
@@ -47,11 +68,11 @@ Use unique run IDs underexperiments/round_2/dataathletechamp/.
 
 ## Official commands after REALA is registered
 
-ReplaceROUND2_PUBLIC.csv by the actual downloaded filename, not an R1/synthetic tape:
+Use the registered actual A, not an R1/synthetic tape:
 
 ```
 uv run --locked python -m tools.preflight strategies/round_2/dataathletechamp/clipped_ridge_seed_from_r1.py
-uv run --locked exchange-simulator --strategy strategies/round_2/dataathletechamp/clipped_ridge_seed_from_r1.py --backtest data/round2/ROUND2_PUBLIC.csv --log-dir experiments/round_2/dataathletechamp/your-unique-seed-run/logs --no-logs
+uv run --locked exchange-simulator --strategy strategies/round_2/dataathletechamp/clipped_ridge_seed_from_r1.py --backtest data/round2/round2_public.csv --log-dir experiments/round_2/dataathletechamp/your-unique-seed-run/logs --no-logs
 ```
 
 Before running, record source/data/SDK hashes, hypothesis and rejection rule in
