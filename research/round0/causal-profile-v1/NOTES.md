@@ -17,4 +17,3 @@ Flow-horizon results are isolated one-lot quote-path diagnostics, not portfolio
 PnL: signals overlap, execution is based on the null tape, and exits are markouts.
 The whole tape was previously used by baseline runs, so later blocks are not
 claimed to be a genuinely untouched final holdout or a second independent tape.
-
