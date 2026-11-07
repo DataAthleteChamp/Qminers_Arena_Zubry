@@ -1,0 +1,65 @@
+{
+  "created_utc": "2026-11-07T10:37:58.202624+00:00",
+  "data": "data/round0/sample_v2.csv",
+  "data_sha256": "dd4e00e281abe50c9a19e16c147ccbc0b5b69835fee567f00136402ef1e01d08",
+  "grid_sampler": "first complete callback at or after each fixed calendar target",
+  "horizons_seconds": [
+    0.1,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    6.0,
+    8.0,
+    12.0
+  ],
+  "hypotheses": [
+    "External aggressive flow predicts continuation beyond 5ms, after the bid/ask cost.",
+    "Continuation weakens/reverts with causal time since the last external trade.",
+    "Static queue imbalance predicts later prices beyond the external-flow explanation."
+  ],
+  "limitations": [
+    "Whole tape was used in earlier baseline runs; these are chronological diagnostics, not a newly untouched holdout or independent private validation.",
+    "No orders are placed. One-lot markout is an isolated quote-path diagnostic, not PnL.",
+    "Exit markout uses available opposite quote, not a fully tested exit IOC/portfolio.",
+    "Overlapping signals/horizons are dependent and their profits cannot be summed.",
+    "Independent sampling/generator identity cannot be verified from this file alone.",
+    "One-lot quote diagnostics ignore our counterfactual book changes; actual strategy replay is required before adoption or sizing."
+  ],
+  "reject_if": [
+    "Directional effect changes sign or disappears in later chronological blocks.",
+    "Edge survives only in midpoint predictions, not opposite-quote markout after latency.",
+    "Claim depends on a global price anchor, future event schedule or unavailable depth."
+  ],
+  "script_sha256": "4095ad3393beca7c9e6329bcf9371f0c0a71e9fe00bcf3e7603ec137d0fd1110",
+  "simulator_sha256": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+  "trade_strategy_changes": false,
+  "windows_seconds": [
+    [
+      0,
+      1200,
+      "discovery"
+    ],
+    [
+      1200,
+      2400,
+      "chronological-check"
+    ],
+    [
+      2400,
+      3600,
+      "later-check"
+    ],
+    [
+      3600,
+      4800,
+      "additional-check-4"
+    ],
+    [
+      4800,
+      5750,
+      "additional-check-5"
+    ]
+  ]
+}

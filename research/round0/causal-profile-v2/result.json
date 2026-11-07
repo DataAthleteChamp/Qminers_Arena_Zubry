@@ -1,0 +1,1761 @@
+{
+  "aggressor_interarrival_seconds": {
+    "count": 603,
+    "max": 31.386133,
+    "mean": 5.942022479270315,
+    "median": 4.274511,
+    "min": 0.004546,
+    "negative_fraction": 0.0,
+    "p10": 0.766215,
+    "p90": 14.102047,
+    "positive_fraction": 1.0
+  },
+  "buy_aggressor_callbacks": 307,
+  "callback_rows": 53758,
+  "complete_quote_gap_ms": {
+    "count": 13892,
+    "max": 1000.0,
+    "mean": 259.0699684710625,
+    "median": 183.245,
+    "min": 0.004,
+    "negative_fraction": 0.0,
+    "p10": 29.388,
+    "p90": 659.49,
+    "positive_fraction": 1.0
+  },
+  "data_sha256": "33dd6764c54000244f1a2e0691e6efbac226684554843147f622e0431b35e8dc",
+  "end_seconds": 3599.000003,
+  "event_gap_ms": {
+    "count": 53757,
+    "max": 999.997,
+    "mean": 66.94942059638744,
+    "median": 0.001,
+    "min": 0.001,
+    "negative_fraction": 0.0,
+    "p10": 0.001,
+    "p90": 232.632,
+    "positive_fraction": 1.0
+  },
+  "missing_side_rows": 39865,
+  "missing_side_time_seconds": 0.039865,
+  "null_strategy_result": {
+    "abs_inventory_q50": 0,
+    "abs_inventory_q68": 0,
+    "abs_inventory_q95": 0,
+    "abs_inventory_q997": 0,
+    "breach_penalty": 0.0,
+    "cash": 0.0,
+    "fills": 0,
+    "inventory": 0,
+    "mark_price": 10051.0,
+    "pnl": 0.0,
+    "pnl_se": 0.0,
+    "traded_volume": 0
+  },
+  "scope": "synthetic round0 descriptive/causal hypothesis research, NOT strategy PnL",
+  "sell_aggressor_callbacks": 297,
+  "signed_trade_callback_count": 604,
+  "spread_ticks": {
+    "count": 13893,
+    "max": 2.0,
+    "mean": 2.0,
+    "median": 2.0,
+    "min": 2.0,
+    "negative_fraction": 0.0,
+    "p10": 2.0,
+    "p90": 2.0,
+    "positive_fraction": 1.0
+  },
+  "start_seconds": 0.0,
+  "trade_matches": 604,
+  "two_sided_wall_clock_fraction": 0.9999889233120404,
+  "valid_two_sided_rows": 13893,
+  "visible_market_order_counts": {
+    "bids=0,asks=0": 13288,
+    "bids=0,asks=1": 13288,
+    "bids=1,asks=0": 13289,
+    "bids=1,asks=1": 13893
+  },
+  "windows": [
+    {
+      "end_seconds": 1200,
+      "flow": [
+        {
+          "eligible_signal_events": 193,
+          "entry_misses": 1,
+          "horizon_seconds": 0.1,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 192,
+            "max": 1.0,
+            "mean": -1.5260416666666667,
+            "median": -1.0,
+            "min": -4.0,
+            "negative_fraction": 0.9270833333333334,
+            "p10": -3.0,
+            "p90": -1.0,
+            "positive_fraction": 0.010416666666666666
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 190,
+            "max": 0.0,
+            "mean": -2.473684210526316,
+            "median": -3.0,
+            "min": -5.0,
+            "negative_fraction": 0.9842105263157894,
+            "p10": -3.0,
+            "p90": -1.0,
+            "positive_fraction": 0.0
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 193,
+            "max": 3.0,
+            "mean": 0.47150259067357514,
+            "median": 1.0,
+            "min": -2.0,
+            "negative_fraction": 0.19170984455958548,
+            "p10": -1.0,
+            "p90": 1.0,
+            "positive_fraction": 0.5854922279792746
+          }
+        },
+        {
+          "eligible_signal_events": 192,
+          "entry_misses": 1,
+          "horizon_seconds": 0.5,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 191,
+            "max": 5.0,
+            "mean": -0.19895287958115182,
+            "median": 0.0,
+            "min": -6.0,
+            "negative_fraction": 0.3769633507853403,
+            "p10": -3.0,
+            "p90": 2.0,
+            "positive_fraction": 0.3193717277486911
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 190,
+            "max": 2.0,
+            "mean": -3.8157894736842106,
+            "median": -4.0,
+            "min": -10.0,
+            "negative_fraction": 0.9578947368421052,
+            "p10": -6.0,
+            "p90": -1.0,
+            "positive_fraction": 0.015789473684210527
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 192,
+            "max": 9.0,
+            "mean": 1.828125,
+            "median": 2.0,
+            "min": -4.0,
+            "negative_fraction": 0.10416666666666667,
+            "p10": -1.0,
+            "p90": 4.0,
+            "positive_fraction": 0.8020833333333334
+          }
+        },
+        {
+          "eligible_signal_events": 192,
+          "entry_misses": 1,
+          "horizon_seconds": 1.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 191,
+            "max": 10.0,
+            "mean": 1.544502617801047,
+            "median": 2.0,
+            "min": -5.0,
+            "negative_fraction": 0.225130890052356,
+            "p10": -2.0,
+            "p90": 5.0,
+            "positive_fraction": 0.6649214659685864
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 190,
+            "max": 1.0,
+            "mean": -5.573684210526316,
+            "median": -6.0,
+            "min": -16.0,
+            "negative_fraction": 0.9578947368421052,
+            "p10": -9.0,
+            "p90": -2.0,
+            "positive_fraction": 0.02631578947368421
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 192,
+            "max": 15.0,
+            "mean": 3.59375,
+            "median": 4.0,
+            "min": -3.0,
+            "negative_fraction": 0.0625,
+            "p10": 0.0,
+            "p90": 7.0,
+            "positive_fraction": 0.875
+          }
+        },
+        {
+          "eligible_signal_events": 192,
+          "entry_misses": 1,
+          "horizon_seconds": 2.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 191,
+            "max": 23.0,
+            "mean": 5.0680628272251305,
+            "median": 5.0,
+            "min": -9.0,
+            "negative_fraction": 0.10471204188481675,
+            "p10": -1.0,
+            "p90": 11.0,
+            "positive_fraction": 0.8534031413612565
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 190,
+            "max": 5.0,
+            "mean": -9.131578947368421,
+            "median": -8.5,
+            "min": -27.0,
+            "negative_fraction": 0.9631578947368421,
+            "p10": -15.0,
+            "p90": -3.0,
+            "positive_fraction": 0.031578947368421054
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 192,
+            "max": 25.0,
+            "mean": 7.151041666666667,
+            "median": 6.5,
+            "min": -7.0,
+            "negative_fraction": 0.046875,
+            "p10": 1.0,
+            "p90": 13.0,
+            "positive_fraction": 0.9375
+          }
+        },
+        {
+          "eligible_signal_events": 192,
+          "entry_misses": 1,
+          "horizon_seconds": 3.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 191,
+            "max": 28.0,
+            "mean": 7.0890052356020945,
+            "median": 7.0,
+            "min": -14.0,
+            "negative_fraction": 0.09424083769633508,
+            "p10": 0.0,
+            "p90": 14.0,
+            "positive_fraction": 0.8638743455497382
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 190,
+            "max": 10.0,
+            "mean": -11.178947368421053,
+            "median": -11.0,
+            "min": -33.0,
+            "negative_fraction": 0.9736842105263158,
+            "p10": -18.0,
+            "p90": -4.0,
+            "positive_fraction": 0.02631578947368421
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 192,
+            "max": 32.0,
+            "mean": 9.197916666666666,
+            "median": 9.0,
+            "min": -12.0,
+            "negative_fraction": 0.041666666666666664,
+            "p10": 2.0,
+            "p90": 16.0,
+            "positive_fraction": 0.921875
+          }
+        },
+        {
+          "eligible_signal_events": 191,
+          "entry_misses": 1,
+          "horizon_seconds": 4.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 190,
+            "max": 34.0,
+            "mean": 7.457894736842105,
+            "median": 7.0,
+            "min": -23.0,
+            "negative_fraction": 0.13157894736842105,
+            "p10": -2.0,
+            "p90": 16.0,
+            "positive_fraction": 0.8315789473684211
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 189,
+            "max": 19.0,
+            "mean": -11.571428571428571,
+            "median": -11.0,
+            "min": -38.0,
+            "negative_fraction": 0.9312169312169312,
+            "p10": -21.0,
+            "p90": -2.0,
+            "positive_fraction": 0.042328042328042326
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 191,
+            "max": 36.0,
+            "mean": 9.586387434554974,
+            "median": 9.0,
+            "min": -21.0,
+            "negative_fraction": 0.08376963350785341,
+            "p10": -0.0,
+            "p90": 18.0,
+            "positive_fraction": 0.8952879581151832
+          }
+        },
+        {
+          "eligible_signal_events": 191,
+          "entry_misses": 1,
+          "horizon_seconds": 6.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 190,
+            "max": 38.0,
+            "mean": 7.157894736842105,
+            "median": 7.0,
+            "min": -28.0,
+            "negative_fraction": 0.18947368421052632,
+            "p10": -5.0,
+            "p90": 18.0,
+            "positive_fraction": 0.7842105263157895
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 189,
+            "max": 24.0,
+            "mean": -11.306878306878307,
+            "median": -11.0,
+            "min": -42.0,
+            "negative_fraction": 0.873015873015873,
+            "p10": -23.0,
+            "p90": 1.0,
+            "positive_fraction": 0.10582010582010581
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 191,
+            "max": 40.0,
+            "mean": 9.303664921465968,
+            "median": 9.0,
+            "min": -26.0,
+            "negative_fraction": 0.14659685863874344,
+            "p10": -3.0,
+            "p90": 21.0,
+            "positive_fraction": 0.837696335078534
+          }
+        },
+        {
+          "eligible_signal_events": 191,
+          "entry_misses": 1,
+          "horizon_seconds": 8.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 190,
+            "max": 40.0,
+            "mean": 6.91578947368421,
+            "median": 7.0,
+            "min": -26.0,
+            "negative_fraction": 0.22105263157894736,
+            "p10": -6.0,
+            "p90": 19.0,
+            "positive_fraction": 0.7578947368421053
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 189,
+            "max": 22.0,
+            "mean": -11.08994708994709,
+            "median": -11.0,
+            "min": -44.0,
+            "negative_fraction": 0.8465608465608465,
+            "p10": -23.0,
+            "p90": 1.0,
+            "positive_fraction": 0.13756613756613756
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 191,
+            "max": 42.0,
+            "mean": 9.052356020942408,
+            "median": 9.0,
+            "min": -24.0,
+            "negative_fraction": 0.18324607329842932,
+            "p10": -3.0,
+            "p90": 21.0,
+            "positive_fraction": 0.7958115183246073
+          }
+        },
+        {
+          "eligible_signal_events": 190,
+          "entry_misses": 1,
+          "horizon_seconds": 12.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 189,
+            "max": 34.0,
+            "mean": 5.439153439153439,
+            "median": 7.0,
+            "min": -35.0,
+            "negative_fraction": 0.31216931216931215,
+            "p10": -11.0,
+            "p90": 21.0,
+            "positive_fraction": 0.6613756613756614
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 188,
+            "max": 31.0,
+            "mean": -9.617021276595745,
+            "median": -11.0,
+            "min": -38.0,
+            "negative_fraction": 0.75,
+            "p10": -26.0,
+            "p90": 7.0,
+            "positive_fraction": 0.23404255319148937
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 190,
+            "max": 36.0,
+            "mean": 7.484210526315789,
+            "median": 9.0,
+            "min": -33.0,
+            "negative_fraction": 0.26842105263157895,
+            "p10": -9.0,
+            "p90": 23.0,
+            "positive_fraction": 0.7105263157894737
+          }
+        }
+      ],
+      "grid": {
+        "1": {
+          "future_horizon_seconds": 1,
+          "grid_observations": 1198,
+          "imbalance_next_mid_correlation": 0.03535971309138989,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 181,
+              "max": 12.0,
+              "mean": 3.4696132596685083,
+              "median": 3.0,
+              "min": -2.0,
+              "negative_fraction": 0.03314917127071823,
+              "p10": 1.0,
+              "p90": 6.0,
+              "positive_fraction": 0.9226519337016574
+            },
+            "1-3s": {
+              "count": 294,
+              "max": 11.0,
+              "mean": 2.4693877551020407,
+              "median": 3.0,
+              "min": -3.0,
+              "negative_fraction": 0.0782312925170068,
+              "p10": 0.0,
+              "p90": 5.0,
+              "positive_fraction": 0.8333333333333334
+            },
+            "3-5s": {
+              "count": 205,
+              "max": 4.0,
+              "mean": 0.2048780487804878,
+              "median": 0.0,
+              "min": -3.0,
+              "negative_fraction": 0.25853658536585367,
+              "p10": -1.0,
+              "p90": 2.0,
+              "positive_fraction": 0.34146341463414637
+            },
+            "5-8s": {
+              "count": 194,
+              "max": 5.0,
+              "mean": -0.15979381443298968,
+              "median": 0.0,
+              "min": -7.0,
+              "negative_fraction": 0.34536082474226804,
+              "p10": -2.0,
+              "p90": 1.0,
+              "positive_fraction": 0.27835051546391754
+            },
+            "8-30s": {
+              "count": 317,
+              "max": 4.0,
+              "mean": -0.24290220820189273,
+              "median": 0.0,
+              "min": -6.0,
+              "negative_fraction": 0.3722397476340694,
+              "p10": -2.0,
+              "p90": 1.0,
+              "positive_fraction": 0.2082018927444795
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        },
+        "3": {
+          "future_horizon_seconds": 3,
+          "grid_observations": 1196,
+          "imbalance_next_mid_correlation": 0.04981207394577335,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 180,
+              "max": 26.0,
+              "mean": 8.161111111111111,
+              "median": 8.0,
+              "min": -8.0,
+              "negative_fraction": 0.044444444444444446,
+              "p10": 2.0,
+              "p90": 14.0,
+              "positive_fraction": 0.9388888888888889
+            },
+            "1-3s": {
+              "count": 293,
+              "max": 29.0,
+              "mean": 3.464163822525597,
+              "median": 3.0,
+              "min": -13.0,
+              "negative_fraction": 0.17064846416382254,
+              "p10": -2.0,
+              "p90": 9.0,
+              "positive_fraction": 0.757679180887372
+            },
+            "3-5s": {
+              "count": 205,
+              "max": 13.0,
+              "mean": -0.2,
+              "median": 0.0,
+              "min": -16.0,
+              "negative_fraction": 0.43902439024390244,
+              "p10": -6.0,
+              "p90": 5.0,
+              "positive_fraction": 0.4146341463414634
+            },
+            "5-8s": {
+              "count": 194,
+              "max": 14.0,
+              "mean": -0.9536082474226805,
+              "median": -1.0,
+              "min": -27.0,
+              "negative_fraction": 0.5103092783505154,
+              "p10": -6.0,
+              "p90": 3.0,
+              "positive_fraction": 0.32989690721649484
+            },
+            "8-30s": {
+              "count": 317,
+              "max": 12.0,
+              "mean": -0.6719242902208202,
+              "median": -1.0,
+              "min": -22.0,
+              "negative_fraction": 0.5110410094637224,
+              "p10": -5.0,
+              "p90": 3.0,
+              "positive_fraction": 0.25236593059936907
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        },
+        "6": {
+          "future_horizon_seconds": 6,
+          "grid_observations": 1193,
+          "imbalance_next_mid_correlation": 0.06370044034781966,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 180,
+              "max": 40.0,
+              "mean": 8.177777777777777,
+              "median": 8.0,
+              "min": -16.0,
+              "negative_fraction": 0.15,
+              "p10": -3.0,
+              "p90": 19.0,
+              "positive_fraction": 0.8388888888888889
+            },
+            "1-3s": {
+              "count": 293,
+              "max": 40.0,
+              "mean": 2.7747440273037545,
+              "median": 3.0,
+              "min": -22.0,
+              "negative_fraction": 0.3310580204778157,
+              "p10": -8.0,
+              "p90": 13.0,
+              "positive_fraction": 0.6313993174061433
+            },
+            "3-5s": {
+              "count": 203,
+              "max": 20.0,
+              "mean": -1.4334975369458127,
+              "median": -1.0,
+              "min": -34.0,
+              "negative_fraction": 0.5172413793103449,
+              "p10": -12.0,
+              "p90": 9.0,
+              "positive_fraction": 0.4088669950738916
+            },
+            "5-8s": {
+              "count": 193,
+              "max": 15.0,
+              "mean": -1.6683937823834196,
+              "median": -1.0,
+              "min": -41.0,
+              "negative_fraction": 0.5129533678756477,
+              "p10": -12.0,
+              "p90": 7.0,
+              "positive_fraction": 0.40932642487046633
+            },
+            "8-30s": {
+              "count": 317,
+              "max": 36.0,
+              "mean": -1.1009463722397477,
+              "median": -1.0,
+              "min": -28.0,
+              "negative_fraction": 0.580441640378549,
+              "p10": -10.0,
+              "p90": 9.0,
+              "positive_fraction": 0.3438485804416404
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        }
+      },
+      "label": "discovery",
+      "mid_ticks": {
+        "count": 4491,
+        "max": 10013.0,
+        "mean": 9942.192607437097,
+        "median": 9944.0,
+        "min": 9867.0,
+        "negative_fraction": 0.0,
+        "p10": 9904.0,
+        "p90": 9977.0,
+        "positive_fraction": 1.0
+      },
+      "start_seconds": 0
+    },
+    {
+      "end_seconds": 2400,
+      "flow": [
+        {
+          "eligible_signal_events": 200,
+          "entry_misses": 1,
+          "horizon_seconds": 0.1,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 199,
+            "max": 0.0,
+            "mean": -1.4723618090452262,
+            "median": -1.0,
+            "min": -4.0,
+            "negative_fraction": 0.9296482412060302,
+            "p10": -3.0,
+            "p90": -1.0,
+            "positive_fraction": 0.0
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 200,
+            "max": 0.0,
+            "mean": -2.525,
+            "median": -3.0,
+            "min": -4.0,
+            "negative_fraction": 0.97,
+            "p10": -3.0,
+            "p90": -1.0,
+            "positive_fraction": 0.0
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 200,
+            "max": 2.0,
+            "mean": 0.53,
+            "median": 1.0,
+            "min": -2.0,
+            "negative_fraction": 0.145,
+            "p10": -1.0,
+            "p90": 1.0,
+            "positive_fraction": 0.635
+          }
+        },
+        {
+          "eligible_signal_events": 200,
+          "entry_misses": 1,
+          "horizon_seconds": 0.5,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 199,
+            "max": 4.0,
+            "mean": -0.005025125628140704,
+            "median": 0.0,
+            "min": -6.0,
+            "negative_fraction": 0.3316582914572864,
+            "p10": -2.0,
+            "p90": 2.0,
+            "positive_fraction": 0.3768844221105528
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 200,
+            "max": 2.0,
+            "mean": -3.99,
+            "median": -4.0,
+            "min": -8.0,
+            "negative_fraction": 0.965,
+            "p10": -6.0,
+            "p90": -2.0,
+            "positive_fraction": 0.015
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 200,
+            "max": 6.0,
+            "mean": 1.995,
+            "median": 2.0,
+            "min": -4.0,
+            "negative_fraction": 0.08,
+            "p10": 0.0,
+            "p90": 4.0,
+            "positive_fraction": 0.82
+          }
+        },
+        {
+          "eligible_signal_events": 200,
+          "entry_misses": 1,
+          "horizon_seconds": 1.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 199,
+            "max": 9.0,
+            "mean": 1.7839195979899498,
+            "median": 2.0,
+            "min": -8.0,
+            "negative_fraction": 0.16080402010050251,
+            "p10": -1.0,
+            "p90": 5.0,
+            "positive_fraction": 0.7286432160804021
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 200,
+            "max": 4.0,
+            "mean": -5.77,
+            "median": -6.0,
+            "min": -13.0,
+            "negative_fraction": 0.95,
+            "p10": -9.0,
+            "p90": -3.0,
+            "positive_fraction": 0.03
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 200,
+            "max": 11.0,
+            "mean": 3.775,
+            "median": 4.0,
+            "min": -6.0,
+            "negative_fraction": 0.07,
+            "p10": 1.0,
+            "p90": 7.0,
+            "positive_fraction": 0.91
+          }
+        },
+        {
+          "eligible_signal_events": 200,
+          "entry_misses": 1,
+          "horizon_seconds": 2.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 199,
+            "max": 17.0,
+            "mean": 5.402010050251256,
+            "median": 5.0,
+            "min": -11.0,
+            "negative_fraction": 0.09547738693467336,
+            "p10": 0.0,
+            "p90": 12.0,
+            "positive_fraction": 0.8844221105527639
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 200,
+            "max": 7.0,
+            "mean": -9.375,
+            "median": -9.0,
+            "min": -21.0,
+            "negative_fraction": 0.965,
+            "p10": -16.0,
+            "p90": -4.0,
+            "positive_fraction": 0.035
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 200,
+            "max": 19.0,
+            "mean": 7.38,
+            "median": 7.0,
+            "min": -9.0,
+            "negative_fraction": 0.05,
+            "p10": 2.0,
+            "p90": 14.0,
+            "positive_fraction": 0.935
+          }
+        },
+        {
+          "eligible_signal_events": 200,
+          "entry_misses": 1,
+          "horizon_seconds": 3.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 199,
+            "max": 24.0,
+            "mean": 7.683417085427136,
+            "median": 7.0,
+            "min": -14.0,
+            "negative_fraction": 0.10552763819095477,
+            "p10": -1.0,
+            "p90": 16.0,
+            "positive_fraction": 0.8743718592964824
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 200,
+            "max": 10.0,
+            "mean": -11.65,
+            "median": -11.0,
+            "min": -28.0,
+            "negative_fraction": 0.95,
+            "p10": -20.0,
+            "p90": -3.0,
+            "positive_fraction": 0.02
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 200,
+            "max": 26.0,
+            "mean": 9.655,
+            "median": 9.0,
+            "min": -12.0,
+            "negative_fraction": 0.06,
+            "p10": 1.0,
+            "p90": 18.0,
+            "positive_fraction": 0.91
+          }
+        },
+        {
+          "eligible_signal_events": 200,
+          "entry_misses": 1,
+          "horizon_seconds": 4.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 199,
+            "max": 29.0,
+            "mean": 8.396984924623116,
+            "median": 9.0,
+            "min": -20.0,
+            "negative_fraction": 0.12562814070351758,
+            "p10": -2.0,
+            "p90": 19.0,
+            "positive_fraction": 0.8341708542713567
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 200,
+            "max": 16.0,
+            "mean": -12.365,
+            "median": -13.0,
+            "min": -33.0,
+            "negative_fraction": 0.925,
+            "p10": -23.0,
+            "p90": -2.0,
+            "positive_fraction": 0.04
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 200,
+            "max": 31.0,
+            "mean": 10.37,
+            "median": 11.0,
+            "min": -18.0,
+            "negative_fraction": 0.09,
+            "p10": 0.0,
+            "p90": 21.0,
+            "positive_fraction": 0.89
+          }
+        },
+        {
+          "eligible_signal_events": 199,
+          "entry_misses": 1,
+          "horizon_seconds": 6.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 198,
+            "max": 31.0,
+            "mean": 8.797979797979798,
+            "median": 9.0,
+            "min": -20.0,
+            "negative_fraction": 0.1919191919191919,
+            "p10": -3.0,
+            "p90": 23.0,
+            "positive_fraction": 0.7929292929292929
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 199,
+            "max": 16.0,
+            "mean": -12.758793969849247,
+            "median": -13.0,
+            "min": -35.0,
+            "negative_fraction": 0.9095477386934674,
+            "p10": -27.0,
+            "p90": -1.0,
+            "positive_fraction": 0.07537688442211055
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 199,
+            "max": 33.0,
+            "mean": 10.763819095477388,
+            "median": 11.0,
+            "min": -18.0,
+            "negative_fraction": 0.12562814070351758,
+            "p10": -1.0,
+            "p90": 25.0,
+            "positive_fraction": 0.8391959798994975
+          }
+        },
+        {
+          "eligible_signal_events": 198,
+          "entry_misses": 1,
+          "horizon_seconds": 8.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 197,
+            "max": 34.0,
+            "mean": 8.49746192893401,
+            "median": 9.0,
+            "min": -28.0,
+            "negative_fraction": 0.20812182741116753,
+            "p10": -6.0,
+            "p90": 23.0,
+            "positive_fraction": 0.7614213197969543
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 198,
+            "max": 24.0,
+            "mean": -12.45959595959596,
+            "median": -12.5,
+            "min": -38.0,
+            "negative_fraction": 0.8636363636363636,
+            "p10": -27.0,
+            "p90": 1.0,
+            "positive_fraction": 0.12121212121212122
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 198,
+            "max": 36.0,
+            "mean": 10.464646464646465,
+            "median": 10.5,
+            "min": -26.0,
+            "negative_fraction": 0.1717171717171717,
+            "p10": -4.0,
+            "p90": 25.0,
+            "positive_fraction": 0.8080808080808081
+          }
+        },
+        {
+          "eligible_signal_events": 196,
+          "entry_misses": 1,
+          "horizon_seconds": 12.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 195,
+            "max": 46.0,
+            "mean": 7.733333333333333,
+            "median": 8.0,
+            "min": -44.0,
+            "negative_fraction": 0.2717948717948718,
+            "p10": -11.0,
+            "p90": 27.0,
+            "positive_fraction": 0.7076923076923077
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 196,
+            "max": 40.0,
+            "mean": -11.688775510204081,
+            "median": -12.0,
+            "min": -50.0,
+            "negative_fraction": 0.7806122448979592,
+            "p10": -32.0,
+            "p90": 7.0,
+            "positive_fraction": 0.20408163265306123
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 196,
+            "max": 48.0,
+            "mean": 9.693877551020408,
+            "median": 10.0,
+            "min": -42.0,
+            "negative_fraction": 0.22959183673469388,
+            "p10": -9.0,
+            "p90": 29.0,
+            "positive_fraction": 0.7602040816326531
+          }
+        }
+      ],
+      "grid": {
+        "1": {
+          "future_horizon_seconds": 1,
+          "grid_observations": 1199,
+          "imbalance_next_mid_correlation": 0.025463349007070413,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 188,
+              "max": 10.0,
+              "mean": 3.6595744680851063,
+              "median": 4.0,
+              "min": -4.0,
+              "negative_fraction": 0.03723404255319149,
+              "p10": 1.0,
+              "p90": 7.0,
+              "positive_fraction": 0.9202127659574468
+            },
+            "1-3s": {
+              "count": 297,
+              "max": 9.0,
+              "mean": 2.65993265993266,
+              "median": 3.0,
+              "min": -3.0,
+              "negative_fraction": 0.05387205387205387,
+              "p10": -0.0,
+              "p90": 5.0,
+              "positive_fraction": 0.8619528619528619
+            },
+            "3-5s": {
+              "count": 206,
+              "max": 5.0,
+              "mean": 0.1262135922330097,
+              "median": 0.0,
+              "min": -4.0,
+              "negative_fraction": 0.2961165048543689,
+              "p10": -2.0,
+              "p90": 2.0,
+              "positive_fraction": 0.3155339805825243
+            },
+            "5-8s": {
+              "count": 204,
+              "max": 4.0,
+              "mean": -0.36764705882352944,
+              "median": 0.0,
+              "min": -5.0,
+              "negative_fraction": 0.39705882352941174,
+              "p10": -2.0,
+              "p90": 1.0,
+              "positive_fraction": 0.20098039215686275
+            },
+            "8-30s": {
+              "count": 304,
+              "max": 3.0,
+              "mean": -0.32894736842105265,
+              "median": 0.0,
+              "min": -4.0,
+              "negative_fraction": 0.41118421052631576,
+              "p10": -2.0,
+              "p90": 1.0,
+              "positive_fraction": 0.18092105263157895
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        },
+        "3": {
+          "future_horizon_seconds": 3,
+          "grid_observations": 1197,
+          "imbalance_next_mid_correlation": 0.027739036624492532,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 188,
+              "max": 23.0,
+              "mean": 8.74468085106383,
+              "median": 9.0,
+              "min": -8.0,
+              "negative_fraction": 0.0425531914893617,
+              "p10": 2.0,
+              "p90": 16.0,
+              "positive_fraction": 0.925531914893617
+            },
+            "1-3s": {
+              "count": 296,
+              "max": 25.0,
+              "mean": 4.402027027027027,
+              "median": 4.0,
+              "min": -20.0,
+              "negative_fraction": 0.14864864864864866,
+              "p10": -2.0,
+              "p90": 11.0,
+              "positive_fraction": 0.7972972972972973
+            },
+            "3-5s": {
+              "count": 205,
+              "max": 15.0,
+              "mean": -0.05853658536585366,
+              "median": -0.0,
+              "min": -13.0,
+              "negative_fraction": 0.43902439024390244,
+              "p10": -5.0,
+              "p90": 5.0,
+              "positive_fraction": 0.40487804878048783
+            },
+            "5-8s": {
+              "count": 204,
+              "max": 15.0,
+              "mean": -0.4803921568627451,
+              "median": -1.0,
+              "min": -14.0,
+              "negative_fraction": 0.5147058823529411,
+              "p10": -6.0,
+              "p90": 7.0,
+              "positive_fraction": 0.3284313725490196
+            },
+            "8-30s": {
+              "count": 304,
+              "max": 13.0,
+              "mean": -1.3092105263157894,
+              "median": -1.0,
+              "min": -12.0,
+              "negative_fraction": 0.6414473684210527,
+              "p10": -6.0,
+              "p90": 2.0,
+              "positive_fraction": 0.21710526315789475
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        },
+        "6": {
+          "future_horizon_seconds": 6,
+          "grid_observations": 1194,
+          "imbalance_next_mid_correlation": 0.017223163221133483,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 187,
+              "max": 34.0,
+              "mean": 9.294117647058824,
+              "median": 9.0,
+              "min": -20.0,
+              "negative_fraction": 0.13368983957219252,
+              "p10": -3.0,
+              "p90": 21.0,
+              "positive_fraction": 0.839572192513369
+            },
+            "1-3s": {
+              "count": 294,
+              "max": 32.0,
+              "mean": 4.581632653061225,
+              "median": 4.0,
+              "min": -31.0,
+              "negative_fraction": 0.2653061224489796,
+              "p10": -7.0,
+              "p90": 17.0,
+              "positive_fraction": 0.6802721088435374
+            },
+            "3-5s": {
+              "count": 205,
+              "max": 25.0,
+              "mean": -0.375609756097561,
+              "median": -1.0,
+              "min": -23.0,
+              "negative_fraction": 0.5024390243902439,
+              "p10": -12.0,
+              "p90": 11.0,
+              "positive_fraction": 0.4292682926829268
+            },
+            "5-8s": {
+              "count": 204,
+              "max": 30.0,
+              "mean": -0.29901960784313725,
+              "median": -2.0,
+              "min": -28.0,
+              "negative_fraction": 0.5882352941176471,
+              "p10": -10.0,
+              "p90": 12.0,
+              "positive_fraction": 0.3627450980392157
+            },
+            "8-30s": {
+              "count": 304,
+              "max": 27.0,
+              "mean": -2.8782894736842106,
+              "median": -2.0,
+              "min": -25.0,
+              "negative_fraction": 0.6907894736842105,
+              "p10": -12.0,
+              "p90": 6.0,
+              "positive_fraction": 0.2565789473684211
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        }
+      },
+      "label": "chronological-check",
+      "mid_ticks": {
+        "count": 4610,
+        "max": 10024.0,
+        "mean": 9960.97939262473,
+        "median": 9963.0,
+        "min": 9902.0,
+        "negative_fraction": 0.0,
+        "p10": 9932.0,
+        "p90": 9986.0,
+        "positive_fraction": 1.0
+      },
+      "start_seconds": 1200
+    },
+    {
+      "end_seconds": 3600,
+      "flow": [
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 0.1,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 0.0,
+            "mean": -1.4549763033175356,
+            "median": -1.0,
+            "min": -4.0,
+            "negative_fraction": 0.9146919431279621,
+            "p10": -3.0,
+            "p90": -1.0,
+            "positive_fraction": 0.0
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 0.0,
+            "mean": -2.5450236966824646,
+            "median": -3.0,
+            "min": -4.0,
+            "negative_fraction": 0.9715639810426541,
+            "p10": -3.0,
+            "p90": -1.0,
+            "positive_fraction": 0.0
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 2.0,
+            "mean": 0.5450236966824644,
+            "median": 1.0,
+            "min": -2.0,
+            "negative_fraction": 0.14691943127962084,
+            "p10": -1.0,
+            "p90": 1.0,
+            "positive_fraction": 0.6350710900473934
+          }
+        },
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 0.5,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 6.0,
+            "mean": -0.11374407582938388,
+            "median": 0.0,
+            "min": -6.0,
+            "negative_fraction": 0.36018957345971564,
+            "p10": -3.0,
+            "p90": 2.0,
+            "positive_fraction": 0.3412322274881517
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 2.0,
+            "mean": -3.8862559241706163,
+            "median": -4.0,
+            "min": -10.0,
+            "negative_fraction": 0.9478672985781991,
+            "p10": -6.0,
+            "p90": -1.0,
+            "positive_fraction": 0.009478672985781991
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 8.0,
+            "mean": 1.886255924170616,
+            "median": 2.0,
+            "min": -4.0,
+            "negative_fraction": 0.11374407582938388,
+            "p10": -1.0,
+            "p90": 4.0,
+            "positive_fraction": 0.8151658767772512
+          }
+        },
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 1.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 12.0,
+            "mean": 1.6540284360189574,
+            "median": 2.0,
+            "min": -10.0,
+            "negative_fraction": 0.2132701421800948,
+            "p10": -2.0,
+            "p90": 5.0,
+            "positive_fraction": 0.6966824644549763
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 6.0,
+            "mean": -5.654028436018957,
+            "median": -6.0,
+            "min": -16.0,
+            "negative_fraction": 0.957345971563981,
+            "p10": -9.0,
+            "p90": -2.0,
+            "positive_fraction": 0.023696682464454975
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 14.0,
+            "mean": 3.654028436018957,
+            "median": 4.0,
+            "min": -8.0,
+            "negative_fraction": 0.06635071090047394,
+            "p10": -0.0,
+            "p90": 7.0,
+            "positive_fraction": 0.8815165876777251
+          }
+        },
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 2.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 24.0,
+            "mean": 5.180094786729858,
+            "median": 5.0,
+            "min": -9.0,
+            "negative_fraction": 0.11374407582938388,
+            "p10": -1.0,
+            "p90": 12.0,
+            "positive_fraction": 0.8341232227488151
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 5.0,
+            "mean": -9.180094786729859,
+            "median": -9.0,
+            "min": -28.0,
+            "negative_fraction": 0.9715639810426541,
+            "p10": -16.0,
+            "p90": -3.0,
+            "positive_fraction": 0.018957345971563982
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 26.0,
+            "mean": 7.180094786729858,
+            "median": 7.0,
+            "min": -7.0,
+            "negative_fraction": 0.05687203791469194,
+            "p10": 1.0,
+            "p90": 14.0,
+            "positive_fraction": 0.919431279620853
+          }
+        },
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 3.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 28.0,
+            "mean": 7.516587677725118,
+            "median": 7.0,
+            "min": -14.0,
+            "negative_fraction": 0.11374407582938388,
+            "p10": -1.0,
+            "p90": 17.0,
+            "positive_fraction": 0.8483412322274881
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 10.0,
+            "mean": -11.516587677725118,
+            "median": -11.0,
+            "min": -32.0,
+            "negative_fraction": 0.957345971563981,
+            "p10": -21.0,
+            "p90": -3.0,
+            "positive_fraction": 0.03317535545023697
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 30.0,
+            "mean": 9.516587677725118,
+            "median": 9.0,
+            "min": -12.0,
+            "negative_fraction": 0.05687203791469194,
+            "p10": 1.0,
+            "p90": 19.0,
+            "positive_fraction": 0.909952606635071
+          }
+        },
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 4.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 32.0,
+            "mean": 8.075829383886257,
+            "median": 7.0,
+            "min": -16.0,
+            "negative_fraction": 0.12322274881516587,
+            "p10": -3.0,
+            "p90": 19.0,
+            "positive_fraction": 0.8388625592417062
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 12.0,
+            "mean": -12.075829383886257,
+            "median": -11.0,
+            "min": -36.0,
+            "negative_fraction": 0.9146919431279621,
+            "p10": -23.0,
+            "p90": -1.0,
+            "positive_fraction": 0.07582938388625593
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 34.0,
+            "mean": 10.075829383886257,
+            "median": 9.0,
+            "min": -14.0,
+            "negative_fraction": 0.10426540284360189,
+            "p10": -1.0,
+            "p90": 21.0,
+            "positive_fraction": 0.8909952606635071
+          }
+        },
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 6.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 42.0,
+            "mean": 7.758293838862559,
+            "median": 7.0,
+            "min": -21.0,
+            "negative_fraction": 0.17061611374407584,
+            "p10": -5.0,
+            "p90": 20.0,
+            "positive_fraction": 0.8009478672985783
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 17.0,
+            "mean": -11.75829383886256,
+            "median": -11.0,
+            "min": -46.0,
+            "negative_fraction": 0.8720379146919431,
+            "p10": -24.0,
+            "p90": 1.0,
+            "positive_fraction": 0.11374407582938388
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 44.0,
+            "mean": 9.75829383886256,
+            "median": 9.0,
+            "min": -19.0,
+            "negative_fraction": 0.14691943127962084,
+            "p10": -3.0,
+            "p90": 22.0,
+            "positive_fraction": 0.8530805687203792
+          }
+        },
+        {
+          "eligible_signal_events": 211,
+          "entry_misses": 0,
+          "horizon_seconds": 8.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 211,
+            "max": 41.0,
+            "mean": 7.478672985781991,
+            "median": 8.0,
+            "min": -28.0,
+            "negative_fraction": 0.2132701421800948,
+            "p10": -8.0,
+            "p90": 22.0,
+            "positive_fraction": 0.7772511848341233
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 211,
+            "max": 24.0,
+            "mean": -11.47867298578199,
+            "median": -12.0,
+            "min": -45.0,
+            "negative_fraction": 0.8341232227488151,
+            "p10": -26.0,
+            "p90": 4.0,
+            "positive_fraction": 0.14691943127962084
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 211,
+            "max": 43.0,
+            "mean": 9.47867298578199,
+            "median": 10.0,
+            "min": -26.0,
+            "negative_fraction": 0.1848341232227488,
+            "p10": -6.0,
+            "p90": 24.0,
+            "positive_fraction": 0.7962085308056872
+          }
+        },
+        {
+          "eligible_signal_events": 209,
+          "entry_misses": 0,
+          "horizon_seconds": 12.0,
+          "missing_quotes": 0,
+          "one_lot_entry_at_touch_exit_markout_ticks": {
+            "count": 209,
+            "max": 46.0,
+            "mean": 6.507177033492823,
+            "median": 6.0,
+            "min": -38.0,
+            "negative_fraction": 0.31100478468899523,
+            "p10": -13.0,
+            "p90": 25.0,
+            "positive_fraction": 0.6698564593301436
+          },
+          "opposite_direction_entry_exit_markout_ticks": {
+            "count": 209,
+            "max": 34.0,
+            "mean": -10.507177033492823,
+            "median": -10.0,
+            "min": -50.0,
+            "negative_fraction": 0.7511961722488039,
+            "p10": -30.0,
+            "p90": 8.0,
+            "positive_fraction": 0.22966507177033493
+          },
+          "same_direction_midpoint_change_ticks": {
+            "count": 209,
+            "max": 48.0,
+            "mean": 8.507177033492823,
+            "median": 8.0,
+            "min": -36.0,
+            "negative_fraction": 0.2727272727272727,
+            "p10": -11.0,
+            "p90": 27.0,
+            "positive_fraction": 0.6985645933014354
+          }
+        }
+      ],
+      "grid": {
+        "1": {
+          "future_horizon_seconds": 1,
+          "grid_observations": 1199,
+          "imbalance_next_mid_correlation": -4.276990949980176e-05,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 198,
+              "max": 14.0,
+              "mean": 3.48989898989899,
+              "median": 3.0,
+              "min": -4.0,
+              "negative_fraction": 0.045454545454545456,
+              "p10": 1.0,
+              "p90": 7.0,
+              "positive_fraction": 0.9141414141414141
+            },
+            "1-3s": {
+              "count": 298,
+              "max": 12.0,
+              "mean": 2.4261744966442955,
+              "median": 2.0,
+              "min": -5.0,
+              "negative_fraction": 0.08389261744966443,
+              "p10": 0.0,
+              "p90": 5.0,
+              "positive_fraction": 0.7986577181208053
+            },
+            "3-5s": {
+              "count": 221,
+              "max": 4.0,
+              "mean": 0.19909502262443438,
+              "median": 0.0,
+              "min": -4.0,
+              "negative_fraction": 0.248868778280543,
+              "p10": -1.0,
+              "p90": 2.0,
+              "positive_fraction": 0.3438914027149321
+            },
+            "5-8s": {
+              "count": 210,
+              "max": 5.0,
+              "mean": -0.047619047619047616,
+              "median": 0.0,
+              "min": -4.0,
+              "negative_fraction": 0.3238095238095238,
+              "p10": -1.0,
+              "p90": 1.0,
+              "positive_fraction": 0.2761904761904762
+            },
+            "8-30s": {
+              "count": 271,
+              "max": 5.0,
+              "mean": -0.23616236162361623,
+              "median": 0.0,
+              "min": -4.0,
+              "negative_fraction": 0.3800738007380074,
+              "p10": -2.0,
+              "p90": 1.0,
+              "positive_fraction": 0.2066420664206642
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        },
+        "3": {
+          "future_horizon_seconds": 3,
+          "grid_observations": 1197,
+          "imbalance_next_mid_correlation": 0.004212471943146082,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 198,
+              "max": 30.0,
+              "mean": 8.292929292929292,
+              "median": 8.0,
+              "min": -12.0,
+              "negative_fraction": 0.08080808080808081,
+              "p10": 0.0,
+              "p90": 16.0,
+              "positive_fraction": 0.898989898989899
+            },
+            "1-3s": {
+              "count": 298,
+              "max": 22.0,
+              "mean": 3.2449664429530203,
+              "median": 3.0,
+              "min": -14.0,
+              "negative_fraction": 0.17785234899328858,
+              "p10": -2.0,
+              "p90": 9.0,
+              "positive_fraction": 0.7785234899328859
+            },
+            "3-5s": {
+              "count": 221,
+              "max": 14.0,
+              "mean": -0.05429864253393665,
+              "median": 0.0,
+              "min": -17.0,
+              "negative_fraction": 0.416289592760181,
+              "p10": -4.0,
+              "p90": 5.0,
+              "positive_fraction": 0.43891402714932126
+            },
+            "5-8s": {
+              "count": 209,
+              "max": 18.0,
+              "mean": -0.20095693779904306,
+              "median": -1.0,
+              "min": -12.0,
+              "negative_fraction": 0.507177033492823,
+              "p10": -5.0,
+              "p90": 5.0,
+              "positive_fraction": 0.3588516746411483
+            },
+            "8-30s": {
+              "count": 270,
+              "max": 16.0,
+              "mean": -0.3851851851851852,
+              "median": -1.0,
+              "min": -15.0,
+              "negative_fraction": 0.5111111111111111,
+              "p10": -5.0,
+              "p90": 5.0,
+              "positive_fraction": 0.32592592592592595
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        },
+        "6": {
+          "future_horizon_seconds": 6,
+          "grid_observations": 1194,
+          "imbalance_next_mid_correlation": 0.017285053336188645,
+          "last_external_flow_direction_by_causal_age": {
+            "0-1s": {
+              "count": 198,
+              "max": 43.0,
+              "mean": 7.98989898989899,
+              "median": 8.0,
+              "min": -24.0,
+              "negative_fraction": 0.1717171717171717,
+              "p10": -4.0,
+              "p90": 20.0,
+              "positive_fraction": 0.7929292929292929
+            },
+            "1-3s": {
+              "count": 298,
+              "max": 26.0,
+              "mean": 2.9093959731543624,
+              "median": 3.0,
+              "min": -26.0,
+              "negative_fraction": 0.28523489932885904,
+              "p10": -8.0,
+              "p90": 14.0,
+              "positive_fraction": 0.6577181208053692
+            },
+            "3-5s": {
+              "count": 220,
+              "max": 25.0,
+              "mean": -0.031818181818181815,
+              "median": 0.0,
+              "min": -27.0,
+              "negative_fraction": 0.4863636363636364,
+              "p10": -10.0,
+              "p90": 11.0,
+              "positive_fraction": 0.42727272727272725
+            },
+            "5-8s": {
+              "count": 207,
+              "max": 40.0,
+              "mean": -0.7294685990338164,
+              "median": -1.0,
+              "min": -22.0,
+              "negative_fraction": 0.5217391304347826,
+              "p10": -12.0,
+              "p90": 11.0,
+              "positive_fraction": 0.40096618357487923
+            },
+            "8-30s": {
+              "count": 270,
+              "max": 23.0,
+              "mean": -0.5444444444444444,
+              "median": -1.0,
+              "min": -23.0,
+              "negative_fraction": 0.5518518518518518,
+              "p10": -12.0,
+              "p90": 11.0,
+              "positive_fraction": 0.3888888888888889
+            }
+          },
+          "sampler": "first complete callback at or after each fixed one-second grid target"
+        }
+      },
+      "label": "later-check",
+      "mid_ticks": {
+        "count": 4792,
+        "max": 10073.0,
+        "mean": 9980.406510851419,
+        "median": 9975.0,
+        "min": 9904.0,
+        "negative_fraction": 0.0,
+        "p10": 9930.0,
+        "p90": 10033.0,
+        "positive_fraction": 1.0
+      },
+      "start_seconds": 2400
+    }
+  ]
+}
