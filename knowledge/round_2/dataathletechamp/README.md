@@ -40,7 +40,8 @@ and B/C details remain prerequisites for stronger official-release claims.
 ## Current research checkpoint
 
 **Validation overrides the public-only record:** risk/Ridge+18916A failed
-onB(-229513). ConservativeB-10781; suppliedGridB+28827isbestprovidedpositiveB.
+onB(-229513). ConservativeB-10781; originalGridB+28827isbestprovidedexport,
+supersededbyowner-reportedgap/FIFOB+43782.
 The typedGridport reproducesA+91025/R1+149143, but uploadedsourcehash/
 coefficientfitprovenance are not authenticated by the three-file exports.
 Readcontract-v3 andthevalidationgap beforechoosingFinal.
@@ -48,8 +49,17 @@ Readcontract-v3 andthevalidationgap beforechoosingFinal.
 Latestreproducedpublicchallengers:FIFO+100195 andFIFO+visible-gap-protection
 +103998, both penalty0. Files:r2_grid_fifo_public_100195.py and
 r2_grid_gap_public_103998.py understrategies/round_2/dataathletechamp.
-TheirBperformanceisUNKNOWN; humanconfirmedoriginalGrid+28827isstillFinal.
+TheFIFO-onlyBscoreisUNKNOWN; latestownerconfirmsthegap/FIFOfilegotB+43782
+andisnowFinal. OriginalGrid+28827remainsapreservedcomparison.
 Explorer islive at http://127.0.0.1:8050/ forlocalreferenceA only.
+
+Latestownerupdate:gap/FIFO103998receivedreportedB+43782andisnowFinal;
+7sharedslotsremain. Isolatedinside-spreadrepairarms losttotheAcontrol,
+so theyareparked ratherthansubmitted. Seespread-repair-results-v1.md.
+
+Latequeue/capacitywave:largerquotesandmorechildrenfailedtoimproveA.
+CleanNORMAL-onlyEMAreference104703wasexactlyreproduced(+705only);
+newBscoreUNKNOWN,notFinal. Seelate-queue-capacity-results-v1.md.
 
 | Note | Purpose |
 |---|---|
@@ -63,6 +73,8 @@ Explorer islive at http://127.0.0.1:8050/ forlocalreferenceA only.
 |[validation-gap-v1.md](validation-gap-v1.md)|ActualthreeBresults, cash/wealthreconciliation, observedlimits, Gridcode/R1test andlocalexplorer|
 |[order-reactions-and-gaps.md](order-reactions-and-gaps.md)|Four verified source scopes, visible/censored gaps, no newsoracle and actual shrinkAPIrace tests|
 |[grid-ablation-results-v1.md](grid-ablation-results-v1.md)|Quantity/target/recovery versus FIFO/gap experiments; public103998 is not a Bscore|
+|[spread-repair-results-v1.md](spread-repair-results-v1.md)|LatestreportedB43782, inside-spread disproof and limited nextqueue/reference test|
+|[late-queue-capacity-results-v1.md](late-queue-capacity-results-v1.md)|Failed larger-size/slot tests, reproduced clean-reference104703 and strict B/Final gate|
 |[data-provenance.md](data-provenance.md)|Preserved actual A bytes and shared lossless archive|
 
 The supplied root ROUND2_STATISTICAL_ANALYSIS.md and

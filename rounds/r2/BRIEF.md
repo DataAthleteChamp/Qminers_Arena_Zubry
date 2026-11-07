@@ -33,6 +33,11 @@ providedGridB+28827iscurrentpositivevalidationincumbent. TypedGridreference
 reproducesA+91025andR1+149143. Readvalidation-gap-v1.md. Do notselectFinal
 fromAleaderboard alone ordeploy6000sendgameatB/Cmidpoint.
 
+Latestownerfeedbacksupersedestheabovehistoricalincumbent:gap/FIFOpublic103998
+gotreportedB+43782andiscurrentlyFinal,7sharedslotsremain. Outcome-only
+feedbackreportisversionedunderexperiments/round_2/dataathletechamp/
+validation-feedback-v4; no latestrawB/fullexportavailable.
+
 Fit on A first40% only; future labels must end before2399.9984052s.
 Next30% ends4199.9972091s; all A descriptions consume distribution information,
 so late30% is not untouched validation. Freeze a small candidate ladder before B.
