@@ -61,6 +61,11 @@ Latequeue/capacitywave:largerquotesandmorechildrenfailedtoimproveA.
 CleanNORMAL-onlyEMAreference104703wasexactlyreproduced(+705only);
 newBscoreUNKNOWN,notFinal. Seelate-queue-capacity-results-v1.md.
 
+LatestconfirmedB:clean-reference47150,markedFinalbyowner.
+Finalstructuraltrial1x96haspublic121235exactlyreproduced, BUNKNOWN:
+r2_trial_grid1x96_public_121235.py. Do notreplace47150unlessactualBimproves.
+Ownerreportsactualextendedclose00:15; dashboardauthorityoverridesoldschedule.
+
 | Note | Purpose |
 |---|---|
 |[market-regimes.md](market-regimes.md)|Same-method R0/R1/R2 statistics, tail attribution, signal stability and null5ms hazards|
@@ -75,6 +80,7 @@ newBscoreUNKNOWN,notFinal. Seelate-queue-capacity-results-v1.md.
 |[grid-ablation-results-v1.md](grid-ablation-results-v1.md)|Quantity/target/recovery versus FIFO/gap experiments; public103998 is not a Bscore|
 |[spread-repair-results-v1.md](spread-repair-results-v1.md)|LatestreportedB43782, inside-spread disproof and limited nextqueue/reference test|
 |[late-queue-capacity-results-v1.md](late-queue-capacity-results-v1.md)|Failed larger-size/slot tests, reproduced clean-reference104703 and strict B/Final gate|
+|[final-structural-results-v1.md](final-structural-results-v1.md)|Last four structural controls, reproduced1x96public121235 and unknownBtrial|
 |[data-provenance.md](data-provenance.md)|Preserved actual A bytes and shared lossless archive|
 
 The supplied root ROUND2_STATISTICAL_ANALYSIS.md and
