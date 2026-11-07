@@ -1,0 +1,41 @@
+{
+  "backtest": "data/playground.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "strategies/zubry.py",
+    "--backtest",
+    "data/playground.csv",
+    "--log-dir",
+    "logs/p0-zubry",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "33dd6764c54000244f1a2e0691e6efbac226684554843147f622e0431b35e8dc",
+  "git_before_run": "03f25551682145f7d7f8163e9ab95e060286f16b",
+  "git_dirty_before_run": true,
+  "hypothesis": "The documented IOC reset prevents permanent waiting after a miss",
+  "id": "p0-zubry",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Subprocess timeout/BLAS thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs/p0-zubry",
+  "owner": "bootstrap",
+  "python": "3.13.5",
+  "reject_if": "State handling fails or unexpected penalty occurs",
+  "round": "playground",
+  "schema_version": 1,
+  "simulator_sha256": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+  "source_kind": "synthetic-playground",
+  "started_utc": "2026-11-07T09:55:28.818891+00:00",
+  "status": "planned",
+  "strategy": "strategies/zubry.py",
+  "strategy_sha256": "0bb66ae3b166512f9d67bd65f66e05890eb8fb9117a40d2398ec40096fdb18d6"
+}

@@ -1,0 +1,66 @@
+{
+  "as_of": "2026-11-07",
+  "source": "Organizer Technical info supplied by participant, getting-started PDF, and official starter README/main.py",
+  "official_repository": "https://github.com/QminersOrg/qminers-algo-arena",
+  "official_commit": "3f5bea730d5f341c6988b1fe2722998b66270ea0",
+  "python": "3.13",
+  "submission_max_bytes": 1048576,
+  "sandbox": {
+    "cpus": 1,
+    "memory": "2 GB as published; exact byte accounting not specified",
+    "timeout_seconds": 900,
+    "network": false
+  },
+  "market": {
+    "instruments_per_replay": 1,
+    "identity": "anonymised; do not infer currency or asset from price",
+    "input": "Time,Operation,OrderId,Side,Volume,Price,Lifespan",
+    "time_unit": "seconds on tape; microseconds in callbacks",
+    "matching": "price-time priority; fill at resting order price",
+    "order_types": ["LIMIT", "IOC"],
+    "latency_us": 5000,
+    "activation": "before first market event at or after call time plus latency",
+    "fees": 0,
+    "public_depth_ticks": 20,
+    "penalty_free_inventory": 100,
+    "hard_potential_position": 1000,
+    "penalty_rate_per_second": 10000,
+    "markout": "liquidation against opposite resting market orders, not midpoint",
+    "tape_reacts_to_strategy": false
+  },
+  "submissions": {
+    "per_round_limit": 10,
+    "one_in_flight": true,
+    "public_data": "same public tape as local; sandbox/run compatibility check",
+    "final_default": "latest successful upload",
+    "failed_upload_replaces_working_final": false,
+    "private_evaluation": "after submissions close",
+    "round4_leaderboard": "withheld until closing"
+  },
+  "scoring": {
+    "private_round_weights": [0.8, 1.0, 1.0, 1.2],
+    "normalization": "round PnL standardized against positive-PnL teams",
+    "nonpositive": "excluded from mean/std pool and scored as effective PnL zero",
+    "zero_std_or_insufficient_positive_teams": "not specified; ask organizers"
+  },
+  "git": {
+    "checkpoint_max_minutes": 30,
+    "include_failed_experiments": true,
+    "squash": false,
+    "rebase": false,
+    "force_push": false,
+    "required_reviewer": "antoninkriz",
+    "requested_role": "Read",
+    "access_status": "pending Write invitation already exists; Read-only personal-repo role unavailable"
+  },
+  "schedule_timezone": "Europe/Prague",
+  "schedule": {
+    "playground": ["2026-11-07T10:30:00+01:00", "2026-11-07T12:00:00+01:00"],
+    "r1": ["2026-11-07T13:00:00+01:00", "2026-11-07T18:00:00+01:00"],
+    "r2": ["2026-11-07T19:00:00+01:00", "2026-11-08T00:00:00+01:00"],
+    "r3": ["2026-11-08T01:00:00+01:00", "2026-11-08T06:00:00+01:00"],
+    "r4": ["2026-11-08T07:00:00+01:00", "2026-11-08T12:00:00+01:00"],
+    "closing": ["2026-11-08T13:00:00+01:00", "2026-11-08T14:00:00+01:00"]
+  },
+  "deadline_note": "Verify actual dashboard submission-close time each round; do not infer it from schedule alone."
+}

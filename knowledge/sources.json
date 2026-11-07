@@ -1,0 +1,228 @@
+{
+  "as_of": "2026-11-06",
+  "generated_by": "tools/import_sources.py",
+  "provenance": "Curated from the pre-event research audit and targeted primary/public-firm reads. Private entries and raw search hits are not redistributed.",
+  "scope": "Public citation metadata only; no source code, private archives or market data.",
+  "source_count": 29,
+  "sources": [
+    {
+      "id": "qminers-rules",
+      "limitation": "Technical Rules are released at the opening. Round assets, exact scoring, limits, execution and evaluation assumptions remain unverified.",
+      "url": "https://arena.qminers.com/rules",
+      "use": "Eligibility, independent teams, Python solution, permitted-resource and licensing constraints."
+    },
+    {
+      "code": "https://github.com/DataAthleteChamp/dtu-quant-lab-imc-prosperity-4/blob/main/round_5/algorithmic/trader.py#L555-L610",
+      "id": "own-imc",
+      "limitation": "Archived report attributes about 84% of final algorithmic PnL to one plain-MM product. This is realized attribution, not proof of generalization or an independently rerun backtest.",
+      "url": "https://github.com/DataAthleteChamp/dtu-quant-lab-imc-prosperity-4/blob/main/round_5/algorithmic/README.md#L27-L49",
+      "use": "Per-cluster hybrid selection, simple baseline preservation, and component-level PnL attribution."
+    },
+    {
+      "id": "own-sig",
+      "limitation": "Do not transfer venue-specific tail thresholds, capital rules or external-anchor assumptions.",
+      "tests": "https://github.com/DataAthleteChamp/PredictionsCupSIG/blob/main/tests/test_risk_executor.py#L84-L113",
+      "url": "https://github.com/DataAthleteChamp/PredictionsCupSIG/blob/main/docs/ARCHITECTURE.md#L6-L18",
+      "use": "Pure desired-state strategies, one executor, common risk veto, data-health handling and observable rejection."
+    },
+    {
+      "id": "own-jump",
+      "limitation": "Sports scoring, old agent-file conventions and heuristic repetition thresholds are not portable statistical evidence.",
+      "url": "https://github.com/DataAthleteChamp/probabilitycup-jumptrading/blob/main/.github/agents/game-review.md#L13-L60",
+      "use": "A bounded review agent that records outcomes, decisions, structured lessons and proposed gated changes."
+    },
+    {
+      "id": "frankfurt-hedgehogs",
+      "limitation": "Competition outcome is author-reported with secondary corroboration. No reuse licence found by the research agent: ideas only unless permission is verified.",
+      "url": "https://github.com/TimoDiehm/imc-prosperity-3/blob/6bbc3abfb1f81cb1c8710fdb0b291079ce943202/README.md",
+      "use": "Fair-value-centred taking, clearing and making; instrument-specific overlays; execution and regime assumptions."
+    },
+    {
+      "id": "une-baguette-fromage",
+      "limitation": "Author-reported results; large realized concentration. Simulator-specific mechanics and constants are not Qminers strategies. No reuse licence found by the research agent.",
+      "url": "https://github.com/Durpie-Git/imc-prosperity-4/blob/9d8079e06c8e3553d37fade4d55f75b4035f36ae/README.md",
+      "use": "Baseline-plus-overlay architecture, conditional activation, component attribution, and rejected cross-asset signals."
+    },
+    {
+      "id": "alpha-search-process",
+      "limitation": "Process write-up rather than released production code. Intermediate rank claims are self-reported. Carry can be a valid directional edge if predeclared and validated; it is not inherently bad.",
+      "url": "https://github.com/fabianbaiertum/IMC-Prosperity-4/blob/b644d1c28512677875e2bc199af2e645043b832b/README.md",
+      "use": "Capture-versus-carry attribution, counted hypotheses, independent checks and one owner per instrument."
+    },
+    {
+      "id": "prosperity-concentration",
+      "limitation": "Author-reported results; no universal concentration cutoff follows. Inspecting the best product-day after selection is diagnosis, not a new held-out validation.",
+      "url": "https://github.com/nathanw3456/Prosperity_4_Writeup/blob/75aa1652b51a2944cd7992cddfbae54ccc071e2a/README.md",
+      "use": "Leave-one-day-out comparisons, product-day concentration analysis, parameter sensitivity and holdout discipline."
+    },
+    {
+      "id": "jmerle-strategies",
+      "limitation": "IMC-specific interface and market assumptions; no expected Qminers performance follows from the reported results.",
+      "url": "https://github.com/jmerle/imc-prosperity-3/blob/115b28e380b426f6742780c2bbbbe44fb2ffac82/README.md",
+      "use": "Per-product attribution, reproducibility and examples of evaluation variability."
+    },
+    {
+      "id": "jmerle-backtester",
+      "licence_seen": "MIT; preserve notices if code is reused and Technical Rules permit it.",
+      "limitation": "The none mode disables passive fills. It is an attribution/adverse bound, not a requirement that genuine market making remain profitable without fills. IMC-specific, not a drop-in Qminers runner.",
+      "url": "https://github.com/jmerle/imc-prosperity-3-backtester/blob/26f52ee4cdc80eb980d058e737a7da6889718562/prosperity3bt/runner.py",
+      "use": "Explicit passive-fill assumptions and sensitivity analysis."
+    },
+    {
+      "id": "algotrade-data-diggers",
+      "licence_seen": "MIT; preserve notices if code is reused and Technical Rules permit it.",
+      "limitation": "A separate competition, not Qminers. First-come matching and its option mispricing cannot be assumed elsewhere.",
+      "url": "https://github.com/PapakMate/algotrade-2025-data-diggers/blob/b73d4810db57bc804743e2de5d9dd7ba68a20423/README.md",
+      "use": "Simple pricing heuristics and the distinction between exchange latency, callback runtime and research iteration speed."
+    },
+    {
+      "id": "akuna-public-task",
+      "limitation": "Participant-published copy, not an organiser-hosted rulebook. No code reuse licence found; do not assume any mechanics apply to Qminers.",
+      "url": "https://github.com/praxindice-code/AkunaSubmission/blob/main/Round1/instructions.md",
+      "use": "Binary payoffs, RFQ versus FOK execution, and maximum-loss capital accounting as examples of contract-specific mechanics."
+    },
+    {
+      "id": "hftbacktest-fill-models",
+      "limitation": "Historical replay assumes no self-impact. Tutorial fees, rebates, parameters and reported Sharpe are venue-specific.",
+      "url": "https://hftbacktest.readthedocs.io/en/latest/order_fill.html",
+      "use": "Queue uncertainty, partial fills, replay limitations and live-calibration requirements."
+    },
+    {
+      "id": "avellaneda-stoikov",
+      "limitation": "Brownian fair price, particular utility and exogenous fill assumptions; not a universal profit-improving overlay.",
+      "url": "https://doi.org/10.1080/14697680701381228",
+      "use": "Inventory-dependent reservation price and quote-width reasoning."
+    },
+    {
+      "id": "cont-order-flow",
+      "limitation": "Contemporaneous association is not a lagged out-of-sample trading signal. Static depth imbalance is not identical to event-based order-flow imbalance.",
+      "url": "https://doi.org/10.1093/jjfinec/nbt003",
+      "use": "A mechanism for studying order-flow imbalance and price impact."
+    },
+    {
+      "id": "adaptive-holdout",
+      "limitation": "Use the principle and an experiment budget; do not build a complex reusable-holdout system for a one-day contest.",
+      "url": "https://arxiv.org/abs/1411.2664",
+      "use": "Why repeatedly inspected holdouts and public evaluator scores become tuning data."
+    },
+    {
+      "id": "tuning-playbook",
+      "limitation": "Borrow the process, not its large hyperparameter-search infrastructure.",
+      "url": "https://github.com/google-research/tuning_playbook",
+      "use": "Tracked experiments, narrow questions, noise-aware comparisons and complexity-aware adoption."
+    },
+    {
+      "id": "copilot-agents",
+      "limitation": "Instructions and worktrees are not filesystem security boundaries. Proposed configuration has not been tested end to end.",
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli",
+      "use": "Documented .github/agents/*.agent.md paths, role/tool boundaries and explicit repository-instruction inheritance for subagents."
+    },
+    {
+      "id": "copilot-skills",
+      "limitation": "Keep skills as thin checklists over reproducible commands, not a new orchestration platform.",
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills",
+      "use": "Documented .github/skills/<name>/SKILL.md procedures loaded on demand."
+    },
+    {
+      "id": "headlands-system-and-signals",
+      "limitation": "Historical educational overview first posted in 2017, not disclosure of current proprietary strategies or a guarantee of profitable signals. Its illustrative parameters and production-language choices are not Qminers requirements.",
+      "read_level": "Full article text, including signals, supporting research infrastructure and disclaimer.",
+      "url": "https://blog.headlandstech.com/2017/08/03/quantitative-trading-summary/",
+      "use": "Public educational example of market-data normalization, strategy, order gateway, capture, reconciliation, backtesting, book pressure and trade impulse."
+    },
+    {
+      "date": "2026-10-21",
+      "id": "optiver-adversarial-research",
+      "limitation": "Public explanation, not released alpha or an independently reproducible trading strategy. Qminers may have scripted rather than adapting opponents.",
+      "read_level": "Full substantive article.",
+      "url": "https://www.optiver.com/insights/technology-blog/machine-learning-in-trading-an-adversarial-research-problem/",
+      "use": "Public practitioner account of conditional fills, adverse selection, counterfactual execution, venue-specific rules and non-stationarity."
+    },
+    {
+      "date": "2026-10-06",
+      "id": "optiver-market-data",
+      "limitation": "A firm describing deep learning on large event streams does not justify training a large model on a small hackathon dataset. Prediction accuracy alone does not establish after-cost trading profit.",
+      "read_level": "Substantive article through modeling difficulties and architecture discussion.",
+      "url": "https://www.optiver.com/insights/technology-blog/why-market-data-is-a-deep-learning-challenge/",
+      "use": "Distinguish snapshot features, temporal event dynamics, aggregate depth and individual-order information. Align model complexity with available data."
+    },
+    {
+      "date": "2026-06-23",
+      "id": "optiver-agentic-sdlc",
+      "limitation": "Engineering outcomes are firm-reported case-study claims, not evidence of better trading accuracy. Borrow verification principles, not an enterprise orchestration framework.",
+      "read_level": "Full substantive article.",
+      "url": "https://www.optiver.com/insights/technology-blog/engineering-the-agentic-sdlc/",
+      "use": "Public exchange-connectivity case study: system/domain/approach context, non-interactive tools, observable failures, machine-checked deliverables and humans retained for architecture and risk decisions."
+    },
+    {
+      "date": "2026-07-20",
+      "id": "optiver-iteration-design",
+      "limitation": "Describes particular APAC systems and engineering tradeoffs; it is not a mandate to build compilers, native-code infrastructure or latency hardware for Qminers.",
+      "read_level": "Full substantive article.",
+      "url": "https://www.optiver.com/insights/technology-blog/designing-for-latency-and-iteration/",
+      "use": "Treat iteration cost and simulation-versus-production consistency as explicit design criteria. Keep complexity off the execution path when unnecessary."
+    },
+    {
+      "authors": [
+        "Martin D. Gould",
+        "Julius Bonart"
+      ],
+      "id": "gould-bonart-queue-imbalance",
+      "limitation": "Studies ten Nasdaq stocks in 2014. Section 5.2 randomly splits pooled observations 80/20, not a chronological forward test. Sampling uses intervals defined by successive price changes. Direction classification is not executable after-cost PnL or a live stopping rule.",
+      "read_level": "Abstract, introduction, market assumptions, data, sampling and methodology through Section 5.4.",
+      "title": "Queue Imbalance as a One-Tick-Ahead Price Predictor in a Limit Order Book",
+      "url": "https://arxiv.org/html/1512.03492",
+      "use": "Candidate logistic forecast of the next mid-price direction from best-queue imbalance, checked against simple null predictors.",
+      "version": "arXiv 1512.03492, 2015 preprint"
+    },
+    {
+      "authors": [
+        "Weibing Huang",
+        "Charles-Albert Lehalle",
+        "Mathieu Rosenbaum"
+      ],
+      "id": "queue-reactive-model",
+      "limitation": "Assumes a specified Markov queue framework calibrated from event data, particularly suitable to large-tick settings. Do not treat it as the official Qminers matching engine or build it before rules and suitable data exist.",
+      "read_level": "Version metadata, abstract, introduction and beginning of the general model.",
+      "text_url": "https://arxiv.org/html/1312.0563v2",
+      "title": "Simulating and analyzing order book data: The queue-reactive model",
+      "url": "https://arxiv.org/abs/1312.0563v2",
+      "use": "Understand state-dependent event intensities, FIFO queues, reference-price regimes and the data required to calibrate a simulator or execution model."
+    },
+    {
+      "authors": [
+        "Marco Avellaneda",
+        "Jeong-Hyun Lee"
+      ],
+      "id": "avellaneda-lee-primary",
+      "limitation": "Equity-universe, daily-data and cost assumptions differ from a simulated order book. The paper reports performance degradation and crisis behavior. Its fixed windows and thresholds are not portable defaults.",
+      "read_level": "Pages 1-4: abstract, residual model, trailing estimation design, transaction-cost assumptions and regime context.",
+      "title": "Statistical Arbitrage in the U.S. Equities Market",
+      "url": "https://math.nyu.edu/~avellane/AvellanedaLeeStatArb071108.pdf",
+      "use": "Factor-neutral residual modeling and mean-reversion hypotheses; fit using prior data and distinguish residual behavior from simple price correlation.",
+      "version": "Author draft dated 2008-07-11."
+    },
+    {
+      "authors": [
+        "David H. Bailey",
+        "Jonathan M. Borwein",
+        "Marcos Lopez de Prado",
+        "Qiji Jim Zhu"
+      ],
+      "id": "pbo-primary",
+      "limitation": "Does not make backtests useless or eliminate the need for simulator fidelity. Do not estimate sophisticated PBO statistics from an inadequate sample merely to produce a confidence number.",
+      "read_level": "Pages 1-4: abstract and multiple-testing/selection problem.",
+      "title": "The Probability of Backtest Overfitting",
+      "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf",
+      "use": "Count tested variants, protect final evaluation data, and distinguish a selected historical winner from evidence of future skill.",
+      "version": "Author draft revised February 2015."
+    },
+    {
+      "id": "chronological-split-reference",
+      "limitation": "A splitter does not prevent feature/label leakage by itself, calibrate fills, or reproduce live execution. Equal-duration comparisons require attention to sampling.",
+      "read_level": "Official API documentation, assumptions, gap parameter and examples.",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html",
+      "use": "Train-before-test ordering and explicit exclusion gaps. For irregular order-book events, define folds using time/session boundaries rather than assuming equal row counts represent equal durations."
+    }
+  ]
+}

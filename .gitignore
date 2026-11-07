@@ -10,3 +10,19 @@ data/*
 # Simulator output
 logs/*
 !logs/.gitkeep
+
+# Team-local data/materials and generated caches.
+!data/round0/
+data/round0/*
+!data/round0/sample.csv
+materials/*
+!materials/Algo Trade Arena Getting Started (1).pdf
+!materials/README.md
+runs/
+.pytest_cache/
+.mypy_cache/
+.env
+.env.*
+.DS_Store
+.idea/
+copilot-session-*.md
