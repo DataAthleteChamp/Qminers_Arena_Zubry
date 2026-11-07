@@ -1,0 +1,5 @@
+{
+  "problem": "Exact float equality rejected weighted10480.2mark despite only floating rounding",
+  "rounding_delta": 1.1641532182693481e-10,
+  "earlier_manifest_not_written": true
+}

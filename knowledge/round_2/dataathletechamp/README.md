@@ -1,5 +1,16 @@
 # Round2: clean workspace and bounded opening plan
 
+## Closed-round handoff
+
+Read [round2-retrospective.md](round2-retrospective.md),
+[round2-decision-log.md](round2-decision-log.md),
+[round2-workspace-lessons.md](round2-workspace-lessons.md) and
+[round2-to-round3.md](round2-to-round3.md).
+The actual humanFinal is now frozen under
+submissions/round_2/dataathletechamp/final_actual_20261108:
+public127559; suppliedserverexport80993, penalty0, **B/CstageUNKNOWN**.
+Do not confuse it with earlier47k/121k files.
+
 Worktree:`/Users/jakubpiotrowski/PycharmProjects/Qminers_Arena_Zubry_Round2`.
 Branch:`round_2/dataathletechamp`. Use uv only and read `rounds/r2/BRIEF.md`.
 Main now has the curated Round1 lessons, actual Final/public-private evidence,

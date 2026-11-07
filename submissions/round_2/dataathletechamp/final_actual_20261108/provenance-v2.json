@@ -1,0 +1,20 @@
+{
+  "source_sha256": "1d2c63ea53bc9497d5901d799fd4bf6964d46a406e8ca18493ca234de917e350",
+  "archive_sha256": "6606f6b0b95b8513dc0a941ae123875f3f89dee533b69a089a1511c2c8c864b7",
+  "members": {
+    "strategy.py": "1d2c63ea53bc9497d5901d799fd4bf6964d46a406e8ca18493ca234de917e350",
+    "server_metadata.json": "cf6d97a45bc14646e20941bdf725950273baaacb14ca2661e6c525bde3437ad3",
+    "server_result.json": "de337d55fdf5e9f828248965411db17174947a3329b03282b0b593eeb88cf39b"
+  },
+  "human_confirmed_actual_Final": true,
+  "server_result_role": "UNKNOWN: owner cannot distinguish validationB fromprivateC",
+  "provided_server_pnl": 80993.0,
+  "cash_mark_value": 80993.00000000012,
+  "rounding_delta": 1.1641532182693481e-10,
+  "abs_tolerance": 1e-07,
+  "cash_mark_reconciled": true,
+  "curve_duration_s": 11999.979714,
+  "public_actual_Final_replay": 127559,
+  "public_replay_id": "r2-actual-human-final-A-v1",
+  "private_or_validation_tapehash": "UNKNOWN"
+}

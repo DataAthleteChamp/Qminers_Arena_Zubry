@@ -1,0 +1,255 @@
+from collections import deque
+from math import ceil, exp, floor, log1p
+
+from simulator.models import OrderRequest, OrderStatus, OrderType, Side
+from simulator.strategy import BaseStrategy
+
+POSITION_LIMIT = 100
+TARGET_POSITION = 100
+QUOTE_SIZE = 32
+GRID_LEVELS = 8
+INVENTORY_SKEW = 0.05
+EMA_SECONDS = (10, 60, 120)
+ANCHOR_US = 50_000
+RECOVERY_US = 200_000
+PREDICTION_INTERCEPT = -0.0712784484850363
+PREDICTION_WEIGHTS = (
+    -0.13357816725198274,
+    0.010391788055318084,
+    0.09995071015978531,
+    -0.08450425126087342,
+    0.04439024149295189,
+    0.03317727910152446,
+    -0.03300156560078225,
+    0.2555266527668515,
+    0.10418063499285538,
+    0.017583044308491825,
+    -0.024572154921053847,
+)
+
+
+class TrendInventoryGridMaker(BaseStrategy):
+    def __init__(self):
+        super().__init__()
+        self.inventory = 0
+        self.orders = {}
+        self.previous_ids = set()
+        self.previous_bid = None
+        self.previous_ask = None
+        self.recent = deque()
+        self.flow_totals = [0, 0, 0]
+        self.history = deque()
+        self.last_anchor = -ANCHOR_US
+        self.prediction = 0.0
+        self.emas = None
+        self.ema_time = None
+        self.target = 0
+        self.state = "NORMAL"
+        self.stable_since = None
+        self.max_exposure = 0
+        self.max_inventory = 0
+
+    def cancel(self, order_id, order):
+        if order["state"] == "live":
+            order["state"] = "cancel_pending"
+            self.cancel_order(order_id)
+
+    def submit(self, side, price, quantity):
+        buys = sum(o["remaining"] for o in self.orders.values() if o["side"] == Side.BUY)
+        sells = sum(o["remaining"] for o in self.orders.values() if o["side"] == Side.SELL)
+        if side == Side.BUY:
+            capacity = POSITION_LIMIT - self.inventory - buys
+        else:
+            capacity = POSITION_LIMIT + self.inventory - sells
+        quantity = min(quantity, capacity)
+        if quantity <= 0:
+            return
+        order_id = self.send_order(
+            OrderRequest(
+                side=side,
+                price=max(1, price),
+                quantity=quantity,
+                order_type=OrderType.LIMIT,
+            )
+        )
+        self.orders[order_id] = {
+            "side": side,
+            "price": price,
+            "remaining": quantity,
+            "state": "submit_pending",
+        }
+        buys = sum(o["remaining"] for o in self.orders.values() if o["side"] == Side.BUY)
+        sells = sum(o["remaining"] for o in self.orders.values() if o["side"] == Side.SELL)
+        self.max_exposure = max(
+            self.max_exposure, abs(self.inventory + buys), abs(self.inventory - sells)
+        )
+        if self.max_exposure > POSITION_LIMIT:
+            raise RuntimeError("Exposure exceeds position limit")
+
+    def on_order_book_change(self, snapshot, trades):
+        now = self.now_us()
+        bids = [order for order in snapshot.bids if order.owner == "market"]
+        asks = [order for order in snapshot.asks if order.owner == "market"]
+        if not bids or not asks:
+            for order_id, order in self.orders.items():
+                self.cancel(order_id, order)
+            self.previous_ids = {order.order_id for order in bids + asks}
+            self.previous_bid = bids[0].price if bids else None
+            self.previous_ask = asks[0].price if asks else None
+            self.stable_since = None
+            return
+
+        bid, ask = bids[0].price, asks[0].price
+        bid_quantity = sum(order.quantity for order in bids if order.price == bid)
+        ask_quantity = sum(order.quantity for order in asks if order.price == ask)
+        bid_added = sum(
+            order.quantity
+            for order in bids
+            if order.price == bid
+            and bid == self.previous_bid
+            and order.order_id not in self.previous_ids
+        )
+        ask_added = sum(
+            order.quantity
+            for order in asks
+            if order.price == ask
+            and ask == self.previous_ask
+            and order.order_id not in self.previous_ids
+        )
+        flow = sum(
+            trade.quantity * (1 if trade.book_side == "ask" else -1)
+            for trade in trades
+            if trade.taker_owner == "market" and trade.maker_owner == "market"
+        )
+        self.previous_ids = {order.order_id for order in bids + asks}
+        self.previous_bid, self.previous_ask = bid, ask
+        if bid_added or ask_added or flow:
+            self.recent.append((now, bid_added, ask_added, flow))
+            self.flow_totals[0] += bid_added
+            self.flow_totals[1] += ask_added
+            self.flow_totals[2] += flow
+        while self.recent and self.recent[0][0] <= now - ANCHOR_US:
+            old = self.recent.popleft()
+            self.flow_totals[0] -= old[1]
+            self.flow_totals[1] -= old[2]
+            self.flow_totals[2] -= old[3]
+
+        mid = (bid + ask) / 2
+        spread = ask - bid
+        if now - self.last_anchor >= ANCHOR_US:
+            self.last_anchor = now
+            lag100 = next((v for t, v in reversed(self.history) if t <= now - 100_000), mid)
+            lag250 = next((v for t, v in reversed(self.history) if t <= now - 250_000), mid)
+            bid_depth = sum(order.quantity for order in bids)
+            ask_depth = sum(order.quantity for order in asks)
+            added_bid, added_ask, flow50 = self.flow_totals
+            features = (
+                (bid_quantity - ask_quantity) / (bid_quantity + ask_quantity),
+                (bid_depth - ask_depth) / (bid_depth + ask_depth),
+                log1p(bid_quantity),
+                log1p(ask_quantity),
+                (1 if flow50 > 0 else -1) * log1p(abs(flow50)),
+                log1p(added_bid),
+                log1p(added_ask),
+                added_bid / (added_bid + bid_quantity) - added_ask / (added_ask + ask_quantity),
+                mid - lag100,
+                mid - lag250,
+                spread,
+            )
+            self.prediction = PREDICTION_INTERCEPT + sum(
+                weight * value for weight, value in zip(PREDICTION_WEIGHTS, features, strict=True)
+            )
+            if self.emas is None:
+                self.emas = [mid, mid, mid]
+            else:
+                elapsed = (now - self.ema_time) / 1e6
+                for i, decay in enumerate(EMA_SECONDS):
+                    self.emas[i] += (1 - exp(-elapsed / decay)) * (mid - self.emas[i])
+            self.ema_time = now
+            fast = self.emas[0] - self.emas[1]
+            direction = 1 if fast > 0 else -1 if fast < 0 else 0
+            self.target = TARGET_POSITION * direction
+            self.history.append((now, mid))
+            while self.history and self.history[0][0] < now - 350_000:
+                self.history.popleft()
+
+        previous_state = self.state
+        if spread >= 3:
+            self.state = "SHOCK"
+            self.stable_since = None
+        elif previous_state in ("SHOCK", "RECOVERY"):
+            if spread == 1 and min(bid_quantity, ask_quantity) >= 100:
+                if self.stable_since is None:
+                    self.stable_since = now
+                self.state = "NORMAL" if now - self.stable_since >= RECOVERY_US else "RECOVERY"
+            else:
+                self.stable_since = None
+                self.state = "RECOVERY"
+        else:
+            self.state = (
+                "NORMAL" if spread == 1 and min(bid_quantity, ask_quantity) >= 100 else "CAUTION"
+            )
+
+        center = mid + self.prediction - INVENTORY_SKEW * (self.inventory - self.target)
+        desired = {
+            Side.BUY: max(1, min(bid, floor(center))),
+            Side.SELL: max(ask, ceil(center)),
+        }
+        quantity = QUOTE_SIZE
+        if self.state == "CAUTION":
+            quantity = QUOTE_SIZE // 2
+        elif self.state == "RECOVERY":
+            quantity = QUOTE_SIZE // 2
+            if self.inventory > self.target:
+                desired = {Side.SELL: ask}
+            elif self.inventory < self.target:
+                desired = {Side.BUY: bid}
+            else:
+                desired = {}
+        elif self.state == "SHOCK":
+            desired = {}
+            direction = 1 if self.prediction > 0 else -1
+            if direction * self.flow_totals[2] > 0 and abs(self.prediction) >= 0.25:
+                side = Side.BUY if direction > 0 else Side.SELL
+                price = min(ask - 1, bid + 1) if side == Side.BUY else max(bid + 1, ask - 1)
+                desired = {side: price}
+
+        levels = {}
+        for side, price in desired.items():
+            count = 1
+            for offset in range(count):
+                level = price - offset if side == Side.BUY else price + offset
+                levels[(side, max(1, level))] = quantity
+        for order_id, order in self.orders.items():
+            if (order["side"], order["price"]) not in levels:
+                self.cancel(order_id, order)
+        for (side, price), quantity in levels.items():
+            same_price = any(
+                order["side"] == side and order["price"] == price for order in self.orders.values()
+            )
+            topup = self.state in ("NORMAL", "CAUTION")
+            if topup or not same_price:
+                slots = sum(1 for order in self.orders.values() if order["side"] == side)
+                if slots < (GRID_LEVELS if topup else 3):
+                    self.submit(side, price, quantity)
+
+    def on_private_order_update(self, event):
+        order = self.orders.get(event.order_id)
+        if order is None:
+            if event.filled_quantity:
+                raise RuntimeError("Untracked fill")
+            return
+        if event.status == OrderStatus.ACCEPTED:
+            order["state"] = "live"
+        if event.filled_quantity:
+            sign = 1 if order["side"] == Side.BUY else -1
+            self.inventory += sign * event.filled_quantity
+            self.max_inventory = max(self.max_inventory, abs(self.inventory))
+        order["remaining"] = event.remaining_quantity
+        if event.status in (OrderStatus.FILLED, OrderStatus.CANCELED):
+            del self.orders[event.order_id]
+        elif event.status == OrderStatus.REJECTED:
+            if order["state"] == "cancel_pending":
+                order["state"] = "live"
+            else:
+                del self.orders[event.order_id]
