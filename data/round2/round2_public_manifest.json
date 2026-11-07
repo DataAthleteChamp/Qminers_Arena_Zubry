@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "round": 2,
+  "role": "A: participant-downloaded local public development tape",
+  "source_path": "/Users/jakubpiotrowski/PycharmProjects/Qminers_Arena_Zubry/data/round2/round2_public.csv",
+  "raw_path": "data/round2/round2_public.csv",
+  "raw_sha256": "88ff641e962540c66fa1cc4a3547585d31838d0929340150690cabb4f3cfb9f4",
+  "raw_bytes": 78512311,
+  "archive_path": "data/round2/round2_public.csv.gz",
+  "archive_sha256": "d4c97820dd188e9365c658a19a08908c132d605084736116811341bac195c495",
+  "archive_bytes": 18092928,
+  "lossless_decompression_verified": true,
+  "header": [
+    "Time",
+    "Operation",
+    "OrderId",
+    "Side",
+    "Volume",
+    "Price",
+    "Lifespan"
+  ],
+  "time_unit": "seconds in CSV; integer microseconds in SDK",
+  "price_quantity_unit": "positive integer anonymous price units/lots; ticker/multiplier UNKNOWN",
+  "rows": 2193064,
+  "first_timestamp_us": 67,
+  "last_timestamp_us": 5999996013,
+  "duration_s": 5999.995946,
+  "duplicate_timestamps": 0,
+  "counts": {
+    "Insert": 1123282,
+    "G-A": 534958,
+    "G-B": 534901,
+    "F-A": 26780,
+    "Cancel": 1069782,
+    "F-B": 26643
+  },
+  "integrity": "Every row audited; ordered timestamps/unique insert IDs/valid positive inserts.",
+  "B_C": "No raw feedbackB or final-privateC tape provided."
+}

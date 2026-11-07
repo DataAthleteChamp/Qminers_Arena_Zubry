@@ -25,7 +25,11 @@ copilot-session-*.md
 # Share Round 1 losslessly compressed; keep the oversized working CSV local.
 /data/round1/round1.csv
 
-# Round2 raw inputs and generated trial evidence remain local.
+# Round2 raw inputs/trials remain local; share only the registered public archive.
 /data/round2/*
 !/data/round2/.gitkeep
+!/data/round2/round2_public.csv.gz
+!/data/round2/round2_public_manifest.json
+!/data/round2/round2_public.sha256
+/data/round2/round2_public.csv
 /experiments/
