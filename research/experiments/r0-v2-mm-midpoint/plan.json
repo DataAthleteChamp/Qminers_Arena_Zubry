@@ -1,0 +1,41 @@
+{
+  "backtest": "data/round0/sample_v2.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "research/candidates/v2-midpoint-control.py",
+    "--backtest",
+    "data/round0/sample_v2.csv",
+    "--log-dir",
+    "logs/r0-v2-mm-midpoint",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "dd4e00e281abe50c9a19e16c147ccbc0b5b69835fee567f00136402ef1e01d08",
+  "git_before_run": "393da8ec593e623cc1835485ed3d094ce715f469",
+  "git_dirty_before_run": true,
+  "hypothesis": "Passive midpoint maker with inventory skew is the predeclared control for depth-aware quoting",
+  "id": "r0-v2-mm-midpoint",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs/r0-v2-mm-midpoint",
+  "owner": "builder",
+  "python": "3.13.5",
+  "reject_if": "Negative PnL, penalty, lifecycle error or unacceptable resource use rejects this control",
+  "round": "playground",
+  "schema_version": 1,
+  "simulator_sha256": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+  "source_kind": "synthetic-playground",
+  "started_utc": "2026-11-07T10:56:32.353750+00:00",
+  "status": "planned",
+  "strategy": "research/candidates/v2-midpoint-control.py",
+  "strategy_sha256": "b6ec1b22b979693baa1141c50d1b296b968687793d4d37b672bc54455a547d6c"
+}

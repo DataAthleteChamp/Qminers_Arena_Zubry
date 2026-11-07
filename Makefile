@@ -7,14 +7,15 @@ test:
 	uv run --locked python -m pytest
 
 lint:
-	uv run --locked ruff check tools tests strategies/zubry.py
-	uv run --locked ruff format --check tools tests strategies/zubry.py
+	uv run --locked ruff check tools tests strategies/zubry.py strategies/zubry_v2.py
+	uv run --locked ruff format --check tools tests strategies/zubry.py strategies/zubry_v2.py
 
 typecheck:
 	uv run --locked mypy
 
 check: lint typecheck test
 	uv run --locked python -m tools.preflight strategies/zubry.py
+	uv run --locked python -m tools.preflight strategies/zubry_v2.py
 	uv run --locked python -m tools.validate_setup
 
 playground-original:

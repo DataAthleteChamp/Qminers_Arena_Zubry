@@ -1,0 +1,41 @@
+{
+  "backtest": "data/round0/sample_v2.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "strategies/zubry_v2.py",
+    "--backtest",
+    "data/round0/sample_v2.csv",
+    "--log-dir",
+    "logs/r0-v2-mm-depth",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "dd4e00e281abe50c9a19e16c147ccbc0b5b69835fee567f00136402ef1e01d08",
+  "git_before_run": "393da8ec593e623cc1835485ed3d094ce715f469",
+  "git_dirty_before_run": true,
+  "hypothesis": "Depth-weighted fair value improves passive quote selection against the identical midpoint maker",
+  "id": "r0-v2-mm-depth",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs/r0-v2-mm-depth",
+  "owner": "builder",
+  "python": "3.13.5",
+  "reject_if": "Loss, penalty, lifecycle failure or no justified improvement over midpoint rejects depth overlay",
+  "round": "playground",
+  "schema_version": 1,
+  "simulator_sha256": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+  "source_kind": "synthetic-playground",
+  "started_utc": "2026-11-07T10:56:32.340449+00:00",
+  "status": "planned",
+  "strategy": "strategies/zubry_v2.py",
+  "strategy_sha256": "5a4ac8679094d49fb70576543f42e91b377834b624e31dd7a4f325d58ece2720"
+}
