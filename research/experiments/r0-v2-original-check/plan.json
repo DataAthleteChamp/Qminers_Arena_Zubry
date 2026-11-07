@@ -1,0 +1,41 @@
+{
+  "backtest": "data/round0/sample_v2.csv",
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "exchange-simulator",
+    "--strategy",
+    "strategies/trend_follower.py",
+    "--backtest",
+    "data/round0/sample_v2.csv",
+    "--log-dir",
+    "logs/r0-v2-original-check",
+    "--public-depth",
+    "20",
+    "--no-logs"
+  ],
+  "data_sha256": "dd4e00e281abe50c9a19e16c147ccbc0b5b69835fee567f00136402ef1e01d08",
+  "git_before_run": "eebb337ec6973bb4b9f95dea78456092c7899cb4",
+  "git_dirty_before_run": true,
+  "hypothesis": "Test the unchanged official v1 baseline on the new tape; check whether missing IOC reset hides flow losses",
+  "id": "r0-v2-original-check",
+  "limitations": [
+    "Public tape PnL is not private-round PnL or final z-score.",
+    "The caller declares round/data provenance; filenames do not identify the instrument.",
+    "Local preflight is not the server's complete static validator.",
+    "Timeout/thread settings are not an OS sandbox or memory certification."
+  ],
+  "log_dir": "logs/r0-v2-original-check",
+  "owner": "research",
+  "python": "3.13.5",
+  "reject_if": "Loss, stuck state or penalty makes this baseline unsuitable for v2",
+  "round": "playground",
+  "schema_version": 1,
+  "simulator_sha256": "6dba6395cd6104e47132c53a251f2f0781b4d66d910c34e0025cc7843fbeadb5",
+  "source_kind": "synthetic-playground",
+  "started_utc": "2026-11-07T10:40:47.665707+00:00",
+  "status": "planned",
+  "strategy": "strategies/trend_follower.py",
+  "strategy_sha256": "193b6269b1e7a9616557935f8a8307a4d9d32dc84ae75522bf2e1a6e7788f434"
+}
