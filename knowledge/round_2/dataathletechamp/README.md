@@ -44,13 +44,21 @@ and B/C details remain prerequisites for stronger official-release claims.
 |[market-regimes.md](market-regimes.md)|Same-method R0/R1/R2 statistics, tail attribution, signal stability and null5ms hazards|
 |[execution-diagnostics.md](execution-diagnostics.md)|Actual seed losses, exact reproduction, filled-lot markouts, cancellation races and causal fill-state falsification|
 |[source-audit-theory-v1.md](source-audit-theory-v1.md)|Six verified primary-source sections, transfer limits and up to3 falsifiable mechanisms|
+|[source-audit-empirical-and-references-v1.md](source-audit-empirical-and-references-v1.md)|Newer abstract-only claim limits, pinned HftBacktest/proxy execution and IMCwallmid audit|
+|[jump-risk-model.md](jump-risk-model.md)|Independent causal risk-classification screen, calibration caveats and frozen monetary overlay ladder|
+|[risk-overlay-results-v1.md](risk-overlay-results-v1.md)|First positive public record+18916, exact reproduction, source hash and failed width comparator|
+|[subsecond-size-results-v1.md](subsecond-size-results-v1.md)|Six frozen size/cap probes, five losses, fixed35+8831 and supplied-pack confounding|
 |[data-provenance.md](data-provenance.md)|Preserved actual A bytes and shared lossless archive|
 
 The supplied root ROUND2_STATISTICAL_ANALYSIS.md and
 ROUND2_MARKET_MAKING_RESEARCH.md remain preserved in the old R1 archive.
 They are independent reference memos, not authenticated evaluator results or
-verified strategy packages. New empirical/reference sources are being checked
-separately; AUC, lower drawdown and external proxyPnL are not the raw score.
+verified strategy packages. Two source waves and our independent risk screen
+are now complete; quantity arms earned+12935/+18916, width lost-70803.
+The+18916 standalone public research file is retained understrategies/round_2/
+dataathletechamp/r2_public_research_risk_capacity_18916.py, exactly reproduced.
+It is not a selected/uploadedFinal. New bounded scalping/regime/IOC probes follow.
+AUC, lower drawdown and external proxyPnL are not the raw score.
 
 ## First30-minute work block after data release
 
