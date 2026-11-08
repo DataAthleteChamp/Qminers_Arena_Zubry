@@ -5,6 +5,15 @@ submission is now possible in the portal, and new submissions show their
 filename. Exports are archived locally under
 `experiments/round_4/dataathletechamp/20261108-r4-validation-feedback-001/`.
 
+**Upload budget (Round 4): 10, one used.** Ask for an upload only when a
+candidate:
+
+- beats U1 on R4 public by more than the ±25k noise;
+- is better on average across paired R4-like synthetic tapes;
+- does not collapse on R3 or R2.
+
+Keep 3 uploads in reserve for the final and a fallback re-upload.
+
 | Upload | File (sha256 prefix) | R4 public A | Validation B | Notes |
 |---|---|---:|---:|---|
 | U1 | `r4_u1_follower_u7_baseline.py` (d2a0fc9c, = R3 final U7) | 821,692 | **1,326,712** | penalty 0; ordinary seconds +1,198.7k (99.9/s); 34 jump seconds +128.0k (23 positive); 19/20 positive 600 s blocks |
