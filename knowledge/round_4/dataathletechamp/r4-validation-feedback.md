@@ -5,7 +5,7 @@ submission is now possible in the portal, and new submissions show their
 filename. Exports are archived locally under
 `experiments/round_4/dataathletechamp/20261108-r4-validation-feedback-001/`.
 
-**Upload budget (Round 4): 10, three used.** Ask for an upload only when a
+**Upload budget (Round 4): 10, four used (a fifth reverts to U6).** Ask for an upload only when a
 candidate:
 
 - beats U1 on R4 public by more than the ±25k noise;
@@ -19,6 +19,7 @@ Keep 3 uploads in reserve for the final and a fallback re-upload.
 | U1 | `r4_u1_follower_u7_baseline.py` (d2a0fc9c, = R3 final U7) | 821,692 | **1,326,712** | penalty 0; ordinary seconds +1,198.7k (99.9/s); 34 jump seconds +128.0k (23 positive); 19/20 positive 600 s blocks |
 | U2 | `r4_u2_trig2_ungated.py` (b239d85a) | 886,626 | **1,343,784** | penalty 0; fills 3,881, traded 762,300; paired vs U1: **+17,072**; see below |
 | U3 slot | `r4_u6_jump_k4.py` (ca3e1b7c) | 920,538 | **1,343,238** | penalty 4,422; fills 3,919, traded 765,416; paired vs U2: **−546**; see below |
+| U4 slot | `r4_u8_allin.py` (058c74c9) | 948,126 | **1,318,169** | penalty 9,889; fills 4,025, traded 784,282; vs U6 **−25,069**: below the 1,333,238 bar, so revert to U6 |
 
 ### U2 vs U1 on validation (paired; `u2-trig2-ungated/` vs `u1-follower-u7-baseline/`)
 
@@ -55,6 +56,18 @@ twice as long. That bar was **not met**.
   - R4 penalty 7,466. Official CLI verified; preflight passed.
 - **Rule** (set by the owner's "go all in"): keep U8 if its validation is ≥ 1,333,238 (U6 − 10k).
   Otherwise re-upload U6 (`r4_u6_jump_k4.py`, ca3e1b7c) before 12:00.
+- **Validation:** 1,318,169, i.e. U6 − 25,069. The rule says revert to U6.
+  - The larger burst and the CUSUM flips did not transfer from R4 public (+27.6k) to validation.
+- **The validation tape does not contain the public tape:** the per-second PnL correlation of U2 on
+  validation vs local R4 public is about 0 at offsets 0, 3,000 and 6,000 s.
+- **Faster and bigger stale-quote sniping loses even on R4 public** (`20261108-r4-allin2-001`, Δ vs U6).
+  - K 2 hidden inserts plus imbalance ≥ 2, 600–1,000 lots, cap 10–60, hold 100–200 ms: R4 −36k to
+    −81k, R3 −160k to −348k, R2 −55k to −131k. Penalties reach 27k–151k from false onsets.
+  - K 3 / 1,000 lots: R4 +8.8k, R3 −50k.
+- **Field context:** the owner reported a validation median of about 3M at 11:20. That is above our
+  estimate of the ±100 perfect-foresight ceiling on validation (2.5–3.2M). By the R3 lesson, treat it
+  as real evidence of an edge we lack (positions above 100 at the right moments, or something
+  unidentified), not as inflation.
 
 ### Next probe: `r4_u6_jump_k4.py` (sha256 ca3e1b7c…dac79), replacing the U5 candidate
 
