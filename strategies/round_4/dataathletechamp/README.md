@@ -4,7 +4,7 @@
 (chosen at 11:53). A byte copy of the code is in `r4_final_pawel_r3_final.py` (sha256 of the copy
 3c9eebf2). It is U7 plus the JumpBurst flip trigger.
 - Validation 1,420,312; public R4 860,599.
-- **Private 1,250,605** (rank not announced yet).
+- **Private 1,250,605: 37th of 52.** Overall the team finished 30th of 61.
 - Why this one: `round4-retrospective.md` and `r4-validation-feedback.md` in `knowledge/round_4/dataathletechamp/`.
 
 Every research file keeps its new mechanism behind flags that are off by default, so with defaults it

@@ -2,9 +2,13 @@
 
 **Final (submission `71380109`):** Paweł's `r3_final.py`. Its copy is
 `strategies/round_4/dataathletechamp/r4_final_pawel_r3_final.py`.
-- Validation 1,420,312; public R4 860,599; **private 1,250,605** (rank not announced yet).
+- Validation 1,420,312; public R4 860,599; **private 1,250,605, 37th of 52**. Overall the team finished
+  **30th of 61** (weighted z −2.00).
 - Start with [round4-retrospective.md](round4-retrospective.md), then
   [r4-validation-feedback.md](r4-validation-feedback.md) for every upload and decision rule.
+- After the competition: [data-release-fair-price-regimes.md](data-release-fair-price-regimes.md).
+  The organisers' released tapes reproduce all our official scores exactly. The note also covers the
+  hidden fair price and the regimes, including the 3-second lull before every burst.
 
 ## Market and data
 
@@ -15,6 +19,7 @@
 | [r4-bot-fingerprints.md](r4-bot-fingerprints.md) | One generator, TWAP and ladder bots, DEEP8 deep-insert signal |
 | [r4-oracle-gap.md](r4-oracle-gap.md) | Perfect foresight vs U7: late entry 71%; execution is timing, not caps |
 | [r4-u2-trade-anatomy.md](r4-u2-trade-anatomy.md) | Exact fills: spread costs, whipsaws, jump seconds; anti-chop rejected |
+| [data-release-fair-price-regimes.md](data-release-fair-price-regimes.md) | After the round: released tapes, hidden fair price and regime timings |
 
 ## The follower line
 

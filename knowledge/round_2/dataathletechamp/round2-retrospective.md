@@ -9,7 +9,7 @@ The owner cannot distinguish validationB from finalprivateC, so its stage is
 
 **Update (2026-11-08, from the portal dashboard):** 80,993 was the validation B score of the marked Final
 (`0d85d5f8`, Maciej). Its private C result was **+2,281, rank 55 of 59**; the winner scored 1,875,116
-and the median was 441k.
+and the median was 441k. Both scores reproduce exactly on the organisers' released tapes.
 
 Source SHA256:
 `1d2c63ea53bc9497d5901d799fd4bf6964d46a406e8ca18493ca234de917e350`.
