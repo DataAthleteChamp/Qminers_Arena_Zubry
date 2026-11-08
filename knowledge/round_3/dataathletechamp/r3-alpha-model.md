@@ -179,3 +179,30 @@ read as new; identical live and in fitting). Non-reactive tape. R1/R2 are proxie
 Next test (cheapest): upload `r3_alpha_follower_p1.py` to validation B (D1 there: +272,176); reject the
 flip gate if B PnL < D1's. Optional: refit `lin` on all of R3 public (t < 6000 s) before a private
 submission only if B confirms.
+
+## Addendum 03:55 — pooled refit on full R3 + R2 public (U4 base, A_SWEEP 3)
+
+Base U4 = MAIN `strategies/round_3/dataathletechamp/r3_alpha_follower_p1_sw3.py` (sha `e4dfd2ce…`; P1 lin 1.0 +
+`A_SWEEP=3`; validation B 411,302 vs D1 272,176). Features unchanged (A_SWEEP only moves the trade trigger), so
+the recorded `features_r3/r2/r1.npz` are reused. `refit/fit_pooled.py` fits h = 2 s ridge (λ 10) on ALL rows of
+R3 (0–6,000 s) + R2 (0–6,000 s): `rlin` (intercept +0.231), `rlin0` (no intercept), `rsym` (mirror-augmented,
+zero intercept, no weight on spread/A-rate). R1 out-of-sample 2 s R² / corr (grid; A rows): rlin −.038/.214;
+−.498/.416 — rlin0 −.042/.214 — rsym −.035/.214; −.474/.418 (old R3-only lin: −.393/.172; −1.24/.392).
+Mean α̂ on R1 grid: rlin −0.04, rlin0 −0.09, rsym 0.00. Official engine, `refit/grid_refit.json` (PnL):
+
+| variant | R3 (in) | R2 (in) | R3+R2 | vs U4 | R1 (out) |
+|---|---|---|---|---|---|
+| U4 lin 1.0 | 330,208 | 109,317 | 439,525 | — | −112,045 |
+| rlin 0.8 / 1.0 / 1.2 | 335,577 / 357,249 / 348,118 | 125,135 / 113,215 / 99,412 | 460.7k / 470.5k / 447.5k | +4.8 / +7.0 / +1.8% | −125,567 / −103,806 / −85,955 |
+| rlin0 0.8 / 1.0 / 1.2 | 340,676 / 357,488 / 345,524 | 116,973 / 107,856 / 92,369 | 457.6k / 465.3k / 437.9k | +4.1 / +5.9 / −0.4% | −125,090 / −105,152 / −86,331 |
+| rsym 0.8 / 1.0 / 1.2 | 333,018 / 326,721 / 307,228 | 125,326 / 125,283 / 119,847 | 458.3k / 452.0k / 427.1k | +4.3 / +2.8 / −2.8% | −118,706 / −101,205 / **−72,584** |
+
+Penalty 0 everywhere. Rule (coordinator, predeclared): R3+R2 ≥ 95% of U4 (417.6k), best R1, no drift-heavy
+intercept unless clearly better → **rsym, FLIP_MARGIN 1.2** = default of
+`strategies/round_3/dataathletechamp/r3_alpha_follower_p1_sw3_refit.py` (sha256
+`18a04575e478fb26071ac44669b9ac3203581e7fc22ddd3dfbb2e600a8d7962f`; `MODEL="lin", FLIP_MARGIN=1.0` = U4).
+Official CLI R3 (`python -m simulator.main --no-logs`): 307,228, penalty 0, 33 s; preflight passes.
+Caveats: R3/R2 are in-sample for the refits (their fit/eval split no longer validates); R1 is the only
+out-of-sample tape and is an older generator. rsym 1.2 gives up 23k on R3 alone (−7% vs U4) for +40k on R1;
+1.2 is the edge of the tested margins (R1 improves monotonically with margin, R3+R2 peaks at 1.0). If R3-like
+B is weighted above R1-like robustness, `rlin0 1.0` (465.3k, R1 −105.2k, no intercept) is the alternative.
