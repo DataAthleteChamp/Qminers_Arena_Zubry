@@ -67,6 +67,26 @@ No source shows outsized PnL against simulated bot populations beyond what we ru
   (https://arxiv.org/abs/1509.01570). Its expected gain is too small to resolve on validation before the
   close.
 
+## 4. R4-native TRIG2 table — REJECTED (`20261108-r4-t2r4-001`, `t2_table.py`)
+
+- **Method.** The 66-cell placement-class drift table was re-estimated on R4 public with the original
+  rule.
+  - The method reproduces the R3 table at correlation 0.998.
+  - The R4 table has the same shape (correlation 0.85) at 2.4× the magnitude: deep placements imply −3.8
+    to −6.4 ticks per second on R4, vs −1.4 to −3.6 on R3.
+- **Results** (Δ vs U6, official engine; the R4 table was fit on R4 public itself):
+
+| TRIG2_THR with R4 table | R4 | R3 | R2 |
+|---|---:|---:|---:|
+| 0.95 | −106,819 | −125,300 | −113,687 |
+| 1.5 | −68,422 | −24,724 | −42,665 |
+| 2.0 | −49,082 | −3,175 | +3,915 |
+| 2.5 | −48,698 | +881 | +14,770 |
+| 3.0 | −37,180 | +233 | +1,942 |
+
+- **Verdict.** It loses even in-sample on R4. The R3-fit table at 0.95 picks better flips; average 1 s
+  drift is not the same thing as flip-timing value.
+
 ## Conclusion for Round 4
 
 The ±100 informed-flow follower is at the visible-information ceiling of this generator. That is
