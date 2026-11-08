@@ -5,7 +5,8 @@ submission is now possible in the portal, and new submissions show their
 filename. Exports are archived locally under
 `experiments/round_4/dataathletechamp/20261108-r4-validation-feedback-001/`.
 
-**Upload budget (Round 4): 10. The team used at least 6 (our 5 plus Paweł's `r3_final.py`).** Ask for an upload only when a
+**Upload budget (Round 4): 15, per the dashboard; this note first assumed 10. The team used 11: our 6
+(one canceled), Paweł's `r3_final.py`, and two each from Maciej and Łukasz.** Ask for an upload only when a
 candidate:
 
 - beats U1 on R4 public by more than the ±25k noise;
@@ -16,7 +17,7 @@ Keep 3 uploads in reserve for the final and a fallback re-upload.
 
 | Upload | File (sha256 prefix) | R4 public A | Validation B | Notes |
 |---|---|---:|---:|---|
-| U1 | `r4_u1_follower_u7_baseline.py` (d2a0fc9c, = R3 final U7) | 821,692 | **1,326,712** | penalty 0; ordinary seconds +1,198.7k (99.9/s); 34 jump seconds +128.0k (23 positive); 19/20 positive 600 s blocks |
+| U1 | `r4_u1_follower_u7_baseline.py` (d2a0fc9c, = our R3 U7) | 821,692 | **1,326,712** | penalty 0; ordinary seconds +1,198.7k (99.9/s); 34 jump seconds +128.0k (23 positive); 19/20 positive 600 s blocks |
 | U2 | `r4_u2_trig2_ungated.py` (b239d85a) | 886,626 | **1,343,784** | penalty 0; fills 3,881, traded 762,300; paired vs U1: **+17,072**; see below |
 | U3 slot | `r4_u6_jump_k4.py` (ca3e1b7c) | 920,538 | **1,343,238** | penalty 4,422; fills 3,919, traded 765,416; paired vs U2: **−546**; see below |
 | U4 slot | `r4_u8_allin.py` (058c74c9) | 948,126 | **1,318,169** | penalty 9,889; fills 4,025, traded 784,282; vs U6 **−25,069**: below the 1,333,238 bar, so revert to U6 |
@@ -58,6 +59,8 @@ twice as long. That bar was **not met**.
   - Both unbiased estimates favour Paweł's file by about 20k on a 12,000 s tape, and it carries no
     penalty risk.
 - **Action:** the owner marks submission 71380109 (`r3_final.py`) as FINAL in the portal.
+- **Outcome:** the dashboard confirms `71380109` as the Final. Its private evaluation (12:01) is
+  **+1,250,605**, 11.9% below validation.
 
 ### Last candidate: `r4_u9_u6_burst.py` (sha256 c8c57f3b…14ad2)
 

@@ -1,8 +1,8 @@
 # Round 4 knowledge (dataathletechamp)
 
-**Recommended final:** Paweł's `r3_final.py`. Its copy is
+**Final (submission `71380109`):** Paweł's `r3_final.py`. Its copy is
 `strategies/round_4/dataathletechamp/r4_final_pawel_r3_final.py`.
-- Validation 1,420,312; public R4 860,599; private pending.
+- Validation 1,420,312; public R4 860,599; **private 1,250,605** (rank not announced yet).
 - Start with [round4-retrospective.md](round4-retrospective.md), then
   [r4-validation-feedback.md](r4-validation-feedback.md) for every upload and decision rule.
 

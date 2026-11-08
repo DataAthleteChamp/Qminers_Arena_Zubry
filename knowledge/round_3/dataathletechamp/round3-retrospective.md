@@ -4,10 +4,16 @@
 
 | | Value |
 |---|---|
-| Final submission | U7, `strategies/round_3/dataathletechamp/r3_follower_u7_flow_deepfv.py` (sha256 d2a0fc9c…f897) |
-| Public R3 A (6,000 s, local official engine) | 413,588, penalty 0 |
-| Validation B (12,000 s, server) | 538,844 |
-| **Private C (12,000 s, final leaderboard)** | **+589,202, rank 34 of 53** |
+| Final submission (marked in the portal) | Paweł's upload `db1805cd` (05:23); validation B 597,854 |
+| **Private C (12,000 s, final leaderboard)** | **+589,202, rank 34 of 53** (the score of `db1805cd`) |
+| Our best own upload | U7, `strategies/round_3/dataathletechamp/r3_follower_u7_flow_deepfv.py` (sha256 d2a0fc9c…f897) |
+| U7 on public R3 A (6,000 s, local official engine) | 413,588, penalty 0 |
+| U7 on validation B (12,000 s, server) | 538,844 |
+
+**Correction (2026-11-08, from the portal dashboard):** earlier versions of this note named U7 as the
+final. The team's marked Final was Paweł's upload, and its R3 bytes are not archived here. It is most
+likely the `r3_final.py` he re-uploaded in Round 4: U7 plus the JumpBurst flip trigger, which scores
+419,806 on R3 A.
 
 The final leaderboard was each team's last submission, evaluated on the private tape:
 
@@ -33,6 +39,9 @@ The final leaderboard was each team's last submission, evaluated on the private 
 | U6 | `r3_alpha_follower_p1_sw3_rlin0.py` | 357,488 | 107,856 | 415,828 | gate refit on full R3 + R2, intercept 0 |
 | **U7** | `r3_follower_u7_flow_deepfv.py` | **413,588** | **167,166** | **538,844** | + taker-flow trigger + deep-insert fair-value trigger |
 | U8 (not final) | `r3_follower_u8.py` | 415,883 | 171,568 | – | TRIG1 flow 200, hold 6 s, flow hold 8 s (+1.2% over 7 tapes) |
+
+Teammates' uploads on B were Maciej's 154,162 (04:06) and Paweł's 597,854 (05:23, **marked Final**)
+and 596,419 (05:46).
 
 Most of the progress came late, between 03:00 and 04:20 (U4 → U7), after the oracle-gap and IOC-structure research. From 01:00 to 03:00 the effort went into broad literature and research waves and into maker and regime experiments that did not survive B.
 
