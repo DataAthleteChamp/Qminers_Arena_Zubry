@@ -14,6 +14,12 @@ Exports are kept locally under
 | U5 (optional probe) | `r3_aged_maker_best.py` (24fc7515) | 35,027 | not reported | aged maker alone; tests passive quoting on B |
 | U6 | `r3_alpha_follower_p1_sw3_rlin0.py` (e3102973) | 357,488 | **415,828** | alpha ridge refit on full R3 + R2, intercept 0; ordinary seconds +509.3k (42.4/s), 27 jump seconds -93.4k; better than U4 in 12 of 20 blocks |
 | U7 | `r3_follower_u7_flow_deepfv.py` (d2a0fc9c) | 413,588 | **538,844** | U6 + 600-lot/200 ms flow trigger + deep-insert FV flow trigger; ordinary seconds +610.7k (50.9/s), 30 jump seconds -71.8k; better than U6 in 17 of 20 blocks (owner export folder `results_jumps_maciej`; class AlphaFollower) |
+| U8 (not uploaded) | `r3_follower_u8.py` (0075a2bf) | 415,883 | – | U7 with TRIG1 flow 200, 6 s hold, 8 s flow hold; +1.2% over seven tapes |
+
+**Final (private C, 12,000 s):** U7 was the last upload. It scored
+**+589,202, rank 34 of 53**, against 538,844 on B (C/B = 1.09). The
+private leaderboard top was 1,458,005, 10th 929,224, the median (27th) 724,745
+and the last −2,192. See `round3-retrospective.md`.
 
 Interpretation:
 - The follower earned ~23/s on B versus ~45/s on A at the same traded
@@ -32,9 +38,12 @@ Interpretation:
   calm R1-like tape; passive legs must stay small and gated.
 - Field context (owner-relayed dashboard chart, 01:49): median best
   validation PnL ~503k, inter-quartile ~180k-800k, 27 teams; owner hears of
-  teams near 1.5M. By ~03:10 the owner reports a median of ~906k. These are
-  best-of-uploads on one heavy-tailed tape; our ordinary-second rate
-  (~34/s, ~406k per 12,000 s) is still clearly below that median.
+  teams near 1.5M. By ~03:10 the owner reported a median of ~906k, and
+  ~1.3M later.
+- **Correction after the round:** we suggested these were best-of-uploads on
+  one heavy-tailed tape or fits to B's wealth curve. The private leaderboard
+  disproved it: 33 teams beat our +589,202 on the unseen tape C, and the top
+  team made 1.46M. Treat field scores as evidence of a real edge.
 
 Scripts for the decomposition:
 `experiments/round_3/dataathletechamp/20261108-r3-ioc-limit-structure-001/`

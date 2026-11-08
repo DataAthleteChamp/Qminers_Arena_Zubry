@@ -75,12 +75,13 @@ fit/eval split.
 - Don't add deep or touch passive size on the strength of this table alone:
   the maker bound above is not robust.
 
-## Leaderboard context
+## Leaderboard context (corrected after the round)
 
 A ±100 position that knows the mid path at 1 s steps, trading at the touch,
 earns 1.96M on R3 A (326/s, so 3.9M per 12,000 s) and 667k on R2 A
-(`one_second_foresight.py`). Every validation upload returns a 1 s wealth
-curve; a constant-position upload would reveal the validation tape's 1 s
-price path. Validation scores above 1M are therefore attainable without any
-edge that transfers to the private tape. This is a possible reading of the
-field's validation numbers, not evidence about any team.
+(`one_second_foresight.py`). We argued that validation scores above 1M could
+come from fitting the validation tape's 1 s wealth curve. **The private
+leaderboard showed this was wrong.** On the unseen private tape the top team
+made 1,458,005, the median was 724,745 and we made 589,202 (rank 34 of 53).
+The ceiling is useful only as an upper bound on taker strategies, not as an
+explanation of competitors' scores.
