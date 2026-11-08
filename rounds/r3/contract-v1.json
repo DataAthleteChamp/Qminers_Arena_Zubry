@@ -1,0 +1,16 @@
+{
+  "round": 3,
+  "status": "UNKNOWN_PENDING_OFFICIAL_BRIEF_AND_DATA",
+  "public_dataset_sha256": null,
+  "public_duration_seconds": null,
+  "validation_duration_seconds": null,
+  "private_duration_seconds": null,
+  "submission_quota": null,
+  "current_matching_confirmed": false,
+  "current_latency_confirmed": false,
+  "current_risk_and_liquidation_confirmed": false,
+  "incumbent": null,
+  "final": null,
+  "seed_evidence_round": 2,
+  "opening_rule": "Confirm official mechanics and register real data before comparisons; seeds are not Round3 results."
+}
