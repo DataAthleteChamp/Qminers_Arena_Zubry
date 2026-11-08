@@ -1,5 +1,12 @@
 # Round 4: hidden IOCs are a live, leading indicator of big moves
 
+> **Update (later the same morning):**
+> - In a multivariate model, hidden-IOC features add almost nothing once the volatility state is
+>   known: AUC +0.000 to +0.009 for big moves, out of sample (`r4-burst-predictor.md`).
+> - The precursor statistics below are mostly a volatility-regime effect.
+> - In the official engine, triggers and bursts built on them were all rejected
+>   (`r4-hidden-triggers.md`).
+
 Question: is there a live signal that comes before the bursts (big, fast
 moves) rather than after them?
 
