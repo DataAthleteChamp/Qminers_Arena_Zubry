@@ -94,6 +94,16 @@ PnL = gross mid PnL (position × mid change) − execution cost (fill vs mid at 
   - The gate-blocked signals move only about 1 tick in the blocked direction.
   - The execution caps had no effect.
   - None of these has a positive offline case.
+- **The official engine agrees** (`20261108-r4-antichop-001`; U2 copy with flags, ΔPnL vs U2):
+
+  | variant | R4 | R3 | R2 |
+  |---|---:|---:|---:|
+  | minimum hold 300 ms after a flip | −2,560 | −3,505 | +14,795 |
+  | minimum hold 600 ms | −52,444 | −24,678 | −12,077 |
+  | minimum hold 1,000 ms | −97,214 | −57,189 | −24,668 |
+  | wait for spread < 2 / 3 / 4 before flipping (20–100 ms; 6 variants) | −3.8k to −20.4k | −2.6k to −8.1k | +1.9k to +24.6k |
+
+  Spread-waiting helps only on R2, the least momentum-driven tape.
 
 ## Reading
 
