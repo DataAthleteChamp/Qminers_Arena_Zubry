@@ -40,6 +40,22 @@ twice as long. That bar was **not met**.
   - Most of the public +65k was threshold fit on R4 public.
   - Expected private gain over U1 is small and positive, with jump-second risk.
 
+### Last candidate: `r4_u9_u6_burst.py` (sha256 c8c57f3b…14ad2)
+
+- **What it is:** U6 + the colleague's JumpBurst trigger as an ungated flip signal (mid move ≥ 2 ticks
+  within 100 ms at spread ≤ 1, 500 ms cooldown). Experiment `20261108-r4-colleague-burst-001`.
+- **Results** (official engine; CLI R4 937,371; preflight passed):
+
+  | file | R4 | R3 | R2 |
+  |---|---:|---:|---:|
+  | U9 | 937,371 (+16,833) | 422,188 (+6,084) | 188,384 (+29,691) |
+  | burst threshold 3 / 4 | +1.7k / −0.3k | −3.3k / −2.4k | +23.2k / +20.7k |
+  | gated | +9.7k | +5.6k | +2.2k |
+  | colleague's own U7-based file | 860,599 (−59,939) | 419,806 (+3,702) | 180,827 (+22,134) |
+
+  Deltas are vs U6. U9 is better than U6 on all three tapes.
+- **Rule:** keep U9 if its validation is ≥ 1,333,238 (U6 − 10k) and time allows. Otherwise re-upload U6.
+
 ### All-in probe: `r4_u8_allin.py` (sha256 058c74c9…f568), uploaded after the U6 result
 
 - **What it is:** U6 + a gated CUSUM trigger on the per-insert placement drift (κ 0.5, h 5, τ 200 ms;
