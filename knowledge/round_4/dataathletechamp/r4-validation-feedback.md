@@ -35,3 +35,19 @@ time (R4 / R3 / R2):
 - Flip margin 1.0 stays best on R4.
 - No single parameter gives a material gain. Improvements must be
   structural.
+
+## Structural tests on R4 (official engine; R4 / R3 / R2)
+
+| test | best R4 | R3 | R2 | verdict |
+|---|---:|---:|---:|---|
+| pure price trend families: mid momentum 5 s / EMA crossovers (`20261108-r4-trend-families-001`) | 396,638 / −1k to −86k | – | – | far below U7 |
+| second flow window 0.5–5 s (`20261108-r4-flow2-001`) | 823,375 | – | 167,085 | noise |
+| adverse stop 3 ticks, IOC exit (`20261108-r4-stops-001`) | 829,890 | 412,707 | 161,836 | +8k R4, R2 −5k |
+| adverse stop 5 / 8 / 12, giveback 8 / 15 | 822–826k / 815k | 402–417k | 152–166k | noise or worse |
+| alpha gate refit with R4 (h 2 s, h 5 s, variance-normalised; `r4-alpha-refit.md`) | 816,529 | R3+R2 −14% to −26% | – | rejected; an independent R3+R2 gate is better |
+| evidence sizing with reset, τ 5–10 s (`20261108-r4-evidence-001`) | 816,828 | 413,322 | 172,296 | worse on R4 |
+
+On R4 the event study shows a large continuation after followed trades that
+go 5 ticks against at 2 s. In the engine a stop on such trades is
+noise-sized, because the follower re-enters on the next signal. Use event
+studies to rank ideas, not to size gains.
