@@ -73,6 +73,28 @@ PnL = gross mid PnL (position × mid change) − execution cost (fill vs mid at 
 - The onsets at 2,170 s, 2,540 s, 2,689 s and 5,801 s are exactly the events that the clustered
   order-id-gap jump-onset detector called in the right direction (`jump_onset.py`, `jump_episodes.py`).
 
+## Can the whipsaws be filtered at flip time? No (`whipsaw.py`, `whipsaw.txt`)
+
+- **Method.** Skipping a flip into episode E means holding the old side through E and not flipping
+  back. The value of skipping is −2 × gross(E) + cost(E) + cost(next flip), computed from exact fills.
+- **Every bucket says flipping was right, on every tape.**
+
+  | flips filtered | skip value R4 / R3 / R2 |
+  |---|---|
+  | < 600 ms after the previous flip | −213k / −97k / −70k |
+  | ≥ 6 flips in the last 10 s | −284k / −188k / −110k |
+  | spread ≥ 3 at the signal | −848k / −386k / −120k |
+  | FLOW trigger within 2 s of the previous flip | −25k / −43k / −21k |
+  | every flip | −1.92M / −0.98M / −0.44M |
+
+  The only positive cells have n ≤ 60 and occur on R2 alone.
+- **Why it fails.** Whipsaws are the unavoidable cost of reacting fast. Wide-spread flips are the most
+  valuable ones, because they happen inside jumps.
+- **The rejected alternatives:** partial flips (to flat), stricter gates and cheaper execution.
+  - The gate-blocked signals move only about 1 tick in the blocked direction.
+  - The execution caps had no effect.
+  - None of these has a positive offline case.
+
 ## Reading
 
 - **No hidden bleed in the logic.** U2 earns where it should: it is on the right side of 81% of R4's jump
