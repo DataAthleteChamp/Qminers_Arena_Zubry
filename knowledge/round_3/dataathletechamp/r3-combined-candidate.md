@@ -139,6 +139,46 @@ Max exposure including pending was 100 in every run (80 in C1).
 
 Low-extend (+3.9k) and wait-mode exits (+0.8k) gain only on R3; R2 and R1 fall, which is within noise. Not adopted.
 
+**RATE_TAU_S sweep.** Final file, RATE_HIGH 0.867. Selected after the ladder; the default is not changed.
+
+| RATE_TAU_S | R3 PnL (fit / eval /s) | R2 PnL | R1 PnL | sum |
+|---|---|---|---|---|
+| 60 | 252,194 (+39.8 / +43.5) | 30,944 | 15,105 | 298,243 |
+| 120 (C2) | 269,288 (+41.5 / +47.2) | 63,328 | 40,363 | 372,979 |
+| 180 | 266,959 (+38.7 / +48.4) | 62,204 | 52,228 | 381,391 |
+| 240 | 275,978 (+41.8 / +48.8) | 56,669 | 59,216 | 391,863 |
+| 360 | 271,480 (+39.9 / +48.8) | 58,153 | 65,351 | 394,984 |
+
+- A slower EMA monotonically reduces false gate openings on R1: 15k → 65k.
+- R3 is flat within noise.
+- R2 peaks at 120–180 and loses 5–7k at 240–360 because the gate lags real minute-scale regime changes.
+- RATE_TAU_S 240 would pass the ladder rule (+18.9k sum; R3 eval +1.6/s). It was chosen in-sample on these same
+  three tapes, so it is a candidate for a predeclared check, not the default.
+
+## Maker-only validation probe (C1 as a standalone file)
+File: `strategies/round_3/dataathletechamp/r3_combined_maker_probe.py`, class `CombinedMakerProbe`.
+sha256: `627769c917fddfcdcd887b86bf79f17f3ca7121ac3aff2ce2daccf8b12c68da0`.
+
+It is identical to the regime file except for three things:
+- `FOLLOW_ENABLED = False`, so no follower logic runs and the regime switch has no effect;
+- the class name;
+- the docstring header.
+
+Results:
+- **Runner** (official engine):
+  - R3 −3,348 (+2.9 / −2.9 /s, 5/10 blocks);
+  - R2 +9,436 (+5.5 / −1.1);
+  - R1 +72,447 (+5.5 / +6.4, 20/20 blocks);
+  - penalty 0. These match the C1 row exactly.
+- **CLI on R3 A:**
+  - pnl −3,348; fills 11,409; traded 213,105; penalty 0; final inventory +43;
+  - |inv| q50 / q95 = 40 / 80;
+  - pnl_se 15,899;
+  - 26.4 s wall.
+- **Checks:** preflight passes, and ruff check and format pass.
+- **Purpose:** a validation-upload probe of whether FV-gated resting quotes earn on the B tape. Its R3 public
+  expectation is about 0.
+
 ## Official CLI, preflight, runtime
 - **CLI on R3 A** (defaults = C2): pnl **269,288**, identical to the runner, for both v1 and the final file.
   - fills 3,872; traded 399,758; breach_penalty 0; final inventory +100;
@@ -181,5 +221,10 @@ Use the file as committed, which is C2:
 - **Gate design.** There is no hysteresis.
 - **Validation.** The website's static sandbox checker was not run; the local preflight is conservative only.
 - **Research hook.** A `diagnostics()` method holds counters only, for research runners. It has no file or system access.
-- **Next test.** A hysteresis or second-feature gate (rate AND rv, see the regime notes) aimed at the knife-edge is
-  the next lever. It is not implemented here.
+- **Next test.** The next lever for the knife-edge is a hysteresis or second-feature gate (rate AND rv, see the
+  regime notes), or a slower RATE_TAU_S. Neither is adopted here.
+- **Not implemented.** E2 stale-snipe (one-sided jump ≥ 2 ticks → IOC the unchanged side, hold 2 s, only when
+  the follower is flat) was not implemented in this session.
+- **Validation context** (coordinator report, not reproduced locally): the plain D1 follower (R3 public 270,035)
+  scored +272,176 on the 12,000 s validation tape B (≈ 23/s against 45/s on public) with penalty 0.
+  Public-tape PnL/s therefore overstates B for the follower.
