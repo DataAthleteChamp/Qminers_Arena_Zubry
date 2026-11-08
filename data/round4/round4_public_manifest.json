@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "round": 4,
+  "role": "A: participant-downloaded local public development tape",
+  "raw_path": "data/round4/round4_public.csv",
+  "raw_sha256": "61c0b6d149e5e50806f1b09ba17fa69ac3e5d8d2cf884d6f11ce17b833af8a56",
+  "raw_bytes": 85915505,
+  "archive_path": "data/round4/round4_public.csv.gz",
+  "archive_sha256": "820c7271130eae3c179f3fec232355c1ada3461072e9a052dc0e191efb62fee1",
+  "archive_bytes": 19928684,
+  "archive_command": "gzip -n -9 -k data/round4/round4_public.csv",
+  "lossless_decompression_verified": true,
+  "header": [
+    "Time",
+    "Operation",
+    "OrderId",
+    "Side",
+    "Volume",
+    "Price",
+    "Lifespan"
+  ],
+  "time_unit": "seconds in CSV; integer microseconds in SDK",
+  "rows": 2398520,
+  "first_timestamp_us": 5934,
+  "last_timestamp_us": 5999999361,
+  "duration_s": 5999.993427,
+  "price_min": 9146,
+  "price_max": 10039,
+  "counts": {
+    "Insert": 1228523,
+    "Cancel": 1169997,
+    "F-A": 29320,
+    "F-B": 29125,
+    "G-A": 584787,
+    "G-B": 585291
+  },
+  "checks": {
+    "time_non_decreasing": true,
+    "duplicate_timestamps": 0,
+    "unique_insert_ids": true,
+    "positive_insert_volume_price": true,
+    "cancels_target_known_ids": true,
+    "operations": [
+      "Cancel",
+      "Insert"
+    ],
+    "lifespans": [
+      "F",
+      "G"
+    ]
+  },
+  "B_C": "No raw validation B or private C tape provided.",
+  "script": "experiments/round_4/dataathletechamp/20261108-r4-data-registration-001/register.py"
+}

@@ -35,3 +35,5 @@ copilot-session-*.md
 # Round3 working tape stays local; registration and provenance are separate.
 /data/round3/round3_public.csv
 /experiments/
+# Round4 working tape stays local; share only the registered public archive.
+/data/round4/round4_public.csv
