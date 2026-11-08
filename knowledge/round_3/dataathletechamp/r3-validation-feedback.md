@@ -11,6 +11,8 @@ Exports are kept locally under
 | U2 (probe) | `round_2/.../final_maker_seed_from_r1.py` (c1f19466) | -422,816 | **-659,826** | heavy R1 maker; 3/20 positive blocks |
 | U3 | `r3_combined_regime.py` (111fc83e) | 269,288 | **258,688** | regime gate + Q20 maker; switched the follower off in profitable B stretches |
 | U4 | `r3_alpha_follower_p1_sw3.py` (e4dfd2ce) | 330,208 | **411,302** | P1 ridge flip gate + 3-tick sweep trigger; R2 109,317; ordinary seconds +467.2k (38.9/s), 26 jump seconds -55.9k |
+| U5 (optional probe) | `r3_aged_maker_best.py` (24fc7515) | 35,027 | not reported | aged maker alone; tests passive quoting on B |
+| U6 | `r3_alpha_follower_p1_sw3_rlin0.py` (e3102973) | 357,488 | **415,828** | alpha ridge refit on full R3 + R2, intercept 0; ordinary seconds +509.3k (42.4/s), 27 jump seconds -93.4k; better than U4 in 12 of 20 blocks |
 
 Interpretation:
 - The follower earned ~23/s on B versus ~45/s on A at the same traded
