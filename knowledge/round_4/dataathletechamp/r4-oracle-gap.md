@@ -23,6 +23,11 @@ and U7 trades 1,931 times.
   ≥25-tick 30 s trend; R4's 10 s trends end in sharp V-turns.
 - Execution: 0.98 ticks/lot for us vs 0.62 for the oracle. We cross at an
   average spread of 1.62 vs 1.25.
+  - Walking the book is not the cause. On U2, `EXIT_CAP` 0/1/2/5/8 (vs 3) and
+    `ENTRY_CAP` 1/2/3 (vs 0) change PnL by at most 2.3k on R4, R3 and R2
+    (`20261108-r4-exec-caps-001`).
+  - The gap comes from crossing at wide spreads during moves we enter late. It
+    is a timing problem, not an order-placement one.
 
 Rules tested (ΔPnL vs U7, R4 / R3):
 
