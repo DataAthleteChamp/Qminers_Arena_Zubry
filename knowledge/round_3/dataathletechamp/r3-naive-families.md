@@ -37,7 +37,14 @@ obimm | obiflow. Default = flow, 200 ms, 600 lots.
 | OBI-gated touch maker (6 variants) | -19k…-112k | | | -3k…-49k | |
 | flow gated by reversed OBI (4 variants) | 104k-256k | | | 9k-161k | |
 
-R1 (calm maker tape) with the default flow file: -119,787 (0/20 positive blocks).
+R1 (calm maker tape) with the default flow file: -119,787 (0/20 positive blocks); our best
+`r3_alpha_follower_p1_sw3.py` on R1 in the same runner: -112,045 (2/20), so both followers fail
+there alike.
+
+Go-flat timeout after the last ≥600 burst (experiment file `naive_families_v3.py`, flag
+FLOW_HOLD_S, not in the committed file): 2 s R3 251,604 (max drawdown only -4.3k) / R2 30,228;
+5 s 280,954 / 137,578; 15 s and 60 s equal hold-forever (bursts recur within ~15 s, so the
+default is effectively always ±100).
 
 ## Findings
 
