@@ -5,7 +5,7 @@ submission is now possible in the portal, and new submissions show their
 filename. Exports are archived locally under
 `experiments/round_4/dataathletechamp/20261108-r4-validation-feedback-001/`.
 
-**Upload budget (Round 4): 10, one used.** Ask for an upload only when a
+**Upload budget (Round 4): 10, two used.** Ask for an upload only when a
 candidate:
 
 - beats U1 on R4 public by more than the ±25k noise;
@@ -17,6 +17,26 @@ Keep 3 uploads in reserve for the final and a fallback re-upload.
 | Upload | File (sha256 prefix) | R4 public A | Validation B | Notes |
 |---|---|---:|---:|---|
 | U1 | `r4_u1_follower_u7_baseline.py` (d2a0fc9c, = R3 final U7) | 821,692 | **1,326,712** | penalty 0; ordinary seconds +1,198.7k (99.9/s); 34 jump seconds +128.0k (23 positive); 19/20 positive 600 s blocks |
+| U2 | `r4_u2_trig2_ungated.py` (b239d85a) | 886,626 | **1,343,784** | penalty 0; fills 3,881, traded 762,300; paired vs U1: **+17,072**; see below |
+
+### U2 vs U1 on validation (paired; `u2-trig2-ungated/` vs `u1-follower-u7-baseline/`)
+
+U2 was uploaded as a validation probe of TRIG2 on an independent tape from the R4 generator. The
+pre-declared bar was U1 + 50k, because a real +7.9% public edge would show about +130k on a tape
+twice as long. That bar was **not met**.
+
+- **Paired difference:** +17,072 (+1.3%). The 95% block-bootstrap CI is [−66k, +79k].
+- **By block:** U2 is better in 15 of 20 blocks of 600 s. The first half gives +27.8k, the second
+  half −10.7k.
+- **Where the difference comes from:**
+  - Outside the 20 largest paired one-second changes, U2 gains +34.7k: small, steady gains in
+    ordinary time.
+  - Those 20 seconds net −17.7k, dominated by one jump second at 9,089 s (−32.6k).
+- **Reading:**
+  - The TRIG2 edge carries over in sign but at about a sixth of its public size (+1.4k vs
+    +10.8k per 1,000 s).
+  - Most of the public +65k was threshold fit on R4 public.
+  - Expected private gain over U1 is small and positive, with jump-second risk.
 
 The validation tape is momentum-friendly like R4 public. B over A is 1.61×
 for the same file (R3: 1.30×).
