@@ -78,6 +78,28 @@ Big moves in this market are repricings of a latent fair price, not sweeps.
   - Rejected.
 - **Minimum hold and spread-wait:** see `r4-u2-trade-anatomy.md`.
 
+## Integrated in U2 and tuned (official engine, Δ vs U2)
+
+- **The builder's file.** The builder's integrated file
+  (`r4_follower_jump.py`, `r4_u5_jump.py`; `r4-jump-onset.md`) shows that most of the standalone burst
+  value overlaps with what U2 already earns. The gain comes from the flip on wrong-side jumps plus a
+  small burst.
+
+| variant (all flip + burst 300 lots / 50 ms, cap 5 unless noted) | R4 | R3 | R2 |
+|---|---:|---:|---:|
+| W20 K3 S≤1 (U5) | +25,648 | −7,896 | −7,427 |
+| **W20 K4 S≤2 (U6)** | **+33,912** | **+700** | **−822** |
+| W30 K4 S≤2 | +34,383 | −4,315 | −2,257 |
+| W40 K4 S≤2 | +33,738 | −6,325 | −2,682 |
+| W30 K4 S≤3 | +34,383 | −7,790 | −2,257 |
+| W30 K4 S≤2, burst 500 / 100 ms | +49,773 | −12,568 | −7,284 |
+| W30 K4 S≤2, burst 900 | +8,989 | −30,983 | −16,375 |
+| W20 K3 S≤1, burst 900 / 200 ms | +30,837 | −54,690 | −28,620 |
+
+- **TWAP overlay rejected.** Following the 160-lot TWAP's trains on top of U5 lost 1.8k to 9.4k on R4,
+  however it was done: push on every child, push only at the start, or veto opposite signals
+  (`20261108-r4-twap-001`). The trains' drift is weaker than the follower's own signals.
+
 ## Next
 
 An integrated U2 + onset flip/burst strategy is being built on branch `r4-da-jump` (`r4-jump-onset.md`).
