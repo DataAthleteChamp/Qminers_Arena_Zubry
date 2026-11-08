@@ -176,6 +176,21 @@ env -u VIRTUAL_ENV uv run --locked exchange-simulator --strategy <abs path>/r4_u
 
 ## Limitations
 
+- **The accepted point sits on a trade-off curve, not a peak.** It was checked against a
+  neighbourhood grid (grid 7, `both`, K3) after acceptance; the choice of variant was not changed.
+  - Cap 3, 5 and 10 give identical results.
+  - Results, ΔR4 / ΔR3 / ΔR2:
+
+    | neighbour | ΔR4 | ΔR3 | ΔR2 | passes |
+    |---|---:|---:|---:|---|
+    | N200 | +16,200 | −2,959 | −5,556 | no |
+    | N400 | +34,584 | −13,141 | −8,764 | no |
+    | H30 | +23,495 | −6,234 | −8,584 | no |
+    | H100 | +25,474 | −9,036 | −9,991 | yes |
+    | W30 | +21,404 | −14,559 | −10,835 | no |
+    | spread ≤ 2 | +25,236 | −12,389 | −10,320 | no |
+
+  - Raising N buys R4 gains at R3 cost. The accepted variant is where the curve crosses both bars.
 - **Small sample.** There are very few big jumps: 6 on R4 at K4/s1, and fewer than 10 R4 events drive any
   difference. One public tape cannot separate a +20k flip gain from noise; the team's noise band on R4 is
   ±25k.
