@@ -35,3 +35,18 @@ Raw work, scripts and logs: `experiments/round_3/luklen123/20261108-r3-follower-
 2. Any passive leg added to this follower is adversely selected. This is consistent with the team's
    maker probe (−660k on B) and the luklen123 ladders.
 3. Execution is already as fast as it can be (5 ms). On this tape, cost is paid for immediacy, not for impatience.
+
+## Deliberately paying the inventory penalty does not pay on R3
+The breach penalty is a flat **10,000 per second** while |inventory| > 100, regardless of size. A burst of
+E extra lots held for dt seconds therefore needs E × (move − round-trip cost) > 10,000 × dt, which is
+**> 11.1 ticks per lot per second at E = 900**.
+- Optimistic touch-to-touch research (no depth walk): the best 1 s round trips are +2.08 (sweeps ≥ 4 ticks),
+  +1.89 (takers ≥ 2,000 lots) and +4.00 (both, n = 8). At ≤ 250 ms the round trips are negative.
+- Official simulator, flag `BURST_*`, R3:
+  - 400 lots / 250 ms on takers ≥ 2,000: **77,147** (penalty 235,061) vs 330,208 control.
+  - 1,000 lots / 1 s: −575,174 (penalty 933,485).
+  - Sweep-triggered bursts: −532k to −889k.
+- Before the penalty, short bursts already lose 18k–405k, because 300–900 lots walk several book levels.
+  Longer bursts gain at most +35k gross against ~930k of penalty.
+- Keep `BURST_LOTS = 0`. The ±100 limit binds the follower, but buying around it costs far more than the
+  short-horizon edge on this tape.
