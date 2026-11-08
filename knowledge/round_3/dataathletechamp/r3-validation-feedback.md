@@ -10,7 +10,7 @@ Exports are kept locally under
 | U1 | `r3_informed_follower.py` (1d3f2506) | 270,035 | **272,176** | penalty 0; 874,968 lots; 17/20 positive 600 s blocks; max drawdown -79.5k; last block -61.6k |
 | U2 (probe) | `round_2/.../final_maker_seed_from_r1.py` (c1f19466) | -422,816 | **-659,826** | heavy R1 maker; 3/20 positive blocks |
 | U3 | `r3_combined_regime.py` (111fc83e) | 269,288 | **258,688** | regime gate + Q20 maker; switched the follower off in profitable B stretches |
-| U4 (next) | `r3_alpha_follower_p1_sw3.py` (e4dfd2ce) | 330,208 | pending | P1 ridge flip gate + 3-tick sweep trigger; R2 109,317 |
+| U4 | `r3_alpha_follower_p1_sw3.py` (e4dfd2ce) | 330,208 | **411,302** | P1 ridge flip gate + 3-tick sweep trigger; R2 109,317; ordinary seconds +467.2k (38.9/s), 26 jump seconds -55.9k |
 
 Interpretation:
 - The follower earned ~23/s on B versus ~45/s on A at the same traded
