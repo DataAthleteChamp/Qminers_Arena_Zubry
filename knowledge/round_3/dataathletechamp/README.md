@@ -48,5 +48,13 @@ checklist.
 | [r3-naive-families.md](r3-naive-families.md) | Eight simple families (momentum, EMA, imbalance, makers, fades, jump riding) |
 
 Strategy files and their status are listed in
-`strategies/round_3/dataathletechamp/README.md`. Raw experiments, worktrees and
-server exports stay untracked under `experiments/round_3/dataathletechamp/`.
+`strategies/round_3/dataathletechamp/README.md`. Raw experiments and server
+exports stay untracked under `experiments/round_3/dataathletechamp/`.
+
+**Path note (after the round):** all Round 3 agent worktrees were removed
+after their branches were merged. Each worktree's experiment folder was moved
+unchanged to `experiments/round_3/dataathletechamp/<same id>/`, for example
+`20261108-r3-w7-deepfv-001`. When a note's reproduction commands use
+`$W/experiments/...`, `<worktree>/...` or `worktrees/<name>/...`, read them as
+paths from the repository root. Strategy files live in
+`strategies/round_3/dataathletechamp/`.

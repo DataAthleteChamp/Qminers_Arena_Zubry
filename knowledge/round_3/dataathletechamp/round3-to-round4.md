@@ -56,8 +56,9 @@ Read `round3-retrospective.md` first.
 4. Run the oracle-gap study on R4 with the incumbent's position path.
    Scripts are in `experiments/round_3/dataathletechamp/20261108-r3-w6-oracle-gap-001/`.
 5. Refit the alpha ridge (pooled public tapes, intercept 0) if R4 behaves
-   like R3. The pipeline is in the `r3-da-alpha-model` worktree and
-   `r3-alpha-model.md`.
+   like R3. The recorder and fitting scripts are in
+   `experiments/round_3/dataathletechamp/20261108-r3-w3-alpha-model-001/`;
+   the method is in `r3-alpha-model.md`.
 
 ## Reusable tools
 
