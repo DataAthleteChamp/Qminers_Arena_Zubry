@@ -51,3 +51,18 @@ On R4 the event study shows a large continuation after followed trades that
 go 5 ticks against at 2 s. In the engine a stop on such trades is
 noise-sized, because the follower re-enters on the next signal. Use event
 studies to rank ideas, not to size gains.
+
+## Random search over U8's signal settings (`20261108-r4-random-search-001`)
+
+The search drew 40 random combinations of HOLD_S, HOLD_F_S, FLIP_MARGIN,
+A_SWEEP, RUN_MIN, FILL_MIN, BIG_FILL, FLOW_TRIG, TRIG1_FLOW, TRIG1_FV and
+TRIG1_GATED (seed 20261108), plus U8 and U8 with a 10 s hold. Each ran on R4,
+R3 and R2.
+
+- **Best on R4:** rs14 at 823,052, +0.2% over U8, but −7.6% on R3.
+- **U8 with a 10 s hold:** 822,094 / 415,983 / 171,468, equal to U8.
+- **Best for the worst tape:** apart from U8 itself, every combination loses
+  at least 3.9% somewhere (rs20: R4 −3.9%).
+
+U8 (equivalently U7) is a robust local optimum of this parameter space.
+Further gains must come from new information or timing, not settings.
