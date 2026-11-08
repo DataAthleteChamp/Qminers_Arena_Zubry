@@ -30,6 +30,7 @@ reproduction are in `knowledge/round_3/dataathletechamp/`; start with
 | `r3_aged_maker.py` | 3be6adc6 | Aged-queue maker research file (`r3-aged-maker.md`) |
 | `r3_follower_deepfv.py` | 7b03aff4 | TRIG1 on the U4 base (`r3-follower-deepfv.md`) |
 | `r3_follower_snipe.py` | b43aa1df | `SNIPE_ON` (`r3-follower-snipe.md`) |
+| `r3_passive_follower.py` | dc22fe1a | Passive execution of the D1 target; rejected (`r3-passive-follower.md`) |
 | `r3_follower_probe.py` | 7deee03e | `PROBE_ON` (`r3-hidden-ioc-probe.md`) |
 | `r3_follower_p1_aged.py` | 5a5ceffa | `MAKER_MODE` (`r3-follower-aged-overlay.md`) |
 | `r3_follower_jumpguard.py` | b34b944e | `JUMP_GUARD`, on by default; a hedge (`r3-follower-jump-guard.md`) |

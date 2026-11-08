@@ -36,6 +36,7 @@ checklist.
 | [r3-combined-candidate.md](r3-combined-candidate.md) | Regime switch follower/maker (U3: B 258,688) |
 | [r3-follower-aged-overlay.md](r3-follower-aged-overlay.md) | Maker overlay on the follower |
 | [r3-follower-snipe.md](r3-follower-snipe.md) | Stale-side snipe |
+| [r3-passive-follower.md](r3-passive-follower.md) | Passive execution of the follower target (edge decays within about 20 ms) |
 | [r3-hidden-ioc-probe.md](r3-hidden-ioc-probe.md) | 1-lot probes inside wide spreads |
 | [r3-follower-wallmid.md](r3-follower-wallmid.md) | Wall-mid deep-book fair value |
 | [r3-follower-jump-guard.md](r3-follower-jump-guard.md) | Thin-exit-depth jump guard |

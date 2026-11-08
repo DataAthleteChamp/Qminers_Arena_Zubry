@@ -80,6 +80,7 @@ Every mechanism is kept behind an off-by-default flag; details are in the linked
 | FV-gated, aged and regime makers; heavy R1 maker | small on A, toxic on B | `r3-aged-maker.md`, `r3-combined-candidate.md` |
 | Positions above ±100 (bursts, 300–1,000 lots) | penalty plus crossing costs; any gain came from a few outliers | `r3-strategy-research-wave2.md`, `r3-naive-families.md` |
 | Stale-side snipe | overlaps the follower; R2 −33k | `r3-follower-snipe.md` |
+| Passive execution of the follower target | the edge decays within about 20 ms; standing orders lose | `r3-passive-follower.md` |
 | Hidden-IOC probes inside wide spreads | probes cost 24k; signal sign did not hold live | `r3-hidden-ioc-probe.md` |
 | Wall-mid deep-book fair value | noise | `r3-follower-wallmid.md` |
 | Jump guard (thin exit depth) | hedge only, −1.3k / −1.4k | `r3-follower-jump-guard.md` |
