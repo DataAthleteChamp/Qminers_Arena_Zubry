@@ -87,6 +87,40 @@ No source shows outsized PnL against simulated bot populations beyond what we ru
 - **Verdict.** It loses even in-sample on R4. The R3-fit table at 0.95 picks better flips; average 1 s
   drift is not the same thing as flip-timing value.
 
+## 5. How large is the stale-quote sniping pool at latent jumps? (`pool_rec.py`, official engine)
+
+- **Method.** A recorder reads the public book at δ = 0 / 5 / 10 / 20 / 30 / 50 / 100 ms after the
+  first deep G insert of each latent jump. The first deep insert is the jump's start; it is invisible
+  live.
+- **Pool definition.** The pool is the value a perfect-timing sniper could take from stale quotes.
+  - Down-jumps: the stale bids above the new level + 2, each worth (price − new level − 2) × quantity.
+  - Up-jumps: the stale asks below the new level − 2, valued the mirrored way.
+- **Big jumps** (deep insert ≥ 15 ticks behind; 25 on R4 public):
+
+| δ after jump start | R4 pool | R3 pool | R2 pool |
+|---:|---:|---:|---:|
+| 0 ms (impossible) | 285k | 59k | 288k |
+| 10 ms (fastest live reaction) | 110k | 42k | 227k |
+| 20 ms | 90k | 31k | 3k |
+| 50 ms | 22k | 1k | 0 |
+
+- **Ceiling.** Even with perfect timing, sniping big jumps is worth about 0.1–0.3M per 6,000 s. It is
+  liquidity-bound: about 80–250 stale lots per jump.
+- **Small deep inserts.** Episodes 8–14 ticks behind (about 420) show a large "pool", but it barely
+  decays over 100 ms. It is the normal book, not stale quotes, and burst tests on these lose
+  (`r4-burst-study.md`).
+- **Arithmetic against the field.** The 3M validation median is about 250 per second. That is at or
+  above our estimate of the ±100 perfect-foresight ceiling on validation (R4 public oracle 270 per
+  second; validation is about 0.76× as profitable per second for our strategy). Jump sniping adds at
+  most about 0.2–0.5M per 12,000 s.
+- **Conclusion.** With the live feed alone and within the rules, we find no route to about 3M on an
+  independent tape. That leaves three possibilities:
+  - the median figure measures something else;
+  - those strategies have an edge we have not identified;
+  - they use information a compliant live strategy does not have.
+
+  We must not copy the last: file or introspection access is forbidden.
+
 ## Conclusion for Round 4
 
 The ±100 informed-flow follower is at the visible-information ceiling of this generator. That is
