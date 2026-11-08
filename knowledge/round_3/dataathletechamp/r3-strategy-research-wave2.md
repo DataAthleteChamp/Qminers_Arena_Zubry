@@ -41,6 +41,16 @@ ticks at 0.5 s); R2 6.4% / 3.4% / 1.3%; R1 14.8% / 24.5% / 14.7%.
 The old past-fit ridge without FV reached 3.5% (R3) and 0.9% (R2) at
 0.2/1 s.
 
+Placement is anchored to the **current** book, not to a hidden future price:
+the dispersion of at-or-inside-touch insert prices around mid(t+tau) is
+smallest at tau = 0 (R3 0.28/0.35 ticks bid/ask; R2 0.30/0.31) and grows for
+tau > 0 (`insert_anchor_lag.py`). The information is directional: the mean
+bid offset drifts from -0.59 at insert to -1.13 one second later (the mid
+rises after aggressive bid inserts), and inside-spread inserts are followed
+by +1.29 (bid) / +0.98 (ask) ticks in their direction within 1 s on R3
+(R2 +0.37 / +0.79). So the generator's placement aggressiveness, not a
+recoverable fair price, carries the lead.
+
 **Passive fills split cleanly by FV known 5 ms before the fill** (all
 external touch fills, lot-weighted ticks/lot at 1 s, fit / eval;
 `fair_value_maker_screen.py`):
@@ -98,7 +108,20 @@ winners used a robust fair value and take-then-make quoting. Sizing:
 fractional Kelly with shrinkage; one change per validation upload; act only
 on paired deltas consistent across tape halves.
 
-## 6. Next predeclared experiments (official simulator)
+## 6. Validation-upload protocol (Bailey et al. PBO/DSR, Blum-Hardt ladder)
+
+Log every tried configuration (N). Score configs on 12 x 500 s blocks of the
+official 1 s wealth curve; estimate public-to-validation shrinkage
+B = 2r/(1+r) from split-half rank correlation r; expected validation PnL
+~ (12,000/6,000) x rho x [mean + B (P_i - mean)]. R2's validation/2x-public
+ratio of 0.3-0.6 is what selection noise alone predicts. Upload an unchanged
+baseline first, then at most five pre-registered finalists; promote a
+challenger only if it beats the incumbent by more than one paired SE; never
+hill-climb thresholds on validation feedback. Re-upload the exact chosen
+bytes last: the final is the latest successful upload, and our R2 private
+0.00 must not repeat (verify the dashboard's evaluated final before close).
+
+## 7. Next predeclared experiments (official simulator)
 
 1. Gated maker ladder (running): touch maker -> + FV cancel gate -> +
    queue-behind gate -> + informed-sweep guard -> + passive unwind. Reject a
