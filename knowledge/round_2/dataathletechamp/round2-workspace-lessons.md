@@ -23,6 +23,10 @@ Raw data, old plans, completed runs and submissions are never deleted to make
 status look clean. Only the explicitly approved redundant virtualenv/tool
 caches are removable. Archive manifests record moves and byte equivalence.
 The original R1 nested worktrees remain registered and untouched.
+Update 2026-11-08 (owner-approved): IDEs listed nested worktrees' untracked
+files as changes, so both R1 worktrees were retired (scratch moved and
+hash-verified) and `worktree-archive-r2` was unregistered from Git in place.
+Every file was kept; see `docs/human/WORKSPACE.md` for the exact locations.
 
 Current work paths:
 - `knowledge/round_x/dataathletechamp/`: curated transferable Markdown.
