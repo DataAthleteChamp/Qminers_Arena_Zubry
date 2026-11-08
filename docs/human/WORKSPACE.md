@@ -13,7 +13,9 @@ The source reports127559 on A; exported80993 remains B/CUNKNOWN.
 Local preserved archives, relative to the active folder:
 - `experiments/round_2/dataathletechamp/worktree-archive-r2/`: complete detached
   former Round2 worktree, including research, completed runs and historical47150
-  submission bundle. Do not edit it.
+  submission bundle. Do not edit it. Unregistered from Git on 2026-11-08 (plain
+  folder now; all 960 files hash-verified unchanged; record in
+  `experiments/round_2/dataathletechamp/20261108-worktree-archive-r2-unregister-001/`).
 - `experiments/round_1/dataathletechamp/source-tracked-checkout-e538573/`:
   verified274-file snapshot of the old owner's tracked R1 checkout.
 - `experiments/round_1/dataathletechamp/source-handoff-archive-20261108/` and
@@ -22,8 +24,12 @@ Local preserved archives, relative to the active folder:
 - `experiments/round_2/dataathletechamp/closure-archive-v1/`: archive procedure,
   before/after manifests and original untracked Final inputs.
 
-Existing full R1 experiments and its learned-mm/queue-risk worktrees are still
-present/registered. Raw data remains under data/. Completed evidence was not
+Existing full R1 experiments remain present. The learned-mm/queue-risk worktrees
+were retired on 2026-11-08: their untracked scratch moved, hash-verified, to
+`experiments/round_1/dataathletechamp/learned-size/` and `queue-topup/`; commit
+b81e048 stays on `origin/round_1/dataathletechamp`; record in
+`experiments/round_1/dataathletechamp/20261108-worktree-retirement-001/`.
+Raw data remains under data/. Completed evidence was not
 deleted. Only the retired Round2 virtualenv/tool caches were removed; the active
 folder's locked environment remains available.
 
