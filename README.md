@@ -11,31 +11,33 @@ Team **Zubry** (Jakub, Maciej, Paweł, Łukasz) at the
 
 ## Results
 
-<!-- Round 4: add the rank, median, winner and overall standing when they are announced. -->
-
 | Round (weight) | Our private PnL | Rank | Teams we beat | Median | Winner |
 |---|--:|:-:|---|--:|---|
 | Playground | +10,798 | 26 / 52 | `█████░░░░░` 51% | 10k | ThatsMyQuant 292k |
 | Round 1 (×0.8) | **+504,903** | **14 / 61** | `████████░░` 78% | 447k | GammaStrike 793k |
 | Round 2 (×1.0) | +2,281 | 55 / 59 | `█░░░░░░░░░` 7% | 441k | delfini 1.88M |
 | Round 3 (×1.0) | **+589,202** | 34 / 53 | `████░░░░░░` 37% | 725k | delfini 1.46M |
-| Round 4 (×1.2) | **+1,250,605** | pending | – | – | – |
+| Round 4 (×1.2) | **+1,250,605** | 37 / 52 | `███░░░░░░░` 29% | 1.54M | delfini 2.26M |
 
-**After 3 of 4 rounds we were #32 of 61**, with a weighted z-score of −1.20 (z₁ +0.51, z₂ −1.24,
-z₃ −0.36).
+**Final standing: #30 of 61**, with a weighted z-score of −2.00 (z₁ +0.51, z₂ −1.24, z₃ −0.36,
+z₄ −0.67). The champion was delfini (8.69), ahead of GammaStrike (6.98) and Codehorses (6.90).
 - **How it's scored:** z = (PnL − mean) / sd, taken over each round's profitable teams. The total is
   0.8·z₁ + z₂ + z₃ + 1.2·z₄.
-- **What Round 2 cost:** an average Round 2 (z₂ = 0) would have put us about #25.
+- **Where the points went:** Round 1 was in the top quarter (+0.51). A near-zero Round 2 (−1.24) and a
+  below-median Round 4 (−0.67, weighted ×1.2) pulled the total down.
 
-| Round 1 | Round 2 | Round 3 |
-|:-:|:-:|:-:|
-| ![Round 1 private PnL over time](docs/results/r1-private-pnl.png) | ![Round 2 private PnL over time](docs/results/r2-private-pnl.png) | ![Round 3 private PnL over time](docs/results/r3-private-pnl.png) |
+![Final standings: weighted z-scores of all 61 teams](docs/results/final-standings.png)
 
-*Private-tape PnL of every team over time; ours is the red line.*
+| Round 1 | Round 2 |
+|:-:|:-:|
+| ![Round 1 private PnL over time](docs/results/r1-private-pnl.png) | ![Round 2 private PnL over time](docs/results/r2-private-pnl.png) |
+| **Round 3** | **Round 4** |
+| ![Round 3 private PnL over time](docs/results/r3-private-pnl.png) | ![Round 4 private PnL over time](docs/results/r4-private-pnl.png) |
 
-![Where every team finished, rounds 1–3](docs/results/private-distribution-r1-r3.png)
-
-![Weighted z-score standings after 3 of 4 rounds](docs/results/overall-standings-after-r3.png)
+*Private-tape PnL of every team over time; ours is the red line.* More:
+[final leaderboard (PDF)](docs/results/arena-final-leaderboard.pdf) ·
+[PnL per round](docs/results/final-pnl-per-round.png) ·
+[where every team finished, rounds 1–3](docs/results/private-distribution-r1-r3.png)
 
 ## The story
 
@@ -50,9 +52,8 @@ made 14th of 61, our best round.
 
 **Round 2: the market flipped.** Our Round 1 final lost 143k on the new tape: it traded as much as
 before, but its fills were worse. We kept repairing market makers instead of studying the new market
-again. The final
-grid maker showed 80,993 on validation. A sharp drop in the last minutes left it at **+2,281 on
-private**: 55th of 59.
+again. The final grid maker showed 80,993 on validation. A sharp drop in the last minutes left it at
+**+2,281 on private**: 55th of 59.
 
 **Round 3: from maker to taker.** A probe of the old maker lost 659,826 on validation, so we switched
 sides. The new strategy was an informed-flow follower. It holds ±100 and flips with IOC orders on
@@ -63,7 +64,7 @@ were real.
 **Round 4: simple beat stacked.** We added new triggers (placement class, jump onset, CUSUM,
 bursts). They won on the public tape but shrank about 6× on validation. The best of our 11 uploads
 was Paweł's simpler file: the follower plus a JumpBurst flip trigger we had shelved in Round 3. It
-scored 1,420,312 on validation and **1,250,605 on private**.
+scored 1,420,312 on validation and **1,250,605 on private**: 37th of 52.
 
 ## What we learned
 
@@ -78,6 +79,25 @@ scored 1,420,312 on validation and **1,250,605 on private**.
 6. **Simple, re-tested ideas beat stacks.** Triggers that react to the same moves don't add up.
    Re-test rejected ideas on new data.
 
+## After the competition: the hidden data
+
+The organisers released every round's validation and private tapes, plus the hidden fair price and
+the regime timings. They are stored in [`data/market_data/`](data/market_data).
+
+- **Our scores reproduce to the dollar.** Replaying our finals on the released tapes gives all eight
+  official validation and private scores exactly. It also confirms that Paweł's `r3_final.py` was our
+  Round 3 final.
+- **Round 1 had a single regime.** The fair price was a driftless random walk: about 7.8 independent
+  moves per second, with an sd of 0.31 ticks.
+- **Rounds 2–4 switched between regimes:** a calm base, turbulent spells of about 40–55 s, and
+  bursts.
+  - Every burst opened with a jump within 50 ms (median 22–36 ticks per tape).
+  - Every burst came straight after a 3-second "thinning" lull, in which the fair price barely moved.
+  - Round 4 added slow one-way "meta" drifts of about 19 s.
+- **What it means for us:** the burst precursor we hunted for in Round 4 really existed. The next
+  experiment is to check whether the visible order book shows that lull live
+  ([notes](knowledge/round_4/dataathletechamp/data-release-fair-price-regimes.md)).
+
 ## Submissions
 
 Server score is the score shown before the deadline. In the Playground and Round 1 that was the
@@ -88,7 +108,7 @@ public tape; from Round 2 on it was a server-only validation tape.
 | Playground | 4 | Jakub's upload (`36dc4d98`) | 10,395 | +10,798 |
 | Round 1 | 4 | Maciej's 8-slot ridge queue maker (`3a7bca12`) | 505,225 | +504,903 |
 | Round 2 | 13 (1 failed) | Maciej's EMA grid maker (`0d85d5f8`) | 80,993 | +2,281 |
-| Round 3 | 9 | Paweł's follower variant (`db1805cd`) | 597,854 | +589,202 |
+| Round 3 | 9 | Paweł's `r3_final.py` (`db1805cd`) | 597,854 | +589,202 |
 | Round 4 | 11 of 15 (1 canceled) | Paweł's `r3_final.py` (`71380109`) | 1,420,312 | +1,250,605 |
 
 <details>
@@ -141,7 +161,7 @@ public tape; from Round 2 on it was a server-only validation tape.
 | 03:59 | Jakub | 415,828 | U6 gate refitted on R3 + R2 |
 | 04:06 | Maciej | 154,162 | |
 | 04:18 | Jakub | 538,844 | U7 plus taker-flow and deep-insert triggers |
-| 05:23 | Paweł | **597,854** | **Final** → private 589,202 |
+| 05:23 | Paweł | **597,854** | **Final** `r3_final.py` → private 589,202 |
 | 05:46 | Paweł | 596,419 | |
 
 **Round 4**, validation tape
@@ -171,7 +191,7 @@ public tape; from Round 2 on it was a server-only validation tape.
 | [`submissions/`](submissions) | Frozen final bundles and evidence |
 | `simulator/`, `explorer/` | The organisers' exchange simulator and backtest explorer, unchanged |
 | `tools/`, `tests/`, `docs/` | Team tooling, checks and procedures |
-| `data/` | Compressed public tapes with their hashes; raw CSVs are git-ignored |
+| [`data/`](data) | Public tapes and the organisers' [post-competition release](data/market_data) (validation and private tapes, fair price, regimes), as `.csv.gz` with hashes; raw CSVs are git-ignored |
 | `experiments/` | Local trials and outputs, git-ignored |
 
 **Quick start.** These commands replay our Round 4 final on the Round 4 public tape:
