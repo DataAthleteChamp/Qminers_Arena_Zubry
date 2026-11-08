@@ -38,6 +38,8 @@ env -u VIRTUAL_ENV uv run --locked python experiments/round_3/dataathletechamp/2
 #   screen4_cd.json (r3,r2; v2)
 #   oos_r1_q10.json / oos_r1_cd.json (r1; v2)
 #   final_identity.json (r3; committed file)
+#   robust5_best.json (r3,r2; committed file)
+#   oos_r1_robust.json (r1; committed file)
 env -u VIRTUAL_ENV uv run --locked python $E/summarize.py $E/<out>/results.jsonl   # markdown table
 env -u VIRTUAL_ENV uv run --locked python -m tools.preflight $W/strategies/round_3/dataathletechamp/r3_aged_maker.py   # passed
 ```
@@ -115,6 +117,21 @@ env -u VIRTUAL_ENV uv run --locked python -m tools.preflight $W/strategies/round
 
 All runs had penalty 0 and maximum exposure including pending of 80.
 
+### Neighbourhood of the best arm (robustness check; committed file; added after the first commit)
+| variant (change vs A2q20_cd100) | R3 PnL (fit/eval /s) | R2 PnL (fit/eval /s) | R1 PnL (fit/eval /s) |
+|---|---|---|---|
+| A2q20_cd100 (reference) | +28,749 (+6.1/+4.0) | +24,884 (+8.9/+1.0) | +114,383 (+9.0/+9.9) |
+| **age150** (`AGE_KEEP_US` 150 ms) | **+35,027 (+6.8/+5.2)** | **+29,705 (+8.5/+2.6)** | **+134,661 (+10.4/+11.7)** |
+| age600 | +25,264 (+6.1/+2.9) | +16,929 (+6.1/+0.7) | – |
+| s20 (`FV_STRONG` 2.0) | +28,259 (+6.1/+3.8) | +26,687 (+9.8/+0.9) | – |
+| d1 (`MAX_DIST` 1) | +33,459 (+6.1/+5.2) | +26,973 (+9.4/+1.3) | +112,419 (+8.7/+9.8) |
+| Q15 | +27,546 (+6.7/+3.2) | +28,940 (+7.2/+3.2) | – |
+
+The neighbourhood is a plateau: every arm earns +25k to +35k on R3 and +17k to +30k on R2. A shorter age
+threshold helps and a longer one hurts, which fits the fill-age split (fills of orders 100–300 ms old are about
+break-even, fills of orders ≥ 300 ms old are positive). age150 is better on all three tapes, but it was picked
+after the neighbourhood scan.
+
 **Positive 600 s blocks on R3.**
 
 | variant | positive blocks |
@@ -181,7 +198,7 @@ The committed file reproduces M1 at −3,348 and A2q20_cd100 at +28,749 on R3 (`
    (small young touch orders) helps only inside the losing A1 family.
 
 ## Verdict
-- **Best configuration** (post-hoc pick among about 30 arms by R3 fit/eval, then checked on R2 and R1):
+- **Best configuration** (post-hoc pick among about 35 arms by R3 fit/eval, then checked on R2 and R1):
   **A2q20_cd100** = `{"KEEP_AGED": true, "MAX_DIST": 2, "FV_STRONG": 1.5, "Q": 20, "FILL_COOLDOWN_US": 100000}`.
 
   | tape | PnL | fit/s | eval/s |
@@ -192,8 +209,18 @@ The committed file reproduces M1 at −3,348 and A2q20_cd100 at +28,749 on R3 (`
 
   It passes the acceptance rule: R3 eval rises from −2.9 to +4.0/s, and R2 is +24.9k against +9.4k. The
   more conservative alternative is A2q10_cd100 (R3 +20.2k, R2 +27.9k, R1 +60.9k).
+
+  Its plateau neighbour **A2q20_cd100_age150** (`AGE_KEEP_US=150000`) is better on all three tapes but was
+  selected after the neighbourhood scan:
+
+  | tape | PnL | fit/s | eval/s |
+  |---|---|---|---|
+  | R3 | +35,027 (5.8/s overall) | +6.8 | +5.2 |
+  | R2 | +29,705 | +8.5 | +2.6 |
+  | R1 | +134,661 | +10.4 | +11.7 |
 - **Passive income does not reach ≥ 20 PnL/s on R3 with this family.**
-  - The best passing arm makes 4.8/s on R3, about 4× below the target and about 9× below the taker engines.
+  - The best passing arm makes 4.8/s on R3 (5.8/s for the age150 neighbour). That is about 4× below the target
+    and about 8–9× below the taker engines.
   - Even the R2-failing touch-age arms reach only 8.4/s.
   - Its fills average −0.08 to +0.02 ticks/lot at 1 s, on about 37 lots/s. Aged good fills (≥ 300 ms) are only
     about 34% of volume, and scaling Q destroys the edge. On R3 the PnL is mostly inventory drift after the
@@ -223,7 +250,7 @@ negative on R2. That is why it is rejected.
 
 ## Limitations
 - Public tapes only. R3 eval is 3,600 s of one tape, and there are no paired-delta SEs. The best arm was chosen
-  after about 30 R3 runs, so its R3 numbers are selection-biased. R2 and R1 were run for only a subset.
+  after about 35 R3 arms, so its R3 numbers are selection-biased. R2 and R1 were run for only a subset.
 - The age is measured from the ACCEPTED event, and queue behind from the last public snapshot within 20
   ticks. Modify can only shrink, so true "size by age", meaning growing an aged order, is impossible. A3 was
   tested only as a smaller size for new touch orders.
