@@ -59,9 +59,28 @@ intensity, which makes an online intensity gate (E1-H3) the key transfer guard.
 
 ## Gap to the 2-3M target
 
-2-3M on a 12,000 s tape needs ~170-250 PnL/s. The frictionless 100-lot
-sign oracle on A is 199/s at 1 s. Current best realistic engine is ~40-60/s
-on A (~0.5-0.7M per 12,000 s if B/C look like R3, far less if like R2).
+2-3M on a 12,000 s tape needs ~170-250 PnL/s. A perfect-foresight **taker**
+ceiling (DP over positions -100/0/+100, trades at L1 bid/ask 5 ms after each
+decision, no depth beyond L1, no maker income; `oracle_ceiling.py` in the
+deep-diagnostics experiment) is:
+
+| Decision step | R3 A /s (x12,000 s) | R2 A /s (x12,000 s) | R1 /s (x12,000 s) |
+|---|---:|---:|---:|
+| 10 ms | 206.3 (2.48M) | 153.4 (1.84M) | 43.0 (0.52M) |
+| 100 ms | 199.2 (2.39M) | 146.5 (1.76M) | 41.9 (0.50M) |
+| 1 s | 159.9 (1.92M) | 110.9 (1.33M) | 35.8 (0.43M) |
+| 5 s | 98.7 (1.18M) | 69.2 (0.83M) | 23.9 (0.29M) |
+
+So 3M on an R3-like private tape exceeds even perfect-foresight taking with
++/-100. Calibration from R1: the reported R1 leader scored 792,696 private,
+1.54x the R1 taker ceiling, and our Final 504,903 was ~1.0x. In a benign
+regime the passive (spread-capture) channel therefore carries much of the
+top score; on R3 that channel is toxic, so a large score needs both selective
+maker income and directional taking. Brief excursions beyond 100 cost a flat
+10 per ms; no observed trigger pays that over its holding time.
+
+Current best realistic engine is ~40-60/s on A (~0.5-0.7M per 12,000 s if
+B/C look like R3, far less if like R2), i.e. ~20-30% of the taker ceiling.
 Closing the gap needs cheaper execution (passive exits), more independent
 triggers (E2, aggressive add-ons) and a maker that only accepts benign fills.
 
