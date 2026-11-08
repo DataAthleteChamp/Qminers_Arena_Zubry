@@ -38,6 +38,17 @@ twice as long. That bar was **not met**.
   - Most of the public +65k was threshold fit on R4 public.
   - Expected private gain over U1 is small and positive, with jump-second risk.
 
+### Next probe: `r4_u5_jump.py` (sha256 a3e72689…e560)
+
+- **What it is:** U2 plus a jump-onset flip and a 300-lot, 50 ms burst (`r4-jump-onset.md`,
+  `r4-jump-burst-probe.md`).
+- **Local results:** R4 912,274 (+25,648 vs U2; penalty 4,488), R3 −7,896, R2 −7,427. Official CLI
+  verified; preflight passed.
+- **Pre-declared rule:** keep it as the final if its validation is ≥ 1,333,784 (U2 − 10k). Otherwise
+  re-upload U2 (`r4_u2_trig2_ungated.py`, b239d85a) before 12:00.
+  - The paired-difference CI on validation is about ±70k, so the probe can only catch a clear loss.
+    The R4 mechanism and the five right-way onsets carry the case for keeping it.
+
 The validation tape is momentum-friendly like R4 public. B over A is 1.61×
 for the same file (R3: 1.30×).
 
