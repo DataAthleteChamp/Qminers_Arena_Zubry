@@ -206,3 +206,26 @@ Caveats: R3/R2 are in-sample for the refits (their fit/eval split no longer vali
 out-of-sample tape and is an older generator. rsym 1.2 gives up 23k on R3 alone (−7% vs U4) for +40k on R1;
 1.2 is the edge of the tested margins (R1 improves monotonically with margin, R3+R2 peaks at 1.0). If R3-like
 B is weighted above R1-like robustness, `rlin0 1.0` (465.3k, R1 −105.2k, no intercept) is the alternative.
+
+## Addendum 04:50 — alpha v2 (U7 trigger features in the gate): NEGATIVE
+
+Base U7 = MAIN `strategies/round_3/dataathletechamp/r3_follower_u7_flow_deepfv.py` (sha `d2a0fc9c…`; U6 rlin0 1.0 +
+FLOW_TRIG 600 + TRIG1; B 538,844). Three O(1) features added to the 25: `flow200` (signed market-taker volume in
+U7's 200 ms TRIG1 window /1000), `flow1s` (1 s window /1000), `deepfv200` (200 ms mean of new resting insert
+price − prior mid over all visible depth, ticks). Recorded with the U7-based file (lots 0) on full R3/R2/R1
+(the 25 old features reproduce rlin0's metrics exactly). Pooled R3+R2 no-intercept ridge, h = 2 s
+(`alpha2/fit2.py`): new weights flow200 +0.36, flow1s −0.11, deepfv200 +0.98. R² / corr: R3 grid .040/.205
+(rlin0 .029/.178), R3 A .149/.397 (.139/.386), R2 grid .002/.079 (.001/.069), R1 out-of-sample grid −.028/.233
+(−.042/.214). Official engine (`alpha2/grid_a2.json`, U7 reproduced exactly):
+
+| gate model | R3 | R2 | R3 lots |
+|---|---|---|---|
+| U7 (rlin0 1.0) | 413,588 | 167,166 | 384,500 |
+| v2 0.8 / 1.0 / 1.2 | 382,648 / 377,922 / 383,800 | 157,458 / 154,019 / 170,780 | 453k / 410k / 362k |
+
+R1 (info only): U7 −112,028; v2 1.2 −100,626.
+
+No margin beats U7 on both tapes (1.2 wins R2 by +3.6k but loses R3 by −29.8k) → **not delivered**
+(snapshot `alpha2/alpha2_grid_snapshot.py`, sha `96014197…`, kept in the experiment folder). Mechanism: the new
+features are the triggers' own inputs, so at trigger time α̂ already points with the trigger and the gate
+loses its independent veto (more flips pass: lots +6…+18% at 0.8–1.0). Better in-sample R² ≠ better gate.
