@@ -5,7 +5,10 @@ Round 4 ran 07:00–12:00 CET on 8 Nov 2026 and is weighted ×1.2 on normalized 
 - **Data:** public R4 tape (6,000 s; sha256 61c0b6d1…) plus the validation tape B (12,000 s, server
   only). Both come from the R4 generator.
 - **Final (marked in the portal, submission `71380109`):** Paweł's `r3_final.py`. Validation 1,420,312;
-  **private 1,250,605** (11.9% below validation). The rank has not been announced yet.
+  **private 1,250,605** (11.9% below validation).
+- **Final result:** 37th of 52 on Round 4; the winner scored 2,258,467 and the median was 1.54M.
+  Overall the team finished **30th of 61** (weighted z −2.00; z₄ −0.67).
+  - The released tapes reproduce our scores exactly (`data-release-fair-price-regimes.md`).
 - **Uploads:** the team used 11 of the 15 allowed. Besides the rows below, they were:
   - Maciej's `continuous_book_adaptive.py` (1,250,479) and `..._direct_flip_edge_1_5.py` (1,170,758);
   - Łukasz's `toxflow_v5.py` (1,196,226) and `toxflow_v6.py` (1,268,596);

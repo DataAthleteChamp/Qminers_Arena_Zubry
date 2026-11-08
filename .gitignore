@@ -37,3 +37,7 @@ copilot-session-*.md
 /experiments/
 # Round4 working tape stays local; share only the registered public archive.
 /data/round4/round4_public.csv
+# Organiser's post-competition release (8 Nov 2026): share the gzip copies, keep the zip and raw CSVs local.
+/data/market_data.zip
+/data/market_data/**/*.csv
+!/data/market_data/**/*.regime.csv

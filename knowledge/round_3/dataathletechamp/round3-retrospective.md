@@ -11,9 +11,10 @@
 | U7 on validation B (12,000 s, server) | 538,844 |
 
 **Correction (2026-11-08, from the portal dashboard):** earlier versions of this note named U7 as the
-final. The team's marked Final was Paweł's upload, and its R3 bytes are not archived here. It is most
-likely the `r3_final.py` he re-uploaded in Round 4: U7 plus the JumpBurst flip trigger, which scores
-419,806 on R3 A.
+final. The team's marked Final was Paweł's upload. Exact replays on the organisers' released tapes
+confirm it was `r3_final.py` (U7 plus the JumpBurst flip trigger). Our copy,
+`strategies/round_4/dataathletechamp/r4_final_pawel_r3_final.py`, reproduces 597,854 on validation and
+589,202 on private to the dollar (`knowledge/round_4/dataathletechamp/data-release-fair-price-regimes.md`).
 
 The final leaderboard was each team's last submission, evaluated on the private tape:
 
