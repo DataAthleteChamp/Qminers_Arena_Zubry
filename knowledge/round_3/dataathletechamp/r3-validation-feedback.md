@@ -13,6 +13,7 @@ Exports are kept locally under
 | U4 | `r3_alpha_follower_p1_sw3.py` (e4dfd2ce) | 330,208 | **411,302** | P1 ridge flip gate + 3-tick sweep trigger; R2 109,317; ordinary seconds +467.2k (38.9/s), 26 jump seconds -55.9k |
 | U5 (optional probe) | `r3_aged_maker_best.py` (24fc7515) | 35,027 | not reported | aged maker alone; tests passive quoting on B |
 | U6 | `r3_alpha_follower_p1_sw3_rlin0.py` (e3102973) | 357,488 | **415,828** | alpha ridge refit on full R3 + R2, intercept 0; ordinary seconds +509.3k (42.4/s), 27 jump seconds -93.4k; better than U4 in 12 of 20 blocks |
+| U7 | `r3_follower_u7_flow_deepfv.py` (d2a0fc9c) | 413,588 | **538,844** | U6 + 600-lot/200 ms flow trigger + deep-insert FV flow trigger; ordinary seconds +610.7k (50.9/s), 30 jump seconds -71.8k; better than U6 in 17 of 20 blocks (owner export folder `results_jumps_maciej`; class AlphaFollower) |
 
 Interpretation:
 - The follower earned ~23/s on B versus ~45/s on A at the same traded

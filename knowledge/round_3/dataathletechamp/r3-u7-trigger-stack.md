@@ -44,6 +44,14 @@ Every neighbour stays well above U6 on both tapes. All runs had penalty 0.
 
 ## Rejected on top of U7
 
+- More flow and fair-value windows (`20261108-r3-u7-flow2-001`,
+  `20261108-r3-u7-flowspan-001`):
+  - A second flow trigger at 100 ms/400, 500 ms/1000–1500 or
+    1 s/1500–2500 adds at most +1.7k on R3 and nothing on R2.
+  - TRIG1 windows of 100 ms or 400 ms (instead of 200 ms) are worse on
+    both tapes.
+  - Counting only multi-level sweeps toward FLOW_TRIG (300–800 lots) is
+    worse on both tapes: 382–408k on R3, 146–159k on R2.
 - The colleague's JumpBurst rule as a trigger (mid moves >= 2 ticks within
   100 ms at a 1-tick spread): R3 +2.4k, R2 −0.2k. Our flow and sweep triggers
   already fire on these bursts.
