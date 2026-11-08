@@ -1,0 +1,65 @@
+# Round 3 U7: stacking validated triggers on the refit follower
+
+Question: can earlier, information-based triggers move the refit follower
+(U6, validation 415,828) by a step rather than by a few percent?
+
+Base: U6 `r3_alpha_follower_p1_sw3_rlin0.py` (e3102973…). It is the D1
+follower (A: sweep span >= 3, or filled >= 500, or run >= 4 with filled >= 100)
+plus the P1 flip gate, using a ridge refit on full R3 + R2 with intercept 0.
+Candidate: `strategies/round_3/dataathletechamp/r3_follower_u7_flow_deepfv.py`
+(sha256 d2a0fc9c…f897). It adds two triggers, each treated exactly like an A
+event:
+
+- `FLOW_TRIG = 600`: |signed market-taker volume over 200 ms| >= 600 lots.
+  From `r3-naive-families.md`.
+- `TRIG1` (300 / 0.5, gated): net taker flow >= 300 lots **and** a 200 ms mean
+  of (new resting insert price − prior mid) over all visible depth >= 0.5 tick
+  in the same direction. Ported from `r3-follower-deepfv.md`; the evidence
+  is in `r3-oracle-gap.md`.
+
+Runner: `experiments/round_3/dataathletechamp/20261108-r3-wave-runner-001/runner.py`.
+Grids are in `20261108-r3-u6-flowtrig-001`, `20261108-r3-u6-deepfv-001`,
+`20261108-r3-u7-burst-001`, `20261108-r3-u7-aflip-001` and
+`20261108-r3-u7-robust-001`. Official CLI on R3: 413,588, penalty 0.
+
+| variant on the U6 base | R3 | R3 eval/s | R2 |
+|---|---:|---:|---:|
+| U6 | 357,488 | 63.1 | 107,856 |
+| + flow 600 | 382,252 | 68.0 | 149,502 |
+| + TRIG1 300/0.5 gated | 406,906 | 74.1 | 154,315 |
+| **+ both (U7)** | **413,588** | **74.6** | **167,166** |
+| + both, TRIG1 300/1.0 ungated | 394,078 | 69.2 | 142,893 |
+
+U7 neighbourhood (one change at a time; R3 / R2):
+
+| setting | R3 | R2 |
+|---|---:|---:|
+| flow 400 / 800 | 390k / 409k | 157k / 157k |
+| TRIG1 FV 0.35 / 0.75 | 401k / 388k | 175k / 165k |
+| TRIG1 flow 200 / 400 | 415k / 377k | 166k / 154k |
+| hold 4 s / 6 s | 393k / 413k | 159k / 171k |
+| flip margin 0.8 / 1.2 | 387k / 380k | 166k / 140k |
+
+Every neighbour stays well above U6 on both tapes. All runs had penalty 0.
+
+## Rejected on top of U7
+
+- The colleague's JumpBurst rule as a trigger (mid moves >= 2 ticks within
+  100 ms at a 1-tick spread): R3 +2.4k, R2 −0.2k. Our flow and sweep triggers
+  already fire on these bursts.
+  - Standalone, JumpBurst makes R3 78,179 and R2 13,402; the owner reports
+    154k on validation.
+  - Its useful property is low exposure: it is flat outside 1 s bursts.
+    That cannot be added to a strategy that already uses the whole ±100
+    band.
+- The alpha forecast as an ungated trigger (|2 s alpha| >= 2.0 / 2.5 / 3.0
+  ticks on a 50 ms grid): R3 364k / 401k / 412k and R2 146k / 128k / 159k.
+  All are worse than U7.
+
+## Limits
+
+- R3 and R2 are in-sample. The TRIG1 thresholds came from the R3 oracle
+  study, the flow threshold was chosen on both public tapes, and the model
+  was fitted on both. The validation upload is the only out-of-sample check.
+- The follower is still about ±100 almost all the time. Jump seconds on the
+  validation tape (−56k to −134k for U1–U6) are not addressed.
