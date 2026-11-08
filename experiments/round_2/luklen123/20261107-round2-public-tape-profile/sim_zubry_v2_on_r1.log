@@ -1,0 +1,14 @@
+Simulation complete
+fills=22716
+traded_volume=45340
+inventory=2
+cash=-8852.00
+mark_price=10029.00
+breach_penalty=0.00
+pnl=11206.00
+pnl_se=199.93
+abs_inventory_q50=1
+abs_inventory_q68=1
+abs_inventory_q95=3
+abs_inventory_q997=7
+log_dir=experiments/round_2/luklen123/20261107-round2-public-tape-profile/sim_zubry_v2_on_r1

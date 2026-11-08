@@ -1,0 +1,74 @@
+
+=== Momentum robustness: non-overlapping 30s samples, signal = mid - MA(L) , per 10-min block ===
+ blk  c_dev60_f30  c_dev300_f30  c_dev600_f30  c_past60_f60
+   1       -0.091        -0.024         0.045        -0.202
+   2        0.045        -0.125        -0.197        -0.037
+   3       -0.380        -0.410        -0.477        -0.112
+   4       -0.132        -0.108        -0.241         0.028
+   5        0.090         0.027        -0.244        -0.033
+   6       -0.443        -0.320        -0.260        -0.092
+   7        0.169         0.050         0.218        -0.009
+   8       -0.170        -0.308        -0.544        -0.119
+   9        0.098         0.155        -0.004         0.155
+pooled non-overlapping: {'dev60->f30': np.float64(-0.017), 'dev300->f30': np.float64(0.12), 'dev600->f30': np.float64(0.134)}
+toy sign(dev60) hold30s: mean/unit=0.393 ticks, by block: [1.0, -4.75, -9.35, 5.85, 4.6, 3.35, -1.2, -5.9, 11.0]
+toy sign(dev300) hold30s: mean/unit=2.225 ticks, by block: [0.15, -4.0, -0.5, -4.95, -0.6, 18.1, 4.3, 3.1, 4.67]
+toy sign(dev600) hold30s: mean/unit=1.680 ticks, by block: [1.35, -3.8, -4.45, -4.95, -2.3, 18.1, 5.3, 4.0, 1.89]
+
+=== Largest 60s moves (crash anatomy) ===
+t=   1603 move= +102.5 spr_mean=1.57 bq_med=494 aq_med=482 trades_vol=68474 signed_vol=1718
+t=   3901 move= -145.5 spr_mean=2.27 bq_med=182 aq_med=120 trades_vol=94708 signed_vol=-9022
+t=   4033 move= -128.5 spr_mean=2.15 bq_med=194 aq_med=126 trades_vol=94383 signed_vol=-13531
+t=   4324 move= -111.5 spr_mean=2.23 bq_med=143 aq_med=144 trades_vol=83268 signed_vol=-9644
+t=   5424 move= +116.0 spr_mean=1.77 bq_med=298 aq_med=342 trades_vol=90489 signed_vol=8175
+t=   5623 move= +128.5 spr_mean=2.95 bq_med=494 aq_med=562 trades_vol=65692 signed_vol=11088
+
+=== Big-taker impact AFTER 5ms latency (what we can still trade on) ===
+taker size [1,50) n= 23280 continuation from t+5ms (ticks): {0.1: 0.075, 1: 0.17, 10: 0.14, 60: -0.244}
+taker size [50,200) n= 18635 continuation from t+5ms (ticks): {0.1: 0.17, 1: 0.435, 10: 0.522, 60: 0.623}
+taker size [200,500) n=  6531 continuation from t+5ms (ticks): {0.1: 0.32, 1: 0.822, 10: 0.8, 60: 1.354}
+taker size [500,1000) n=  2137 continuation from t+5ms (ticks): {0.1: 0.511, 1: 1.171, 10: 1.444, 60: 1.277}
+taker size [1000,1000000) n=   753 continuation from t+5ms (ticks): {0.1: 0.711, 1: 1.598, 10: 2.157, 60: 1.114}
+multi-level sweeps n= 7168 {0.1: 0.488, 1: 0.847, 10: 0.81, 60: 1.127}
+
+=== Big-taker follow toy: cross spread at t+5ms on taker>=X, exit at mid t+h (cost = half spread) ===
+X=  300 h=  1s n= 5850 gross=1.072 net~=-0.249
+X=  300 h= 10s n= 5850 gross=1.346 net~=0.025
+X=  300 h= 60s n= 5850 gross=1.417 net~=0.096
+X=  500 h=  1s n= 2890 gross=1.282 net~=-0.068
+X=  500 h= 10s n= 2890 gross=1.630 net~=0.280
+X=  500 h= 60s n= 2890 gross=1.234 net~=-0.116
+X= 1000 h=  1s n=  753 gross=1.598 net~=0.208
+X= 1000 h= 10s n=  753 gross=2.157 net~=0.766
+X= 1000 h= 60s n=  753 gross=1.114 net~=-0.277
+X= 2000 h=  1s n=   81 gross=2.000 net~=0.642
+X= 2000 h= 10s n=   81 gross=1.012 net~=-0.346
+X= 2000 h= 60s n=   81 gross=-5.772 net~=-7.130
+
+=== Rolling realized vol regime vs maker markout ===
+                       n  mk1_w  mk10_w  mk10_small
+volq                                               
+(0.723, 1.075]   12720.0 -0.097  -0.339       0.438
+(1.075, 1.458]   12705.0 -0.039   0.074       0.484
+(1.458, 4.308]   12711.0 -0.441  -0.867       0.308
+(4.308, 15.217]  12705.0 -1.085  -1.033       0.614
+
+=== Wall signal: resting insert >= 2000 lots at best (same side) -> mid change ===
+n walls at best: 1679 lifetime median s: 0.302 fill share: 0.0217
+h=0.1s mid move in wall-side direction (bid wall -> up): 0.081
+h=0.5s mid move in wall-side direction (bid wall -> up): 0.118
+h=1s mid move in wall-side direction (bid wall -> up): 0.056
+h=5s mid move in wall-side direction (bid wall -> up): 0.177
+h=30s mid move in wall-side direction (bid wall -> up): -0.281
+
+=== Depth imbalance including size: total L1 vol vs future, and qty at L1 when mid moves ===
+h=1s fut mid | thin bid=-0.182 (n=1285) thin ask=0.290 (n=1269) all=-0.051
+h=5s fut mid | thin bid=-0.483 (n=1285) thin ask=-0.331 (n=1269) all=-0.258
+h=10s fut mid | thin bid=-0.790 (n=1285) thin ask=-1.121 (n=1269) all=-0.517
+
+=== Queue: when best bid price persists, how long; and how many lots trade at it ===
+best-bid episode duration quantiles (s): {0.25: 0.039, 0.5: 0.133, 0.75: 0.437, 0.9: 1.223} episodes: 14631
+sell-taker volume hitting per bid episode quantiles: {0.25: 0.0, 0.5: 42.0, 0.75: 288.0, 0.9: 766.0}
+
+=== Volume of trades per second and per minute (for fill-capacity of a 1..10 lot maker) ===
+taker volume / s mean: 1166.6 taker orders / s: 8.56

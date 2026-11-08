@@ -1,0 +1,89 @@
+
+=== Momentum robustness: non-overlapping 30s samples, signal = mid - MA(L) , per 10-min block ===
+ blk  c_dev60_f30  c_dev300_f30  c_dev600_f30  c_past60_f60
+   1       -0.073        -0.211        -0.110        -0.181
+   2       -0.236         0.025         0.086         0.070
+   3       -0.199         0.010        -0.005        -0.048
+   4        0.002        -0.232        -0.409        -0.176
+   5        0.258         0.286        -0.048         0.387
+   6       -0.253        -0.478        -0.475        -0.515
+   7        0.179        -0.195        -0.297        -0.072
+   8       -0.235        -0.251        -0.229        -0.303
+   9        0.096        -0.376        -0.391         0.377
+  10       -0.237        -0.331        -0.450        -0.458
+  11        0.359         0.044        -0.173         0.484
+  12        0.559         0.149        -0.135         0.492
+  13       -0.322        -0.225        -0.298        -0.006
+  14       -0.066        -0.399        -0.433        -0.236
+  15       -0.219        -0.281        -0.321        -0.064
+  16       -0.092        -0.184        -0.165        -0.025
+  17        0.337        -0.039        -0.129         0.167
+  18        0.176         0.016        -0.187         0.123
+  19        0.132         0.017        -0.287        -0.057
+pooled non-overlapping: {'dev60->f30': np.float64(0.065), 'dev300->f30': np.float64(-0.022), 'dev600->f30': np.float64(-0.065)}
+toy sign(dev60) hold30s: mean/unit=0.228 ticks, by block: [1.3, -0.42, -1.92, -1.25, 0.75, -1.58, 2.28, -1.55, 0.45, -0.7, 2.0, 1.95, -0.5, 0.4, 0.8, -1.42, 1.82, 1.4, 0.56]
+toy sign(dev300) hold30s: mean/unit=0.085 ticks, by block: [1.2, 0.98, 1.18, -0.45, 1.15, -2.08, -0.32, -0.85, -1.1, -1.05, 1.0, 0.95, -0.65, -1.1, 1.65, -0.88, 0.18, 0.8, 1.11]
+toy sign(dev600) hold30s: mean/unit=-0.265 ticks, by block: [1.2, -0.02, -0.22, -0.35, -0.2, -0.68, -0.02, -0.55, -1.1, -0.6, -0.7, -0.45, -1.25, -0.4, 1.65, -0.98, 0.82, -0.9, -0.28]
+
+=== Largest 60s moves (crash anatomy) ===
+t=   2756 move=  +23.0 spr_mean=1.10 bq_med=894 aq_med=692 trades_vol=78921 signed_vol=22035
+t=   7220 move=  -19.0 spr_mean=1.03 bq_med=835 aq_med=694 trades_vol=75002 signed_vol=-17244
+t=   7514 move=  +22.0 spr_mean=1.05 bq_med=838 aq_med=828 trades_vol=64944 signed_vol=19816
+t=   9301 move=  -19.5 spr_mean=1.02 bq_med=656 aq_med=981 trades_vol=66136 signed_vol=-15552
+t=   9904 move=  +20.0 spr_mean=1.03 bq_med=834 aq_med=676 trades_vol=62960 signed_vol=18260
+t=  10337 move=  +23.0 spr_mean=1.00 bq_med=859 aq_med=870 trades_vol=70814 signed_vol=17860
+t=  11049 move=  -22.0 spr_mean=1.15 bq_med=826 aq_med=1146 trades_vol=65036 signed_vol=-12438
+t=  11505 move=  +22.0 spr_mean=1.02 bq_med=998 aq_med=748 trades_vol=71578 signed_vol=20766
+
+=== Big-taker impact AFTER 5ms latency (what we can still trade on) ===
+taker size [1,50) n= 42246 continuation from t+5ms (ticks): {0.1: 0.021, 1: 0.109, 10: 0.113, 60: 0.113}
+taker size [50,200) n= 34285 continuation from t+5ms (ticks): {0.1: 0.051, 1: 0.224, 10: 0.23, 60: 0.276}
+taker size [200,500) n= 12577 continuation from t+5ms (ticks): {0.1: 0.09, 1: 0.351, 10: 0.342, 60: 0.337}
+taker size [500,1000) n=  4063 continuation from t+5ms (ticks): {0.1: 0.158, 1: 0.507, 10: 0.493, 60: 0.573}
+taker size [1000,1000000) n=  1526 continuation from t+5ms (ticks): {0.1: 0.259, 1: 0.659, 10: 0.569, 60: 0.66}
+multi-level sweeps n= 8775 {0.1: 0.226, 1: 0.264, 10: 0.242, 60: 0.257}
+
+=== Big-taker follow toy: cross spread at t+5ms on taker>=X, exit at mid t+h (cost = half spread) ===
+X=  300 h=  1s n=11346 gross=0.458 net~=-0.731
+X=  300 h= 10s n=11346 gross=0.431 net~=-0.758
+X=  300 h= 60s n=11346 gross=0.499 net~=-0.690
+X=  500 h=  1s n= 5589 gross=0.548 net~=-0.693
+X=  500 h= 10s n= 5589 gross=0.514 net~=-0.727
+X=  500 h= 60s n= 5589 gross=0.597 net~=-0.644
+X= 1000 h=  1s n= 1526 gross=0.659 net~=-0.675
+X= 1000 h= 10s n= 1526 gross=0.569 net~=-0.764
+X= 1000 h= 60s n= 1526 gross=0.660 net~=-0.674
+X= 2000 h=  1s n=  190 gross=0.947 net~=-0.429
+X= 2000 h= 10s n=  190 gross=0.932 net~=-0.445
+X= 2000 h= 60s n=  190 gross=0.853 net~=-0.524
+
+=== Rolling realized vol regime vs maker markout ===
+                      n  mk1_w  mk10_w  mk10_small
+volq                                              
+(0.642, 0.846]  23595.0  0.065   0.071       0.422
+(0.846, 0.907]  23507.0  0.082   0.021       0.449
+(0.907, 0.982]  23575.0  0.072   0.122       0.419
+(0.982, 1.25]   23519.0  0.060   0.125       0.376
+
+=== Wall signal: resting insert >= 2000 lots at best (same side) -> mid change ===
+n walls at best: 3691 lifetime median s: 0.339 fill share: 0.0247
+h=0.1s mid move in wall-side direction (bid wall -> up): 0.049
+h=0.5s mid move in wall-side direction (bid wall -> up): 0.179
+h=1s mid move in wall-side direction (bid wall -> up): 0.182
+h=5s mid move in wall-side direction (bid wall -> up): 0.093
+h=30s mid move in wall-side direction (bid wall -> up): 0.182
+
+=== Depth imbalance including size: total L1 vol vs future, and qty at L1 when mid moves ===
+h=1s fut mid | thin bid=-0.323 (n=2446) thin ask=0.310 (n=2538) all=0.002
+h=5s fut mid | thin bid=-0.268 (n=2446) thin ask=0.276 (n=2538) all=0.013
+h=10s fut mid | thin bid=-0.276 (n=2446) thin ask=0.275 (n=2538) all=0.025
+
+=== Queue: when best bid price persists, how long; and how many lots trade at it ===
+best-bid episode duration quantiles (s): {0.25: 0.103, 0.5: 0.46, 0.75: 1.134, 0.9: 1.987} episodes: 15417
+Traceback (most recent call last):
+  File "/Users/lukaszlenart/Qminers_Arena_Zubry/.claude/worktrees/round2-public-tape-analysis/experiments/round_2/luklen123/20261107-round2-public-tape-profile/analyze2.py", line 143, in <module>
+    main(Path(sys.argv[1]))
+    ~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/lukaszlenart/Qminers_Arena_Zubry/.claude/worktrees/round2-public-tape-analysis/experiments/round_2/luklen123/20261107-round2-public-tape-profile/analyze2.py", line 135, in main
+    vol_ep = np.bincount(ep, weights=sells.qty.values, minlength=len(starts))
+ValueError: 'list' argument must have no negative elements

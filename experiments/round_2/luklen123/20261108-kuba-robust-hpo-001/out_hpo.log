@@ -1,0 +1,13 @@
+stage1 top: [('cfg_031', 32904), ('cfg_001', 26868), ('cfg_024', 20598), ('cfg_008', 20235), ('cfg_035', 14038), ('cfg_030', 9780), ('cfg_012', 9302), ('cfg_000', 8114), ('cfg_002', 7771), ('cfg_013', 7684)]
+stage2 {'cfg': 'cfg_031', 'wins': 14, 'mean_delta': 27804, 'min_pnl': 118135, 'R2_d': 20711, 'R2m_d': 6817}
+stage2 {'cfg': 'cfg_035', 'wins': 13, 'mean_delta': 10800, 'min_pnl': 107153, 'R2_d': 4726, 'R2m_d': -4165}
+stage2 {'cfg': 'cfg_001', 'wins': 12, 'mean_delta': 20351, 'min_pnl': 85921, 'R2_d': -10685, 'R2m_d': -25397}
+stage2 {'cfg': 'cfg_000', 'wins': 12, 'mean_delta': 6350, 'min_pnl': 99925, 'R2_d': -4335, 'R2m_d': -2500}
+stage2 {'cfg': 'cfg_002', 'wins': 12, 'mean_delta': 5982, 'min_pnl': 96933, 'R2_d': -7327, 'R2m_d': -11715}
+stage2 {'cfg': 'cfg_012', 'wins': 12, 'mean_delta': 5837, 'min_pnl': 95245, 'R2_d': -9015, 'R2m_d': -13323}
+stage2 {'cfg': 'cfg_013', 'wins': 12, 'mean_delta': 5317, 'min_pnl': 109832, 'R2_d': 8604, 'R2m_d': -1486}
+stage2 {'cfg': 'cfg_024', 'wins': 11, 'mean_delta': 15870, 'min_pnl': 79967, 'R2_d': -11351, 'R2m_d': -31351}
+stage2 {'cfg': 'cfg_008', 'wins': 11, 'mean_delta': 15576, 'min_pnl': 108329, 'R2_d': 7923, 'R2m_d': -2989}
+stage2 {'cfg': 'cfg_030', 'wins': 11, 'mean_delta': 5710, 'min_pnl': 100261, 'R2_d': 1263, 'R2m_d': -11057}
+baseline s_67 min over 15 tapes: 104260
+FINAL cfg_031 wins=15/15 mean_delta=28243 min=118135 R1_d=34385 accept=True params={'QUOTE_SIZE': '36', 'INVENTORY_SKEW': '0.0065', 'EMA_SECONDS': '(2, 15, 60)', 'GAP_QTY': '60', 'FRAGILE_SIZE': '8', 'TOPUP_MIN': '16', 'MAX_PER_LEVEL': '2', 'SLOT_MULT': '2', 'SHOCK_SPREAD': '4', 'RECOVERY_US': '500000', 'MIN_L1': '50', 'CAUTION_DIV': '1'}

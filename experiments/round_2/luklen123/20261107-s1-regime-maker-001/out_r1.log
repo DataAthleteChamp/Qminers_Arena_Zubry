@@ -1,0 +1,7 @@
+zubry_v2         pnl=    11206 h1=     5503 h2=     5703 fills= 22716 pen=0 se=  199.9 mdd=     29 invq997=7 cae618bb5b61
+s1               pnl=     1243 h1=      580 h2=      663 fills=  3507 pen=0 se=  169.1 mdd=     92 invq997=4 64fdabddc03f
+s1_no_pull       pnl=    10339 h1=     5167 h2=     5172 fills= 22256 pen=0 se=  185.0 mdd=     27 invq997=5 e8809434bc77
+s1_np_vol2       pnl=    10339 h1=     5167 h2=     5172 fills= 22256 pen=0 se=  185.0 mdd=     27 invq997=5 8f4d9c3d8b35
+s1_np_win30      pnl=    10339 h1=     5167 h2=     5172 fills= 22256 pen=0 se=  185.0 mdd=     27 invq997=5 af7cd24e0510
+s1_cool05        pnl=     6870 h1=     3466 h2=     3404 fills= 13640 pen=0 se=  140.3 mdd=     14 invq997=3 81c753ada05f
+s1_vol_only      pnl=    11206 h1=     5503 h2=     5703 fills= 22716 pen=0 se=  199.9 mdd=     29 invq997=7 7d52a9b34c4a

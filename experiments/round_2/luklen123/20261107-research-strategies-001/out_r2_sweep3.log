@@ -1,0 +1,12 @@
+q10_cap80_fix pnl=    11393 h1=     6899 h2=     4494 fills=  9112 pen=0 se= 1408.3 mdd=   1711 invq997=20 63e448ab2364
+q10_cap80_scl pnl=    11433 h1=     6929 h2=     4504 fills=  9116 pen=0 se= 1407.2 mdd=   1711 invq997=20 9b4f0fe57038
+q15_cap80_fix pnl=    16292 h1=     9658 h2=     6634 fills=  8796 pen=0 se= 2050.5 mdd=   1945 invq997=29 75cee850b642
+q15_cap80_scl pnl=    17624 h1=     9882 h2=     7742 fills=  8872 pen=0 se= 1983.1 mdd=   1551 invq997=30 c1b3bad3b8b1
+q20_cap80_fix pnl=    24053 h1=    11979 h2=    12074 fills=  8583 pen=0 se= 2957.8 mdd=   2208 invq997=38 a2391c9e1f66
+q20_cap80_scl pnl=    22500 h1=    12463 h2=    10037 fills=  8922 pen=0 se= 3297.1 mdd=   2208 invq997=39 db1b3c2a1c6f
+q4_cap40_fix pnl=     5576 h1=     3442 h2=     2134 fills=  8968 pen=0 se=  632.4 mdd=    474 invq997=8 becbc01f93d8
+q4_cap40_scl pnl=     5576 h1=     3442 h2=     2134 fills=  8968 pen=0 se=  632.4 mdd=    474 invq997=8 b48e7d4a12c2
+q6_cap60_fix pnl=     7972 h1=     5287 h2=     2685 fills=  8997 pen=0 se=  936.2 mdd=   1032 invq997=12 46d544d6f20d
+q6_cap60_scl pnl=     7972 h1=     5287 h2=     2685 fills=  8999 pen=0 se=  936.2 mdd=   1032 invq997=12 e48ff651e71f
+q8_cap80_fix pnl=    10153 h1=     6716 h2=     3437 fills=  8842 pen=0 se= 1147.3 mdd=   1300 invq997=16 b81b28eb3d73
+q8_cap80_scl pnl=    10185 h1=     6740 h2=     3445 fills=  8844 pen=0 se= 1146.1 mdd=   1300 invq997=16 d3837912e3b2

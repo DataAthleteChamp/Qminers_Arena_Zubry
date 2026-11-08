@@ -1,0 +1,7 @@
+corr(trailing vol10s, next-60s vol) = 0.197
+corr(trailing vol30s, next-60s vol) = 0.168
+corr(trailing vol60s, next-60s vol) = 0.150
+trailing vol60 quantiles: {0.5: 1.33, 0.75: 3.87, 0.9: 6.2}
+share of seconds with vol60>3: 0.307; episodes: 24; median episode s: 60
+mean |10s move| by current spread: {1: 4.74, 2: 10.87, 3: 14.16, 4: 29.22}
+mean |10s move| by vol60 bucket: {Interval(0.0, 1.5, closed='right'): 4.64, Interval(1.5, 3.0, closed='right'): 7.1, Interval(3.0, 6.0, closed='right'): 7.34, Interval(6.0, 100.0, closed='right'): 9.73}

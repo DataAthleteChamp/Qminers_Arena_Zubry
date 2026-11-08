@@ -1,0 +1,14 @@
+Simulation complete
+fills=22256
+traded_volume=44413
+inventory=1
+cash=310.00
+mark_price=10029.00
+breach_penalty=0.00
+pnl=10339.00
+pnl_se=184.96
+abs_inventory_q50=1
+abs_inventory_q68=1
+abs_inventory_q95=3
+abs_inventory_q997=5
+log_dir=experiments/round_2/luklen123/20261107-s1-regime-maker-001/final_r1

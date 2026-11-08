@@ -1,0 +1,6 @@
+q50_nofreeze pnl=    35985 h1=    23185 h2=    12800 fills=  8746 pen=0 se= 7838.3 mdd=   7786 invq997=68 e44f3caf5b55
+q50_v15_w20 pnl=    41205 h1=    26067 h2=    15138 fills=  7937 pen=0 se= 6836.6 mdd=   7516 invq997=67 fcd4d3c15eb7
+q50_v20_w30 pnl=    37286 h1=    22590 h2=    14696 fills=  7933 pen=0 se= 6890.6 mdd=   7303 invq997=67 5ee04871c6ab
+q50_v25_w15 pnl=    36320 h1=    21692 h2=    14628 fills=  8286 pen=0 se= 6733.3 mdd=   9429 invq997=68 cde0b46e0544
+q60_cap90  pnl=    45791 h1=    26794 h2=    18997 fills=  8127 pen=0 se= 8403.4 mdd=   7495 invq997=76 b08fd491fc38
+q75_cap90  pnl=    48354 h1=    33391 h2=    14963 fills=  7805 pen=0 se=10143.6 mdd=  11477 invq997=89 af298be4a598

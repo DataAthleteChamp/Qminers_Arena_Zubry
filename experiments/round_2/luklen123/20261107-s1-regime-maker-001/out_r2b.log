@@ -1,0 +1,8 @@
+s1_vol_only      pnl=     1647 h1=      672 h2=      975 fills=  9567 pen=0 se= 1150.9 mdd=    872 invq997=11 7d52a9b34c4a
+s1_np_vol2       pnl=     2173 h1=     1283 h2=      890 fills=  8460 pen=0 se=  272.1 mdd=    172 invq997=5 8f4d9c3d8b35
+s1_np_vol5       pnl=     1569 h1=     1077 h2=      492 fills= 10612 pen=0 se=  371.8 mdd=    484 invq997=5 48f5ffca5d9a
+s1_np_noreduce   pnl=     1558 h1=      758 h2=      800 fills=  7508 pen=0 se= 1059.7 mdd=    970 invq997=10 f66f7e3846da
+s1_big1000       pnl=     1561 h1=     1072 h2=      489 fills=  7573 pen=0 se=  353.9 mdd=    316 invq997=6 aa21e6f741f7
+s1_big500_cool05 pnl=     1747 h1=     1044 h2=      703 fills=  7908 pen=0 se=  357.8 mdd=    260 invq997=4 93f5f2d647d0
+s1_np_win30      pnl=     2590 h1=     1495 h2=     1095 fills= 10056 pen=0 se=  305.8 mdd=    188 invq997=5 af7cd24e0510
+s1_np_win120     pnl=     1431 h1=      884 h2=      547 fills=  8116 pen=0 se=  314.7 mdd=    274 invq997=5 da96be406b95

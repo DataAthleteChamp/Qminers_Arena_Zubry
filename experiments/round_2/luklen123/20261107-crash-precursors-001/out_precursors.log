@@ -1,0 +1,116 @@
+=== Spearman corr, non-overlapping 30 s samples (n ~ 100 per R2 half, ~400 R1) ===
+                   R2a_dir60  R2a_abs60  R2b_dir60  R2b_abs60  R1_dir60  R1_abs60  dir_same_sign_3
+vol30                  0.232      0.097     -0.184      0.221     0.009     0.014            False
+vol30_rel              0.149      0.009     -0.131      0.179     0.002     0.028            False
+spr10                  0.098      0.105     -0.347      0.280    -0.016    -0.059            False
+l1_total_rel          -0.200     -0.170      0.072     -0.211    -0.017    -0.037            False
+dep10_total_rel        0.015      0.051      0.032     -0.068    -0.020     0.022            False
+l1_imb                -0.080     -0.054     -0.111      0.052     0.126     0.009            False
+dep5_imb               0.032     -0.069     -0.079     -0.073     0.010     0.056            False
+dep10_imb              0.023     -0.050     -0.064     -0.082     0.010     0.056            False
+t5_imb                 0.060     -0.096     -0.070     -0.067     0.010     0.057            False
+flow10                 0.022     -0.114     -0.064     -0.015     0.038     0.101            False
+big10                  0.098     -0.131     -0.018     -0.027     0.021     0.004            False
+sweep10                0.005     -0.109     -0.178      0.079     0.051    -0.003            False
+cancel_near_imb10      0.019     -0.022     -0.174     -0.007    -0.028    -0.032            False
+insert_near_imb10      0.047      0.075     -0.155     -0.086    -0.061    -0.054            False
+net_liq_imb10         -0.050      0.134      0.067     -0.085    -0.077    -0.060            False
+ioc_imb10              0.003     -0.062     -0.131      0.006     0.046     0.102            False
+flow30                -0.137     -0.109      0.054     -0.074     0.066     0.080            False
+big30                 -0.044     -0.164     -0.054     -0.167     0.048     0.008            False
+sweep30               -0.017     -0.112     -0.056     -0.049     0.051    -0.010            False
+cancel_near_imb30      0.121      0.064     -0.384      0.123    -0.063    -0.019            False
+insert_near_imb30      0.128      0.102     -0.285     -0.048    -0.071    -0.023            False
+net_liq_imb30          0.068      0.078      0.099     -0.207    -0.016    -0.075            False
+ioc_imb30             -0.132      0.007     -0.132     -0.066     0.124     0.099            False
+activity_rel           0.006      0.073     -0.101      0.215     0.017     0.013            False
+ret10                 -0.167      0.109      0.023     -0.062     0.021     0.093            False
+ret30                 -0.100      0.037      0.089     -0.127     0.062     0.017            False
+ret60                 -0.141      0.125      0.183     -0.235     0.058    -0.004            False
+ret300                -0.158      0.118      0.216     -0.143    -0.133    -0.052            False
+dev_ma300             -0.203      0.210      0.255     -0.140    -0.070    -0.020            False
+approx 95% noise band: R2 half +-0.20, R1 +-0.10
+
+=== Direction, overlapping 1 s samples (more power, corr inflated by overlap) ===
+                     R2a    R2b     R1
+vol30              0.135 -0.140 -0.003
+vol30_rel          0.053 -0.097 -0.009
+spr10              0.081 -0.223 -0.029
+l1_total_rel      -0.093  0.047  0.007
+dep10_total_rel   -0.020  0.033  0.002
+l1_imb            -0.014 -0.078  0.012
+dep5_imb          -0.020 -0.014  0.040
+dep10_imb         -0.021 -0.006  0.040
+t5_imb            -0.026 -0.001  0.040
+flow10            -0.100 -0.026  0.010
+big10             -0.102 -0.049  0.013
+sweep10           -0.080 -0.004 -0.003
+cancel_near_imb10  0.004 -0.151 -0.010
+insert_near_imb10  0.037 -0.132 -0.011
+net_liq_imb10      0.044  0.028 -0.010
+ioc_imb10         -0.114 -0.104  0.007
+flow30            -0.180  0.008  0.056
+big30             -0.180 -0.049  0.023
+sweep30           -0.048  0.007  0.023
+cancel_near_imb30  0.022 -0.214 -0.052
+insert_near_imb30  0.048 -0.182 -0.061
+net_liq_imb30      0.118  0.028 -0.027
+ioc_imb30         -0.144 -0.128  0.057
+activity_rel       0.005 -0.108  0.028
+ret10             -0.100  0.049  0.006
+ret30             -0.159  0.117  0.065
+ret60             -0.135  0.103  0.059
+ret300            -0.151  0.136 -0.093
+dev_ma300         -0.190  0.157 -0.041
+
+=== R2 event study DOWN: fwd60 move >= 2 sd (63 ticks), n=5 ===
+time of onsets (s): [3600, 3813, 3934, 4233, 5650]
+                   mean_z_at_onset  mean_z_prev60  share_same_sign_at_onset
+sweep10                       0.74          -0.06                       0.6
+l1_total_rel                 -0.58          -0.11                       0.8
+spr10                         0.48           0.19                       0.6
+dep10_total_rel               0.48          -0.12                       0.6
+cancel_near_imb10             0.46          -0.09                       0.8
+big30                        -0.44          -0.06                       0.8
+ret300                       -0.44          -0.45                       0.8
+insert_near_imb10             0.37          -0.11                       0.6
+vol30_rel                    -0.30           0.05                       0.6
+sweep30                       0.29           0.05                       0.6
+l1_imb                       -0.24           0.16                       0.8
+net_liq_imb30                 0.24          -0.05                       0.4
+dev_ma300                    -0.22          -0.32                       0.8
+dep10_imb                     0.20          -0.09                       0.6
+
+=== R2 event study UP: fwd60 move >= 2 sd (63 ticks), n=4 ===
+time of onsets (s): [1499, 2037, 5338, 5510]
+                   mean_z_at_onset  mean_z_prev60  share_same_sign_at_onset
+insert_near_imb30            -1.05          -0.08                      0.75
+cancel_near_imb30            -1.02          -0.06                      0.75
+l1_total_rel                 -0.90          -0.11                      0.75
+dep10_imb                    -0.89          -0.01                      0.75
+t5_imb                       -0.85           0.01                      1.00
+sweep30                      -0.80          -0.03                      0.75
+dep5_imb                     -0.77           0.01                      0.75
+insert_near_imb10            -0.69           0.01                      1.00
+cancel_near_imb10            -0.69           0.04                      1.00
+big30                        -0.69          -0.21                      0.50
+big10                        -0.66          -0.14                      0.75
+sweep10                      -0.54          -0.11                      0.75
+ret10                        -0.49           0.07                      0.50
+flow30                       -0.48           0.41                      0.50
+
+=== Magnitude: does any feature beat trailing vol at predicting |fwd60|? (30 s samples) ===
+R2 [('spr10', np.float64(0.208)), ('l1_total_rel', np.float64(-0.198)), ('big30', np.float64(-0.181)), ('vol30', np.float64(0.17)), ('activity_rel', np.float64(0.137)), ('net_liq_imb30', np.float64(-0.099)), ('cancel_near_imb30', np.float64(0.099)), ('t5_imb', np.float64(-0.085))]
+R1 [('ioc_imb10', np.float64(0.102)), ('flow10', np.float64(0.101)), ('ioc_imb30', np.float64(0.099)), ('ret10', np.float64(0.093)), ('flow30', np.float64(0.08)), ('net_liq_imb30', np.float64(-0.075)), ('net_liq_imb10', np.float64(-0.06)), ('spr10', np.float64(-0.059))]
+
+=== Toy: extreme-decile signal -> mean fwd60 (ticks), per R2 half and R1 ===
+cancel_near_imb10  | R2a: low= -2.77 high= -1.59 | R2b: low=  5.13 high=-17.70 | R1: low=  1.21 high=  0.41
+net_liq_imb10      | R2a: low= -2.38 high= -0.45 | R2b: low=-15.47 high= -3.91 | R1: low=  0.25 high=  0.01
+dep10_imb          | R2a: low= -0.61 high=  2.28 | R2b: low=-13.39 high=-12.51 | R1: low= -0.68 high=  0.13
+t5_imb             | R2a: low= -0.96 high=  1.43 | R2b: low= -8.34 high= -9.76 | R1: low= -0.68 high=  0.14
+flow30             | R2a: low=  6.10 high= -6.58 | R2b: low= -4.20 high=  6.97 | R1: low= -0.35 high=  2.38
+big30              | R2a: low=  6.69 high= -3.57 | R2b: low= -5.47 high=  3.07 | R1: low= -0.82 high=  0.86
+ret60              | R2a: low=  5.70 high= -2.67 | R2b: low=-18.87 high= -2.23 | R1: low= -1.90 high=  1.03
+dev_ma300          | R2a: low=  5.49 high= -5.94 | R2b: low=-24.71 high= 13.92 | R1: low=  0.44 high= -0.86
+l1_imb             | R2a: low=  2.12 high=  0.07 | R2b: low=  4.99 high=-11.58 | R1: low= -0.31 high=  0.73
+ioc_imb30          | R2a: low= -0.25 high= -6.56 | R2b: low=  6.45 high= -0.91 | R1: low= -1.22 high=  2.77

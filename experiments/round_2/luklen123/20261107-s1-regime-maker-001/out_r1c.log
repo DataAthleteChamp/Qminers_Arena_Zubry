@@ -1,0 +1,6 @@
+s1               pnl=    10339 h1=     5167 h2=     5172 fills= 22256 pen=0 se=  185.0 mdd=     27 invq997=5 9742d3fcfcc6
+s1_off1_keep0    pnl=     3594 h1=     1787 h2=     1807 fills=  4240 pen=0 se=  166.5 mdd=     32 invq997=3 1bdd4ce86010
+s1_off1_keep1    pnl=     2940 h1=     1434 h2=     1506 fills=  2956 pen=0 se=  174.6 mdd=     34 invq997=3 56f9301483fa
+s1_off1_keep2    pnl=     1949 h1=     1034 h2=      915 fills=  1964 pen=0 se=  165.4 mdd=     58 invq997=3 ffb9a369579c
+s1_off0_keep1    pnl=     9031 h1=     4612 h2=     4419 fills= 14296 pen=0 se=  265.4 mdd=     48 invq997=8 195f533bd1a8
+s1_off2_keep1    pnl=      158 h1=      100 h2=       58 fills=   132 pen=0 se=   53.8 mdd=     30 invq997=2 51f19242adf2

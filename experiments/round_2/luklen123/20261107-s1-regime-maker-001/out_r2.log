@@ -1,0 +1,14 @@
+zubry_v2         pnl=    -4032 h1=     -749 h2=    -3283 fills= 15359 pen=0 se= 1829.9 mdd=   4563 invq997=15 cae618bb5b61
+s1               pnl=        1 h1=      -53 h2=       54 fills=  1559 pen=0 se=  480.3 mdd=    379 invq997=5 64fdabddc03f
+s1_no_vol        pnl=     -507 h1=     -228 h2=     -279 fills=  1917 pen=0 se=  618.4 mdd=    808 invq997=5 67e8cb541f45
+s1_no_pull       pnl=     1816 h1=     1116 h2=      700 fills=  9111 pen=0 se=  332.0 mdd=    286 invq997=5 e8809434bc77
+s1_no_spread     pnl=     1226 h1=      376 h2=      850 fills=  1757 pen=0 se= 1186.1 mdd=    621 invq997=10 bf58d7daead3
+s1_only_spread   pnl=     -998 h1=      407 h2=    -1405 fills= 12918 pen=0 se=  533.0 mdd=   2047 invq997=6 b6ace793eaa6
+s1_flatten       pnl=    -2359 h1=    -1201 h2=    -1158 fills=  3481 pen=0 se=  277.8 mdd=   2361 invq997=2 3a496f531575
+s1_no_reduce     pnl=      943 h1=      106 h2=      837 fills=  1240 pen=0 se=  527.9 mdd=    424 invq997=6 5039afd4905a
+s1_cool10        pnl=     1456 h1=      150 h2=     1306 fills=     3 pen=0 se=  613.8 mdd=    330 invq997=2 8d095b99498c
+s1_cool05        pnl=     1723 h1=     1075 h2=      648 fills=  5946 pen=0 se=  302.8 mdd=    179 invq997=4 81c753ada05f
+s1_big100        pnl=     -420 h1=      -59 h2=     -361 fills=   452 pen=0 se=  350.4 mdd=    495 invq997=4 a92bf4af4c2b
+s1_big500        pnl=      730 h1=      384 h2=      346 fills=  4575 pen=0 se=  347.9 mdd=    283 invq997=5 0d23d7e269d5
+s1_vol2          pnl=       58 h1=      -68 h2=      126 fills=  1485 pen=0 se=  462.4 mdd=    361 invq997=5 c5fd064e86e9
+s1_vol5          pnl=      -35 h1=      -33 h2=       -2 fills=  1657 pen=0 se=  504.9 mdd=    424 invq997=5 d2c67ebb189d

@@ -1,0 +1,196 @@
+
+=== Raw tape ===
+rows=4411336 t=[0.008661,11999.999025] duration_s=12000.0
+Operation
+Insert    2253745
+Cancel    2157591
+side: {'A': 1127002, 'B': 1126743} lifespan: {'G': 2157657, 'F': 96088}
+monotonic time: True dup ids among inserts: 0
+price range: 9988.0 10098.0 volume quantiles: {0.0: 1.0, 0.25: 4.0, 0.5: 15.0, 0.75: 52.0, 0.9: 154.0, 0.99: 973.0, 1.0: 124248.0}
+top volumes: {1.0: 228000, 2.0: 132749, 3.0: 110157, 4.0: 93970, 5.0: 81748, 6.0: 72149, 7.0: 64631, 8.0: 58149, 9.0: 52579, 10.0: 48219, 11.0: 44227, 12.0: 40559}
+inter-event dt: mean=2.720ms median=1.795ms p99=13.75ms max=0.067s same-timestamp share=0.000
+cancels of never-inserted ids: 0
+cancels not applied=285676: of which target fully-filled=285676 target IOC=0 dup-cancel=0
+
+=== Event rate per 10 minutes ===
+Operation  Cancel  Insert
+blk                      
+0          107864  112713
+1          107901  112621
+2          107527  112310
+3          108470  113324
+4          107909  112741
+5          107880  112689
+6          107721  112501
+7          108046  112831
+8          107753  112616
+9          107715  112566
+10         107491  112356
+11         108123  112959
+12         107981  112724
+13         107842  112614
+14         107594  112484
+15         108131  112913
+16         107409  112173
+17         108170  112944
+18         108284  113114
+19         107780  112552
+
+=== BBO / spread ===
+crossed/locked rows: 0
+time-weighted spread distribution (ticks): {1: 0.9302, 2: 0.069, 3: 0.0008, 4: 0.0, 5: 0.0}
+event-weighted spread quantiles: {0.1: 1.0, 0.5: 1.0, 0.9: 1.0, 0.99: 2.0}
+L1 qty quantiles bid: {0.1: 100.0, 0.5: 921.0, 0.9: 2902.0} ask: {0.1: 97.0, 0.5: 919.0, 0.9: 2904.0}
+mid start/end/min/max: 10000.0 10029.5 9990.5 10094.5
+
+=== Mid per 10 minutes (1s grid) ===
+     mid_first  mid_last  mid_min  mid_max  vol1s  spr_med  spr_mean  bq_med  aq_med
+blk                                                                                 
+0      10000.5   10011.5   9999.5  10023.5  0.956      1.0     1.048   915.0   852.0
+1      10010.5   10040.5   9998.5  10041.5  0.977      1.0     1.082   866.0   954.5
+2      10039.5   10030.5  10025.5  10057.5  0.948      1.0     1.070   959.0   896.5
+3      10028.5   10032.5  10006.5  10038.5  0.969      1.0     1.068   929.5   890.5
+4      10035.5   10055.5  10028.5  10062.5  0.961      1.0     1.090   913.0   816.0
+5      10055.5   10061.5  10035.5  10061.5  0.897      1.0     1.058   942.5   854.0
+6      10060.5   10056.5  10046.5  10068.5  0.910      1.0     1.065   925.5   880.5
+7      10056.5   10077.0  10054.5  10089.5  0.888      1.0     1.075   891.0   960.0
+8      10076.5   10072.5  10069.5  10094.5  0.901      1.0     1.062   818.5   853.5
+9      10072.5   10080.5  10069.5  10093.5  0.894      1.0     1.057   867.0   860.5
+10     10081.5   10068.5  10062.5  10090.5  0.918      1.0     1.073   796.5  1018.0
+11     10069.5   10052.5  10035.5  10075.5  0.903      1.0     1.070   892.0   792.0
+12     10052.5   10046.5  10028.5  10069.5  0.952      1.0     1.072   858.0   848.0
+13     10047.5   10052.5  10035.5  10053.5  0.901      1.0     1.080  1010.0   931.0
+14     10051.5   10035.5  10027.5  10053.5  0.906      1.0     1.095   812.0   902.5
+15     10036.5   10001.5   9991.5  10040.5  0.886      1.0     1.073   901.5   980.5
+16     10003.5   10016.5   9996.5  10026.5  0.887      1.0     1.065  1005.5   842.5
+17     10017.5   10035.5  10014.5  10054.5  0.915      1.0     1.088   928.5   907.5
+18     10034.5   10021.5  10002.5  10045.5  0.923      1.0     1.070   911.0   883.5
+19     10022.5   10029.5  10021.5  10046.5  0.904      1.0     1.068   973.0   897.5
+
+=== Return structure (mid, 1s grid) ===
+h=   1s std=   0.920 mean=  0.0024 var_ratio(vs 1s*h)=1.000
+h=   2s std=   1.306 mean=  0.0049 var_ratio(vs 1s*h)=1.007
+h=   5s std=   2.060 mean=  0.0126 var_ratio(vs 1s*h)=1.003
+h=  10s std=   2.904 mean=  0.0250 var_ratio(vs 1s*h)=0.996
+h=  30s std=   4.957 mean=  0.0632 var_ratio(vs 1s*h)=0.968
+h=  60s std=   7.252 mean=  0.1136 var_ratio(vs 1s*h)=1.036
+h= 120s std=  10.590 mean=  0.1735 var_ratio(vs 1s*h)=1.104
+h= 300s std=  15.140 mean=  0.4606 var_ratio(vs 1s*h)=0.903
+h= 600s std=  18.635 mean=  1.1066 var_ratio(vs 1s*h)=0.684
+autocorr of 1s returns lag1..5: [np.float64(0.0071), np.float64(-0.0031), np.float64(-0.0043), np.float64(-0.0036), np.float64(0.0049)]
+autocorr of 10s returns lag1..3: [np.float64(0.0025), np.float64(-0.0236), np.float64(0.0125)]
+autocorr of 60s returns lag1..3: [np.float64(0.0327), np.float64(-0.0612), np.float64(-0.1396)]
+corr(mid - MA30, next 30s return) = 0.0433
+corr(mid - MA120, next 30s return) = 0.0627
+corr(mid - MA600, next 30s return) = -0.0645
+
+=== Event-level mid changes ===
+mid changes: 30785 of 4125248 events; |dm| dist: {0.5: 30005, 1.0: 726, 1.5: 43, 2.0: 10, 2.5: 1}
+sign autocorr of successive mid changes (lag1): 0.0748 (negative = bounce)
+
+=== Trades ===
+trades=375234 volume=13446993 aggr buy share(vol)=0.501
+taker orders=94697 size quantiles: {0.5: 60.0, 0.9: 345.0, 0.99: 1215.0, 1.0: 6716.0} multi-level sweeps: 8775
+maker age at fill (s) quantiles: {0.1: 0.084, 0.5: 0.391, 0.9: 0.932, 0.99: 1.724}
+taker count/vol per 10min:
+        n     vol  buy_share
+blk                         
+0    4706  665274      0.503
+1    4655  665539      0.509
+2    4695  681988      0.486
+3    4787  704281      0.503
+4    4762  684896      0.507
+5    4725  656721      0.502
+6    4693  671555      0.500
+7    4711  652911      0.506
+8    4806  671991      0.500
+9    4800  686314      0.507
+10   4783  679343      0.484
+11   4743  680350      0.499
+12   4674  692309      0.496
+13   4728  678268      0.503
+14   4819  676602      0.498
+15   4726  638744      0.490
+16   4692  660282      0.503
+17   4708  664840      0.503
+18   4769  666938      0.494
+19   4715  667847      0.505
+taker inter-arrival: mean=0.127s median=0.0877s; share<5ms=0.038
+trade sign autocorr lag1,2,5,10: [0.015, 0.0074, 0.0003, -0.0006]
+
+=== Maker markout: mid after trade vs trade price, signed for passive side ===
+h=  0.000s maker markout/unit mean=  0.507 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.172
+h=  0.005s maker markout/unit mean=  0.473 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.205
+h=  0.050s maker markout/unit mean=  0.376 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.303
+h=  0.500s maker markout/unit mean=  0.136 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.543
+h=  1.000s maker markout/unit mean=  0.069 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.610
+h=  5.000s maker markout/unit mean=  0.068 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.611
+h= 10.000s maker markout/unit mean=  0.083 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.595
+h= 30.000s maker markout/unit mean=  0.091 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.588
+h= 60.000s maker markout/unit mean=  0.044 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.635
+h=300.000s maker markout/unit mean=  0.255 | half-spread captured vs mid_before=0.679 | mid move in aggr dir=0.424
+
+=== Markout by taker size bucket (maker perspective, h=10s, per unit) ===
+                     n    mk1   mk10
+szb                                 
+(0.999, 18.2]    18940  0.455  0.437
+(18.2, 42.0]     19238  0.391  0.395
+(42.0, 85.0]     18775  0.352  0.354
+(85.0, 192.0]    18874  0.270  0.262
+(192.0, 6716.0]  18870  0.081  0.096
+
+=== L1 queue imbalance -> future mid (1s grid) ===
+h=  1s corr=0.2420 mean fut by imb quintile: [-0.329, -0.109, -0.005, 0.143, 0.312]
+h=  5s corr=0.0952 mean fut by imb quintile: [-0.271, -0.094, 0.006, 0.145, 0.277]
+h= 10s corr=0.0690 mean fut by imb quintile: [-0.272, -0.104, 0.053, 0.184, 0.264]
+h= 30s corr=0.0349 mean fut by imb quintile: [-0.194, -0.129, 0.115, 0.285, 0.239]
+h= 60s corr=0.0388 mean fut by imb quintile: [-0.161, -0.303, 0.14, 0.448, 0.444]
+
+=== Trade-flow imbalance (signed taker volume over past 10s) -> future mid ===
+flow5s -> fut5s corr=0.0214
+flow5s -> fut30s corr=0.0116
+flow5s -> fut60s corr=0.0215
+flow10s -> fut5s corr=-0.0093
+flow10s -> fut30s corr=0.0158
+flow10s -> fut60s corr=0.0335
+flow60s -> fut5s corr=0.0213
+flow60s -> fut30s corr=0.0763
+flow60s -> fut60s corr=0.0972
+
+=== Order lifecycle ===
+{'cancel': 1871915, 'filled': 285680, 'ioc': 96088, 'open': 62}
+crossed on entry share: 0.042
+GTC lifetime (s) quantiles: {0.1: 0.0729, 0.25: 0.1533, 0.5: 0.3122, 0.75: 0.5683, 0.9: 0.9234, 0.99: 1.9859}
+cancel lifetime <5ms share: 0.0005 <50ms: 0.058
+GTC fill ratio (volume): 0.0867
+
+=== Placement distance of resting inserts from best same-side (ticks, at insert time) ===
+{-2: 101, -1: 15640, 0: 1208759, 1: 806768, 2: 112480, 3: 12355, 4: 1389, 5: 149, 6: 15, 7: 1}
+inside-spread (improving) share: 0.0073
+
+=== Price level structure: time at each mid residue mod 10/100 and big resting walls ===
+mid mod 10 dist (1s grid): {0.0: 0.006, 0.5: 0.086, 1.0: 0.006, 1.5: 0.085, 2.0: 0.006, 2.5: 0.094, 3.0: 0.007, 3.5: 0.095, 4.0: 0.008, 4.5: 0.095, 5.0: 0.008, 5.5: 0.1, 6.0: 0.007, 6.5: 0.098, 7.0: 0.008, 7.5: 0.097, 8.0: 0.007, 8.5: 0.092, 9.0: 0.006, 9.5: 0.089}
+orders >= p99.9 volume: 2254 vol threshold 3737.256000000052 ends: {'cancel': 2085, 'ioc': 167, 'filled': 2}
+      side  price    vol       t_in      t_end     end  filled
+1352     A  10000   4544   7.898009   7.945117  cancel       0
+1782     A  10003   4090  10.276609  10.427626  cancel       0
+2576     A  10005  14572  14.189247  14.587488  cancel       0
+2783     A  10004   4141  15.464702  15.464702     ioc     452
+4211     A  10007   4871  22.629219  23.307778  cancel      53
+5198     A  10009   7142  28.239373  28.271994  cancel       0
+7862     A  10007   5728  42.431291  42.612728  cancel       0
+8274     B  10006   6195  43.469769  44.640788  cancel       0
+8827     B  10007   8839  47.060658  47.499753  cancel       0
+8986     A  10010   4204  47.062006  48.336435  cancel     327
+11518    A  10010   4387  61.507302  61.507302     ioc    1354
+11555    A  10010  19094  61.810382  61.846621  cancel       0
+12934    A  10015   6552  69.159999  69.209997  cancel       0
+13303    B  10015   6572  70.882740  71.065412  cancel       0
+13550    A  10016   9694  72.142569  72.360105  cancel       0
+
+=== Simple passive-MM opportunity (1-lot at best, ignoring queue): touch frequency ===
+                n    mk1   mk10
+spr_before                     
+1           88306  0.282  0.281
+2            6356  0.702  0.698
+3              35  0.829  0.629

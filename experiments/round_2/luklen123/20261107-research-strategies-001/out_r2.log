@@ -1,0 +1,17 @@
+s_1        pnl=     2116 h1=     1174 h2=      942 fills=  8605 pen=0 se=  286.7 mdd=    186 invq997=5 0d09dd64b788
+s_2        pnl=     -777 h1=      757 h2=    -1534 fills=  9250 pen=0 se= 1520.3 mdd=   2827 invq997=16 2acc2909186e
+s_3        pnl=    -1657 h1=     -133 h2=    -1524 fills= 16996 pen=0 se=  864.4 mdd=   1998 invq997=6 3da4e7eab5f1
+s_4        pnl=    -7884 h1=    -1486 h2=    -6398 fills= 19987 pen=0 se= 1261.4 mdd=   8309 invq997=6 ba129932d66f
+s_5        pnl=    -1984 h1=     -101 h2=    -1883 fills= 14018 pen=0 se= 1775.5 mdd=   3171 invq997=14 b4111c9ae229
+s_6        pnl=    -3688 h1=     -305 h2=    -3383 fills= 14263 pen=0 se= 1718.0 mdd=   4203 invq997=14 deffdd243378
+s_7        pnl=    -3733 h1=    -1152 h2=    -2581 fills=  9593 pen=0 se= 1508.0 mdd=   3937 invq997=14 8711ef5f8b20
+s_8        pnl=      846 h1=      452 h2=      394 fills= 12839 pen=0 se= 1387.0 mdd=   1239 invq997=12 d28e2e0c19dd
+s_9        pnl=      377 h1=      125 h2=      252 fills=  5602 pen=0 se=  187.2 mdd=    112 invq997=2 08f02ea3bfe4
+s_10       pnl=     1432 h1=      960 h2=      472 fills=  5921 pen=0 se=  334.0 mdd=    234 invq997=6 51c9203e18bf
+s_11       pnl=     2123 h1=     1290 h2=      833 fills=  8441 pen=0 se=  294.1 mdd=    247 invq997=4 83729c258e59
+s_12       pnl=     1480 h1=      916 h2=      564 fills=  8301 pen=0 se=  323.2 mdd=    302 invq997=5 3e2aef0863d9
+s_13       pnl=      727 h1=      411 h2=      316 fills=  5264 pen=0 se=  244.8 mdd=    284 invq997=5 a2b4552722b5
+s_14       pnl=     1813 h1=     1119 h2=      694 fills=  8907 pen=0 se=  329.7 mdd=    286 invq997=5 896326604230
+s_15       pnl=      828 h1=      515 h2=      313 fills=  9536 pen=0 se=  186.4 mdd=    155 invq997=3 73ff56dc6fe2
+s1         pnl=     1816 h1=     1116 h2=      700 fills=  9111 pen=0 se=  332.0 mdd=    286 invq997=5 9742d3fcfcc6
+engine_s1_equiv pnl=     1816 h1=     1116 h2=      700 fills=  9111 pen=0 se=  332.0 mdd=    286 invq997=5 6d0e725ca65b
