@@ -1,0 +1,698 @@
+{
+ "version": 1,
+ "source": "Organiser's post-competition release, market_data.zip (announced after the final results, 8 Nov 2026)",
+ "zip_sha256": "b374c8359c2a2af4f944f74ccabf3f95e9050fbce070c102eea467ab9fb0a931",
+ "zip_bytes": 386422810,
+ "archive_command": "gzip -n -9 -k <file>  (round3_public: gzip -n -9 -c data/round3/round3_public.csv)",
+ "formats": {
+  "tape": "Time,Operation,OrderId,Side,Volume,Price,Lifespan (official replay input)",
+  "fair": "Time,FairPrice: hidden fair price as a step function",
+  "regime": "Start,End,Label: generator regime windows in seconds"
+ },
+ "verification": "experiments/round_4/dataathletechamp/20261109-release-reproduction-001: our finals reproduce all 8 official validation/private scores exactly",
+ "script": "experiments/round_4/dataathletechamp/20261109-release-registration-001/register.py",
+ "files": [
+  {
+   "member": "market_data/round1/round1_private.csv",
+   "round": 1,
+   "split": "private",
+   "kind": "tape",
+   "raw": {
+    "sha256": "e605077ba8653e943db2e411632c87dd4fc372d4c410d8173c507926febac064",
+    "bytes": 159387910,
+    "rows": 4414782,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.006421,
+    "last_time_s": 11999.999541
+   },
+   "stored_as": "data/market_data/round1/round1_private.csv.gz",
+   "archive_sha256": "59cd9927d159eb47cf30836c07e88db3b1f6cbe544e8dce5c2f58de0c6ec42b6",
+   "archive_bytes": 36211700,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round1/round1_private.fair.csv",
+   "round": 1,
+   "split": "private",
+   "kind": "fair",
+   "raw": {
+    "sha256": "99f9bb2705c89a12076d8db252b74d690bc516807d358d9f2d200bdb3adfe85a",
+    "bytes": 5858079,
+    "rows": 187786,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.589193
+   },
+   "stored_as": "data/market_data/round1/round1_private.fair.csv.gz",
+   "archive_sha256": "81d4d52024706b82a62113f2c404cd42fe95bbe5ffffa0478ed9990740580e7e",
+   "archive_bytes": 1464621,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round1/round1_public.csv",
+   "round": 1,
+   "split": "public",
+   "kind": "tape",
+   "raw": {
+    "sha256": "362e8208be1eeec32ad190d097774e26448f0d5149575a8e1b1efd1db1735940",
+    "bytes": 161219988,
+    "rows": 4411336,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.008661,
+    "last_time_s": 11999.999025
+   },
+   "stored_as": "data/round1/round1.csv.gz",
+   "stored_note": "byte-identical to the already tracked public tape; not stored twice"
+  },
+  {
+   "member": "market_data/round1/round1_public.fair.csv",
+   "round": 1,
+   "split": "public",
+   "kind": "fair",
+   "raw": {
+    "sha256": "e1d735a00784e205b783e23c33afaf798c9dcfbc6ba39890cb01989ac5f1b23d",
+    "bytes": 6072741,
+    "rows": 189394,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.905714
+   },
+   "stored_as": "data/market_data/round1/round1_public.fair.csv.gz",
+   "archive_sha256": "ba995998fecb25fee011cdeae39050948b97135b850ef6f29395333b28f60466",
+   "archive_bytes": 1489652,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round2/round2_private.csv",
+   "round": 2,
+   "split": "private",
+   "kind": "tape",
+   "raw": {
+    "sha256": "7492551f8ebf122e697c6ec1633908a3804a6a764eee76865c5260342d977385",
+    "bytes": 160147355,
+    "rows": 4391072,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.005369,
+    "last_time_s": 11999.996649
+   },
+   "stored_as": "data/market_data/round2/round2_private.csv.gz",
+   "archive_sha256": "b4bddce92aed85669721588f66317aeb0627092e5a9ab527465e98b78d085f56",
+   "archive_bytes": 36444086,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round2/round2_private.fair.csv",
+   "round": 2,
+   "split": "private",
+   "kind": "fair",
+   "raw": {
+    "sha256": "7cd6cf7503db02b42eec9b27e4349fed3e5cae72916f7aa6aa724bfdfce7ca7e",
+    "bytes": 6879630,
+    "rows": 215710,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.938195
+   },
+   "stored_as": "data/market_data/round2/round2_private.fair.csv.gz",
+   "archive_sha256": "32533b53fbe6706b911de484d4ada02eb5a3ab88053c45f1d4afc3660201dd67",
+   "archive_bytes": 1736848,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round2/round2_private.regime.csv",
+   "round": 2,
+   "split": "private",
+   "kind": "regime",
+   "raw": {
+    "sha256": "55d79393cdcb38280e6d290844ecc3ed94f1de0619400b4f2db192ae9d1d3271",
+    "bytes": 6538,
+    "rows": 175,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 218.832631,
+    "last_time_s": 11919.035795
+   },
+   "stored_as": "data/market_data/round2/round2_private.regime.csv"
+  },
+  {
+   "member": "market_data/round2/round2_public.csv",
+   "round": 2,
+   "split": "public",
+   "kind": "tape",
+   "raw": {
+    "sha256": "88ff641e962540c66fa1cc4a3547585d31838d0929340150690cabb4f3cfb9f4",
+    "bytes": 78512311,
+    "rows": 2193064,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 6.7e-05,
+    "last_time_s": 5999.996013
+   },
+   "stored_as": "data/round2/round2_public.csv.gz",
+   "stored_note": "byte-identical to the already tracked public tape; not stored twice"
+  },
+  {
+   "member": "market_data/round2/round2_public.fair.csv",
+   "round": 2,
+   "split": "public",
+   "kind": "fair",
+   "raw": {
+    "sha256": "d88ab5d4fb77430c4d49cd2a0d63120cf818004f8472998a3a0d5456bfcad216",
+    "bytes": 3167737,
+    "rows": 102726,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 5999.872293
+   },
+   "stored_as": "data/market_data/round2/round2_public.fair.csv.gz",
+   "archive_sha256": "591360e9a5a9a772825a2b03f1b65bacaf869ff2586932ebd3dcd56b3d0aedfc",
+   "archive_bytes": 818852,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round2/round2_public.regime.csv",
+   "round": 2,
+   "split": "public",
+   "kind": "regime",
+   "raw": {
+    "sha256": "32922ca14df12805ec559241b5f8856863454f8cd5fa5e649ef8757affa0469d",
+    "bytes": 2836,
+    "rows": 77,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 270.916873,
+    "last_time_s": 5885.691779
+   },
+   "stored_as": "data/market_data/round2/round2_public.regime.csv"
+  },
+  {
+   "member": "market_data/round2/round2_validation.csv",
+   "round": 2,
+   "split": "validation",
+   "kind": "tape",
+   "raw": {
+    "sha256": "3f6750d99dd8e6a0d5dfdc80bf70c9ee89d350893591236a05458fa8bc4e4001",
+    "bytes": 160149019,
+    "rows": 4393435,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.017075,
+    "last_time_s": 11999.996789
+   },
+   "stored_as": "data/market_data/round2/round2_validation.csv.gz",
+   "archive_sha256": "0759a4832adcba9c9602482d9f26801d0d32145e33110a0b3f9eb73c75f250e6",
+   "archive_bytes": 36501375,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round2/round2_validation.fair.csv",
+   "round": 2,
+   "split": "validation",
+   "kind": "fair",
+   "raw": {
+    "sha256": "74cabf605638147ec8de676e538f2cfae9d69f54b9a853d62cdb4aaabf66b1c8",
+    "bytes": 6995207,
+    "rows": 219720,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.971679
+   },
+   "stored_as": "data/market_data/round2/round2_validation.fair.csv.gz",
+   "archive_sha256": "6bb9cf4fce5ff925e866933d9946f4bc0bd8d54d91967a9baa7a1e6ba0fbf398",
+   "archive_bytes": 1770301,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round2/round2_validation.regime.csv",
+   "round": 2,
+   "split": "validation",
+   "kind": "regime",
+   "raw": {
+    "sha256": "01d936d3de0fe6cdfe9151ebb3f9e34a8a1561fe7e55658a92cd0a58e9c9df65",
+    "bytes": 6563,
+    "rows": 176,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 183.503645,
+    "last_time_s": 12000.0
+   },
+   "stored_as": "data/market_data/round2/round2_validation.regime.csv"
+  },
+  {
+   "member": "market_data/round3/round3_private.csv",
+   "round": 3,
+   "split": "private",
+   "kind": "tape",
+   "raw": {
+    "sha256": "2578c84e0ee0967239704be1eae6924bb925fb4276c7160969e38c3f341f7d81",
+    "bytes": 170321175,
+    "rows": 4686171,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.002849,
+    "last_time_s": 11999.99602
+   },
+   "stored_as": "data/market_data/round3/round3_private.csv.gz",
+   "archive_sha256": "2aa26afab7ca3e2e2696176a66d0c058f895d987a1c23f45ca24332ab63c240a",
+   "archive_bytes": 38908990,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round3/round3_private.fair.csv",
+   "round": 3,
+   "split": "private",
+   "kind": "fair",
+   "raw": {
+    "sha256": "27ff4f11ffae85ae7b2c301cc1b67f4302c5778ec778330e7127c5ef43781ad6",
+    "bytes": 6559213,
+    "rows": 207484,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.993505
+   },
+   "stored_as": "data/market_data/round3/round3_private.fair.csv.gz",
+   "archive_sha256": "2082bb4a1ba9a12f7850d2c852170a1433bf2569b221b62f2fa402588a2e5bc8",
+   "archive_bytes": 2381951,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round3/round3_private.regime.csv",
+   "round": 3,
+   "split": "private",
+   "kind": "regime",
+   "raw": {
+    "sha256": "acbdcf69f1156bc96fba557d2441160bc0cdcd79796b11123b87b51065ad76b0",
+    "bytes": 6113,
+    "rows": 164,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 252.065776,
+    "last_time_s": 11824.587205
+   },
+   "stored_as": "data/market_data/round3/round3_private.regime.csv"
+  },
+  {
+   "member": "market_data/round3/round3_public.csv",
+   "round": 3,
+   "split": "public",
+   "kind": "tape",
+   "raw": {
+    "sha256": "1021586b92a3d9dfdb70096e6b0af34d460813b139f1f51f56b73871cb5a2d15",
+    "bytes": 86670643,
+    "rows": 2412805,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.001095,
+    "last_time_s": 5999.994333
+   },
+   "stored_as": "data/market_data/round3/round3_public.csv.gz",
+   "archive_sha256": "9709d7e20406524a39389ce6a44b7635f181c1e18d06db94118eb9acb518f100",
+   "archive_bytes": 20020983,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round3/round3_public.fair.csv",
+   "round": 3,
+   "split": "public",
+   "kind": "fair",
+   "raw": {
+    "sha256": "119f7ceec00a954aa74bb8291de9bbbc32f1cb8a9c0a6ff9385903784825efdf",
+    "bytes": 3288102,
+    "rows": 105976,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 5999.834982
+   },
+   "stored_as": "data/market_data/round3/round3_public.fair.csv.gz",
+   "archive_sha256": "127e401002abedbf9255b600bedd7277aa8acf0074cf15b9b50f3e5189161ddb",
+   "archive_bytes": 1215370,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round3/round3_public.regime.csv",
+   "round": 3,
+   "split": "public",
+   "kind": "regime",
+   "raw": {
+    "sha256": "e1063ab9a9a016774403478b83d0e97cc8054c9451ec0c611addec3bfa213ccb",
+    "bytes": 3218,
+    "rows": 87,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 254.194194,
+    "last_time_s": 5935.273119
+   },
+   "stored_as": "data/market_data/round3/round3_public.regime.csv"
+  },
+  {
+   "member": "market_data/round3/round3_validation.csv",
+   "round": 3,
+   "split": "validation",
+   "kind": "tape",
+   "raw": {
+    "sha256": "e280522ab3ca9dfa7f0f4bd555bdb00fe1431f690383e8d8aa0803970d27a1d5",
+    "bytes": 169455852,
+    "rows": 4685848,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.001989,
+    "last_time_s": 11999.995556
+   },
+   "stored_as": "data/market_data/round3/round3_validation.csv.gz",
+   "archive_sha256": "a9db9c4c5a32d8e87564bfc82aa134d7a6b5e87a9a362920d255f0ce01c5c863",
+   "archive_bytes": 38844290,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round3/round3_validation.fair.csv",
+   "round": 3,
+   "split": "validation",
+   "kind": "fair",
+   "raw": {
+    "sha256": "edacef69e9f0416f4b709fe07557c17a1cbf509e708d11baefb192801d54759b",
+    "bytes": 6524065,
+    "rows": 208669,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.983654
+   },
+   "stored_as": "data/market_data/round3/round3_validation.fair.csv.gz",
+   "archive_sha256": "5dcebdd0a246231906cf5daff883989a9bb1d4045626be19fae2c482c3805b31",
+   "archive_bytes": 2388764,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round3/round3_validation.regime.csv",
+   "round": 3,
+   "split": "validation",
+   "kind": "regime",
+   "raw": {
+    "sha256": "09ccfed266a063fe6441f6ccd82361d03371b2857b4e3b00c3985768e9536f35",
+    "bytes": 6273,
+    "rows": 168,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 207.578431,
+    "last_time_s": 11965.453264
+   },
+   "stored_as": "data/market_data/round3/round3_validation.regime.csv"
+  },
+  {
+   "member": "market_data/round4/round4_private.csv",
+   "round": 4,
+   "split": "private",
+   "kind": "tape",
+   "raw": {
+    "sha256": "7cd267253d27e8d79471f141f7d46f15cb8e381443b637ef5469a0ba57e5c017",
+    "bytes": 177591982,
+    "rows": 4857051,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.037215,
+    "last_time_s": 11999.994007
+   },
+   "stored_as": "data/market_data/round4/round4_private.csv.gz",
+   "archive_sha256": "9ba199ec8854f8e909fef9e73a1933428eec7c5101ee4ed506a7f931ea2f3980",
+   "archive_bytes": 40430176,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round4/round4_private.fair.csv",
+   "round": 4,
+   "split": "private",
+   "kind": "fair",
+   "raw": {
+    "sha256": "05754fe8b1c85cf6a9a651dcceb892cd4ed2743d4585d12c5ebed7d8ab680e14",
+    "bytes": 10978641,
+    "rows": 343112,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.796957
+   },
+   "stored_as": "data/market_data/round4/round4_private.fair.csv.gz",
+   "archive_sha256": "d2adad96f71361a9eed668efc323ff82383f23851ff69b091b0d60bc42d4a664",
+   "archive_bytes": 3835365,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round4/round4_private.regime.csv",
+   "round": 4,
+   "split": "private",
+   "kind": "regime",
+   "raw": {
+    "sha256": "0f8640b75f2eaf79f3fd6c8c80485279319650a56c2d51534eaa7b017ec86150",
+    "bytes": 11558,
+    "rows": 326,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 171.128889,
+    "last_time_s": 11762.009398
+   },
+   "stored_as": "data/market_data/round4/round4_private.regime.csv"
+  },
+  {
+   "member": "market_data/round4/round4_public.csv",
+   "round": 4,
+   "split": "public",
+   "kind": "tape",
+   "raw": {
+    "sha256": "61c0b6d149e5e50806f1b09ba17fa69ac3e5d8d2cf884d6f11ce17b833af8a56",
+    "bytes": 85915505,
+    "rows": 2398520,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.005934,
+    "last_time_s": 5999.999361
+   },
+   "stored_as": "data/round4/round4_public.csv.gz",
+   "stored_note": "byte-identical to the already tracked public tape; not stored twice"
+  },
+  {
+   "member": "market_data/round4/round4_public.fair.csv",
+   "round": 4,
+   "split": "public",
+   "kind": "fair",
+   "raw": {
+    "sha256": "f50a9fa2b2d579494b99ada67c7a65084962e8ac9a4c89a3ffec6ed33a07f7ec",
+    "bytes": 5685694,
+    "rows": 184324,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 5999.996218
+   },
+   "stored_as": "data/market_data/round4/round4_public.fair.csv.gz",
+   "archive_sha256": "41d559fd57d16f1eeed8c8beb2abbfb86f3c6cc83fbe7a7de3c917ca78455218",
+   "archive_bytes": 2043348,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round4/round4_public.regime.csv",
+   "round": 4,
+   "split": "public",
+   "kind": "regime",
+   "raw": {
+    "sha256": "6732e67c64dda941ce19d9c570b66d22710f9bd63ec67e35d2de0093e8194354",
+    "bytes": 5597,
+    "rows": 159,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 167.385318,
+    "last_time_s": 5874.547329
+   },
+   "stored_as": "data/market_data/round4/round4_public.regime.csv"
+  },
+  {
+   "member": "market_data/round4/round4_validation.csv",
+   "round": 4,
+   "split": "validation",
+   "kind": "tape",
+   "raw": {
+    "sha256": "9f8297180c758e86b8e9296e8205193245dff97000401b8c0b9ed54aa64ab859",
+    "bytes": 173956759,
+    "rows": 4758232,
+    "header": [
+     "Time",
+     "Operation",
+     "OrderId",
+     "Side",
+     "Volume",
+     "Price",
+     "Lifespan\r"
+    ],
+    "first_time_s": 0.003039,
+    "last_time_s": 11999.994752
+   },
+   "stored_as": "data/market_data/round4/round4_validation.csv.gz",
+   "archive_sha256": "afb92b22dd7fc6145186f891cfcf48ab745c8ed013770f6817953bb5622f4dea",
+   "archive_bytes": 39643272,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round4/round4_validation.fair.csv",
+   "round": 4,
+   "split": "validation",
+   "kind": "fair",
+   "raw": {
+    "sha256": "2ef169f93f57cb7d75d6d7668e0d113f4fa7a88a473f7fe1e226e1060b43a4bc",
+    "bytes": 11330722,
+    "rows": 353408,
+    "header": [
+     "Time",
+     "FairPrice\r"
+    ],
+    "first_time_s": 0.0,
+    "last_time_s": 11999.994752
+   },
+   "stored_as": "data/market_data/round4/round4_validation.fair.csv.gz",
+   "archive_sha256": "0c90dbb43a689fe447a09944e71a2f7ce14292db2a562678217159acedfab19f",
+   "archive_bytes": 3949162,
+   "lossless_decompression_verified": true
+  },
+  {
+   "member": "market_data/round4/round4_validation.regime.csv",
+   "round": 4,
+   "split": "validation",
+   "kind": "regime",
+   "raw": {
+    "sha256": "363c255aceb83c6054286fe508235f10277abc4273c238b97363b843d5cff22e",
+    "bytes": 11706,
+    "rows": 329,
+    "header": [
+     "Start",
+     "End",
+     "Label\r"
+    ],
+    "first_time_s": 288.318131,
+    "last_time_s": 11942.962483
+   },
+   "stored_as": "data/market_data/round4/round4_validation.regime.csv"
+  }
+ ]
+}
