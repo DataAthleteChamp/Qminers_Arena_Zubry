@@ -54,7 +54,8 @@ Pre-declared acceptance, paired against U2 on the same tapes:
   ±100 position limit, 10,000/s penalty. Full tapes.
 - **Strategy:** sha256 b62fad7b… for the final file (grid 2 and timing). Grid 1 ran the earlier snapshot
   3a157d80…, which lacked the K8 code. Both reproduce U2 exactly with defaults off:
-  886,626 / 415,404 / 159,515.
+  886,626 / 415,404 / 159,515. The final file also reproduces grid 1's R4 values for signal MIN 8
+  ungated (870,136) and both 500 ms (822,791).
 
 ## Results (official engine, penalty 0 everywhere; deltas vs U2)
 
