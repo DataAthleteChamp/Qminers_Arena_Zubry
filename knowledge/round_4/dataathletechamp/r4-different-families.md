@@ -51,6 +51,25 @@ Folder: `experiments/round_4/dataathletechamp/20261108-r4-burst-predictor-001/`.
 - **The fair-value skew is worse than a naive touch maker** (−1.45 vs −1.01 at EDGE 0.5).
 - **The family is closed for this generator.** That matches R3 (`r3-aged-maker.md`).
 
-## 3. Literature and competition review
+## 3. Literature and competition review (`20261108-r4-lit-review-001/REPORT.md`)
 
-Pending (`experiments/round_4/dataathletechamp/20261108-r4-lit-review-001/REPORT.md`).
+No source shows outsized PnL against simulated bot populations beyond what we run.
+
+- **The top competition writeups copy informed bots.** That is our follower: IMC Prosperity 3 runner-up
+  (Frankfurt Hedgehogs), https://github.com/TimoDiehm/imc-prosperity-3.
+- **Oracle distillation hit its ceiling** in §1 (Fang et al., AAAI-21).
+- **Alpha-skewed and empty-side makers lose** here, because the takers are informed (§2; Cartea et al.;
+  IMC Prosperity 4 empty-side quoting).
+- **Stale-quote sniping** (Wah–Wellman; Aquilina–Budish–O'Neill) is what the follower and the jump-onset
+  flip already do.
+- **ABIDES, Ready Trader Go and Jane Street ETC** offered nothing transferable.
+- **The one cheap untested refinement** is a CUSUM / Shiryaev–Roberts onset detector
+  (https://arxiv.org/abs/1509.01570). Its expected gain is too small to resolve on validation before the
+  close.
+
+## Conclusion for Round 4
+
+The ±100 informed-flow follower is at the visible-information ceiling of this generator. That is
+confirmed by convergent methods (triggers vs a 107-feature oracle-imitation model), by the engine-tested
+rejections of every other family, and by the literature and competition review. U6
+(`r4_u6_jump_k4.py`) stays the final: validation 1,343,238, i.e. U2 within noise.
