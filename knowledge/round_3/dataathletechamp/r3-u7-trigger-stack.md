@@ -78,6 +78,32 @@ Every neighbour stays well above U6 on both tapes. All runs had penalty 0.
   ticks on a 50 ms grid): R3 364k / 401k / 412k and R2 146k / 128k / 159k.
   All are worse than U7.
 
+## Distribution check on synthetic tapes
+
+Five v2 synthetic tapes from the calibrated generator
+(`20261108-r3-generator-monte-carlo-001`, seeds s51–s53 base, s54
+shallow-R2 placement, s55 more informed flow). They match R3 A on 1 s
+volatility, short-horizon momentum and sweep drift, but have tighter
+spreads. Absolute PnL levels from this generator are not credible, so use
+the tapes for paired comparisons only. Script:
+`20261108-r3-u7-distribution-001/` (`runner_syn.py`, `aggregate.py`).
+
+| variant | s51 | s52 | s53 | s55 | s54 | mean | beats U7 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| U7 | 446,134 | 409,801 | 421,115 | 375,912 | 483,747 | 427,342 | – |
+| U6-equivalent (both triggers off) | 434,096 | 403,090 | 404,050 | 371,573 | 463,269 | 415,216 | 0/5 |
+| U4-equivalent (R3-only model) | 411,857 | 411,035 | 397,129 | 377,203 | 454,799 | 410,405 | 2/5 |
+| TRIG1 flow 200 | 448,360 | 438,369 | 426,209 | 375,182 | 477,714 | 433,167 | 3/5 |
+| flow 800 | 449,290 | 417,760 | 424,292 | 391,906 | 482,414 | 433,132 | 4/5 |
+| hold 6 s / A_SWEEP 4 / TRIG1 FV 0.35 | | | | | | 425.7k / 421.4k / 425.8k | 1/5, 1/5, 2/5 |
+
+- The trigger stack generalizes: U7 beats the U6-equivalent on all five
+  synthetic tapes, on R3, on R2 and on the validation tape.
+- No neighbour is clearly better. The best gain across the seven tapes is
+  about 1%: TRIG1 flow 200 is +29.6k over seven tapes in total, and
+  flow 800 trades an R2 loss for synthetic gains.
+- U7 stays the final candidate.
+
 ## Limits
 
 - R3 and R2 are in-sample. The TRIG1 thresholds came from the R3 oracle
