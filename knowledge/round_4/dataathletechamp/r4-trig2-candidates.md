@@ -32,5 +32,31 @@ Grids: `experiments/round_4/dataathletechamp/20261108-r4-trig2-001`, `-002`,
 - Both files match the runner in the official CLI on R4 (886,626 / 840,594,
   penalty 0) and pass preflight.
 
-The validation results and the R4-like synthetic paired check
-(`20261108-r4-synthetic-001`) decide between U2 and U3.
+## Synthetic paired check (`20261108-r4-synthetic-001`, official engine)
+
+- **Setup:**
+  - The Monte Carlo generator was recalibrated to R4 and used to make 14 tapes of 6,000 s each.
+  - U7, U2 and U3 ran in the official engine. Every run had penalty 0.
+  - The runner reproduced the R4 public scores exactly.
+- **What the tapes match and miss:**
+  - They match R4's 1 s SD, spread and momentum profile (VR10 1.8–2.7).
+  - None matches R4's G placement relative to the own best, which is TRIG2's input (b3+ 45% vs 13%).
+  - None matches R4's IOC behaviour (43% of IOCs do not trade vs 4% on R4).
+  - So this is a stress test of a placement shift, not R4 seed variation.
+
+Paired mean differences (wins/losses vs U7):
+
+| family | U2−U7 | U3−U7 | U2−U3 |
+|---|---:|---:|---:|
+| all 14 synthetic | −206k (0/14) | −57k (1/13) | −149k (0/14) |
+| SWEEP (R4-like placement, weak momentum) | −7k (0/3) | +0.2k (1/2) | −7.5k |
+| R4 public | +65k | +19k | +46k |
+
+- **U2 under stress:**
+  - U2's R4 edge comes from only 75 TRIG2 flips.
+  - On the momentum tapes TRIG2 fires 4–6× as often, and U2 flips 1,450–1,900 times, losing about 250k.
+  - U3's gate blocks most of these flips.
+- **Decision:**
+  - Do not upload U2.
+  - U3 is the safer TRIG2 variant, but it is not better than U7 off R4.
+  - U1 (U7 byte copy, validation 1,326,712) stays the working final.
