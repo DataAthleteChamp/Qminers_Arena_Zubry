@@ -30,9 +30,26 @@ Folder: `experiments/round_4/dataathletechamp/20261108-r4-burst-predictor-001/`.
   the same PnL. This is strong evidence that ±100 strategies sit at the ceiling of what visible
   information predicts here; the rest of the oracle gap is unforecastable latent-price innovation.
 
-## 2. Latent-fair-value-skewed market maker
+## 2. Latent-fair-value-skewed market maker — REJECTED (`20261108-r4-mm-001/`, official engine)
 
-Pending (builder `r4-mm2`, `experiments/round_4/dataathletechamp/20261108-r4-mm-001/`).
+- **Design.**
+  - Quotes at bid = min(best bid, floor(FV − EDGE)) and ask = max(best ask, ceil(FV + EDGE)), size Q.
+  - FV = 0.5 × (max new bid insert + min new ask insert) over a short window, as in the follower's `_fv`.
+  - Inventory skew k; |inventory| ≤ 100.
+  - Quotes are pulled for T_TOX ms after sweeps or 200 ms flow ≥ 300.
+
+| variant | R4 | R3 | R2 | R4 1 s markout per lot |
+|---|---:|---:|---:|---:|
+| EDGE 0.5, Q 50 | −312,079 | −115,185 | −65,341 | −1.45 |
+| EDGE 1, Q 50 | −200,022 | −85,158 | −53,552 | −2.34 |
+| EDGE 2, Q 50 | −139,074 | −58,289 | −40,256 | −5.70 |
+| EDGE 2, Q 50, T_TOX 2000 (least bad) | −44,623 | −37,354 | −27,435 | −22.2 |
+
+- **Every variant loses on every tape.** The informed IOC takers make every resting quote toxic: the
+  markout is −1.4 to −22 ticks against +0.6 to +2.2 of spread earned.
+- **Wider quotes and longer pulls only trade less**, and each lot filled is more toxic.
+- **The fair-value skew is worse than a naive touch maker** (−1.45 vs −1.01 at EDGE 0.5).
+- **The family is closed for this generator.** That matches R3 (`r3-aged-maker.md`).
 
 ## 3. Literature and competition review
 
