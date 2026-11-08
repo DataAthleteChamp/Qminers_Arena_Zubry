@@ -133,6 +133,20 @@ Longer holds help slightly; shorter holds hurt. The gain is about 1%, which
 is noise-sized for a single tape, but it is consistent across R3, R2 and
 3 of 5 synthetic tapes.
 
+After U8, three structurally different position designs were tried and
+rejected:
+
+- Two-horizon sleeves: R3 −33% to −52%. Notes in `r3-follower-sleeves.md`.
+- Evidence-weighted sizing: R3 −52% to −97%. Notes in
+  `r3-follower-evidence.md`.
+- Reversion sleeve: R3 −16% to −24%. Notes in `r3-follower-revsleeve.md`.
+
+A consensus bypass of the P1 gate for TRIG1 flips when 200 ms taker flow
+agrees was also rejected. At 600 / 900 / 1,200 lots it gives R3 392.5k /
+408.7k / 415.6k and R2 168.5k / 170.1k / 171.6k (U8: 415.9k / 171.6k). The
+gate adds value even when flow agrees. Grid:
+`20261108-r3-u8-consensus-001`.
+
 ## Limits
 
 - R3 and R2 are in-sample. The TRIG1 thresholds came from the R3 oracle
