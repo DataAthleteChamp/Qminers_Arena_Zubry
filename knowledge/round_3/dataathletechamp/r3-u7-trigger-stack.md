@@ -55,6 +55,20 @@ Every neighbour stays well above U6 on both tapes. All runs had penalty 0.
 - The colleague's JumpBurst rule as a trigger (mid moves >= 2 ticks within
   100 ms at a 1-tick spread): R3 +2.4k, R2 −0.2k. Our flow and sweep triggers
   already fire on these bursts.
+- Reversion overlay, motivated by the teammate tape study
+  (`round3-public-tape-analysis.md`: momentum up to about 5 s, reversion over
+  10 s–5 min on R3, trend on R2). Grid `20261108-r3-u7-reversion-001`.
+  - Blocking same-sign entries and extensions once (mid − 60 s EMA) >= 15–35
+    ticks in our favour: R3 409–413k, R2 153–166k.
+  - Going flat at the same thresholds: R3 297–370k, R2 64–141k.
+  - Both are worse than U7. The follower's edge sits at the 1–5 s momentum
+    horizon; fighting it with the slower reversion costs more than it saves.
+- A-signal thresholds on U7 (`20261108-r3-u7-athresh-001`): A_SWEEP 4 gives
+  +2.9k on R3 and +1.0k on R2, which is noise-sized. A_SWEEP 2, RUN_MIN 3/5,
+  BIG_FILL 400/700 and FILL_MIN 75/150 each lose on R3, R2 or both.
+- Hidden-price G-class trigger (`r3-follower-trig2.md`) and exit flags
+  (blocked-flat, giveback, adverse stop, opposite-flow flat;
+  `r3-follower-exits.md`): none improves both tapes.
   - Standalone, JumpBurst makes R3 78,179 and R2 13,402; the owner reports
     154k on validation.
   - Its useful property is low exposure: it is flat outside 1 s bursts.
