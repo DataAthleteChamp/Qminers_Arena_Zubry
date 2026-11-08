@@ -104,6 +104,35 @@ the tapes for paired comparisons only. Script:
   flow 800 trades an R2 loss for synthetic gains.
 - U7 stays the final candidate.
 
+## U8: small, consistent refinement
+
+`strategies/round_3/dataathletechamp/r3_follower_u8.py` (sha256 0075a2bf…b49a).
+It is U7 plus three changes: TRIG1_FLOW 200, HOLD_S 6, and an 8 s hold for
+FLOW_TRIG signals (`HOLD_F_S`, from the per-trigger hold grid
+`20261108-r3-u7-holdsrc-001`). Official CLI on R3: 415,883, penalty 0.
+
+| variant | R3 | R2 | s51 | s52 | s53 | s54 | s55 | 7-tape Δ vs U7 | better on |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| U7 | 413.6k | 167.2k | 446.1k | 409.8k | 421.1k | 483.7k | 375.9k | – | – |
+| TRIG1 flow 200 + hold 6 s | 415.8k | 170.7k | 448.4k | 436.2k | 426.3k | 476.1k | 374.9k | +30.9k | 5/7 |
+| **U8** (the above + flow hold 8 s) | **415.9k** | **171.6k** | 448.4k | 436.2k | 426.3k | 476.1k | 375.5k | **+32.5k** | 5/7 |
+| TRIG1 flow 200 + flow trigger 800 | 412.7k | 153.8k | 455.9k | 439.4k | 428.1k | 477.0k | 390.0k | +39.4k | 4/7, fails R2 |
+
+Single-trigger holds on U7 (R3 / R2):
+
+| change | R3 | R2 |
+|---|---:|---:|
+| flow hold 8 s | 414.7k | 171.6k |
+| flow hold 3 s | 413.3k | 168.0k |
+| TRIG1 hold 8 s | 414.1k | 169.4k |
+| TRIG1 hold 3 s | 403.3k | 158.7k |
+| A hold 7 s | 413.8k | 170.8k |
+| A hold 3 s | 411.5k | 165.3k |
+
+Longer holds help slightly; shorter holds hurt. The gain is about 1%, which
+is noise-sized for a single tape, but it is consistent across R3, R2 and
+3 of 5 synthetic tapes.
+
 ## Limits
 
 - R3 and R2 are in-sample. The TRIG1 thresholds came from the R3 oracle
