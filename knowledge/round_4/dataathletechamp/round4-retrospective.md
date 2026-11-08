@@ -4,13 +4,18 @@ Round 4 ran 07:00–12:00 CET on 8 Nov 2026 and is weighted ×1.2 on normalized 
 
 - **Data:** public R4 tape (6,000 s; sha256 61c0b6d1…) plus the validation tape B (12,000 s, server
   only). Both come from the R4 generator.
-- **Recommended final:** Paweł's `r3_final.py`. Validation 1,420,312; private pending.
+- **Final (marked in the portal, submission `71380109`):** Paweł's `r3_final.py`. Validation 1,420,312;
+  **private 1,250,605** (11.9% below validation). The rank has not been announced yet.
+- **Uploads:** the team used 11 of the 15 allowed. Besides the rows below, they were:
+  - Maciej's `continuous_book_adaptive.py` (1,250,479) and `..._direct_flip_edge_1_5.py` (1,170,758);
+  - Łukasz's `toxflow_v5.py` (1,196,226) and `toxflow_v6.py` (1,268,596);
+  - one canceled U6 re-upload.
 
 ## Upload log (validation B)
 
 | Upload | File | R4 A | B | Paired vs previous |
 |---|---|---:|---:|---|
-| U1 | R3 final U7 (`r4_u1_follower_u7_baseline.py`) | 821,692 | 1,326,712 | baseline |
+| U1 | our R3 U7 (`r4_u1_follower_u7_baseline.py`) | 821,692 | 1,326,712 | baseline |
 | U2 | + TRIG2 ungated (`r4_u2_trig2_ungated.py`) | 886,626 | 1,343,784 | +17,072 (15/20 blocks) |
 | U6 | + jump-onset flip + burst (`r4_u6_jump_k4.py`) | 920,538 | 1,343,238 | −546 |
 | U8 | + CUSUM + 500-lot burst (`r4_u8_allin.py`) | 948,126 | 1,318,169 | −25,069 |

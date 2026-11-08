@@ -1,99 +1,189 @@
-# Qminers trading hackathon starter
+# Zubry · Qminers Algo Trade Arena 2026
 
-## Zubry team workspace
+Team **Zubry** (Jakub, Maciej, Paweł, Łukasz) at the
+[Qminers Algo Trade Arena](https://github.com/QminersOrg/qminers-algo-arena), 7–8 November 2026.
 
-Start with [TEAM_START.md](TEAM_START.md) for team rules, real playground results,
-agent usage and the mandatory reviewer-access status. The official simulator and
-explorer remain unchanged. The sections below are the organiser's starter guide.
-Our team uses uv only; the optional pip bootstrap below is not our workflow.
+- **The market:** one anonymised instrument, replayed from order-book tapes.
+- **The rules:** orders take 5 ms to arrive, there are no fees, and every second with |inventory| > 100
+  costs $10,000.
+- **The rounds:** a playground, then four rounds of five hours each. Each round we submitted one
+  Python file, and it was scored on an unseen private tape.
 
-```
-strategies/   template_strategy.py, an empty strategy to copy and fill in; trend_follower.py, a simple working one
-data/         sample.csv.gz, a synthetic hour of trending prices to start on; the rounds downloaded from the website go here too (git-ignored)
-logs/         simulator output (git-ignored)
-simulator/    the exchange simulator package
-explorer/     the backtest explorer package
-```
+## Results
 
-## Setup
+<!-- Round 4: add the rank, median, winner and overall standing when they are announced. -->
 
-[uv](https://docs.astral.sh/uv/) is a fast Python package and project manager; install it with `curl -LsSf https://astral.sh/uv/install.sh | sh` (or `pip install uv`).
+| Round (weight) | Our private PnL | Rank | Teams we beat | Median | Winner |
+|---|--:|:-:|---|--:|---|
+| Playground | +10,798 | 26 / 52 | `█████░░░░░` 51% | 10k | ThatsMyQuant 292k |
+| Round 1 (×0.8) | **+504,903** | **14 / 61** | `████████░░` 78% | 447k | GammaStrike 793k |
+| Round 2 (×1.0) | +2,281 | 55 / 59 | `█░░░░░░░░░` 7% | 441k | delfini 1.88M |
+| Round 3 (×1.0) | **+589,202** | 34 / 53 | `████░░░░░░` 37% | 725k | delfini 1.46M |
+| Round 4 (×1.2) | **+1,250,605** | pending | – | – | – |
+
+**After 3 of 4 rounds we were #32 of 61**, with a weighted z-score of −1.20 (z₁ +0.51, z₂ −1.24,
+z₃ −0.36).
+- **How it's scored:** z = (PnL − mean) / sd, taken over each round's profitable teams. The total is
+  0.8·z₁ + z₂ + z₃ + 1.2·z₄.
+- **What Round 2 cost:** an average Round 2 (z₂ = 0) would have put us about #25.
+
+| Round 1 | Round 2 | Round 3 |
+|:-:|:-:|:-:|
+| ![Round 1 private PnL over time](docs/results/r1-private-pnl.png) | ![Round 2 private PnL over time](docs/results/r2-private-pnl.png) | ![Round 3 private PnL over time](docs/results/r3-private-pnl.png) |
+
+*Private-tape PnL of every team over time; ours is the red line.*
+
+![Where every team finished, rounds 1–3](docs/results/private-distribution-r1-r3.png)
+
+![Weighted z-score standings after 3 of 4 rounds](docs/results/overall-standings-after-r3.png)
+
+## The story
+
+**Playground: learning the machine.** We reproduced the official example exactly (1,878 PnL,
+305 fills) and learned how the latency and inventory penalty behave. We finished mid-table:
++10,798, 26th of 52.
+
+**Round 1: the queue is the edge.** We built a passive market maker. It topped up its place in the
+queue, priced quotes with a ridge forecast and kept inventory within ±100. After 185 official
+replays, Maciej's 8-slot variant scored 505,225 on the public tape and **504,903 on private**. That
+made 14th of 61, our best round.
+
+**Round 2: the market flipped.** Our Round 1 final lost 143k on the new tape: it traded as much as
+before, but its fills were worse. We kept repairing market makers instead of studying the new market
+again. The final
+grid maker showed 80,993 on validation. A sharp drop in the last minutes left it at **+2,281 on
+private**: 55th of 59.
+
+**Round 3: from maker to taker.** A probe of the old maker lost 659,826 on validation, so we switched
+sides. The new strategy was an informed-flow follower. It holds ±100 and flips with IOC orders on
+sweeps and taker flow, and a ridge model has to agree before it flips. Paweł's variant finished at
+**+589,202**, 34th of 53. We had assumed the 1M+ scores were overfit; the private board showed they
+were real.
+
+**Round 4: simple beat stacked.** We added new triggers (placement class, jump onset, CUSUM,
+bursts). They won on the public tape but shrank about 6× on validation. The best of our 11 uploads
+was Paweł's simpler file: the follower plus a JumpBurst flip trigger we had shelved in Round 3. It
+scored 1,420,312 on validation and **1,250,605 on private**.
+
+## What we learned
+
+1. **Net executed PnL is the only score.** Not AUC, R², fill counts or a nicer forecast.
+2. **Study every new tape before reusing the last winner.** Our Round 1 final lost 143k on Round 2.
+3. **Validate on the server early.** Gains picked on the public tape shrank about 6× on
+   validation.
+4. **Take the leaderboard seriously.** If others earn twice as much on an unseen tape, the edge is
+   real. Go and find it.
+5. **Avoid the zero round.** Under z-scoring, our near-zero Round 2 (−1.24) cost three times what
+   our best round gained (+0.41).
+6. **Simple, re-tested ideas beat stacks.** Triggers that react to the same moves don't add up.
+   Re-test rejected ideas on new data.
+
+## Submissions
+
+Server score is the score shown before the deadline. In the Playground and Round 1 that was the
+public tape; from Round 2 on it was a server-only validation tape.
+
+| Round | Uploads | Final (portal ID) | Server score | Private |
+|---|:-:|---|--:|--:|
+| Playground | 4 | Jakub's upload (`36dc4d98`) | 10,395 | +10,798 |
+| Round 1 | 4 | Maciej's 8-slot ridge queue maker (`3a7bca12`) | 505,225 | +504,903 |
+| Round 2 | 13 (1 failed) | Maciej's EMA grid maker (`0d85d5f8`) | 80,993 | +2,281 |
+| Round 3 | 9 | Paweł's follower variant (`db1805cd`) | 597,854 | +589,202 |
+| Round 4 | 11 of 15 (1 canceled) | Paweł's `r3_final.py` (`71380109`) | 1,420,312 | +1,250,605 |
+
+<details>
+<summary><b>Every upload, round by round</b></summary>
+
+**Playground**, public tape
+
+| Time | By | Score | Note |
+|---|---|--:|---|
+| 11:24 | Maciej | −28,717 | |
+| 11:53 | Jakub | −14,125 | |
+| 11:57 | Maciej | +3,582 | |
+| 11:59 | Jakub | **+10,395** | **Final** → private +10,798 |
+
+**Round 1**, public tape
+
+| Time | By | Score | Note |
+|---|---|--:|---|
+| 15:24 | Jakub | 344,438 | ridge-size queue hybrid |
+| 17:21 | Jakub | 477,516 | 0.5 s forecast sets the quote price |
+| 17:41 | Maciej | 496,928 | ridge maker, earlier variant |
+| 17:43 | Maciej | **505,225** | **Final**: 8 slots, skew 0.001 → private 504,903 |
+
+**Round 2**, validation tape
+
+| Time | By | Score | Note |
+|---|---|--:|---|
+| 21:32 | Łukasz | −10,781 | |
+| 21:40 | Jakub | −229,513 | risk-aware ridge maker |
+| 21:42 | Maciej | failed | rejected by the static check |
+| 21:47 | Maciej | 28,827 | grid maker |
+| 21:59 | Maciej | 15,917 | |
+| 22:51 | Łukasz | −12,502 | |
+| 23:13 | Jakub | 43,782 | queue top-ups plus size protection |
+| 23:24 | Łukasz | −16,649 | |
+| 23:51 | Jakub | 47,150 | EMA maker updated only on clean books |
+| 23:59 | Łukasz | 51,266 | |
+| 00:02 | Paweł | 37,868 | |
+| 00:08 | Maciej | **80,993** | **Final**: one-price grid, 8 orders per side, EMA trend target → private 2,281 |
+| 00:11 | Jakub | 41,113 | |
+
+**Round 3**, validation tape
+
+| Time | By | Score | Note |
+|---|---|--:|---|
+| 02:33 | Jakub | 272,176 | U1 informed-flow follower |
+| 02:39 | Jakub | −659,826 | U2 probe: the Round 1 maker |
+| 02:45 | Jakub | 258,688 | U3 regime gate plus maker |
+| 03:26 | Jakub | 411,302 | U4 ridge flip gate plus 3-tick sweep trigger |
+| 03:59 | Jakub | 415,828 | U6 gate refitted on R3 + R2 |
+| 04:06 | Maciej | 154,162 | |
+| 04:18 | Jakub | 538,844 | U7 plus taker-flow and deep-insert triggers |
+| 05:23 | Paweł | **597,854** | **Final** → private 589,202 |
+| 05:46 | Paweł | 596,419 | |
+
+**Round 4**, validation tape
+
+| Time | By | Score | Note |
+|---|---|--:|---|
+| 07:20 | Jakub | 1,326,712 | U1: the Round 3 follower U7 |
+| 08:58 | Jakub | 1,343,784 | U2: plus the TRIG2 placement trigger |
+| 10:23 | Jakub | 1,343,238 | U6: plus a jump-onset flip and a burst |
+| 10:52 | Maciej | 1,250,479 | `continuous_book_adaptive.py` |
+| 10:58 | Jakub | canceled | U6 re-upload |
+| 11:16 | Jakub | 1,318,169 | U8 all-in: CUSUM plus a 500-lot burst |
+| 11:25 | Maciej | 1,170,758 | `continuous_book_adaptive_direct_flip_edge_1_5.py` |
+| 11:37 | Łukasz | 1,196,226 | `toxflow_v5.py` |
+| 11:40 | Paweł | **1,420,312** | **Final** `r3_final.py`: follower plus JumpBurst flip → private 1,250,605 |
+| 11:49 | Jakub | 1,400,890 | U9: U6 plus the burst flip trigger |
+| 11:51 | Łukasz | 1,268,596 | `toxflow_v6.py` |
+
+</details>
+
+## Repository
+
+| Path | What's there |
+|---|---|
+| [`knowledge/`](knowledge) | Curated notes by round and owner. Start with the retrospectives: [R1](knowledge/round_1/dataathletechamp/round1-retrospective.md) · [R2](knowledge/round_2/dataathletechamp/round2-retrospective.md) · [R3](knowledge/round_3/dataathletechamp/round3-retrospective.md) · [R4](knowledge/round_4/dataathletechamp/round4-retrospective.md) |
+| [`strategies/`](strategies) | Retained single-file strategies. See the [Round 4 registry](strategies/round_4/dataathletechamp/README.md). |
+| [`submissions/`](submissions) | Frozen final bundles and evidence |
+| `simulator/`, `explorer/` | The organisers' exchange simulator and backtest explorer, unchanged |
+| `tools/`, `tests/`, `docs/` | Team tooling, checks and procedures |
+| `data/` | Compressed public tapes with their hashes; raw CSVs are git-ignored |
+| `experiments/` | Local trials and outputs, git-ignored |
+
+**Quick start.** These commands replay our Round 4 final on the Round 4 public tape:
 
 ```bash
-uv sync                                        # Python 3.13 and everything else, into .venv
-uv run python -m gzip -d data/sample.csv.gz    # the simulator reads plain CSV only; one file at a time, the same for each downloaded round
+uv sync --locked
+uv run --locked python -m gzip -d data/round4/round4_public.csv.gz
+uv run --locked exchange-simulator --strategy strategies/round_4/dataathletechamp/r4_final_pawel_r3_final.py \
+  --backtest data/round4/round4_public.csv --log-dir logs/r4-final --no-logs
 ```
 
-`data/sample.csv.gz` is synthetic and its price trends: one resting order per side, and every few seconds an aggressive order takes part of the touch, after which the quotes keep moving in that direction tick by tick for a few seconds and then give part of the move back. `strategies/trend_follower.py` is a simple trend-following strategy: it sends a one-lot IOC order at the touch in the direction of the trades it has just seen. The rounds are recorded market data and look nothing like the sample.
+Expect a PnL of 860,599 with no penalty, in about a minute.
 
-## Writing a strategy
-
-A strategy is one `.py` file defining one subclass of `BaseStrategy` (with several, the alphabetically first is used), constructible with no arguments:
-
-```python
-from simulator.models import OrderBookSnapshot, OrderRequest, OrderType, PrivateOrderEvent, Side, Trade
-from simulator.strategy import BaseStrategy
-
-class MyStrategy(BaseStrategy):
-    def on_order_book_change(self, snapshot: OrderBookSnapshot, trades: list[Trade]) -> None:
-        """After every market event: the public book and all trades since the previous call."""
-
-    def on_private_order_update(self, event: PrivateOrderEvent) -> None:
-        """Every state change of your own orders."""
-```
-
-| Call                                                   | Effect                                                         |
-| ------------------------------------------------------ | -------------------------------------------------------------- |
-| `self.send_order(OrderRequest(side, price, quantity, order_type, client_order_id=None))` | submit; returns the order id (`u000000001`, ...) immediately |
-| `self.cancel_order(order_id)`                          | cancel your resting order                                      |
-| `self.modify_order(order_id, new_quantity)`            | shrink your resting order                                      |
-| `self.now_us()`                                        | simulation time in µs                                          |
-
-`Side.BUY` / `Side.SELL`, `OrderType.LIMIT` / `OrderType.IOC`; prices and quantities are positive integers (prices in ticks).
-
-Submissions run on Python 3.13 with numpy 2.5.4, pandas 3.0.6, scipy 1.18.1 and scikit-learn 1.9.1 available, and are statically checked first: besides the standard library and those packages, import only `simulator.models` and `simulator.strategy.BaseStrategy`. Modules giving system, network, file, threading or introspection access (`os`, `sys`, `io`, `socket`, `subprocess`, `threading`, `importlib`, `inspect`, `gc`, ...), builtins like `open`/`eval`/`exec`/`getattr`/`type`, dunder attributes and `str.format` are rejected.
-
-## Running a backtest
-
-```bash
-uv run exchange-simulator --strategy strategies/trend_follower.py --backtest data/sample.csv --log-dir logs/sample --progress
-```
-
-`logs/sample/result.json` holds the outcome (`pnl`, `cash`, `inventory`, `mark_price`, `breach_penalty`, `traded_volume`, `fills`, `pnl_se`, time-weighted quantiles of `|inventory|`) and `pnl.csv` the PnL sampled every second. Without `--no-logs` the directory also gets `run.jsonl`, `events.csv`, `book_deltas.csv` and `trades.csv`, several hundred MB per full round. Use `--no-logs` when you only need the result and the PnL curve; it is much faster. `--public-depth N` (default 20) sets how many ticks of the book you see.
-
-## Exploring a backtest
-
-```bash
-uv run backtest-explorer --log-dir logs/sample     # http://127.0.0.1:8050, --port to change
-```
-
-A Dash app over a full-logs run (not `--no-logs`): best bid/ask with your fills marked, your PnL over time, the reconstructed order book at any clicked time, and the event log.
-
-## How the exchange works
-
-**One instrument, replayed.** Each CSV row is a market participant's action:
-
-```
-Time,Operation,OrderId,Side,Volume,Price,Lifespan
-0.003823,Insert,1000001,B,43,9999,G
-```
-
-`Time` in seconds; `Operation` is `Insert` or `Cancel` (of `OrderId`); `Side` `B`/`A`; `Lifespan` `G` = resting limit order, `F` = immediate-or-cancel. The tape is fixed and does not react to you; your orders only add to and take from the book it builds.
-
-**Matching.** Price-time priority. An incoming order (market or yours) matches against the opposite side while prices cross, each fill at the resting (maker) order's price; a LIMIT residual rests at the back of its price level, an IOC residual is cancelled. Market orders can trade with yours; your orders never trade with each other. No fees.
-
-**Latency.** Every `send_order`, `cancel_order` and `modify_order` takes effect at $t + 5\text{ms}$, where $t$ is the simulation time at which you call it: it is applied just before the first market event with timestamp $\ge t + 5\text{ms}$, so the book may have moved by then. An order you place is therefore never filled within 5 ms, and a cancel can lose the race against a fill.
-
-**Feeds.**
-- `on_order_book_change` fires after every market event, with a snapshot of every individual order (id, side, price, quantity, `owner` `"market"`/`"user"`) within `public_depth` ticks of the best price on each side, and the list of trades (market-vs-market included) since the previous call. Fills caused by your own order activating appear in the next call's `trades`.
-- `on_private_order_update` fires synchronously for your orders: `ACCEPTED`, then one `PARTIALLY_FILLED`/`FILLED` per match (`fill_price`, `filled_quantity`, `remaining_quantity`), `CANCELED` (your cancel, or an IOC residual), `MODIFIED`, or `REJECTED`. Cancelling anything but your own resting order, or a modify that doesn't shrink it, is `REJECTED`; a modify of an unknown id is silently ignored.
-
-**Limits and scoring.** With inventory $I$ (signed), resting same-side quantity $R$ and order quantity $q$ ($s = \pm 1$ for buy/sell):
-
-$$|I + s (R + q)| > 1000 \Rightarrow \text{order REJECTED at acceptance}$$
-
-$$\text{penalty} = 10{,}000 \cdot \int \mathbb{1}\big[|I(t)| > 100\big] dt \quad (\$ \text{ per second})$$
-
-$$\text{PnL} = \text{cash} + \text{markout}(I) - \text{penalty}$$
-
-$\text{markout}(I)$ is the cash from liquidating $I$ against the resting *market* orders on the opposite side, best price outwards (volume beyond the book at the last swept price, or at the last traded price if that side is empty). It is computed at the end and every second for `pnl.csv` and `pnl_se`.
+- **API, matching, latency and scoring:** the [organiser's starter guide](docs/human/STARTER_GUIDE.md).
+- **Team rules:** [TEAM_START.md](TEAM_START.md) and [AGENTS.md](AGENTS.md).
