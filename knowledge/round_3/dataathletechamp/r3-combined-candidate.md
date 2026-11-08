@@ -228,3 +228,77 @@ Use the file as committed, which is C2:
 - **Validation context** (coordinator report, not reproduced locally): the plain D1 follower (R3 public 270,035)
   scored +272,176 on the 12,000 s validation tape B (≈ 23/s against 45/s on public) with penalty 0.
   Public-tape PnL/s therefore overstates B for the follower.
+- **More validation context** (coordinator, 02:46–02:55, not reproduced locally):
+  - C2 (gate 0.867 + M1 maker) scored 258,688 on B, against 272,176 for the ungated follower. The gate lost money
+    on B.
+  - A heavy R1-final maker probe scored −659,826 on B. Like R3 A, B is toxic for heavy passive quoting.
+
+## Follow-up (02:47–03:00): the aged-queue maker as the low-state maker
+File: `strategies/round_3/dataathletechamp/r3_combined_regime_aged.py`, class `CombinedRegimeAged`.
+sha256: `3fe5e25a2a545a644471084c230e555a4e9a27cd02d3af3a2250d31063a75b91`.
+
+**What changed against `r3_combined_regime.py`.** The follower and the regime switch are untouched. The maker is the
+A2q20_cd100 logic of `r3_aged_maker.py` (sha `3be6adc6…`, merged at e6048c2):
+- **Strong order:** at least `MAKER_AGE_KEEP_US` past its ACCEPTED event, with at least 300 market lots behind it.
+  A strong order is cancelled for FV only when −s·FV ≥ 1.5.
+- **Demotion:** when the touch moves away from a strong order, the order is kept while it is ≤ 2 ticks behind,
+  and a new touch order is placed.
+- **Kept orders that are not strong** are cancelled at −s·FV ≥ 0.5.
+- **Fill cooldown:** no new touch order on a side within 100 ms of our last fill there.
+- **Age threshold:** `MAKER_AGE_KEEP_US` defaults to 150 ms; the original is 300 ms.
+- **Capacity:** kept orders count toward the shared capacity (pending orders included) and the cap of 80. Every
+  maker order is cancelled when the follower activates or the maker is not allowed.
+
+**Identity checks (shared runner).**
+- With `MAKER_KEEP_AGED=False` and cooldown 0, the file reproduces C2 exactly: 269,288 / 63,328 / 40,363.
+- In maker-only mode (`FOLLOW_ENABLED=False`) it reproduces the standalone aged maker exactly:
+  - age 150 ms: 35,027 / 29,705 / 134,661;
+  - age 300 ms: 28,749 / 24,884 / 114,383.
+
+**Coordinator's predeclared comparison against C2.** Acceptance rule: the R3+R2+R1 sum must improve, and R3 eval
+must not drop by more than 3/s. Every run had penalty 0 and max exposure 100 including pending orders.
+
+| arm | R3 PnL (fit / eval /s) | R2 | R1 | sum | Δ vs C2 | decision |
+|---|---|---|---|---|---|---|
+| C2 (M1 maker) | 269,288 (+41.5 / +47.2) | 63,328 | 40,363 | 372,979 | – | reference |
+| **AG150 (file default)** | **281,510 (+43.3 / +49.3)** | 66,066 | 98,560 | 446,136 | +73,157 | accept |
+| AG150 + maker when flat in high | 281,522 (+43.3 / +49.4) | 65,970 | 98,685 | 446,177 | +73,198 | accept |
+| AG300 | 277,741 (+43.5 / +48.1) | 66,210 | 78,549 | 422,500 | +49,521 | accept |
+| AG300 + maker when flat in high | 277,787 (+43.6 / +48.1) | 66,094 | 78,629 | 422,510 | +49,531 | accept |
+
+- The maker-when-flat-in-high toggle changes the sum by +41, which is noise. It stays off so that no orders rest in
+  the toxic high state.
+- R1 shows the follower's cost in high-state time: the AG150 combination makes 98.6k against 134.7k for the maker
+  alone.
+
+**R3-only objective** (owner, 02:55). The rule:
+- maximize R3 public PnL;
+- R3 eval must not fall by more than 2/s;
+- prefer plateaus;
+- keep the gate off unless it improves R3 eval.
+
+The reference is the plain ungated D1 follower, C0: 270,035 (+39.3 / +48.8). All arms below use the AG150 maker.
+
+| arm | R3 PnL | fit / eval /s | Δ PnL vs C0 | Δ eval /s |
+|---|---|---|---|---|
+| gate off, maker only when the follower is flat | 267,814 | +39.3 / +48.2 | −2,221 | −0.6 |
+| gate 0.80 | 271,322 | +40.9 / +48.1 | +1,287 | −0.7 |
+| gate 0.83 | 282,507 | +45.3 / +48.3 | +12,472 | −0.5 |
+| **gate 0.867 (default)** | **281,510** | **+43.3 / +49.3** | **+11,475** | **+0.5** |
+| gate 0.90 | 268,906 | +41.8 / +46.8 | −1,129 | −2.0 |
+| gate 0.95 | 261,254 | +40.4 / +45.6 | −8,781 | −3.2 |
+| gate 0.867, tau 180 s | 272,909 | +41.1 / +48.4 | +2,874 | −0.4 |
+| gate 0.867, tau 240 s | 279,570 | +43.3 / +48.8 | +9,535 | 0.0 |
+
+**Verdict under the R3 objective.**
+- The default passes the rule as written: +11.5k on R3 and +0.5/s in eval, which is within noise.
+- The gain is a narrow peak at 0.83–0.867 with tau 120 s, not a plateau. Neighbouring thresholds land at or below
+  C0, with eval changes of −0.4 to −3.2/s.
+- On B the gate with the M1 maker lost 13.5k.
+- So the gated aged combination is a B upload test, not a confirmed improvement over plain D1.
+
+**Checks on the default file.**
+- **Official CLI on R3:** 281,510; fills 4,284; traded 409,356; penalty 0; final inventory +100; pnl_se 30,216
+  (one arm); 24.4 s wall.
+- **R0 runner:** +105,696, no exception.
+- **Lint:** preflight, `ruff check` and `ruff format --check` all pass.
