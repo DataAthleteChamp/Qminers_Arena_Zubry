@@ -12,8 +12,9 @@ Raw scripts/results stay in uncommitted `experiments/round_3/dataathletechamp/`.
 
 Owner-pasted R2 private leaderboard (12,000 s): 1st delfini 1,875,116;
 2nd 1,302,831; 5th 1,195,019; 10th 1,017,551; 20th 817,304; 30th 440,618;
-Zubry 0.00 at rank 55 (cause of the zero not yet established: our R2 Final's
-only supplied server export, 80,993, is timestamped 23:11 before close).
+Zubry +2,281 (owner-corrected; the pasted row read 0.00). Our R2 Final thus
+earned 127,559 on public A, 80,993 on its supplied server export (likely
+validation B, timestamped 23:11 before close) and only +2,281 on private C.
 R1: leader 792,696, Zubry 504,903 (rank 14).
 
 Perfect-foresight **taker** ceiling (+/-100, L1 prices 5 ms after decision,
@@ -97,6 +98,18 @@ aggressive-taker screen on R2/R1, so treat it as R3-specific. A noisier
 signal definition (2+ distinct fill prices) loses -51/-44 PnL/s:
 definitions must be exact.
 
+Regime gate (`20261108-r3-spectral-hawkes-regime-001`, screen): follower
+edge rises with the 2-minute average rate of signal A. Low/mid/high states
+(cut-offs 0.867 and 1.005 A per s, fitted on R3 fit only) give R3
++7.3/+32.7/+95.4 (fit) and +2.8/+27.4/+85.2 (eval) PnL/s; R2 low state loses
+in both halves; R1 sits ~92% in the low state. Sitting out below 0.867/s:
+R3 +45.1/+55.3 -> +42.7/+55.1, R2 +2.5/+8.4 -> +8.7/+13.3, R1 -16.3/-21.5
+-> -1.8/-1.8. For makers the high state is the toxic one (R3 touch fills
+-1.09/-0.94 vs -0.33/-0.25 in the low state; R2 similar). Spectral/wavelet
+features (no periodicity; momentum band 1.6-26 s), a bivariate Hawkes model
+(R3 branching 0.65; next-sign AUC 0.542 vs 0.546 for EMAs) and Lee-Mykland
+jump flags add nothing beyond EMAs and signal A.
+
 ## 5. Literature consensus used for design (sources in experiment notes)
 
 Takers earn the seconds-horizon alpha; passive income needs either short
@@ -108,7 +121,19 @@ winners used a robust fair value and take-then-make quoting. Sizing:
 fractional Kelly with shrinkage; one change per validation upload; act only
 on paired deltas consistent across tape halves.
 
-## 6. Validation-upload protocol (Bailey et al. PBO/DSR, Blum-Hardt ladder)
+## 6. Level mean reversion is path luck, not edge
+
+For a fixed reference mu and position q_t = -k (P_t - mu) on a 1 s grid, the
+exact discrete identity is
+PnL_gross = (k/2) [ sum (dP_t)^2 - ((P_T - mu)^2 - (P_0 - mu)^2) ].
+With mu = 10000, k = 2 (uncapped): R3 A 120,927 - 16,236 = +104,691; R2 A
+86,298 - 95,788 = -9,490. Under a martingale both terms have equal
+expectation, so the expected gross edge is zero and negative after costs.
+Our capped screen (`level_fade_screen.py`): fixed-10000 band 50 earned
++9.0k / +26.0k (fit/eval, after 0.62 tick/lot) on R3 but -5.5k / -15.1k on
+R2; an EMA/expanding reference changes the sign. Keep only as a tiny overlay.
+
+## 7. Validation-upload protocol (Bailey et al. PBO/DSR, Blum-Hardt ladder)
 
 Log every tried configuration (N). Score configs on 12 x 500 s blocks of the
 official 1 s wealth curve; estimate public-to-validation shrinkage
@@ -118,10 +143,11 @@ ratio of 0.3-0.6 is what selection noise alone predicts. Upload an unchanged
 baseline first, then at most five pre-registered finalists; promote a
 challenger only if it beats the incumbent by more than one paired SE; never
 hill-climb thresholds on validation feedback. Re-upload the exact chosen
-bytes last: the final is the latest successful upload, and our R2 private
-0.00 must not repeat (verify the dashboard's evaluated final before close).
+bytes last: the final is the latest successful upload. The R2 Final's
+127,559 (A) -> 80,993 (B) -> 2,281 (C) path shows how little one public or
+validation number says about the private tape.
 
-## 7. Next predeclared experiments (official simulator)
+## 8. Next predeclared experiments (official simulator)
 
 1. Gated maker ladder (running): touch maker -> + FV cancel gate -> +
    queue-behind gate -> + informed-sweep guard -> + passive unwind. Reject a
@@ -129,4 +155,4 @@ bytes last: the final is the latest successful upload, and our R2 private
 2. FV-skewed quoting plus E1 taking on one ledger; E1 only when maker
    inventory agrees.
 3. Robustness: no exceptions on empty/one-sided books, all tapes R0-R3, CPU
-   per 12,000 s well under 900 s; the R2 zero must not repeat.
+   per 12,000 s well under 900 s.
