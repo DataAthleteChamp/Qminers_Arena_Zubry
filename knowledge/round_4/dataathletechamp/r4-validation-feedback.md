@@ -5,7 +5,7 @@ submission is now possible in the portal, and new submissions show their
 filename. Exports are archived locally under
 `experiments/round_4/dataathletechamp/20261108-r4-validation-feedback-001/`.
 
-**Upload budget (Round 4): 10, two used.** Ask for an upload only when a
+**Upload budget (Round 4): 10, three used.** Ask for an upload only when a
 candidate:
 
 - beats U1 on R4 public by more than the ±25k noise;
@@ -18,6 +18,7 @@ Keep 3 uploads in reserve for the final and a fallback re-upload.
 |---|---|---:|---:|---|
 | U1 | `r4_u1_follower_u7_baseline.py` (d2a0fc9c, = R3 final U7) | 821,692 | **1,326,712** | penalty 0; ordinary seconds +1,198.7k (99.9/s); 34 jump seconds +128.0k (23 positive); 19/20 positive 600 s blocks |
 | U2 | `r4_u2_trig2_ungated.py` (b239d85a) | 886,626 | **1,343,784** | penalty 0; fills 3,881, traded 762,300; paired vs U1: **+17,072**; see below |
+| U3 slot | `r4_u6_jump_k4.py` (ca3e1b7c) | 920,538 | **1,343,238** | penalty 4,422; fills 3,919, traded 765,416; paired vs U2: **−546**; see below |
 
 ### U2 vs U1 on validation (paired; `u2-trig2-ungated/` vs `u1-follower-u7-baseline/`)
 
@@ -55,6 +56,11 @@ twice as long. That bar was **not met**.
 - **Pre-declared rule:** keep U6 as the final if its validation is ≥ 1,333,784 (U2 − 10k). Otherwise
   re-upload U2 (`r4_u2_trig2_ungated.py`, b239d85a) before 12:00.
   - The paired-difference CI on validation is about ±70k, so the probe can only catch a clear loss.
+- **Validation result** (`u6-jump-k4/`): 1,343,238, i.e. U2 − 546. The rule is met, so U6 stays the final.
+  - Only 16 seconds differ from U2: about 8 onsets.
+  - Wins: +7.8k, +3.7k, +1.9k. Losses: −6.6k, −5.3k, −2.9k, −2.2k.
+  - Unlike R4 public (5 of 5 onsets right), validation onsets were a wash. Pooled over about 15
+    onsets the expected gain is small (about +2k per onset).
 
 ## Neighbourhood of U8 on R4 (`20261108-r4-neighbourhood-001`)
 
