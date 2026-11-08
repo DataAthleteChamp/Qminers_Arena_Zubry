@@ -40,6 +40,23 @@ twice as long. That bar was **not met**.
   - Most of the public +65k was threshold fit on R4 public.
   - Expected private gain over U1 is small and positive, with jump-second risk.
 
+### Final choice at 11:53: Paweł's `r3_final.py`, not U9
+
+- **Validation results:**
+  - U9 `r4_u9_u6_burst.py`: **1,400,890**, i.e. U6 + 57.7k.
+  - Paweł's `r3_final.py` (U7 + the JumpBurst flip trigger; sha256 3c9eebf2…, identical to the pasted
+    code tested locally): **1,420,312**, i.e. U1 + 93.6k.
+- **Local runs:** Paweł's file scores R4 860,599 / R3 419,806 / R2 180,827, so U9 leads locally by
+  +76.8k / +2.4k / +7.6k.
+- **Why Paweł's file anyway:**
+  - The R4 public lead comes from TRIG2 and jump-onset settings selected on R4 public. Those shrank
+    about 6× on validation (+65k → +17k, +34k → 0).
+  - The burst trigger overlaps with TRIG2 and the jump flip. It adds +38.9k to U7 but only +16.8k to
+    U6 on R4 public, and +93.6k vs +57.7k on validation.
+  - Both unbiased estimates favour Paweł's file by about 20k on a 12,000 s tape, and it carries no
+    penalty risk.
+- **Action:** the owner marks submission 71380109 (`r3_final.py`) as FINAL in the portal.
+
 ### Last candidate: `r4_u9_u6_burst.py` (sha256 c8c57f3b…14ad2)
 
 - **What it is:** U6 + the colleague's JumpBurst trigger as an ungated flip signal (mid move ≥ 2 ticks
