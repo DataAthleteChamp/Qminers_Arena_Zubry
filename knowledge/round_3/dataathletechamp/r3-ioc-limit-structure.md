@@ -61,8 +61,26 @@ fit/eval split.
 
 - With a spread of 2 ticks or more, a 1-lot probe inside the spread is crossed
   by the hidden IOCs with limits inside the spread. A probe fill whose taker
-  then stops reveals the hidden, opposite-side forecast. This is tested as a
-  flagged experiment (`r3-da-probe`); with a 1-tick spread the hidden IOCs
-  can't be caught.
+  then stops should reveal the hidden, opposite-side forecast. The official-engine
+  test (`r3-hidden-ioc-probe.md`) rejected this. Live, probe-only fills moved
+  with the taker on R3 (+0.5 ticks at 0.5 s) and were flat on R2, and the
+  probes cost 24k on R3 by themselves.
+- Hidden IOCs are still visible live as callbacks: the engine emits a
+  snapshot after every market event, so a non-trading IOC appears as a
+  callback with no trades and an unchanged visible book. They warn of
+  volatility but not direction (`hidden_event_precursor.py`). With at least
+  one hidden IOC in the last 200 ms, P(|Δmid over 1 s| >= 10 ticks) is 10.2%
+  vs 2.2% without one (R3), and 9.4% vs 1.6% (R2). E|Δmid over 1 s| is
+  4.3–5.4 vs 1.8 ticks.
 - Don't add deep or touch passive size on the strength of this table alone:
   the maker bound above is not robust.
+
+## Leaderboard context
+
+A ±100 position that knows the mid path at 1 s steps, trading at the touch,
+earns 1.96M on R3 A (326/s, so 3.9M per 12,000 s) and 667k on R2 A
+(`one_second_foresight.py`). Every validation upload returns a 1 s wealth
+curve; a constant-position upload would reveal the validation tape's 1 s
+price path. Validation scores above 1M are therefore attainable without any
+edge that transfers to the private tape. This is a possible reading of the
+field's validation numbers, not evidence about any team.
