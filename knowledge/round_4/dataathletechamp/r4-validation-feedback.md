@@ -5,7 +5,7 @@ submission is now possible in the portal, and new submissions show their
 filename. Exports are archived locally under
 `experiments/round_4/dataathletechamp/20261108-r4-validation-feedback-001/`.
 
-**Upload budget (Round 4): 10, four used (a fifth reverts to U6).** Ask for an upload only when a
+**Upload budget (Round 4): 10. The team used at least 6 (our 5 plus Paweł's `r3_final.py`).** Ask for an upload only when a
 candidate:
 
 - beats U1 on R4 public by more than the ±25k noise;
@@ -20,6 +20,8 @@ Keep 3 uploads in reserve for the final and a fallback re-upload.
 | U2 | `r4_u2_trig2_ungated.py` (b239d85a) | 886,626 | **1,343,784** | penalty 0; fills 3,881, traded 762,300; paired vs U1: **+17,072**; see below |
 | U3 slot | `r4_u6_jump_k4.py` (ca3e1b7c) | 920,538 | **1,343,238** | penalty 4,422; fills 3,919, traded 765,416; paired vs U2: **−546**; see below |
 | U4 slot | `r4_u8_allin.py` (058c74c9) | 948,126 | **1,318,169** | penalty 9,889; fills 4,025, traded 784,282; vs U6 **−25,069**: below the 1,333,238 bar, so revert to U6 |
+| U5 slot | `r4_u9_u6_burst.py` (c8c57f3b) | 937,371 | **1,400,890** | U6 + the colleague burst flip trigger; vs U6 **+57,652** |
+| Paweł | `r3_final.py` (copy: `r4_final_pawel_r3_final.py`, 3c9eebf2) | 860,599 | **1,420,312** | U7 + the JumpBurst flip trigger; vs U1 **+93,600**; **recommended final** |
 
 ### U2 vs U1 on validation (paired; `u2-trig2-ungated/` vs `u1-follower-u7-baseline/`)
 
