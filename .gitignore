@@ -32,4 +32,6 @@ copilot-session-*.md
 !/data/round2/round2_public_manifest.json
 !/data/round2/round2_public.sha256
 /data/round2/round2_public.csv
+# Round3 working tape stays local; registration and provenance are separate.
+/data/round3/round3_public.csv
 /experiments/

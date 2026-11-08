@@ -1,0 +1,16 @@
+[
+  {
+    "source": "rounds/r2/strategy_round2_final.py",
+    "seed": "strategies/round_3/dataathletechamp/r3_seed_actual_final_from_r2.py",
+    "sha256": "1d2c63ea53bc9497d5901d799fd4bf6964d46a406e8ca18493ca234de917e350",
+    "bytes": 10358,
+    "role": "R2_SEED_NOT_R3_VALIDATED"
+  },
+  {
+    "source": "strategies/round_2/dataathletechamp/r2_grid_clean_reference_public_104703.py",
+    "seed": "strategies/round_3/dataathletechamp/r3_seed_clean_reference_from_r2.py",
+    "sha256": "10886b7d213b2426394f43c971a0615a733327725927c7d0ec7c14d8e1cdf780",
+    "bytes": 14064,
+    "role": "R2_SEED_NOT_R3_VALIDATED"
+  }
+]
