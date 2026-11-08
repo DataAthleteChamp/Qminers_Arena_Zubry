@@ -98,6 +98,20 @@ aggressive-taker screen on R2/R1, so treat it as R3-specific. A noisier
 signal definition (2+ distinct fill prices) loses -51/-44 PnL/s:
 definitions must be exact.
 
+D1 attribution (`20261108-r3-cost-aware-follower-001`, official engine):
+gross alpha before crossing costs R3 795,920 (133/s, about two thirds of the
+100-lot 1 s frictionless oracle), entry cost 0.7%, flip cost 520,916 (65%),
+exit ~0, net 270,229; R2 gross 535,580 with 92% lost to flips; R1 flips cost
+145% of gross. Strong-flip-only, persistence, alpha-target and passive-exit
+variants did not beat D1 on R3 eval; gating D1 at 0.867 A/s left R3
+unchanged (+0.7 PnL/s eval) and lifted R1 from -198k to -23k.
+
+Exceeding +/-100 briefly is rejected (`burst_size_screen.py`): after
+>= 1000-lot or multi-level sweeps, crossing in at +5 ms and out after
+20/50/100/200 ms loses -1.33/-1.04/-0.82/-0.35 ticks per lot on R3 (worse
+on R2) before the flat 10 per ms penalty; only 500 ms holds turn positive
+(+0.3 to +1.0) while the penalty is 10-25 ticks per extra lot.
+
 Regime gate (`20261108-r3-spectral-hawkes-regime-001`, screen): follower
 edge rises with the 2-minute average rate of signal A. Low/mid/high states
 (cut-offs 0.867 and 1.005 A per s, fitted on R3 fit only) give R3
