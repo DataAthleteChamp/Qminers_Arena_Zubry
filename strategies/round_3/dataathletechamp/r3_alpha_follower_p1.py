@@ -15,6 +15,8 @@ features. It only changes D1 decisions:
   p3: in position, alpha * side > EXT_MARGIN extends the hold to >= EXT_HOLD_S;
       alpha * side < EXIT_MARGIN exits early (join-touch exit)
   p4: p1 + p3
+FV rules inside D1 (any POLICY; same IOC execution): V1 FV_FLIP pre-emptive flip, V2 FV_HOLD
+hold extension, V3 FV_ENTRY entry from flat (spread-capped); V4 = V1 + V2.
 MODEL "sym" is a mirror-symmetric ridge (alpha(mirror x) = -alpha(x), zero intercept),
 which removes the directional drift bias a plain ridge can learn from one tape.
 Execution is D1's. Exposure incl. pending orders never exceeds LOTS (sends that would
@@ -44,6 +46,12 @@ EXT_HOLD_S = 2.0
 EXIT_MARGIN = -1.0
 ALPHA_DT_MS = 50
 FEATURES_ON = False  # compute features even for d1 (research recorder)
+FV_DEPTH = 2  # ticks from each touch scanned for new market inserts (insert-implied FV, insert counts)
+FV_FLIP = 0.0  # V1: >0 -> holding and FV50 opposes the position by >= FV_FLIP ticks -> flip now
+FV_HOLD = 0.0  # V2: >0 -> while FV50 agrees with the position by >= FV_HOLD, the deadline cannot expire
+FV_ENTRY = 0.0  # V3: >0 -> from flat enter when |FV50| >= FV_ENTRY and spread <= FV_ENTRY_SPREAD
+FV_ENTRY_SPREAD = 2
+FV_TAKERS = False  # True -> market taker fills also enter the FV windows (buy: max fill as a bid insert)
 
 FEATURE_NAMES = (
     "ev_a",
@@ -127,7 +135,14 @@ class AlphaFollower(BaseStrategy):
         self.gate_flip = POLICY in ("p1", "p4")
         self.grid_entry = POLICY == "p2"
         self.grid_hold = POLICY in ("p3", "p4")
-        self.feat = bool(FEATURES_ON or POLICY != "d1")
+        self.fv_depth = int(FV_DEPTH)
+        self.fv_flip = float(FV_FLIP)
+        self.fv_hold = float(FV_HOLD)
+        self.fv_entry = float(FV_ENTRY)
+        self.fv_entry_spread = int(FV_ENTRY_SPREAD)
+        self.fv_takers = bool(FV_TAKERS)
+        self.fv_on = bool(self.fv_flip > 0 or self.fv_hold > 0 or self.fv_entry > 0)
+        self.feat = bool(FEATURES_ON or POLICY != "d1" or self.fv_on)
         self.pos = 0
         self.orders: dict = {}  # oid -> [sign, remaining, kind, price, send_mid]
         self.cancelling: set = set()
@@ -175,6 +190,9 @@ class AlphaFollower(BaseStrategy):
         self.n_ext = 0
         self.n_early_exit = 0
         self.n_skip_send = 0
+        self.n_fv_flip = 0
+        self.n_fv_hold = 0
+        self.n_fv_entry = 0
         self.fill_stats: dict = {}
 
     # ---------------- helpers
@@ -336,7 +354,7 @@ class AlphaFollower(BaseStrategy):
                     continue
                 if tr.taker_order_id != cur:
                     if cur is not None:
-                        groups.append((gs, filled, pmax - pmin))
+                        groups.append((gs, filled, pmax - pmin, pmin, pmax))
                     cur = tr.taker_order_id
                     gs = 1 if tr.book_side == "ask" else -1
                     filled = 0
@@ -347,8 +365,8 @@ class AlphaFollower(BaseStrategy):
                 elif tr.price > pmax:
                     pmax = tr.price
             if cur is not None:
-                groups.append((gs, filled, pmax - pmin))
-            for gs, filled, lv in groups:
+                groups.append((gs, filled, pmax - pmin, pmin, pmax))
+            for gs, filled, lv, gmin, gmax in groups:
                 if gs == self.last_sign:
                     self.run += 1
                 else:
@@ -363,6 +381,11 @@ class AlphaFollower(BaseStrategy):
                     self.e_f5.add(t, sf)
                     if lv >= 2:
                         self.e_sw1.add(t, gs)
+                    if self.fv_takers:
+                        if gs > 0:
+                            self.bins.append((t, gmax))
+                        else:
+                            self.ains.append((t, gmin))
                     self.last_side = gs
                     self.ev = (
                         gs if is_a else self.ev[0],
@@ -417,9 +440,12 @@ class AlphaFollower(BaseStrategy):
                 self.vsign = 0
         if sig:
             self._on_signal(t, sig)
-        elif t >= self.next_alpha_t and (self.grid_entry or self.grid_hold):
-            self.next_alpha_t = t + self.alpha_dt
-            self._on_grid(t)
+        else:
+            if t >= self.next_alpha_t and (self.grid_entry or self.grid_hold):
+                self.next_alpha_t = t + self.alpha_dt
+                self._on_grid(t)
+            if self.fv_on:
+                self._fv_rules(t, ask - bid)
         if self.target != 0 and t >= self.deadline:
             self.target = 0
         if self.target != self.pos or self.orders:
@@ -430,7 +456,7 @@ class AlphaFollower(BaseStrategy):
         new_mx = mx
         pb = self.prev_bid
         pa = self.prev_ask
-        lim = bid - 2
+        lim = bid - self.fv_depth
         bq = 0
         for o in bids:
             p = o.price
@@ -447,7 +473,7 @@ class AlphaFollower(BaseStrategy):
                     if pb and p > pb:
                         self.e_ib50.add(t, 1.0)
                         self.e_ib200.add(t, 1.0)
-        lim = ask + 2
+        lim = ask + self.fv_depth
         aq = 0
         for o in asks:
             p = o.price
@@ -495,6 +521,28 @@ class AlphaFollower(BaseStrategy):
         self.target = s * self.L
         self.deadline = t + self.hold
         self.wait_until = 0
+
+    def _fv_rules(self, t: int, spread: int) -> None:
+        fv = self._fv(t, 50_000)
+        cur = 1 if self.target > 0 else (-1 if self.target < 0 else 0)
+        if cur == 0:
+            if self.fv_entry and self.pos == 0 and not self.orders and spread <= self.fv_entry_spread:
+                if fv >= self.fv_entry or fv <= -self.fv_entry:
+                    self.n_fv_entry += 1
+                    self.target = (1 if fv > 0 else -1) * self.L
+                    self.deadline = t + self.hold
+                    self.wait_until = 0
+            return
+        f = fv * cur
+        if self.fv_flip and f <= -self.fv_flip:
+            self.n_fv_flip += 1
+            self.target = -cur * self.L
+            self.deadline = t + self.hold
+            self.wait_until = 0
+            return
+        if self.fv_hold and f >= self.fv_hold and self.deadline - t < 500_000:
+            self.n_fv_hold += 1
+            self.deadline = t + 500_000
 
     def _on_grid(self, t: int) -> None:
         cur = 1 if self.target > 0 else (-1 if self.target < 0 else 0)
@@ -584,5 +632,8 @@ class AlphaFollower(BaseStrategy):
             "extensions": self.n_ext,
             "early_exits": self.n_early_exit,
             "skipped_sends": self.n_skip_send,
+            "fv_flips": self.n_fv_flip,
+            "fv_hold_ext": self.n_fv_hold,
+            "fv_entries": self.n_fv_entry,
             "fill_stats": {k: [v[0], round(v[1] / v[0], 4) if v[0] else 0.0] for k, v in self.fill_stats.items()},
         }
