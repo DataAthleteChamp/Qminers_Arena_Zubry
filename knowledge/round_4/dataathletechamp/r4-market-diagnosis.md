@@ -136,7 +136,8 @@ These are hypotheses to test with paired official-simulator runs on R4 and the R
    - Evidence: R4 −7.08/−8.27 further loss (n = 516) and −3.32 at the deadline; R3 −1.63; R2 +1.05, a small cost.
 2. **Trend-aware hold.**
    - A against the prior 30 s trend: hold 10–20 s (R4 net 6.08 at 5 s → 6.85 at 10 s → 7.78 at 20 s; 8/9 blocks).
-   - A agreeing with the trend: hold 3–5 s with no same-side extension (4.12 at 3 s vs 2.00 at 10 s and −3.49 at 30 s).
+   - A agreeing with the trend: hold ≤ 5 s with no same-side extension (4.05 at 5 s vs 2.00 at 10 s and −3.49 at 30 s).
+     A 3 s cut is not stable across the halves.
    - Regime risk: R2 reverses both. Prefer a live gate on the sign of the rolling ACF of 10–30 s returns (R4 −0.09/−0.21).
 3. **Profit-take cap on extensions.** Once the open gain is ≥ 15 ticks, let the trade run about 2–5 s more, then
    exit and do not re-extend.
@@ -149,8 +150,25 @@ These are hypotheses to test with paired official-simulator runs on R4 and the R
 6. **Do not add a touch maker leg.** R4 touch markout is −1.01 per lot at 1 s and negative even for < 10-lot aggressors.
    - The aged maker (+122k standalone) must be tested paired with U7.
 
+**Chronological halves check.** Each tape was split into its first and last 3,000 s. Script `halves.py`; outputs in
+`halves-<round>.txt`. Values are first half / second half.
+
+| item | R4 | R3 |
+|---|---|---|
+| stop: further move 2→5 s after ≤ −5 at 2 s | −7.96 / −6.20 | −1.98 / −1.38 |
+| winner ≥ 15 at 5 s: further move 5→30 s | −16.96 / −7.53 | −5.36 / −11.67 |
+| agree-trend net at 3 / 5 / 10 s, first half | 3.51 / 3.24 / 0.30 | |
+| agree-trend net at 3 / 5 / 10 s, second half | 4.71 / 4.85 / 3.66 | |
+| against-trend net at 5 / 20 s | 7.55 / 8.94 and 4.51 / 6.54 | flat |
+| span = 2 & not A, net at 5 s | +7.80 / +5.91 | −1.55 / −0.06 |
+
+What the halves show:
+- In R4, items 1, 3 and 4 and the against-trend extension hold in both halves.
+- The 3 s cut for agree-trend A events is not supported in the second half. The finding is "do not extend beyond
+  5 s", not "cut at 3 s".
+
 **Limitations.**
 - Public tape only. Whether the private R4 tape shares R4-public parameters is unknown.
 - The event-level edges overlap, ignore the position cap, queue position and exit cost, and are not PnL.
-- The thresholds (−5, 15 ticks, 30 s) were chosen once on the full tape. No chronological fit/evaluation split was done
-  except the 600 s block checks above.
+- The thresholds (−5, 15 ticks, 30 s) were chosen once on the full tape. Stability was checked only with the 600 s
+  blocks and the halves above, not with a fit/evaluation split.
