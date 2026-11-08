@@ -39,6 +39,23 @@ twice as long. That bar was **not met**.
   - Most of the public +65k was threshold fit on R4 public.
   - Expected private gain over U1 is small and positive, with jump-second risk.
 
+### All-in probe: `r4_u8_allin.py` (sha256 058c74c9…f568), uploaded after the U6 result
+
+- **What it is:** U6 + a gated CUSUM trigger on the per-insert placement drift (κ 0.5, h 5, τ 200 ms;
+  `20261108-r4-cusum-001`), with the jump-onset burst raised to ±500 lots for 100 ms
+  (`20261108-r4-allin-001`).
+- **Results:** official engine, Δ vs U6.
+
+  | file | R4 | R3 | R2 |
+  |---|---:|---:|---:|
+  | U8 (CUSUM + burst 500 / 100 ms) | 948,126 (+27,588) | 421,985 (+5,881) | 158,885 (+192) |
+  | U7 (CUSUM only; CLI 932,031, sha 72844dc5) | +11,493 | +3,694 | +1,017 |
+  | U8 with a 30 ms window | +27,354 | −9,574 | −4,966 |
+
+  - R4 penalty 7,466. Official CLI verified; preflight passed.
+- **Rule** (set by the owner's "go all in"): keep U8 if its validation is ≥ 1,333,238 (U6 − 10k).
+  Otherwise re-upload U6 (`r4_u6_jump_k4.py`, ca3e1b7c) before 12:00.
+
 ### Next probe: `r4_u6_jump_k4.py` (sha256 ca3e1b7c…dac79), replacing the U5 candidate
 
 - **What it is:** U5's jump-onset flip plus the 300-lot, 50 ms burst. The detector now needs ≥ 4 hidden
